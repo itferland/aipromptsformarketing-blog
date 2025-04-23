@@ -8,3 +8,7 @@ theme: minima      # GitHub’s built-in Jekyll theme
 
 plugins:
   - jekyll-sitemap
+seo:
+  title: "AI Prompts for Marketing"
+  description: "High-ROI ChatGPT prompts, tutorials & tool reviews for marketers."
+  twitter: yourTwitterHandle
