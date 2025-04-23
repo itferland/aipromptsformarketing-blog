@@ -1,0 +1,7 @@
+title: AI Prompts for Marketing
+email: your-email@example.com    # optional
+description: >-
+  A collection of ChatGPT-powered marketing prompts, tutorials, and tool reviews.
+baseurl: ""                      # leave empty since it'll be root
+url: "https://aipromptsformarketing.net"
+theme: minima                    # GitHub’s built-in Jekyll theme
