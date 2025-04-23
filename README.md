@@ -1,1 +1,1 @@
-# aipromptsformarketing-blo
+# aipromptsformarketing-blog
