@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "5 AI-Driven Facebook Ad Prompts That Convert"
-date:   2025-05-01 08:00:00 -0400
+date:   2025-04-01 08:00:00 -0400
 ---
 
 Writing high-converting Facebook ads is hard. Here are 5 battle-tested prompts you can pop into ChatGPT to get headlines, primary text, and calls to action that drive clicks:
