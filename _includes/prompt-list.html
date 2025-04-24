@@ -1,7 +1,11 @@
+{%- comment -%} _includes/prompt-list.html {%- endcomment -%}
+
 <ul class="prompt-list">
   {% for prompt in site.data.prompts %}
     <li>
-      <a href="{{ prompt.url | relative_url }}">{{ prompt.title }}:</a>
+      <strong>
+        <a href="{{ prompt.url | relative_url }}">{{ prompt.title }}</a>
+      </strong>
       <p class="description">{{ prompt.description }}</p>
       <p class="read-more">
         <a href="{{ prompt.url | relative_url }}">Read more</a>
