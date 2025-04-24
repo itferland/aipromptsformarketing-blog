@@ -1,6 +1,7 @@
 ---
 layout: default
 title: AI Prompts for Marketing
+description: "Your go-to source for ChatGPT-powered marketing prompts, tutorials, and tool reviews."
 ---
 
 Welcome to **AI Prompts for Marketing**!  
