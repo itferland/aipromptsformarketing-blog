@@ -1,6 +1,7 @@
 ---
 layout: default
 title: AI Prompts for Marketing
+permalink: /
 description: "Your go-to source for ChatGPT-powered marketing prompts, tutorials, and tool reviews."
 ---
 
@@ -15,5 +16,4 @@ Check out our latest AI-driven marketing prompts below:
     <a href="{{ post.url }}">{{ post.title }}</a> – {{ post.date | date: "%b %-d, %Y" }}
   </li>
 {% endfor %}
-TEST
 </ul>
