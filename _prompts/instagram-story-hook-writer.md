@@ -1,20 +1,13 @@
 ---
-layout: prompt
-title: "Instagram Story Hook Writer"
-permalink: /prompts/instagram-story-hook-writer/
+layout: post
+title:  "3 AI-Driven Instagram Story Hooks That Convert"
+date:   2025-05-15 10:00:00 -0400
+tags:   instagram, social, marketing
 ---
+Crafting the perfect hook for your Instagram Story can skyrocket swipe-ups. Try these prompts in ChatGPT:
 
-## Prompt Goal
-Crafts a hook for Instagram Stories to boost swipe-ups.
+1. **Prompt:** “Write me a 3-sentence Story hook that teases a free guide on…”  
+2. **Prompt:** “Create a sense of urgency around a flash sale for…”  
+3. **Prompt:** “Generate a playful question to ask viewers about their biggest challenge with…”
 
-## The Prompt
-```text
-Act as a social-media storyteller. Given a brand message and call-to-action:
-• Brand: [Your Brand]
-• Goal: [e.g. increase website visits]
-• Key offer: [e.g. 20% off first purchase]
-
-Write a short, punchy Instagram Story hook that:
-– Hooks the viewer in the first 3 seconds
-– Teases the offer without giving it all away
-– Ends with a clear “Swipe up to…” call-to-action.
+And so on…
