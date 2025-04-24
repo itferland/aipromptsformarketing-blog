@@ -1,25 +1,11 @@
----
----
-@import "minima";
-
-// --- Affiliate disclosure styles ---
-.site-disclosure {
-  font-size: 0.9em;
-  color: #555;
-  text-align: center;
-  margin: 1.5rem 0;
-}
-
 // --- Prompt Library grid styles ---
 .prompt-list {
-  ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 
   li {
     background: #fff;
