@@ -8,12 +8,4 @@ permalink: /library/
 
 A curated collection of my highest-ROI AI prompts.
 
-<ul>
-{% for prompt in site.data.prompts %}
-  <li>
-    <strong>{{ prompt.title }}</strong>: {{ prompt.description }}
-    [<a href="{{ prompt.url | relative_url }}">Read more</a>]
-  </li>
-{% endfor %}
-</ul>
-
+{% include prompt-list.html %}
