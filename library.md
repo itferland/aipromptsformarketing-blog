@@ -12,7 +12,8 @@ A curated collection of my highest-ROI AI prompts.
 {% for prompt in site.data.prompts %}
   <li>
     <strong>{{ prompt.title }}</strong>: {{ prompt.description }}
-    [<a href="{{ prompt.url }}">Read more</a>]
+    [<a href="{{ prompt.url | relative_url }}">Read more</a>]
   </li>
 {% endfor %}
 </ul>
+
