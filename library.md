@@ -2,6 +2,7 @@
 layout: default
 title: Prompt Library
 permalink: /library/
+description: "Browse our collection of high-ROI AI marketing prompts, complete with usage tips and examples."
 ---
 
 # Prompt Library
