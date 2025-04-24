@@ -1,8 +1,6 @@
 ---
-# Note: this front-matter block is required so Jekyll processes it
 ---
----
----
+
 @import "minima";
 
-/* now any custom styles you’ve written… */
+/* your overrides here */
