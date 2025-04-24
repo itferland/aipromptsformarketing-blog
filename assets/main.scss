@@ -1,3 +1,15 @@
+---
+---
+@import "minima";
+
+// --- Affiliate disclosure styles ---
+.site-disclosure {
+  font-size: 0.9em;
+  color: #555;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
 // --- Prompt Library grid styles ---
 .prompt-list {
   display: grid;
@@ -12,7 +24,7 @@
     border: 1px solid #e0e0e0;
     border-radius: 0.5rem;
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
