@@ -1,0 +1,8 @@
+<ul class="prompt-list">
+{% for prompt in site.data.prompts %}
+  <li>
+    <a href="{{ prompt.url | relative_url }}">{{ prompt.title }}</a>  
+    — {{ prompt.description }}
+  </li>
+{% endfor %}
+</ul>
