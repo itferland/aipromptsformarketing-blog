@@ -1,50 +1,55 @@
----
----
-@import "minima";
+/* Import Inter and Open Sans from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Open+Sans:wght@400;700&display=swap');
 
-// --- Affiliate disclosure styles ---
-.site-disclosure {
-  font-size: 0.9em;
-  color: #555;
-  text-align: center;
-  margin: 1.5rem 0;
+/* Apply Inter to headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900; /* Extra-bold for headings */
+  margin-bottom: 1rem;
 }
 
-// --- Prompt Library grid styles ---
-.prompt-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  li {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  a {
-    font-weight: 600;
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .description {
-    margin-top: 0.5rem;
-    flex-grow: 1;
-    color: #555;
-  }
-
-  .read-more {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-  }
+/* Apply Open Sans to body text */
+body, p, li {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400; /* Regular weight for body text */
+  line-height: 1.6; /* Increased line-height for readability */
 }
 
+/* Adjust heading sizes */
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p, li {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Add more spacing */
+article {
+    margin-bottom: 2rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
