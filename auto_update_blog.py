@@ -5,6 +5,8 @@ from datetime import datetime
 import logging
 import hashlib
 from slugify import slugify
+from bs4 import BeautifulSoup
+import requests
 
 # Configure OpenAI API key
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -40,9 +42,51 @@ def create_filename(title, unique_id):
     date_str = datetime.now().strftime("%Y-%m-%d")
     return f"{date_str}-{slug}-{unique_id[:8]}.md"
 
+# Fetch the full article content using BeautifulSoup
+def fetch_full_article(url):
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, 'html.parser')
+        # Extract the main content (adjust selector as needed)
+        article_body = soup.find('article') or soup.find('div', class_='content')
+        return article_body.get_text(strip=True) if article_body else None
+    except Exception as e:
+        logging.error(f"Error fetching full article from {url}", exc_info=True)
+        return None
+
 # Updated OpenAI API call to use the latest interface
 def fetch_and_summarize():
     summaries = []
     for feed_url in RSS_FEEDS:
         logging.debug(f"Fetching feed: {feed_url}")
         feed = feedparser.parse(feed_url)
+        logging.debug(f"Feed title: {feed.feed.title}")
+        for entry in feed.entries[:3]:  # Limit to 3 articles per feed
+            title = entry.title
+            link = entry.link
+            unique_id = generate_unique_id(entry)
+
+            if is_duplicate_id(unique_id):
+                logging.debug(f"Skipping duplicate article: {title}")
+                continue
+
+            logging.debug(f"Fetching full article for: {title}")
+            content = fetch_full_article(link) or entry.summary
+
+            try:
+                # Use OpenAI ChatCompletion with a structured prompt
+                response = openai.ChatCompletion.create(
+                    model="gpt-4",
+                    messages=[
+                        {"role": "system", "content": "You’re a tech-journalist assistant. Provide a crisp 2-sentence summary and one key takeaway."},
+                        {"role": "user", "content": content}
+                    ],
+                    max_tokens=150
+                )
+                summary = response["choices"][0]["message"]["content"].strip()
+                summaries.append((title, summary, link, unique_id))
+                logging.debug(f"Summary generated: {summary}")
+            except Exception as e:
+                logging.error(f"Error summarizing article: {title}", exc_info=True)
+    return summaries
