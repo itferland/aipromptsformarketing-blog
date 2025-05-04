@@ -2,9 +2,13 @@ import os
 import feedparser
 import openai
 from datetime import datetime
+import logging
 
 # Configure OpenAI API key
 openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# Configure logging
+logging.basicConfig(level=logging.ERROR, filename="error.log", filemode="w", format="%(asctime)s - %(levelname)s - %(message)s")
 
 # RSS feed URLs for AI news
 RSS_FEEDS = [
@@ -26,13 +30,16 @@ def fetch_and_summarize():
             link = entry.link
             content = entry.summary
 
-            # Use OpenAI to summarize the content
-            response = openai.Completion.create(
-                engine="text-davinci-003",
-                prompt=f"Summarize this article: {content}",
+            # Use OpenAI ChatCompletion to summarize the content
+            response = openai.ChatCompletion.create(
+                model="gpt-4",
+                messages=[
+                    {"role": "system", "content": "You are a helpful assistant that summarizes articles."},
+                    {"role": "user", "content": f"Summarize this article: {content}"}
+                ],
                 max_tokens=150
             )
-            summary = response.choices[0].text.strip()
+            summary = response["choices"][0]["message"]["content"].strip()
             summaries.append((title, summary, link))
     return summaries
 
@@ -62,8 +69,11 @@ date: {datetime.now().isoformat()}
 
 # Main function to automate the process
 def main():
-    summaries = fetch_and_summarize()
-    create_blog_posts(summaries)
+    try:
+        summaries = fetch_and_summarize()
+        create_blog_posts(summaries)
+    except Exception as e:
+        logging.error("An error occurred", exc_info=True)
 
 if __name__ == "__main__":
     main()
