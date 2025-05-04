@@ -20,6 +20,13 @@ RSS_FEEDS = [
 # Directory for blog posts
 POSTS_DIR = "_posts"
 
+# Function to check for duplicate titles in the _posts directory
+def is_duplicate_title(title):
+    for filename in os.listdir(POSTS_DIR):
+        if title.replace(' ', '-').replace('/', '-') in filename:
+            return True
+    return False
+
 # Function to fetch and summarize news
 def fetch_and_summarize():
     summaries = []
@@ -30,6 +37,11 @@ def fetch_and_summarize():
             title = entry.title
             link = entry.link
             content = entry.summary
+
+            if is_duplicate_title(title):
+                logging.debug(f"Skipping duplicate article: {title}")
+                continue
+
             logging.debug(f"Processing article: {title}")
 
             try:
