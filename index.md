@@ -6,9 +6,12 @@ description: "Your go-to source for ChatGPT-powered marketing prompts, tutorials
 ---
 
 Welcome to **AI Prompts for Marketing**!  
-Check out our latest AI-driven marketing prompts below:
+Check out our latest AI-driven marketing prompt below:
 
-- For a full collection of curated prompts, see our [Prompt Library](/library/).
+{% assign latest_post = site.posts | first %}
+- **{{ latest_post.title }}** – {{ latest_post.date | date: "%b %-d, %Y" }}
+
+For a full collection of curated prompts, see our [Prompt Library](/library/).
 
 <ul>
 {% for post in site.posts %}
