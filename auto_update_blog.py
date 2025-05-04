@@ -16,7 +16,7 @@ logging.basicConfig(level=logging.DEBUG, filename="debug.log", filemode="w", for
 
 # RSS feed URLs for AI news
 RSS_FEEDS = [
-    "https://www.artificialintelligence-news.com/feed/",
+    "https://www.technologyreview.com/feed/",
     "https://venturebeat.com/category/ai/feed/",
     "https://www.theverge.com/rss/index.xml"
 ]
@@ -83,9 +83,14 @@ def create_blog_posts(summaries, dry_run=False):
         if os.path.exists(filepath):
             print(f"[SKIP     ] {filename} (already exists)")
         else:
-            print(f"[WRITE-DRY] {filename}")
+            if dry_run:
+                print(f"[WRITE-DRY] {filename}")
+            else:
+                print(f"[WRITE    ] {filename}")
+                with open(filepath, "w") as f:
+                    f.write(f"# {title}\n\nLink: {link}\n")
 
-# Call the function with dry-run mode enabled
+# Call the function without dry-run mode to generate real posts
 if __name__ == "__main__":
     summaries = fetch_and_summarize()
-    create_blog_posts(summaries, dry_run=True)
+    create_blog_posts(summaries, dry_run=False)

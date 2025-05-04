@@ -1,0 +1,3 @@
+# Not everything needs an LLM: A framework for evaluating when AI makes sense
+
+Link: https://venturebeat.com/ai/not-everything-needs-an-llm-a-framework-for-evaluating-when-ai-makes-sense/
