@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: prompt
 title:  "3 AI-Driven Instagram Story Hooks That Convert"
-date:   2025-05-15 10:00:00 -0400
+date:   2025-05-03 10:00:00 -0400
 tags:   instagram, social, marketing
+permalink: /prompts/instagram-story-hook-writer/
 ---
 Crafting the perfect hook for your Instagram Story can skyrocket swipe-ups. Try these prompts in ChatGPT:
 
