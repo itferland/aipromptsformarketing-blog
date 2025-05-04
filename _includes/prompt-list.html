@@ -1,15 +1,13 @@
 {%- comment -%} _includes/prompt-list.html {%- endcomment -%}
 
-<ul class="prompt-list">
+<ul class="prompt-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 0; list-style: none;">
   {% for prompt in site.data.prompts %}
-    <li>
-      <strong>
-        <a href="{{ prompt.url | relative_url }}">{{ prompt.title }}</a>
-      </strong>
-      <p class="description">{{ prompt.description }}</p>
-      <p class="read-more">
-        <a href="{{ prompt.url | relative_url }}">Read more</a>
-      </p>
+    <li style="border: 1px solid var(--primary-color); border-radius: 8px; padding: 15px; background-color: white;">
+      <h2 style="font-size: 1.5rem; color: var(--primary-color);">
+        <a href="{{ prompt.url | relative_url }}" style="text-decoration: none; color: var(--primary-color);">{{ prompt.title }}</a>
+      </h2>
+      <p style="font-size: 1rem; color: var(--text-color);">{{ prompt.description }}</p>
+      <a href="{{ prompt.url | relative_url }}" style="color: var(--link-color); font-weight: bold;">Read more</a>
     </li>
   {% endfor %}
 </ul>

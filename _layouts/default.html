@@ -1,33 +1,33 @@
 <html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
   {%- include head.html -%}
   <body class="{{ page.layout }}{% if page.sidebar %} with-sidebar{% endif %}">
-    <header class="site-header" role="banner">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="{{ "/" | relative_url }}">{{ site.title }}</a>
+    <header class="site-header" role="banner" style="background-color: #0073e6; color: white; padding: 20px;">
+      <div class="wrapper" style="display: flex; justify-content: space-between; align-items: center;">
+        <h1 class="site-title" style="margin: 0; font-size: 2rem;">
+          <a href="{{ "/" | relative_url }}" style="color: white; text-decoration: none;">{{ site.title }}</a>
         </h1>
         {%- if site.description -%}
-        <p class="site-description">{{ site.description }}</p>
+        <p class="site-description" style="margin: 0; font-size: 1rem;">{{ site.description }}</p>
         {%- endif -%}
         <nav class="site-nav">
-          <ul class="site-nav-list">
-            <li class="site-nav-item"><a href="{{ "/" | relative_url }}">Home</a></li>
-            <li class="site-nav-item"><a href="{{ "/library/" | relative_url }}">Prompt Library</a></li>
+          <ul class="site-nav-list" style="list-style: none; display: flex; gap: 15px; margin: 0; padding: 0;">
+            <li class="site-nav-item"><a href="{{ "/" | relative_url }}" style="color: white; text-decoration: none;">Home</a></li>
+            <li class="site-nav-item"><a href="{{ "/library/" | relative_url }}" style="color: white; text-decoration: none;">Prompt Library</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main class="page-content" aria-label="Content">
+    <main class="page-content" aria-label="Content" style="padding: 20px;">
       <div class="wrapper">
         {{ content }}
       </div>
     </main>
 
-    <footer class="site-footer h-card" role="contentinfo">
+    <footer class="site-footer h-card" role="contentinfo" style="background-color: #f9f9f9; padding: 20px; text-align: center;">
       <div class="wrapper">
         {%- include footer.html -%}
       </div>
     </footer>
   </body>
-</html>"
+</html>
