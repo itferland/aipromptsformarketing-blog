@@ -47,6 +47,33 @@
 
         camera.position.z = 5;
 
+        // Add clickable links to the cube
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+
+        const links = [
+          { face: 0, url: '/' }, // Front face - Home
+          { face: 1, url: '/library/' } // Back face - Prompt Library
+        ];
+
+        function onMouseClick(event) {
+          mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+          mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+          raycaster.setFromCamera(mouse, camera);
+          const intersects = raycaster.intersectObject(cube);
+
+          if (intersects.length > 0) {
+            const faceIndex = intersects[0].faceIndex;
+            const link = links.find(link => link.face === Math.floor(faceIndex / 2));
+            if (link) {
+              window.location.href = link.url;
+            }
+          }
+        }
+
+        window.addEventListener('click', onMouseClick);
+
         // Animation loop
         function animate() {
           requestAnimationFrame(animate);
