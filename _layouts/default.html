@@ -2,6 +2,16 @@
   {%- include head.html -%}
   <body class="{{ page.layout }}{% if page.sidebar %} with-sidebar{% endif %}">
     <header class="site-header" role="banner" style="background-color: #0073e6; color: white; padding: 20px;">
+      <div class="ad-header" style="text-align: center; margin: 20px 0;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXX"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
       <div class="wrapper" style="display: flex; justify-content: space-between; align-items: center;">
         <h1 class="site-title" style="margin: 0; font-size: 2rem;">
           <a href="{{ "/" | relative_url }}" style="color: white; text-decoration: none;">{{ site.title }}</a>
@@ -27,6 +37,16 @@
     <footer class="site-footer h-card" role="contentinfo" style="background-color: #f9f9f9; padding: 20px; text-align: center;">
       <div class="wrapper">
         {%- include footer.html -%}
+      </div>
+      <div class="ad-footer" style="text-align: center; margin: 20px 0;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXX"
+             data-ad-slot="0987654321"
+             data-ad-format="auto"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
       </div>
     </footer>
   </body>
