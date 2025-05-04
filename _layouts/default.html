@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
-
+<html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
   {%- include head.html -%}
-
-  <body>
-
-    {%- include header.html -%}
+  <body class="{{ page.layout }}{% if page.sidebar %} with-sidebar{% endif %}">
+    <header class="site-header" role="banner">
+      <div class="wrapper">
+        <h1 class="site-title">
+          <a href="{{ "/" | relative_url }}">{{ site.title }}</a>
+        </h1>
+        {%- if site.description -%}
+        <p class="site-description">{{ site.description }}</p>
+        {%- endif -%}
+        <nav class="site-nav">
+          <ul class="site-nav-list">
+            <li class="site-nav-item"><a href="{{ "/" | relative_url }}">Home</a></li>
+            <li class="site-nav-item"><a href="{{ "/library/" | relative_url }}">Prompt Library</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
@@ -13,8 +24,10 @@
       </div>
     </main>
 
-    {%- include footer.html -%}
-
+    <footer class="site-footer h-card" role="contentinfo">
+      <div class="wrapper">
+        {%- include footer.html -%}
+      </div>
+    </footer>
   </body>
-
-</html>
+</html>"
