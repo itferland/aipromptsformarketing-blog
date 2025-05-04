@@ -55,38 +55,37 @@ def fetch_full_article(url):
         logging.error(f"Error fetching full article from {url}", exc_info=True)
         return None
 
-# Updated OpenAI API call to use the latest interface
+# Add fallback for missing feed title
 def fetch_and_summarize():
     summaries = []
     for feed_url in RSS_FEEDS:
-        logging.debug(f"Fetching feed: {feed_url}")
+        print(f"\n-- FETCHING {feed_url} --")
         feed = feedparser.parse(feed_url)
-        logging.debug(f"Feed title: {feed.feed.title}")
-        for entry in feed.entries[:3]:  # Limit to 3 articles per feed
-            title = entry.title
-            link = entry.link
-            unique_id = generate_unique_id(entry)
+        count = len(feed.entries)
+        print(f"Found {count} entries")
 
-            if is_duplicate_id(unique_id):
-                logging.debug(f"Skipping duplicate article: {title}")
-                continue
-
-            logging.debug(f"Fetching full article for: {title}")
-            content = fetch_full_article(link) or entry.summary
-
-            try:
-                # Use OpenAI ChatCompletion with a structured prompt
-                response = openai.ChatCompletion.create(
-                    model="gpt-4",
-                    messages=[
-                        {"role": "system", "content": "You’re a tech-journalist assistant. Provide a crisp 2-sentence summary and one key takeaway."},
-                        {"role": "user", "content": content}
-                    ],
-                    max_tokens=150
-                )
-                summary = response["choices"][0]["message"]["content"].strip()
-                summaries.append((title, summary, link, unique_id))
-                logging.debug(f"Summary generated: {summary}")
-            except Exception as e:
-                logging.error(f"Error summarizing article: {title}", exc_info=True)
+        for entry in feed.entries[:3]:
+            title = entry.get("title", "<no title>")
+            link  = entry.get("link", "<no link>")
+            print(f"  • Entry: {title}")
+            summaries.append((title, entry.get("summary", ""), link))
     return summaries
+
+# Add a dry-run mode to the script
+def create_blog_posts(summaries, dry_run=False):
+    for title, _, link in summaries:
+        slug     = slugify(title)
+        date_str = datetime.now().strftime("%Y-%m-%d")
+        filename = f"{date_str}-{slug}.md"
+        filepath = os.path.join(POSTS_DIR, filename)
+
+        # Log decision path
+        if os.path.exists(filepath):
+            print(f"[SKIP     ] {filename} (already exists)")
+        else:
+            print(f"[WRITE-DRY] {filename}")
+
+# Call the function with dry-run mode enabled
+if __name__ == "__main__":
+    summaries = fetch_and_summarize()
+    create_blog_posts(summaries, dry_run=True)
