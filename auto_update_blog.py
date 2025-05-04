@@ -8,7 +8,7 @@ import logging
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Configure logging
-logging.basicConfig(level=logging.ERROR, filename="error.log", filemode="w", format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(level=logging.DEBUG, filename="debug.log", filemode="w", format="%(asctime)s - %(levelname)s - %(message)s")
 
 # RSS feed URLs for AI news
 RSS_FEEDS = [
@@ -24,23 +24,29 @@ POSTS_DIR = "_posts"
 def fetch_and_summarize():
     summaries = []
     for feed_url in RSS_FEEDS:
+        logging.debug(f"Fetching feed: {feed_url}")
         feed = feedparser.parse(feed_url)
         for entry in feed.entries[:3]:  # Limit to 3 articles per feed
             title = entry.title
             link = entry.link
             content = entry.summary
+            logging.debug(f"Processing article: {title}")
 
-            # Use OpenAI ChatCompletion to summarize the content
-            response = openai.ChatCompletion.create(
-                model="gpt-4",
-                messages=[
-                    {"role": "system", "content": "You are a helpful assistant that summarizes articles."},
-                    {"role": "user", "content": f"Summarize this article: {content}"}
-                ],
-                max_tokens=150
-            )
-            summary = response["choices"][0]["message"]["content"].strip()
-            summaries.append((title, summary, link))
+            try:
+                # Use OpenAI ChatCompletion to summarize the content
+                response = openai.ChatCompletion.create(
+                    model="gpt-4",
+                    messages=[
+                        {"role": "system", "content": "You are a helpful assistant that summarizes articles."},
+                        {"role": "user", "content": f"Summarize this article: {content}"}
+                    ],
+                    max_tokens=150
+                )
+                summary = response["choices"][0]["message"]["content"].strip()
+                summaries.append((title, summary, link))
+                logging.debug(f"Summary generated: {summary}")
+            except Exception as e:
+                logging.error(f"Error summarizing article: {title}", exc_info=True)
     return summaries
 
 # Function to create a markdown file for each summary
