@@ -2,9 +2,6 @@
 - title: Facebook Ad Headline Generator
   description: "Generates 3 attention-grabbing headlines for FB ads."
   url: /prompts/facebook-headline-generator/
-- title: Instagram Story Hook Writer
-  description: "Crafts a hook for Instagram Stories to boost swipe-ups."
-  url: /prompts/instagram-story-hook-writer/
 - title: "LinkedIn Profile Optimizer"
   description: "Creates a punchy LinkedIn summary highlighting your expertise."
   url: /prompts/linkedin-profile-optimizer/

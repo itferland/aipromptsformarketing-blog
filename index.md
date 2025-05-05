@@ -4,6 +4,8 @@ title: AI Prompts for Marketing
 permalink: /
 description: "Your go-to source for ChatGPT-powered marketing prompts, tutorials, and tool reviews."
 ---
+<div id='daily-content'>
+{{ site.data.daily_update.content }} </div>
 
 Welcome to **AI Prompts for Marketing**!  
 Check out our latest AI-driven marketing prompt below:

@@ -13,15 +13,3 @@ seo:
   title: "AI Prompts for Marketing"
   description: "High-ROI ChatGPT prompts, tutorials & tool reviews for marketers."
   twitter: yourTwitterHandle
-
-collections:
-  prompts:
-    output: true
-    permalink: /prompts/:name/
-
-defaults:
-  - scope:
-      path: ""
-      type: prompts
-    values:
-      layout: prompt
