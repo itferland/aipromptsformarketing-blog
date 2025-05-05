@@ -15,10 +15,11 @@ Check out our latest AI-driven marketing prompt below:
 
 For a full collection of curated prompts, see our [Prompt Library](/library/).
 
-<ul>
-{% for post in site.posts offset:1 %}
-  <li>
-    <a href="{{ post.url | relative_url }}">{{ post.title }}</a> – {{ post.date | date: "%b %-d, %Y" }}
-  </li>
+<div class='blog-list'>
+{% for post in site.posts limit:5 %}
+  <div class='blog-item'>
+    <a href="{{ post.url | relative_url }}" class="blog-title">{{ post.title }}</a>
+    <span class="blog-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+  </div>
 {% endfor %}
-</ul>
+</div>
