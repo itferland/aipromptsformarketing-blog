@@ -4,10 +4,10 @@
   {% for prompt in site.data.prompts %}
     <li style="border: 1px solid var(--primary-color); border-radius: 8px; padding: 15px; background-color: white;">
       <h2 style="font-size: 1.5rem; color: var(--primary-color);">
-        <a href="{{ prompt.url | relative_url }}" style="text-decoration: none; color: var(--primary-color);">{{ prompt.title }}</a>
+        <a href="{{ prompt.url }}" style="text-decoration: none; color: var(--primary-color);">{{ prompt.title }}</a>
       </h2>
       <p style="font-size: 1rem; color: var(--text-color);">{{ prompt.description }}</p>
-      <a href="{{ prompt.url | relative_url }}" style="color: var(--link-color); font-weight: bold;">Read more</a>
+      <a href="{{ prompt.url }}" style="color: var(--link-color); font-weight: bold;">Read more</a>
     </li>
   {% endfor %}
 </ul>
