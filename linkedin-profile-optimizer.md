@@ -1,7 +1,8 @@
 ---
 layout: prompt
 title: "LinkedIn Profile Optimizer"
-permalink: /prompts/linkedin-profile-optimizer/
+layout: prompt
+permalink: /linkedin-profile-optimizer/
 ---
 
 ## How to Use the LinkedIn Profile Optimizer
