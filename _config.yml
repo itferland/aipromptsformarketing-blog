@@ -4,11 +4,23 @@ description: >
   A collection of AI marketing prompts, tutorials, and tool reviews.
 baseurl: ""        # leave empty since it’ll be root
 url: "https://aipromptsformarketing.net" # GitHub’s built-in Jekyll theme
-theme: null
 remote_theme: pages-themes/midnight@v0.2.0
 
+# List of plugins
 plugins:
-  - jekyll-sitemap  
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-coffeescript
+  - jekyll-commonmark-ghpages
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-paginate
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
 
 seo:
   title: "AI Prompts for Marketing"
