@@ -1,5 +1,5 @@
 ---
-layout: prompt
+layout: page
 title: "LinkedIn Profile Optimizer"
 ---
 

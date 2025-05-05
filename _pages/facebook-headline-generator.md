@@ -1,5 +1,5 @@
 ---
-layout: prompt
+layout: page
 title: Facebook Ad Headline Generator
 description: Generates 3 attention-grabbing headlines for FB ads.
 ---
