@@ -1,9 +1,9 @@
 # _data/prompts.yml
 - title: Facebook Ad Headline Generator
   description: "Generates 3 attention-grabbing headlines for FB ads."
-  url: /prompts/facebook-headline-generator/
+  url: /facebook-headline-generator/
 - title: "LinkedIn Profile Optimizer"
   description: "Creates a punchy LinkedIn summary highlighting your expertise."
-  url: /prompts/linkedin-profile-optimizer/
+  url: /linkedin-profile-optimizer/
 
 # etc…
