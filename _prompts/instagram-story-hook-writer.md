@@ -1,7 +1,7 @@
 ---
 layout: prompt
 title: 3 AI-Driven Instagram Story Hooks That Convert
-description: Crafting the perfect hook for your Instagram Story can skyrocket swipe-ups. Try these prompts in ChatGPT:
+description: "Crafting the perfect hook for your Instagram Story can skyrocket swipe-ups. Try these prompts in ChatGPT:"
 ---
 
 ## Prompt Goal
