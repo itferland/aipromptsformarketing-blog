@@ -2,6 +2,24 @@
   {%- include head.html -%}
   <body class="{{ page.layout }}{% if page.sidebar %} with-sidebar{% endif %}">
     <header class="site-header" role="banner" style="background-color: #0073e6; color: white; padding: 20px;">
+      <style>
+        .site-nav-list {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+        .site-nav-item a {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        .site-nav-item a:hover {
+          text-decoration: underline;
+        }
+      </style>
       <div class="ad-header" style="text-align: center; margin: 20px 0;">
         <ins class="adsbygoogle"
              style="display:block"
@@ -20,9 +38,9 @@
         <p class="site-description" style="margin: 0; font-size: 1rem;">{{ site.description }}</p>
         {%- endif -%}
         <nav class="site-nav">
-          <ul class="site-nav-list" style="list-style: none; display: flex; gap: 15px; margin: 0; padding: 0;">
-            <li class="site-nav-item"><a href="{{ "/" | relative_url }}" style="color: white; text-decoration: none;">Home</a></li>
-            <li class="site-nav-item"><a href="{{ "/library/" | relative_url }}" style="color: white; text-decoration: none;">Prompt Library</a></li>
+          <ul class="site-nav-list">
+            <li class="site-nav-item"><a href="{{ "/" | relative_url }}">Home</a></li>
+            <li class="site-nav-item"><a href="{{ "/library/" | relative_url }}">Prompt Library</a></li>
           </ul>
         </nav>
       </div>
