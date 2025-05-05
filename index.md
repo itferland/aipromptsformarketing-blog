@@ -18,7 +18,7 @@ For a full collection of curated prompts, see our [Prompt Library](/library/).
 <ul>
 {% for post in site.posts offset:1 %}
   <li>
-    <a href="{{ post.url }}">{{ post.title }}</a> – {{ post.date | date: "%b %-d, %Y" }}
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a> – {{ post.date | date: "%b %-d, %Y" }}
   </li>
 {% endfor %}
 </ul>
