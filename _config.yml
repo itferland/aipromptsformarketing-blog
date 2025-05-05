@@ -22,6 +22,11 @@ plugins:
   - jekyll-default-layout
   - jekyll-titles-from-headings
 
+collections:
+  prompts:
+    output: true
+    permalink: /prompts/:name/
+
 seo:
   title: "AI Prompts for Marketing"
   description: "High-ROI ChatGPT prompts, tutorials & tool reviews for marketers."
