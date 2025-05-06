@@ -6,7 +6,14 @@
   {{ content }}
 
   <p class="cta">
-    <a class="btn" href="{{ include.affiliate_url }}?ref=aipromptsformarketing" target="_blank" rel="noopener">
+    {% assign sep = include.affiliate_url contains "?" | default: false %}
+    {% if sep %}
+      {% assign sep = "&" %}
+    {% else %}
+      {% assign sep = "?" %}
+    {% endif %}
+
+    <a class="btn" href="{{ include.affiliate_url }}{{ sep }}ref=aipromptsformarketing" target="_blank" rel="noopener">
       Try {{ include.title | split: ':' | first }} now →
     </a>
     <small>(Affiliate link – no extra cost to you.)</small>
