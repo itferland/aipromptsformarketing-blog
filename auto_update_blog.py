@@ -90,6 +90,53 @@ def create_blog_posts(summaries, dry_run=False):
                 with open(filepath, "w") as f:
                     f.write(f"# {title}\n\nLink: {link}\n")
 
+# Define the ad code to insert
+ad_code = """
+<!-- Ad Unit Code -->
+<div class=\"ad-unit\">
+    <script async src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>
+    <ins class=\"adsbygoogle\"
+         style=\"display:block\"
+         data-ad-client=\"ca-pub-1468359871252656\"
+         data-ad-slot=\"1234567890\"
+         data-ad-format=\"auto\"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+<!-- End Ad Unit Code -->
+"""
+
+# Define the files and locations to insert ads
+files_to_update = {
+    "_layouts/prompt.html": "<article>",  # Insert after the opening <article> tag
+    "_layouts/default.html": "<main>",   # Insert after the opening <main> tag
+    "_includes/footer.html": "<footer>", # Insert after the opening <footer> tag
+}
+
+def insert_ad_code(file_path, marker):
+    """Insert ad code into the specified file after the marker."""
+    with open(file_path, "r", encoding="utf-8") as file:
+        content = file.readlines()
+
+    updated_content = []
+    for line in content:
+        updated_content.append(line)
+        if marker in line:
+            updated_content.append(ad_code + "\n")
+
+    with open(file_path, "w", encoding="utf-8") as file:
+        file.writelines(updated_content)
+
+# Update each file
+for file, marker in files_to_update.items():
+    file_path = os.path.join(os.getcwd(), file)
+    if os.path.exists(file_path):
+        insert_ad_code(file_path, marker)
+        print(f"Ad code inserted into {file}")
+    else:
+        print(f"File not found: {file}")
+
 # Call the function without dry-run mode to generate real posts
 if __name__ == "__main__":
     summaries = fetch_and_summarize()
