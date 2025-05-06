@@ -173,6 +173,29 @@ header.site-header {
   }
 }
 
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.site-nav a:hover {
+  color: #007acc;
+}
+
 footer.site-footer {
   background: $brand-dark;
   color: $brand-light;
@@ -274,9 +297,18 @@ footer.site-footer {
   color: #555;
 }
 
+.hero .hero-overlay {
+  color: #fff;
+}
+
 .home-section {
   padding: 2rem;
 }
+
+.home-section {
+  margin: 3rem 0;
+}
+
 .two-cols {
   display: flex;
   gap: 2rem;
@@ -373,4 +405,10 @@ footer.site-footer {
   height: auto;
   border-radius: 0.5rem 0.5rem 0 0;
   margin-bottom: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .site-nav ul {
+    flex-direction: column;
+  }
 }
