@@ -1,7 +1,9 @@
+<!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
-  {%- include head.html -%}
-  {% include header.html %}
+  {% include head.html %}
   <body class="{{ page.layout }}{% if page.sidebar %} with-sidebar{% endif %}">
+    {% include header.html %}
+
     <main class="page-content" aria-label="Content" style="padding: 20px;">
       <div class="wrapper">
         {{ content }}
@@ -10,7 +12,7 @@
 
     <footer class="site-footer h-card" role="contentinfo" style="background-color: #f9f9f9; padding: 20px; text-align: center;">
       <div class="wrapper">
-        {%- include footer.html -%}
+        {% include footer.html %}
       </div>
       <div class="ad-footer" style="text-align: center; margin: 20px 0;">
         <ins class="adsbygoogle"

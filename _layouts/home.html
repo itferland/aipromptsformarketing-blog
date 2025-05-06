@@ -1,41 +1,43 @@
-{% include header.html %}
+---
+layout: default
+---
 
-<!-- HOME_LAYOUT_ACTIVE -->
 <section class="hero">
+  <!-- HOME_LAYOUT_ACTIVE -->
   <div class="hero-overlay">
     <h1>Turn AI into Your Secret Marketing Weapon</h1>
-    <p class="hero-subhead">
-      Whether you need high-ROI ad copy, step-by-step AI tutorials…
-    </p>
+    <p class="hero-subhead">Whether you need high-ROI ad copy…</p>
   </div>
 </section>
 
 <div class="home-section two-cols">
   <div class="col">
     <h2>
-      <img src="{{ '/assets/icons/robot.svg' | relative_url }}" alt="" class="icon" />
+      <img src="/assets/icons/robot.svg" alt="" class="icon" />
       Tutorials
     </h2>
     <ul>
-      {% for tut in site.tutorials limit:2 %}
-        <li>
-          <a href="{{ tut.url | relative_url }}">{{ tut.title }}</a>
-        </li>
-      {% endfor %}
+      <li>
+        <a href="/tutorials/automating-your-email-sequence-with-ai/">Automating Your Email Sequence with AI: A Practical Guide</a>
+      </li>
+      <li>
+        <a href="/tutorials/getting-started-chatgpt-for-marketing/">Getting Started with ChatGPT for Marketing</a>
+      </li>
     </ul>
     <a class="btn" href="/tutorials/">View All Tutorials</a>
   </div>
   <div class="col">
     <h2>
-      <img src="{{ '/assets/icons/magnifier.svg' | relative_url }}" alt="" class="icon" />
+      <img src="/assets/icons/magnifier.svg" alt="" class="icon" />
       Tool Reviews
     </h2>
     <ul>
-      {% for rev in site.tool_reviews limit:2 %}
-        <li>
-          <a href="{{ rev.url | relative_url }}">{{ rev.title }}</a>
-        </li>
-      {% endfor %}
+      <li>
+        <a href="/tool-reviews/promptperfect-hands-on-test/">PromptPerfect: A Hands-On Test</a>
+      </li>
+      <li>
+        <a href="/tool-reviews/deepdive-jasper-ai-review/">DeepDive: Jasper.ai Review</a>
+      </li>
     </ul>
     <a class="btn" href="/tool-reviews/">View All Reviews</a>
   </div>
@@ -44,25 +46,30 @@
 <div class="home-section post-grid">
   <h2>Latest from the Blog</h2>
   <div class="grid">
-    {% assign fallback = "/assets/images/AI-Marketing.webp" %}
-    {% for post in site.posts limit:4 %}
-      <article class="card">
-        {% if post.image %}
-          <img src="{{ post.image | relative_url }}"
-               alt="{{ post.title }}"
-               class="card-img" />
-        {% else %}
-          <img src="{{ fallback | relative_url }}"
-               alt="Illustration for {{ post.title }}"
-               class="card-img" />
-        {% endif %}
-        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-        <p class="excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
-        <a class="read-more" href="{{ post.url }}">Read more →</a>
-      </article>
-    {% endfor %}
+    <article class="card">
+      <img src="/assets/images/AI-Marketing.webp" alt="Illustration for The Us Has Approved Crispr Pigs For Food" class="card-img" />
+      <h3><a href="/2025/05/04/the-us-has-approved-crispr-pigs-for-food.html">The Us Has Approved Crispr Pigs For Food</a></h3>
+      <p class="excerpt">The US has approved CRISPR pigs for food</p>
+      <a class="read-more" href="/2025/05/04/the-us-has-approved-crispr-pigs-for-food.html">Read more →</a>
+    </article>
+    <article class="card">
+      <img src="/assets/images/AI-Marketing.webp" alt="Illustration for The Great Cognitive Migration How Ai Is Reshaping Human Purpose Work And Meaning" class="card-img" />
+      <h3><a href="/2025/05/04/the-great-cognitive-migration-how-ai-is-reshaping-human-purpose-work-and-meaning.html">The Great Cognitive Migration How Ai Is Reshaping Human Purpose Work And Meaning</a></h3>
+      <p class="excerpt">The great cognitive migration: How AI is reshaping human purpose, work and meaning</p>
+      <a class="read-more" href="/2025/05/04/the-great-cognitive-migration-how-ai-is-reshaping-human-purpose-work-and-meaning.html">Read more →</a>
+    </article>
+    <article class="card">
+      <img src="/assets/images/AI-Marketing.webp" alt="Illustration for The Fantasy Of Playing Final Fantasy" class="card-img" />
+      <h3><a href="/2025/05/04/the-fantasy-of-playing-final-fantasy.html">The Fantasy Of Playing Final Fantasy</a></h3>
+      <p class="excerpt">The fantasy of playing Final Fantasy</p>
+      <a class="read-more" href="/2025/05/04/the-fantasy-of-playing-final-fantasy.html">Read more →</a>
+    </article>
+    <article class="card">
+      <img src="/assets/images/AI-Marketing.webp" alt="Illustration for The Download Foreign Disinformation Intel And Gene Edited Pork" class="card-img" />
+      <h3><a href="/2025/05/04/the-download-foreign-disinformation-intel-and-gene-edited-pork.html">The Download Foreign Disinformation Intel And Gene Edited Pork</a></h3>
+      <p class="excerpt">The Download: foreign disinformation intel, and gene-edited pork</p>
+      <a class="read-more" href="/2025/05/04/the-download-foreign-disinformation-intel-and-gene-edited-pork.html">Read more →</a>
+    </article>
   </div>
   <a class="btn" href="/blog/">See All Posts</a>
 </div>
-
-{% include footer.html %}
