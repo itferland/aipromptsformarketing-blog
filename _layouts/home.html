@@ -43,6 +43,7 @@
 <div class="home-section post-grid">
   <h2>Latest from the Blog</h2>
   <div class="grid">
+    {% assign fallback = "/assets/images/AI-Marketing.webp" %}
     {% for post in site.posts limit:4 %}
       <article class="card">
         {% if post.image %}
@@ -50,8 +51,8 @@
                alt="{{ post.title }}"
                class="card-img" />
         {% else %}
-          <img src="{{ '/assets/images/default-blog.jpg' | relative_url }}"
-               alt="Default graphic for {{ post.title }}"
+          <img src="{{ fallback | relative_url }}"
+               alt="Illustration for {{ post.title }}"
                class="card-img" />
         {% endif %}
         <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
