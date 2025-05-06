@@ -3,6 +3,15 @@ title: "DeepDive: Jasper.ai Review"
 permalink: /tool-reviews/deepdive-jasper-ai-review/
 date: 2025-05-03
 layout: tool_review
+summary: "In this hands-on Jasper.ai review, we benchmark content quality, speed, and pricing tiers against use-case scenarios."
+affiliate_url: "https://jasper.ai/?ref=aipromptsformarketing"
+rating: 4.5
 ---
 
-An in-depth review of Jasper.ai, exploring its features, pricing, and effectiveness for AI-driven content creation.
+{% include tool-review.html
+   title=page.title
+   date=page.date
+   summary=page.summary
+   affiliate_url=page.affiliate_url
+   rating=page.rating
+%}

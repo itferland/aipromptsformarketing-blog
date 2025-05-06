@@ -1,0 +1,18 @@
+<article class="tool-review">
+  <h1>{{ include.title }}</h1>
+  <p class="date">{{ include.date | date: "%b %-d, %Y" }}</p>
+  <p class="intro">{{ include.summary }}</p>
+
+  {{ content }}
+
+  <p class="cta">
+    <a class="btn" href="{{ include.affiliate_url }}?ref=aipromptsformarketing" target="_blank" rel="noopener">
+      Try {{ include.title | split: ':' | first }} now →
+    </a>
+    <small>(Affiliate link – no extra cost to you.)</small>
+  </p>
+
+  {% if include.rating %}
+    <p class="rating">★{{ include.rating }}</p>
+  {% endif %}
+</article>
