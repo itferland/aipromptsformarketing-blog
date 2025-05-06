@@ -2,6 +2,7 @@
 title: "PromptPerfect: A Hands-On Test"
 date: 2025-04-30
 layout: tool_review
+permalink: /tool-reviews/promptperfect-hands-on-test/
 ---
 
 <h1>PromptPerfect: A Hands-On Test</h1>
