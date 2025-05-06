@@ -3,8 +3,13 @@ layout: default
 title: Blog
 permalink: /blog/
 ---
+
 # Blog
 
-{% for post in site.posts %}
-- [{{ post.title }}]({{ post.url }}) — {{ post.date | date: "%b %-d, %Y" }}
-{% endfor %}
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a> — {{ post.date | date: "%b %-d, %Y" }}
+    </li>
+  {% endfor %}
+</ul>

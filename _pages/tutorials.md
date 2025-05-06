@@ -3,8 +3,13 @@ layout: default
 title: Tutorials
 permalink: /tutorials/
 ---
+
 # Tutorials
 
-{% for tut in site.tutorials %}
-- [{{ tut.title }}]({{ tut.url }}) — {{ tut.date | date: "%b %-d, %Y" }}
-{% endfor %}
+<ul>
+  {% for tut in site.tutorials %}
+    <li>
+      <a href="{{ tut.url }}">{{ tut.title }}</a> — {{ tut.date | date: "%b %-d, %Y" }}
+    </li>
+  {% endfor %}
+</ul>
