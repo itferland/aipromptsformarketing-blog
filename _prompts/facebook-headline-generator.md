@@ -3,6 +3,8 @@ layout: prompt
 title: Facebook Ad Headline Generator
 description: Generates 3 attention-grabbing headlines for FB ads.
 permalink: /prompts/facebook-headline-generator/
+redirect_from:
+  - /facebook-headline-generator/
 ---
 
 ## How to Use the Facebook Ad Headline Generator
