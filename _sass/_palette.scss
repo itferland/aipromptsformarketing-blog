@@ -64,3 +64,50 @@
     font-size: 1.2em;
   }
 }
+
+.tutorial {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+  }
+
+  pre {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    overflow-x: auto;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+
+  code {
+    font-family: "Courier New", Courier, monospace;
+    color: var(--color-accent);
+  }
+
+  ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  .disclosure {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #555;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #ccc;
+  }
+}
