@@ -8,25 +8,45 @@ title: AI Prompts for Marketing
   <p class="tagline">A collection of AI marketing prompts, tutorials, and tool reviews.</p>
 </section>
 
-<section class="overview">
+<section class="features">
   <article>
-    <h2>📋 Prompt Library</h2>
+    <h2>📚 Prompt Library</h2>
     <p>Browse ready-to-use AI prompts for email, social, ads, and more →</p>
-    <a href="/library/">See Prompts →</a>
+    <a class="btn" href="{{ '/library/' | relative_url }}">See Prompts</a>
   </article>
 
   <article>
     <h2>🛠 Tutorials</h2>
     <p>Step-by-step guides: from setting up your first AI tool to advanced workflows →</p>
-    {% include tutorial-list.html %}
-    <a class="btn" href="/tutorials/">View Tutorials</a>
+
+    <ul class="latest-tutorials">
+      {% assign latest_tutos = site.tutorials | sort: 'date' | reverse | slice: 0,2 %}
+      {% for tuto in latest_tutos %}
+        <li>
+          <a href="{{ tuto.url | relative_url }}">{{ tuto.title }}</a>
+          — {{ tuto.date | date: "%b %-d, %Y" }}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <a class="btn" href="{{ '/tutorials/' | relative_url }}">View Tutorials</a>
   </article>
 
   <article>
     <h2>🔍 Tool Reviews</h2>
     <p>In-depth reviews of the latest AI marketing platforms and plugins →</p>
-    {% include tool-review-list.html %}
-    <a class="btn" href="/tool-reviews/">Read Reviews</a>
+
+    <ul class="latest-reviews">
+      {% assign latest_revs = site.tool_reviews | sort: 'date' | reverse | slice: 0,2 %}
+      {% for rev in latest_revs %}
+        <li>
+          <a href="{{ rev.url | relative_url }}">{{ rev.title }}</a>
+          — {{ rev.date | date: "%b %-d, %Y" }}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <a class="btn" href="{{ '/tool-reviews/' | relative_url }}">Read Reviews</a>
   </article>
 </section>
 
