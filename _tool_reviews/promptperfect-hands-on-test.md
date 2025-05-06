@@ -4,7 +4,8 @@ date: 2025-04-30
 layout: tool_review
 permalink: /tool-reviews/promptperfect-hands-on-test/
 summary: "We ran PromptPerfect through summarization, tone-shifting and technical prompts—seeing 30–40% tighter copy with zero loss of detail."
-affiliate_url: "https://promptperfect.ai/?ref=aipromptsformarketing"
+affiliate_url: "https://promptperfect.ai"
+affiliate_ref: "aipromptsformarketing"
 rating: 4.0
 ---
 

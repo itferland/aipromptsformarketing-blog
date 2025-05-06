@@ -11,3 +11,56 @@
   --color-text: #1F2937;      /* dark slate for readability */
   --color-muted: #6B7280;     /* medium slate for secondary text */
 }
+
+.tool-review {
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #eee;
+
+  .date {
+    color: #777;
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+  }
+
+  .intro {
+    font-style: italic;
+    margin-bottom: 1em;
+  }
+
+  .cta {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    background-color: #f9f9f9;
+    padding: 1em;
+    border-radius: 4px;
+    text-align: center;
+
+    .btn {
+      display: inline-block;
+      padding: 0.75em 1.5em;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+
+    small {
+      display: block;
+      font-size: 0.8em;
+      color: #666;
+    }
+  }
+
+  .rating {
+    font-weight: bold;
+    color: #ffc107;
+    font-size: 1.2em;
+  }
+}
