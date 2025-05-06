@@ -1,0 +1,47 @@
+{% include header.html %}
+
+<div class="hero">
+  <h1>AI Prompts for Marketing</h1>
+  <p>Your ultimate resource for AI-driven marketing strategies, tools, and tutorials.</p>
+</div>
+
+<div class="home-section two-cols">
+  <div class="col">
+    <h2>Tutorials</h2>
+    <ul>
+      {% for tut in site.tutorials limit:2 %}
+        <li>
+          <a href="{{ tut.url | relative_url }}">{{ tut.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    <a class="btn" href="/tutorials/">View All Tutorials</a>
+  </div>
+  <div class="col">
+    <h2>Tool Reviews</h2>
+    <ul>
+      {% for rev in site.tool_reviews limit:2 %}
+        <li>
+          <a href="{{ rev.url | relative_url }}">{{ rev.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    <a class="btn" href="/tool-reviews/">View All Reviews</a>
+  </div>
+</div>
+
+<div class="home-section post-grid">
+  <h2>Latest from the Blog</h2>
+  <div class="grid">
+    {% for post in site.posts limit:4 %}
+      <div class="card">
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
+        <a href="{{ post.url | relative_url }}">Read more</a>
+      </div>
+    {% endfor %}
+  </div>
+  <a class="btn" href="/blog/">See All Posts</a>
+</div>
+
+{% include footer.html %}
