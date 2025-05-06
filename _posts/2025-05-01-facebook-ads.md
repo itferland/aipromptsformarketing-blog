@@ -3,6 +3,7 @@ layout: default
 title: "Facebook Ads"
 description: "Learn how to leverage the power of AI to create engaging Facebook Ads that drive results."
 date: 2025-05-01
+cover_image: "/assets/images/cover-facebook-ads.jpg"
 ---
 
 ## Introduction to AI for Facebook Ads
@@ -14,7 +15,6 @@ Artificial Intelligence (AI) is rapidly transforming the way marketers approach 
 *   **Budget Optimization:** AI tools can optimize your ad budget by analyzing campaign performance and automatically adjusting bids and ad placements. This ensures that you're getting the most value for your ad spend.
 
 ## Prompt Engineering for Facebook Ads
-
 
 ## AI-Driven Audience Targeting
 
