@@ -2,6 +2,8 @@
 title: LinkedIn Profile Optimizer
 permalink: /prompts/linkedin-profile-optimizer/
 layout: prompt
+redirect_from:
+  - /linkedin-profile-optimizer/
 ---
 
 ## How to Use the LinkedIn Profile Optimizer
