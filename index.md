@@ -23,3 +23,13 @@ For a full collection of curated prompts, see our [Prompt Library](/library/).
   </div>
 {% endfor %}
 </div>
+
+<ul class="post-list">
+  {% for post in site.posts limit:5 %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        {{ post.title }}—{{ post.date | date: "%B %-d, %Y" }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
