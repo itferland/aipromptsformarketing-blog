@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Tutorials
 permalink: /tutorials/
+title: Tutorials
 ---
 
 # Tutorials

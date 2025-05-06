@@ -1,15 +1,7 @@
 ---
 layout: default
-title: Prompt Library
 permalink: /prompt-library/
+title: Prompt Library
 ---
 
-# Prompt Library
-
-<ul>
-  {% for prompt in site.prompts %}
-    <li>
-      <a href="{{ prompt.url }}">{{ prompt.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+<!-- Add your loop content here -->

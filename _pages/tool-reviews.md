@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Tool Reviews
 permalink: /tool-reviews/
+title: Tool Reviews
 ---
 
 # Tool Reviews
