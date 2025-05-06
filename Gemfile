@@ -11,3 +11,5 @@ gem "minima",    "~> 2.5"
 
 # Only if you truly need CoffeeScript support:
 # gem "jekyll-coffeescript"
+
+gem "jekyll-redirect-from"
