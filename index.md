@@ -18,12 +18,14 @@ title: AI Prompts for Marketing
   <article>
     <h2>🛠 Tutorials</h2>
     <p>Step-by-step guides: from setting up your first AI tool to advanced workflows →</p>
+    {% include tutorial-list.html %}
     <a class="btn" href="/tutorials/">View Tutorials</a>
   </article>
 
   <article>
     <h2>🔍 Tool Reviews</h2>
     <p>In-depth reviews of the latest AI marketing platforms and plugins →</p>
+    {% include tool-review-list.html %}
     <a class="btn" href="/tool-reviews/">Read Reviews</a>
   </article>
 </section>
