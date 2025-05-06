@@ -27,6 +27,12 @@ collections:
   prompts:
     output: true
     permalink: /prompts/:name/
+  tutorials:
+    output: true
+    permalink: /tutorials/:name/
+  tool_reviews:
+    output: true
+    permalink: /tool-reviews/:name/
 
 seo:
   title: "AI Prompts for Marketing"
