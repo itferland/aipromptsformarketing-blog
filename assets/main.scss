@@ -335,3 +335,40 @@ footer.site-footer {
 .latest-posts h2 {
   margin-bottom: 1rem;
 }
+
+.home .hero {
+  background: url('{{ "/assets/images/hero-ai-marketing.jpg" | relative_url }}') no-repeat center/cover;
+  position: relative;
+  padding: 6rem 1rem;
+  color: white;
+}
+
+.home .hero-overlay {
+  background: rgba(0,0,0,0.5);
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.home .hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.5rem;
+}
+.home .hero .hero-subhead {
+  font-size: 1.2rem;
+}
+
+.site-nav .icon,
+.home-section .icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem 0.5rem 0 0;
+  margin-bottom: 0.75rem;
+}

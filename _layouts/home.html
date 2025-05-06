@@ -1,13 +1,20 @@
 {% include header.html %}
 
-<div class="hero">
-  <h1>AI Prompts for Marketing</h1>
-  <p>Your ultimate resource for AI-driven marketing strategies, tools, and tutorials.</p>
-</div>
+<section class="hero">
+  <div class="hero-overlay">
+    <h1>Turn AI into Your Secret Marketing Weapon</h1>
+    <p class="hero-subhead">
+      Whether you need high-ROI ad copy, step-by-step AI tutorials…
+    </p>
+  </div>
+</section>
 
 <div class="home-section two-cols">
   <div class="col">
-    <h2>Tutorials</h2>
+    <h2>
+      <img src="{{ '/assets/icons/robot.svg' | relative_url }}" alt="" class="icon" />
+      Tutorials
+    </h2>
     <ul>
       {% for tut in site.tutorials limit:2 %}
         <li>
@@ -18,7 +25,10 @@
     <a class="btn" href="/tutorials/">View All Tutorials</a>
   </div>
   <div class="col">
-    <h2>Tool Reviews</h2>
+    <h2>
+      <img src="{{ '/assets/icons/magnifier.svg' | relative_url }}" alt="" class="icon" />
+      Tool Reviews
+    </h2>
     <ul>
       {% for rev in site.tool_reviews limit:2 %}
         <li>
@@ -34,11 +44,14 @@
   <h2>Latest from the Blog</h2>
   <div class="grid">
     {% for post in site.posts limit:4 %}
-      <div class="card">
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
-        <a href="{{ post.url | relative_url }}">Read more</a>
-      </div>
+      <article class="card">
+        <img src="{{ post.image | default: '/assets/images/default-blog.jpg' | relative_url }}"
+             alt="{{ post.title }}"
+             class="card-img" />
+        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+        <p class="excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+        <a class="read-more" href="{{ post.url }}">Read more →</a>
+      </article>
     {% endfor %}
   </div>
   <a class="btn" href="/blog/">See All Posts</a>
