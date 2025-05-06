@@ -80,8 +80,8 @@ summary: "Learn how to use ChatGPT effectively for your marketing campaigns. Thi
   <h2>7. Learn from the Pros</h2>
   <p>
     - Master prompt design with  
-    <a href="https://www.udemy.com/course/prompt-engineering/?ref=aipromptsformarketing" target="_blank" rel="noopener">
-      this top-rated Udemy course
+    <a href="https://www.coursera.org/learn/prompt-engineering-for-ai?ref=aipromptsformarketing" target="_blank" rel="noopener">
+      this top-rated Coursera course
     </a>.<br>
     - Explore advanced techniques in  
     <a href="https://www.copyhackers.com/?ref=aipromptsformarketing" target="_blank" rel="noopener">
