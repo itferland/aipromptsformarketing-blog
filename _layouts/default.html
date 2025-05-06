@@ -1,55 +1,7 @@
 <html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
   {%- include head.html -%}
+  {% include header.html %}
   <body class="{{ page.layout }}{% if page.sidebar %} with-sidebar{% endif %}">
-    <header class="site-header" role="banner" style="background-color: #0073e6; color: white; padding: 20px;">
-      <style>
-        .site-nav-list {
-          display: flex;
-          justify-content: center;
-          gap: 20px;
-          list-style: none;
-          margin: 0;
-          padding: 0;
-        }
-        .site-nav-item a {
-          color: white;
-          text-decoration: none;
-          font-weight: bold;
-        }
-        .site-nav-item a:hover {
-          text-decoration: underline;
-        }
-      </style>
-      <div class="ad-header" style="text-align: center; margin: 20px 0;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXXXXXXXXXXXXX"
-             data-ad-slot="1234567890"
-             data-ad-format="auto"></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <div class="wrapper" style="display: flex; justify-content: space-between; align-items: center;">
-        <h1 class="site-title" style="margin: 0; font-size: 2rem;">
-          <a href="{{ "/" | relative_url }}" style="color: white; text-decoration: none;">{{ site.title }}</a>
-        </h1>
-        {%- if site.description -%}
-        <p class="site-description" style="margin: 0; font-size: 1rem;">{{ site.description }}</p>
-        {%- endif -%}
-        <nav class="site-nav">
-          <ul>
-            <li><a href="{{ "/" | relative_url }}">Home</a></li>
-            <li><a href="{{ "/prompt-library/" | relative_url }}">Prompt Library</a></li>
-            <li><a href="{{ "/tutorials/" | relative_url }}">Tutorials</a></li>
-            <li><a href="{{ "/tool-reviews/" | relative_url }}">Tool Reviews</a></li>
-            <li><a href="{{ "/blog/" | relative_url }}">Blog</a></li>
-            <li><a href="{{ "/about/" | relative_url }}">About</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
     <main class="page-content" aria-label="Content" style="padding: 20px;">
       <div class="wrapper">
         {{ content }}

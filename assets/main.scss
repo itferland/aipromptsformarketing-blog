@@ -176,24 +176,32 @@ header.site-header {
 .site-header {
   background: #fff;
   border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .site-nav ul {
   list-style: none;
   margin: 0;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
 }
 
 .site-nav a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  padding: 0.25rem 0.5rem;
 }
 
-.site-nav a:hover {
+.site-nav a:hover,
+.site-nav .active a {
   color: #007acc;
+  border-bottom: 2px solid #007acc;
 }
 
 footer.site-footer {
@@ -370,18 +378,22 @@ footer.site-footer {
 
 .home .hero {
   background:
-    url('{{ "/assets/images/AI-in-marketing-how-marketers-can-benefit-from-artificial-intelligence-HERO.jpg" | relative_url }}')
+    url('{{ "/assets/images/AI-Marketing.webp" | relative_url }}')
     center/cover no-repeat;
+  height: 50vh;             /* limit height to half the viewport */
+  min-height: 300px;        /* never shrink below this */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  padding: 6rem 1rem;
-  color: white;
+  color: #fff;
 }
 
 .home .hero-overlay {
-  background: rgba(0,0,0,0.5);
-  display: inline-block;
-  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
   border-radius: 0.5rem;
+  max-width: 90%;
 }
 
 .home .hero h1 {
@@ -402,7 +414,8 @@ footer.site-footer {
 
 .card-img {
   width: 100%;
-  height: auto;
+  height: 150px;        /* fixed thumbnail height */
+  object-fit: cover;    /* crop&center the image */
   border-radius: 0.5rem 0.5rem 0 0;
   margin-bottom: 0.75rem;
 }
