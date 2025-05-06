@@ -12,7 +12,7 @@ title: AI Prompts for Marketing
   <article>
     <h2>📋 Prompt Library</h2>
     <p>Browse ready-to-use AI prompts for email, social, ads, and more →</p>
-    <a class="btn" href="/prompts/">See Prompts</a>
+    <a href="/library/">See Prompts →</a>
   </article>
 
   <article>
