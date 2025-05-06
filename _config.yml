@@ -34,6 +34,9 @@ collections:
     output: true
     permalink: /tool-reviews/:name/
 
+include:
+  - assets
+
 seo:
   title: "AI Prompts for Marketing"
   description: "High-ROI ChatGPT prompts, tutorials & tool reviews for marketers."
