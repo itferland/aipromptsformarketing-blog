@@ -16,6 +16,7 @@ Artificial Intelligence (AI) is rapidly transforming the way marketers approach 
 
 ## Prompt Engineering for Facebook Ads
 
+
 ## AI-Driven Audience Targeting
 
 One of the most significant advantages of using AI in Facebook Ads is the ability to refine your audience targeting. AI can help you pinpoint the exact demographics, interests, and behaviors that align with your ideal customers. Here’s how:
