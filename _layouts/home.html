@@ -2,17 +2,16 @@
 layout: default
 ---
 
-<section class="hero">
-  <!-- HOME_LAYOUT_ACTIVE -->
+<section class="hero hero-section">
   <div class="hero-overlay">
-    <h1>Turn AI into Your Secret Marketing Weapon</h1>
+    <h1>Turn <span class="ai-highlight">AI</span> into Your Secret Marketing Weapon</h1>
     <p class="hero-subhead">Whether you need high-ROI ad copy…</p>
   </div>
 </section>
 
-<div class="home-section two-cols">
+<div class="home-section container two-cols">
   <div class="col">
-    <h2>
+    <h2 class="section-title">
       <img src="/assets/icons/robot.svg" alt="" class="icon" />
       Tutorials
     </h2>
@@ -27,7 +26,7 @@ layout: default
     <a class="btn" href="/tutorials/">View All Tutorials</a>
   </div>
   <div class="col">
-    <h2>
+    <h2 class="section-title">
       <img src="/assets/icons/magnifier.svg" alt="" class="icon" />
       Tool Reviews
     </h2>
@@ -43,37 +42,22 @@ layout: default
   </div>
 </div>
 
-<div class="home-section post-grid">
-  <h2>Latest from the Blog</h2>
+<div class="home-section container post-grid">
+  <h2 class="section-title">Latest from the Blog</h2>
   <div class="grid">
-    {% comment %}
-      Loop over the latest 4 posts
-    {% endcomment %}
     {% for post in site.posts limit:4 %}
-      <article class="card">
-        {%- comment -%}
-          1) Grab the post’s cover_image front matter, if any.
-          2) If it’s missing or empty, fall back to a default.
-        {%- endcomment -%}
+      <article class="card blog-card">
         {% assign img = post.cover_image | default: site.default_image | default: "/assets/images/default-blog.jpg" %}
-        
         <a href="{{ post.url | relative_url }}">
-          <img 
-            src="{{ img | relative_url }}" 
-            alt="Cover for {{ post.title }}" 
-            class="card-img"
-          />
+          <img src="{{ img | relative_url }}" alt="Cover for {{ post.title }}" class="blog-card-image" />
         </a>
-        
-        <h3>
-          <a href="{{ post.url | relative_url }}">
-            {{ post.title }}
-          </a>
-        </h3>
-        <p class="excerpt">
-          {{ post.excerpt | strip_html | truncate: 100 }}
-        </p>
-        <a class="read-more" href="{{ post.url | relative_url }}">Read more →</a>
+        <div class="blog-card-content">
+          <h3 class="blog-card-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h3>
+          <p class="blog-card-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+          <a class="blog-card-readmore" href="{{ post.url | relative_url }}">Read more →</a>
+        </div>
       </article>
     {% endfor %}
   </div>
