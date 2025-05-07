@@ -46,17 +46,20 @@ layout: default
   <h2 class="section-title">Latest from the Blog</h2>
   <div class="grid">
     {% for post in site.posts limit:4 %}
-      <article class="card blog-card">
-        {% assign img = post.cover_image | default: site.default_image | default: "/assets/images/default-blog.jpg" %}
-        <img src="{{ img | relative_url }}" alt="Cover for {{ post.title }}" class="blog-card-image">
-        <div class="blog-card-content">
-          <h3 class="blog-card-title">
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          </h3>
-          <p class="blog-card-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
-          <a class="blog-card-readmore" href="{{ post.url | relative_url }}">Read more →</a>
-        </div>
-      </article>
+      <a href="{{ post.url | relative_url }}" class="blog-card-link" aria-label="Read more about {{ post.title }}">
+        <article class="card blog-card">
+          <img
+            src="{{ post.cover_image | default: '/assets/images/default-blog.jpg' }}"
+            alt="{{ post.title }}"
+            class="blog-card-image"
+          >
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">{{ post.title }}</h3>
+            <p class="blog-card-excerpt">{{ post.excerpt }}</p>
+            <span class="blog-card-readmore">Read more →</span>
+          </div>
+        </article>
+      </a>
     {% endfor %}
   </div>
   <a class="btn" href="/blog/">See All Posts</a>
