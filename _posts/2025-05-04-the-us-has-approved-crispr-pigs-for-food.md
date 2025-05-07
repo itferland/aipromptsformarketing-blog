@@ -1,7 +1,7 @@
 ---
 title: "The Us Has Approved Crispr Pigs For Food"
 date: 2025-05-04
-cover_image: "/assets/images/cover-crispr-pigs.jpg"
+cover_image: "/assets/images/cover-2025-05-04-the-us-has-approved-crispr-pigs-for-food.jpg"
 ---
 
 # The US has approved CRISPR pigs for food

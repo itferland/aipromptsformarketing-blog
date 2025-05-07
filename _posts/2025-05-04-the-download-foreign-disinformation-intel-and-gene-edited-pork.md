@@ -1,7 +1,7 @@
 ---
 title: "The Download Foreign Disinformation Intel And Gene Edited Pork"
 date: 2025-05-04
-cover_image: "/assets/images/cover-disinfo-pork.jpg"
+cover_image: "/assets/images/cover-2025-05-04-the-download-foreign-disinformation-intel-and-gene-edited-pork.jpg"
 ---
 
 # The Download: foreign disinformation intel, and gene-edited pork
