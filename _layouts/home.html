@@ -46,70 +46,36 @@ layout: default
 <div class="home-section post-grid">
   <h2>Latest from the Blog</h2>
   <div class="grid">
-    <article class="card">
-      {% assign img_path = post.cover_image %}
-      {% if img_path == nil or img_path == "" %}
-        {% assign img_path = "/assets/images/default-blog.jpg" %}
-      {% endif %}
-
-      <img
-        src="{{ img_path | relative_url }}"
-        alt="Cover for {{ post.title }}"
-        class="card-img"
-        onerror="this.onerror=null;this.src='{{ '/assets/images/default-blog.jpg' | relative_url }}'"
-      />
-      <h3><a href="/2025/05/04/the-us-has-approved-crispr-pigs-for-food.html">The Us Has Approved Crispr Pigs For Food</a></h3>
-      <p class="excerpt">The US has approved CRISPR pigs for food</p>
-      <a class="read-more" href="/2025/05/04/the-us-has-approved-crispr-pigs-for-food.html">Read more →</a>
-    </article>
-    <article class="card">
-      {% assign img_path = post.cover_image %}
-      {% if img_path == nil or img_path == "" %}
-        {% assign img_path = "/assets/images/default-blog.jpg" %}
-      {% endif %}
-
-      <img
-        src="{{ img_path | relative_url }}"
-        alt="Cover for {{ post.title }}"
-        class="card-img"
-        onerror="this.onerror=null;this.src='{{ '/assets/images/default-blog.jpg' | relative_url }}'"
-      />
-      <h3><a href="/2025/05/04/the-great-cognitive-migration-how-ai-is-reshaping-human-purpose-work-and-meaning.html">The Great Cognitive Migration How Ai Is Reshaping Human Purpose Work And Meaning</a></h3>
-      <p class="excerpt">The great cognitive migration: How AI is reshaping human purpose, work and meaning</p>
-      <a class="read-more" href="/2025/05/04/the-great-cognitive-migration-how-ai-is-reshaping-human-purpose-work-and-meaning.html">Read more →</a>
-    </article>
-    <article class="card">
-      {% assign img_path = post.cover_image %}
-      {% if img_path == nil or img_path == "" %}
-        {% assign img_path = "/assets/images/default-blog.jpg" %}
-      {% endif %}
-
-      <img
-        src="{{ img_path | relative_url }}"
-        alt="Cover for {{ post.title }}"
-        class="card-img"
-        onerror="this.onerror=null;this.src='{{ '/assets/images/default-blog.jpg' | relative_url }}'"
-      />
-      <h3><a href="/2025/05/04/the-fantasy-of-playing-final-fantasy.html">The Fantasy Of Playing Final Fantasy</a></h3>
-      <p class="excerpt">The fantasy of playing Final Fantasy</p>
-      <a class="read-more" href="/2025/05/04/the-fantasy-of-playing-final-fantasy.html">Read more →</a>
-    </article>
-    <article class="card">
-      {% assign img_path = post.cover_image %}
-      {% if img_path == nil or img_path == "" %}
-        {% assign img_path = "/assets/images/default-blog.jpg" %}
-      {% endif %}
-
-      <img
-        src="{{ img_path | relative_url }}"
-        alt="Cover for {{ post.title }}"
-        class="card-img"
-        onerror="this.onerror=null;this.src='{{ '/assets/images/default-blog.jpg' | relative_url }}'"
-      />
-      <h3><a href="/2025/05/04/the-download-foreign-disinformation-intel-and-gene-edited-pork.html">The Download Foreign Disinformation Intel And Gene Edited Pork</a></h3>
-      <p class="excerpt">The Download: foreign disinformation intel, and gene-edited pork</p>
-      <a class="read-more" href="/2025/05/04/the-download-foreign-disinformation-intel-and-gene-edited-pork.html">Read more →</a>
-    </article>
+    {% comment %}
+      Loop over the latest 4 posts
+    {% endcomment %}
+    {% for post in site.posts limit:4 %}
+      <article class="card">
+        {%- comment -%}
+          1) Grab the post’s cover_image front matter, if any.
+          2) If it’s missing or empty, fall back to a default.
+        {%- endcomment -%}
+        {% assign img = post.cover_image | default: site.default_image | default: "/assets/images/default-blog.jpg" %}
+        
+        <a href="{{ post.url | relative_url }}">
+          <img 
+            src="{{ img | relative_url }}" 
+            alt="Cover for {{ post.title }}" 
+            class="card-img"
+          />
+        </a>
+        
+        <h3>
+          <a href="{{ post.url | relative_url }}">
+            {{ post.title }}
+          </a>
+        </h3>
+        <p class="excerpt">
+          {{ post.excerpt | strip_html | truncate: 100 }}
+        </p>
+        <a class="read-more" href="{{ post.url | relative_url }}">Read more →</a>
+      </article>
+    {% endfor %}
   </div>
   <a class="btn" href="/blog/">See All Posts</a>
 </div>
