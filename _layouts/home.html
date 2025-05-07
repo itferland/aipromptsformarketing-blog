@@ -55,7 +55,7 @@ layout: default
           >
           <div class="blog-card-content">
             <h3 class="blog-card-title">{{ post.title }}</h3>
-            <p class="blog-card-excerpt">{{ post.excerpt }}</p>
+            <p class="blog-card-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
             <span class="blog-card-readmore">Read more →</span>
           </div>
         </article>
