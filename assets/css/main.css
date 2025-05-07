@@ -79,8 +79,8 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.6) 60%
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.2) 80%
   );
   pointer-events: none;
   z-index: 1;
@@ -91,6 +91,7 @@
 .home-section.post-grid .grid article.card .cover-title {
   position: relative;
   z-index: 2;
+  color: #fff;
 }
 
 /* Hover lift */
@@ -114,4 +115,17 @@
   text-decoration: none;
   border-radius: 0.25rem;
   margin: 1rem;
+}
+
+.post-grid .card {
+  background-color: #2a2a2a;
+}
+.post-grid .card::before {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 80%);
+}
+.post-grid .card h2,
+.post-grid .card .cover-title,
+.post-grid .card a,
+.post-grid .card p {
+  color: #fff;
 }
