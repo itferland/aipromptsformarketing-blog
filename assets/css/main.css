@@ -25,14 +25,18 @@
 }
 
 .home .hero {
-  background: url('/assets/images/AI-Marketing.webp') center/cover no-repeat;
+  background:
+    /* Top layer: Your gradient */
+    linear-gradient(135deg, rgba(35, 39, 42, 0.7), rgba(44, 47, 51, 0.85)), /* Added transparency to see image */
+    /* Bottom layer: Your image */
+    url(/assets/images/AI-Marketing.webp) center / cover no-repeat;
   height: 50vh;
   min-height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  color: #fff;
+  color: #fff; /* This color will apply to text inside */
 }
 .hero-overlay {
   background: rgba(0,0,0,0.5);
@@ -44,12 +48,12 @@
 
 /* Hero Section Enhancements */
 .hero-section {
-  background: linear-gradient(135deg, #23272A, #2C2F33); /* Dark tech gradient */
-  color: #fff;
-  padding: 40px 20px;
+  /* Removed background property to avoid conflict */
+  color: #fff; /* This is fine, could be redundant if .home .hero sets it */
+  padding: 40px 20px; /* Specific padding for this hero style */
   text-align: center;
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 198, 207, 0.4); /* Cyan glow */
+  box-shadow: 0 0 15px rgba(0, 198, 207, 0.4); /* The cyan glow */
   margin-bottom: 2rem;
 }
 
