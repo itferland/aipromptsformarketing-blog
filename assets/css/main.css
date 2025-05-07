@@ -234,6 +234,20 @@
   text-decoration: underline;
 }
 
+/* Force white background + shadow on blog cards */
+article.blog-card {
+  background-color: #fff !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+  overflow: hidden !important;
+}
+
+/* Ensure images display */
+article.blog-card img.blog-card-image {
+  display: block !important;
+  width: 100%;
+  height: auto;
+}
+
 /* General Layout Enhancements */
 .section-title {
   font-size: 2rem;
