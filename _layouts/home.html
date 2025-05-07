@@ -48,9 +48,7 @@ layout: default
     {% for post in site.posts limit:4 %}
       <article class="card blog-card">
         {% assign img = post.cover_image | default: site.default_image | default: "/assets/images/default-blog.jpg" %}
-        <a href="{{ post.url | relative_url }}">
-          <img src="{{ img | relative_url }}" alt="Cover for {{ post.title }}" class="blog-card-image" />
-        </a>
+        <img src="{{ img | relative_url }}" alt="Cover for {{ post.title }}" class="blog-card-image">
         <div class="blog-card-content">
           <h3 class="blog-card-title">
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
