@@ -47,6 +47,9 @@ layout: default
   <h2>Latest from the Blog</h2>
   <div class="grid">
     <article class="card">
+      <p style="color:red">
+        cover_image = {{ post.cover_image | default: "NOT SET" }}
+      </p>
       {% if post.cover_image %}
         <img src="{{ post.cover_image | relative_url }}"
              alt="Cover image for {{ post.title }}"
@@ -61,6 +64,9 @@ layout: default
       <a class="read-more" href="/2025/05/04/the-us-has-approved-crispr-pigs-for-food.html">Read more →</a>
     </article>
     <article class="card">
+      <p style="color:red">
+        cover_image = {{ post.cover_image | default: "NOT SET" }}
+      </p>
       {% if post.cover_image %}
         <img src="{{ post.cover_image | relative_url }}"
              alt="Cover image for {{ post.title }}"
@@ -75,6 +81,9 @@ layout: default
       <a class="read-more" href="/2025/05/04/the-great-cognitive-migration-how-ai-is-reshaping-human-purpose-work-and-meaning.html">Read more →</a>
     </article>
     <article class="card">
+      <p style="color:red">
+        cover_image = {{ post.cover_image | default: "NOT SET" }}
+      </p>
       {% if post.cover_image %}
         <img src="{{ post.cover_image | relative_url }}"
              alt="Cover image for {{ post.title }}"
@@ -89,6 +98,9 @@ layout: default
       <a class="read-more" href="/2025/05/04/the-fantasy-of-playing-final-fantasy.html">Read more →</a>
     </article>
     <article class="card">
+      <p style="color:red">
+        cover_image = {{ post.cover_image | default: "NOT SET" }}
+      </p>
       {% if post.cover_image %}
         <img src="{{ post.cover_image | relative_url }}"
              alt="Cover image for {{ post.title }}"
