@@ -13,10 +13,9 @@
     {{ content }}  {# This is where the Markdown content of your review page will be injected #}
 
     {% if page.affiliate_url %}
-    {% assign sep = page.affiliate_url contains "?" | default: false | if true then "&" else "?" %}
     <p class="cta">
       <a class="btn"
-         href="{{ page.affiliate_url }}{{ sep }}ref=aipromptsformarketing"
+         href="{{ page.affiliate_url }}{% if page.affiliate_url contains "?" %}&{% else %}?{% endif %}ref=aipromptsformarketing"
          target="_blank" rel="noopener">
         Try {{ page.tool_name | default: page.title | split: ":" | last | strip }} now →
       </a>

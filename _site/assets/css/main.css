@@ -1,0 +1,294 @@
+/* assets/css/main.css */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  margin: 0;
+  justify-content: center;
+}
+.site-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+.site-nav a:hover {
+  color: #007acc;
+}
+
+.home .hero {
+  background:
+    /* Top layer: Your gradient */
+    linear-gradient(135deg, rgba(35, 39, 42, 0.7), rgba(44, 47, 51, 0.85)), /* Added transparency to see image */
+    /* Bottom layer: Your image */
+    url(/assets/images/AI-Marketing.jpg) center / cover no-repeat;
+  height: 50vh;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #fff; /* This color will apply to text inside */
+}
+.hero-overlay {
+  background: rgba(0,0,0,0.5);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  max-width: 90%;
+  text-align: center;
+}
+
+/* Hero Section Enhancements */
+.hero-section {
+  /* Removed background property to avoid conflict */
+  color: #fff; /* This is fine, could be redundant if .home .hero sets it */
+  padding: 40px 20px; /* Specific padding for this hero style */
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 198, 207, 0.4); /* The cyan glow */
+  margin-bottom: 2rem;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero-section h1 .ai-highlight {
+  color: #00C6CF; /* Cyan accent for "AI" */
+  font-family: 'Orbitron', sans-serif; /* Example futuristic font */
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.two-cols {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 1rem;
+}
+.two-cols .col { flex: 1; }
+
+.post-grid .card-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.post-grid .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  margin: 2rem auto;
+  max-width: 1140px;
+  padding: 20px;
+}
+
+/* Post grid cards (more specific selector) */
+.home-section.post-grid .grid article.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Gradient overlay */
+.home-section.post-grid .grid article.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.2) 80%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Title above overlay */
+.home-section.post-grid .grid article.card h2,
+.home-section.post-grid .grid article.card .cover-title {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+/* Hover lift */
+.home-section.post-grid .grid article.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* Ensure images cover fully */
+.home-section.post-grid .grid article.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Global Container */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #00AFFF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #007ACC;
+  transform: scale(1.05);
+}
+
+.post-grid .card {
+  background-color: #2a2a2a;
+}
+.post-grid .card::before {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 80%);
+}
+.post-grid .card h2,
+.post-grid .card .cover-title,
+.post-grid .card a,
+.post-grid .card p {
+  color: #fff;
+}
+
+/* Blog Card Enhancements */
+.blog-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.blog-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.blog-card-content {
+  padding: 15px 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.blog-card-excerpt {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.blog-card-readmore {
+  display: inline-block;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+.blog-card-readmore:hover {
+  text-decoration: underline;
+}
+
+/* Force white background + shadow on blog cards */
+article.blog-card {
+  background-color: #fff !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+  overflow: hidden !important;
+}
+
+/* Ensure images display */
+article.blog-card img.blog-card-image {
+  display: block !important;
+  width: 100%;
+  height: auto;
+}
+
+/* Blog Card Image Consistency */
+article.card.blog-card img.blog-card-image {
+  display: block;
+  width: 100%;
+  height: 200px; /* Fixed height for consistent card sizes */
+  object-fit: cover; /* Ensures images are cropped to fit the area */
+}
+
+/* Blog Card Read More Link */
+.blog-card-readmore {
+  display: inline-block; /* Allows for padding/margin if styled like a button */
+  margin-top: 0.5rem; /* Adds a bit of space above it */
+  font-weight: bold;
+  color: #007bff; /* Accent color for links */
+  text-decoration: none;
+}
+.blog-card-readmore:hover {
+  text-decoration: underline;
+}
+
+/* General Layout Enhancements */
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #333;
+}
+
+.section-title .ai-highlight {
+  color: #6A0DAD; /* Deep purple accent */
+  font-family: 'Orbitron', sans-serif;
+}
+
+.section-title + .post-grid {
+  margin-top: 2rem;
+}
+
+.section-title .icon {
+  width: 2rem;           /* Set the width of the icon */
+  height: 2rem;          /* Set the height of the icon */
+  vertical-align: middle; /* Align the icon vertically with text */
+  margin-right: 0.5rem;  /* Add spacing between the icon and text */
+}
