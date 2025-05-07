@@ -62,46 +62,45 @@
   margin: 2rem 1rem;
 }
 
-/* Post grid cards */
-.post-grid .card {
+/* Post grid cards (more specific selector) */
+.home-section.post-grid .grid article.card {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;                    /* soften the corners */
-  background-color: #2a2a2a;             /* your dark card bg */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);  /* soft drop shadow */
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: 3px solid red !important;      /* debugging: this should give every card a red border */
 }
 
-/* Optional: gradient overlay to help white title pop */
-.post-grid .card::before {
+/* Gradient overlay */
+.home-section.post-grid .grid article.card::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.2) 0%,
-    rgba(0,0,0,0.6) 60%
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.6) 60%
   );
   pointer-events: none;
   z-index: 1;
 }
 
-/* Ensure your title text sits above the gradient */
-.post-grid .card h2,
-.post-grid .card .cover-title {
+/* Title above overlay */
+.home-section.post-grid .grid article.card h2,
+.home-section.post-grid .grid article.card .cover-title {
   position: relative;
   z-index: 2;
 }
 
-/* Hover effect: subtle lift */
-.post-grid .card:hover {
+/* Hover lift */
+.home-section.post-grid .grid article.card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
 }
 
-/* Image inside card (if you use <img>) stays full-cover */
-.post-grid .card img {
+/* Ensure images cover fully */
+.home-section.post-grid .grid article.card img {
   display: block;
   width: 100%;
   height: auto;
