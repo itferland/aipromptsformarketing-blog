@@ -248,6 +248,26 @@ article.blog-card img.blog-card-image {
   height: auto;
 }
 
+/* Blog Card Image Consistency */
+article.card.blog-card img.blog-card-image {
+  display: block;
+  width: 100%;
+  height: 200px; /* Fixed height for consistent card sizes */
+  object-fit: cover; /* Ensures images are cropped to fit the area */
+}
+
+/* Blog Card Read More Link */
+.blog-card-readmore {
+  display: inline-block; /* Allows for padding/margin if styled like a button */
+  margin-top: 0.5rem; /* Adds a bit of space above it */
+  font-weight: bold;
+  color: #007bff; /* Accent color for links */
+  text-decoration: none;
+}
+.blog-card-readmore:hover {
+  text-decoration: underline;
+}
+
 /* General Layout Enhancements */
 .section-title {
   font-size: 2rem;
