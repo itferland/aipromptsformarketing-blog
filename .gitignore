@@ -1,0 +1,9 @@
+# ignore dependencies
+node_modules/
+
+# Jekyll build output
+_site/
+
+# OS / editor temp
+.DS_Store
+*.log
