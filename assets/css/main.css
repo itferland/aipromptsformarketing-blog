@@ -115,3 +115,68 @@ a:hover, a:focus {
 
 /* Hero Section Enhancements */
 .hero
+
+/* Styling for Homepage "Tutorials" & "Tool Reviews" Sections */
+
+/* Section Titles */
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.5rem; /* Space before the list */
+  display: flex;
+  align-items: center;
+}
+
+.section-title .icon {
+  width: 2rem;
+  height: 2rem;
+  vertical-align: middle;
+  margin-right: 0.75rem; /* Space between icon and text */
+}
+
+/* Lists within Tutorials and Tool Reviews Sections */
+.tutorials-section ul,
+.tool-reviews-section ul {
+  list-style-type: none; /* Remove default bullets */
+  padding-left: 0; /* Remove default padding */
+  margin-bottom: 1.5rem; /* Space before the "View All" button */
+}
+
+.tutorials-section ul li,
+.tool-reviews-section ul li {
+  margin-bottom: 0.75rem; /* Space between list items */
+}
+
+.tutorials-section ul li a,
+.tool-reviews-section ul li a {
+  font-family: 'Open Sans', sans-serif; /* Body or link font */
+  color: #007bff; /* Accent color */
+  text-decoration: none;
+  font-size: 1rem; /* Adjust as needed */
+  transition: color 0.2s ease;
+}
+
+.tutorials-section ul li a:hover,
+.tool-reviews-section ul li a:hover {
+  color: #0056b3; /* Darker shade of blue */
+  text-decoration: underline;
+}
+
+/* Buttons */
+.tutorials-section .btn,
+.tool-reviews-section .btn {
+  margin-top: 1rem; /* Space above buttons */
+}
+
+/* Two-Column Layout */
+.two-column-layout {
+  display: flex;
+  gap: 2rem; /* Space between columns */
+  margin-bottom: 3rem; /* Space before next major section */
+}
+
+.two-column-layout .column {
+  flex: 1; /* Equal column width */
+}
