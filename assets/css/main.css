@@ -298,3 +298,28 @@ article.card.blog-card img.blog-card-image::after {
   vertical-align: middle; /* Align the icon vertically with text */
   margin-right: 0.5rem;  /* Add spacing between the icon and text */
 }
+
+/* 1) Kill any ::before on blog cards */
+.post-grid .card.blog-card::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* 2) Ensure the card and its content area are white */
+.post-grid .card.blog-card,
+.post-grid .card.blog-card .blog-card-content {
+  background-color: #fff !important;
+}
+
+/* 3) Reinstate the card’s drop shadow */
+.post-grid .card.blog-card {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+  overflow: hidden !important;
+}
+
+/* 4) Make sure images show at full width */
+.post-grid .card.blog-card img.blog-card-image {
+  display: block !important;
+  width: 100%;
+  height: auto;
+}
