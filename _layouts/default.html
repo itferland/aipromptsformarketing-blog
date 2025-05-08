@@ -4,17 +4,17 @@
   <body class="{{ page.layout }}{% if page.sidebar %} with-sidebar{% endif %}">
     {% include header.html %}
 
-    <main class="page-content" aria-label="Content" style="padding: 20px;">
+    <main class="main-content container" aria-label="Content">
       <div class="wrapper">
         {{ content }}
       </div>
     </main>
 
-    <footer class="site-footer h-card" role="contentinfo" style="background-color: #f9f9f9; padding: 20px; text-align: center;">
+    <footer class="site-footer h-card" role="contentinfo">
       <div class="wrapper">
         {% include footer.html %}
       </div>
-      <div class="ad-footer" style="text-align: center; margin: 20px 0;">
+      <div class="ad-footer">
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-XXXXXXXXXXXXXXX"
