@@ -1,0 +1,26 @@
+name: AI Update
+
+on:
+  schedule:
+    - cron: '0 0 * * *'    # daily at midnight UTC
+  workflow_dispatch:      # allows manual runs
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install deps
+        run: npm install openai @octokit/rest
+
+      - name: Run AI script and commit changes
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node .github/scripts/ai-update.js
