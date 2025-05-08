@@ -33,10 +33,10 @@ jobs:
       # 4) Run your Node.js script, passing the required API keys/tokens as environment variables
       - name: Run AI update script
         env:
-          # ---- THIS IS THE KEY CHANGE ----
-          # Pass the Groq API key stored in GitHub Secrets
-          # The environment variable name matches what your script expects (process.env.GROQ_API_KEY)
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          # ---- THIS IS THE UPDATED LINE ----
+          # Pass the Groq API key stored in the GitHub Secret named GROQ_API_KEY2
+          # The environment variable name the script uses (process.env.GROQ_API_KEY) is unchanged.
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY2 }} # Use the NEW secret name here
 
           # Pass the GitHub token needed for Octokit to commit changes back to the repo
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
