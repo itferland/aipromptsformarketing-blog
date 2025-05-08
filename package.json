@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "**I. Introduction**",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,7 +19,7 @@
   },
   "homepage": "https://github.com/itferland/aipromptsformarketing-blog#readme",
   "dependencies": {
-    "@octokit/rest": "^21.1.1",
-    "openai": "^4.98.0"
+    "openai": "^4.98.0",
+    "@octokit/rest": "^21.1.1"
   }
 }
