@@ -3,43 +3,47 @@ import fs from 'fs';
 import { Octokit } from '@octokit/rest';
 import OpenAI from 'openai';
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-const octo   = new Octokit({ auth: process.env.GITHUB_TOKEN });
+// ← Use your Groq key and endpoint here
+const openai = new OpenAI({
+  apiKey: process.env.GROQ_API_KEY,
+  apiBaseUrl: 'https://api.groq.dev/v1'
+});
+
+const octo = new Octokit({ auth: process.env.GITHUB_TOKEN });
 const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
 
 async function main() {
   const filePath = 'tool-reviews/index.md';
 
-  // Bail early if path is wrong
   if (!fs.existsSync(filePath)) {
     console.error(`❌ File not found: ${filePath}`);
     process.exit(1);
   }
 
-  // Read the current content
   const oldContent = fs.readFileSync(filePath, 'utf8');
 
-  // Ask GPT to update/fix it (e.g. headings, Liquid tags, links)
-  const response = await openai.chat.completions.create({
-    model: 'gpt-4o-mini',
-    messages: [
-      { role: 'system', content: 'You’re a concise Jekyll content maintainer.' },
-      { role: 'user', content: `Review and improve this Markdown page:\n\n${oldContent}` }
-    ]
-  });
+  let response;
+  try {
+    response = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',       // Groq supports this name
+      messages: [
+        { role: 'system', content: 'You’re a concise Jekyll content maintainer.' },
+        { role: 'user',   content: `Review and improve this Markdown page:\n\n${oldContent}` }
+      ]
+    });
+  } catch (err) {
+    if (err.code === 'insufficient_quota' || err.status === 429) {
+      console.warn('⚠️  Groq quota hit or rate-limited; skipping update.');
+      return;
+    }
+    throw err;
+  }
 
   const newContent = response.choices[0].message.content;
-
-  // If GPT changed anything, write + commit
   if (newContent !== oldContent) {
     fs.writeFileSync(filePath, newContent, 'utf8');
 
-    // Get the file’s latest SHA
-    const {
-      data: { sha }
-    } = await octo.repos.getContent({ owner, repo, path: filePath });
-
-    // Push the update back to GitHub
+    const { data: { sha } } = await octo.repos.getContent({ owner, repo, path: filePath });
     await octo.repos.createOrUpdateFileContents({
       owner,
       repo,
