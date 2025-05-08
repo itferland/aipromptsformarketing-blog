@@ -1,26 +1,35 @@
+# File: .github/workflows/ai-update.yml
 name: AI Update
 
+# Trigger on a daily schedule + allow manual runs
 on:
   schedule:
-    - cron: '0 0 * * *'    # daily at midnight UTC
-  workflow_dispatch:      # allows manual runs
+    - cron: '0 0 * * *'    # every day at midnight UTC
+  workflow_dispatch:      # lets you run it by hand in the Actions UI
 
 jobs:
   generate:
+    name: Generate & Commit AI Updates
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
 
+    steps:
+      # 1) Grab your code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2) Install Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
 
-      - name: Install deps
+      # 3) Install the two libs your script needs
+      - name: Install dependencies
         run: npm install openai @octokit/rest
 
-      - name: Run AI script and commit changes
+      # 4) Run your script (it reads files, calls OpenAI, and pushes any changes)
+      - name: Run AI update script
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN:    ${{ secrets.GITHUB_TOKEN }}
         run: node .github/scripts/ai-update.js
