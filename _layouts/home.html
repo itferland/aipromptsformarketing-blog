@@ -6,65 +6,69 @@
   {% include head.html %}
 </head>
 
-<section class="hero hero-section">
-  <div class="hero-overlay">
-    <h1>Turn <span class="ai-highlight">AI</span> into Your Secret Marketing Weapon</h1>
-    <p class="hero-subhead">Whether you need high-ROI ad copy…</p>
-  </div>
-</section>
+<body class="home">
+  {% include header.html %} <!-- Added the main navigation header -->
 
-<div class="home-section container two-cols">
-  <div class="col">
-    <h2 class="section-title">
-      <img src="{{ '/assets/images/icons/robot.svg' | relative_url }}" alt="" class="icon" width="32" height="32" />
-      Tutorials
-    </h2>
-    <ul>
-      <li>
-        <a href="/tutorials/automating-your-email-sequence-with-ai/">Automating Your Email Sequence with AI: A Practical Guide</a>
-      </li>
-      <li>
-        <a href="/tutorials/getting-started-chatgpt-for-marketing/">Getting Started with ChatGPT for Marketing</a>
-      </li>
-    </ul>
-    <a class="btn" href="/tutorials/">View All Tutorials</a>
-  </div>
-  <div class="col">
-    <h2 class="section-title">
-      <img src="{{ '/assets/images/icons/magnifier.svg' | relative_url }}" alt="" class="icon" width="32" height="32" />
-      Tool Reviews
-    </h2>
-    <ul>
-      <li>
-        <a href="/tool-reviews/promptperfect-hands-on-test/">PromptPerfect: A Hands-On Test</a>
-      </li>
-      <li>
-        <a href="/tool-reviews/deepdive-jasper-ai-review/">DeepDive: Jasper.ai Review</a>
-      </li>
-    </ul>
-    <a class="btn" href="/tool-reviews/">View All Reviews</a>
-  </div>
-</div>
+  <section class="hero hero-section">
+    <div class="hero-overlay">
+      <h1>Turn <span class="ai-highlight">AI</span> into Your Secret Marketing Weapon</h1>
+      <p class="hero-subhead">Whether you need high-ROI ad copy…</p>
+    </div>
+  </section>
 
-<div class="home-section container post-grid">
-  <h2 class="section-title">Latest from the Blog</h2>
-  <div class="grid">
-    {% for post in site.posts limit:4 %}
-      <a href="{{ post.url | relative_url }}" class="blog-card-link" aria-label="Read more about {{ post.title }}">
-        <article class="card blog-card">
-          <img
-            src="{{ post.cover_image | default: '/assets/images/default-blog.jpg' }}"
-            alt="{{ post.title }}"
-            class="blog-card-image"
-          >
-          <div class="blog-card-content">
-            <h3 class="blog-card-title">{{ post.title }}</h3>
-            <p class="blog-card-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
-            <span class="blog-card-readmore">Read more →</span>
-          </div>
-        </article>
-      </a>
-    {% endfor %}
+  <div class="home-section container two-cols">
+    <div class="col">
+      <h2 class="section-title">
+        <img src="{{ '/assets/images/icons/robot.svg' | relative_url }}" alt="" class="icon" width="32" height="32" />
+        Tutorials
+      </h2>
+      <ul>
+        <li>
+          <a href="/tutorials/automating-your-email-sequence-with-ai/">Automating Your Email Sequence with AI: A Practical Guide</a>
+        </li>
+        <li>
+          <a href="/tutorials/getting-started-chatgpt-for-marketing/">Getting Started with ChatGPT for Marketing</a>
+        </li>
+      </ul>
+      <a class="btn" href="/tutorials/">View All Tutorials</a>
+    </div>
+    <div class="col">
+      <h2 class="section-title">
+        <img src="{{ '/assets/images/icons/magnifier.svg' | relative_url }}" alt="" class="icon" width="32" height="32" />
+        Tool Reviews
+      </h2>
+      <ul>
+        <li>
+          <a href="/tool-reviews/promptperfect-hands-on-test/">PromptPerfect: A Hands-On Test</a>
+        </li>
+        <li>
+          <a href="/tool-reviews/deepdive-jasper-ai-review/">DeepDive: Jasper.ai Review</a>
+        </li>
+      </ul>
+      <a class="btn" href="/tool-reviews/">View All Reviews</a>
+    </div>
   </div>
-  <a class="btn" href="/blog/">See All Posts</a>
-</div>
+
+  <div class="home-section container post-grid">
+    <h2 class="section-title">Latest from the Blog</h2>
+    <div class="grid">
+      {% for post in site.posts limit:4 %}
+        <a href="{{ post.url | relative_url }}" class="blog-card-link" aria-label="Read more about {{ post.title }}">
+          <article class="card blog-card">
+            <img
+              src="{{ post.cover_image | default: '/assets/images/default-blog.jpg' }}"
+              alt="{{ post.title }}"
+              class="blog-card-image"
+            >
+            <div class="blog-card-content">
+              <h3 class="blog-card-title">{{ post.title }}</h3>
+              <p class="blog-card-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+              <span class="blog-card-readmore">Read more →</span>
+            </div>
+          </article>
+        </a>
+      {% endfor %}
+    </div>
+    <a class="btn" href="/blog/">See All Posts</a>
+  </div>
+</body>
