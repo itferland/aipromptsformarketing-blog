@@ -25,7 +25,7 @@ async function main() {
   let response;
   try {
     response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',       // Groq supports this name
+      model: 'llama3-8b-8192', // Use a valid Groq model
       messages: [
         { role: 'system', content: 'You’re a concise Jekyll content maintainer.' },
         { role: 'user',   content: `Review and improve this Markdown page:\n\n${oldContent}` }
