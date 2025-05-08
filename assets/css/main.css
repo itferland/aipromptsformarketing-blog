@@ -115,7 +115,14 @@ a:hover, a:focus {
 
 /* Hero Section Enhancements */
 .hero-section {
-  /* Removed background property to avoid conflict */
+  background:
+    linear-gradient(135deg, rgba(35, 39, 42, 0.7), rgba(44, 47, 51, 0.85)),
+    url(/assets/images/AI-Marketing.jpg) center / cover no-repeat;
+  height: 50vh;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #fff; /* This is fine, could be redundant if .home .hero sets it */
   padding: 40px 20px; /* Specific padding for this hero style */
   text-align: center;
