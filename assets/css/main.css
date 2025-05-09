@@ -116,20 +116,31 @@ a:hover, a:focus {
 /* Hero Section Enhancements */
 .hero
 
-/* Styling for Homepage "Tutorials" & "Tool Reviews" Sections */
-
-/* Section Titles */
-.section-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 1.5rem; /* Space before the list */
-  display: flex;
-  align-items: center;
+/* Styling for Homepage "Tutorials" & "Tool Reviews" Sections container */
+/* Two-Column Layout Container */
+.home-section.two-cols {
+  display: flex; /* Use Flexbox */
+  gap: 2rem; /* Space between columns, adjust as needed */
+  margin-bottom: 3rem; /* Space before the next section */
+  flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
 }
 
-.section-title .icon {
+.home-section.two-cols .col {
+  flex: 1; /* Allow columns to grow and shrink */
+  min-width: 300px; /* Ensure columns don't get too narrow */
+}
+
+/* Section Titles */
+.home-section .section-title {
+  /* Existing styles should apply: font-family, font-size, font-weight, color, display, align-items */
+  margin-bottom: 1.5rem; /* Space before the list */
+}
+
+/* Icons within Section Titles */
+.home-section .section-title .icon {
+  /* Existing styles should apply: width, height, vertical-align, margin-right */
+}
+
   width: 2rem;
   height: 2rem;
   vertical-align: middle;
@@ -137,22 +148,21 @@ a:hover, a:focus {
 }
 
 /* Lists within Tutorials and Tool Reviews Sections */
-.tutorials-section ul,
-.tool-reviews-section ul {
+.home-section.two-cols .col ul {
   list-style-type: none; /* Remove default bullets */
   padding-left: 0; /* Remove default padding */
   margin-bottom: 1.5rem; /* Space before the "View All" button */
 }
 
-.tutorials-section ul li,
-.tool-reviews-section ul li {
+.home-section.two-cols .col ul li {
   margin-bottom: 0.75rem; /* Space between list items */
 }
 
-.tutorials-section ul li a,
-.tool-reviews-section ul li a {
+.home-section.two-cols .col ul li a {
   font-family: 'Open Sans', sans-serif; /* Body or link font */
-  color: #007bff; /* Accent color */
+  /* Existing color: #007bff; or #00AFFF; */
+  /* Using the blue from your existing button styles, confirm #007bff is preferred */
+  color: #007bff;
   text-decoration: none;
   font-size: 1rem; /* Adjust as needed */
   transition: color 0.2s ease;
@@ -165,18 +175,9 @@ a:hover, a:focus {
 }
 
 /* Buttons */
-.tutorials-section .btn,
-.tool-reviews-section .btn {
+.home-section.two-cols .col .btn {
   margin-top: 1rem; /* Space above buttons */
 }
 
 /* Two-Column Layout */
-.two-column-layout {
-  display: flex;
-  gap: 2rem; /* Space between columns */
-  margin-bottom: 3rem; /* Space before next major section */
-}
-
-.two-column-layout .column {
-  flex: 1; /* Equal column width */
-}
+/* Note: .two-column-layout and .two-column-layout .column seem to be remnants or alternative approach. The .home-section.two-cols rules above handle the layout for these specific sections. */
