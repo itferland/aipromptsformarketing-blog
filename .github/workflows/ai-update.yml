@@ -4,32 +4,40 @@ name: AI Update
 # Trigger on a daily schedule + allow manual runs
 on:
   schedule:
-    - cron: '0 0 * * *'    # every day at midnight UTC
-  workflow_dispatch:      # lets you run it by hand in the Actions UI
+    # Runs "at minute 0 past hour 0" (i.e., midnight) UTC every day.
+    - cron: '0 0 * * *'
+  workflow_dispatch: # lets you run it by hand in the Actions UI
 
 jobs:
   generate:
     name: Generate & Commit AI Updates
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
 
     steps:
-      # 1) Grab your code
+      # 1) Grab your code from the repository
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3 # Use version 3 of the checkout action
 
-      # 2) Install Node.js
+      # 2) Set up the specific Node.js environment needed
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v3 # Use version 3 of the Node setup action
         with:
-          node-version: '16'
+          node-version: '16' # Or replace '16' with the Node.js version your script requires
 
-      # 3) Install the two libs your script needs
+      # 3) Install the necessary Node.js packages
+      # Assumes your script needs 'openai' (for Groq compatibility) and '@octokit/rest'
+      # If you have a package.json, running 'npm ci' or 'npm install' might be better.
       - name: Install dependencies
         run: npm install openai @octokit/rest
 
-      # 4) Run your script (it reads files, calls OpenAI, and pushes any changes)
+      # 4) Run your Node.js script, passing the required API keys/tokens as environment variables
       - name: Run AI update script
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          GITHUB_TOKEN:    ${{ secrets.GITHUB_TOKEN }}
-        run: node .github/scripts/ai-update.js
+          # ---- THIS IS THE UPDATED LINE ----
+          # Pass the Groq API key stored in the GitHub Secret named GROQ_API_KEY2
+          # The environment variable name the script uses (process.env.GROQ_API_KEY) is unchanged.
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY2 }} # Use the NEW secret name here
+
+          # Pass the GitHub token needed for Octokit to commit changes back to the repo
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node .github/scripts/ai-update.js # Execute your script
