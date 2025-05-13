@@ -1,34 +1,22 @@
 /* assets/css/main.css */
 .site-header {
   background-color: #2C2F33 !important; /* Dark charcoal */
- padding: 1rem 0 !important;
+  padding: 1rem 0 !important;
   position: sticky !important;
- top: 0 !important;
+  top: 0 !important;
   z-index: 1000 !important; /* High z-index */
 }
 
 .site-header nav a {
   color: #E0E0E0 !important;
   text-decoration: none !important;
-  padding: 0.5rem 1rem !important;
-  font-weight: bold !important;
-}
-
-  text-decoration: none;
   padding: 0.5rem 1rem;
   transition: color 0.2s ease;
+  font-weight: bold !important;
 }
 
 .site-header nav a:hover,
 .site-header nav a:focus {
-  color: #00C6CF !important;
-/* Cyan hover */
-}
-
-.site-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
   padding: 0.75rem 1rem;
   margin: 0;
   justify-content: center;
@@ -91,25 +79,42 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
-.home .hero {
-  background:
-    /* Top layer: Your gradient */
-    linear-gradient(135deg, rgba(35, 39, 42, 0.7), rgba(44, 47, 51, 0.85)), /* Added transparency to see image */
-    /* Bottom layer: Your image */
-    url(/assets/images/AI-Marketing.jpg) center / cover no-repeat;
-  height: 50vh;
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  color: #fff; /* This color will apply to text inside */
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/AI-Marketing.jpg') no-repeat center center fixed !important;
+  background-size: cover !important;
+  color: white !important;
+  padding: 4rem 1rem !important;
+  text-align: center !important;
 }
+
 .hero-overlay {
-  background: rgba(0,0,0,0.65); /* Increased opacity for better contrast */
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  max-width: 90%;
+  background-color: rgba(0, 0, 0, 0.6) !important; /* Semi-transparent dark background */
+  padding: 2rem !important;
+  border-radius: 8px !important;
+  display: inline-block !important; /* Wrap around content */
+  backdrop-filter: blur(5px) !important; /* Frosted glass effect */
+  box-shadow: 0 0 20px rgba(0, 198, 207, 0.7) !important; /* Cyan glow */
+}
+
+.hero-overlay h1 {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 2.8rem !important;
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+  color: #FFFFFF !important; /* Ensure white color */
+}
+
+.hero-overlay h1 .ai-highlight {
+  color: #00C6CF !important; /* Cyan color for highlight */
+}
+
+.hero-overlay .hero-subhead, .hero-overlay p {
+  font-size: 1.2rem !important;
+  line-height: 1.6 !important;
+  color: #E0E0E0 !important; /* Light grey color */
+  margin-bottom: 0 !important;
+}
+.home .hero {
   text-align: center;
 }
 
