@@ -1,0 +1,61 @@
+<!-- ... end of your hero-section ... -->
+    </section>
+
+    <section class="under-hero-navigation container">
+      <nav class="site-nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/prompt-library/">Prompt Library</a></li>
+          <li><a href="/tutorials/">Tutorials</a></li>
+          <li><a href="/tool-reviews/">Tool Reviews</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <div class="home-section container two-cols">
+    <!-- ... rest of the homepage content ... -->
+    </div>
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.author -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+      {%- endif -%}
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {%- comment -%} <!-- Optional: Add related posts, comments, etc. here -->
+    {% if site.related_posts.size > 0 %}
+      <div class="related-posts">
+        <h2>Related Posts</h2>
+        <ul>
+          {% for related_post in site.related_posts limit:3 %}
+            <li>
+              <h3>
+                <a href="{{ related_post.url | relative_url }}">
+                  {{ related_post.title | escape }}
+                </a>
+              </h3>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {%- endcomment -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>

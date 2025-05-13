@@ -1,34 +1,23 @@
+*   Save the `_layouts/home.html` file.
 /* assets/css/main.css */
 .site-header {
   background-color: #2C2F33 !important; /* Dark charcoal */
-  padding: 1rem 0;
-  border-bottom: 1px solid #444;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  padding: 1rem 0 !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important; /* High z-index */
 }
 
 .site-header nav a {
-  color: #E0E0E0 !important; /* Light grey */
-  text-decoration: none;
+  color: #E0E0E0 !important;
+  text-decoration: none !important;
   padding: 0.5rem 1rem;
   transition: color 0.2s ease;
+  font-weight: bold !important;
 }
 
 .site-header nav a:hover,
 .site-header nav a:focus {
-  color: #00C6CF !important; /* Cyan hover */
-}
-
-.site-header nav a.active {
-  color: #fff !important;
-  font-weight: bold;
-}
-
-.site-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
   padding: 0.75rem 1rem;
   margin: 0;
   justify-content: center;
@@ -91,93 +80,234 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
-.home .hero {
-  background:
-    /* Top layer: Your gradient */
-    linear-gradient(135deg, rgba(35, 39, 42, 0.7), rgba(44, 47, 51, 0.85)), /* Added transparency to see image */
-    /* Bottom layer: Your image */
-    url(/assets/images/AI-Marketing.jpg) center / cover no-repeat;
-  height: 50vh;
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  color: #fff; /* This color will apply to text inside */
-}
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/AI-Marketing.jpg') no-repeat center center fixed !important;
+  background-size: cover !important;
+  color: white !important;
+  padding: 3rem 1rem !important; /* Adjusted padding */
+ min-height: 45vh !important; /* Adjusted min-height to reduce overall height */
+  text-align: center !important; /* Ensure center alignment */
+} /* Closing the .hero-section rule */
+
 .hero-overlay {
-  background: rgba(0,0,0,0.65); /* Increased opacity for better contrast */
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  max-width: 90%;
-  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6) !important; /* Semi-transparent dark background */
+  padding: 2rem !important;
+  border-radius: 8px !important;
+  display: inline-block !important;
+  backdrop-filter: blur(5px) !important; /* Frosted glass effect */
+  box-shadow: 0 0 20px rgba(0, 198, 207, 0.7) !important; /* Cyan glow */
 }
 
-/* Hero Section Enhancements */
-.hero
+.hero-overlay h1 {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 2.8rem !important;
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+  color: #FFFFFF !important; /* Ensure white color */
+}
+
+.hero-overlay h1 .ai-highlight {
+  color: #00C6CF !important; /* Cyan color for highlight */
+}
+
+.hero-overlay .hero-subhead, .hero-overlay p {
+  font-size: 1.2rem !important;
+  line-height: 1.6 !important;
+  color: #E0E0E0 !important; /* Light grey color */
+  margin-bottom: 0 !important;
+} 
+
+/* === Under Hero Navigation (Homepage) === */
+.under-hero-navigation {
+  padding: 2rem 0; /* Add some vertical space around this nav section */
+  text-align: center; /* Helps center the ul if it's inline-block/flex */
+  border-bottom: 1px solid #e0e0e0; /* Optional: subtle separator line */
+  margin-bottom: 3rem; /* Space before next content section */
+}
+
+.under-hero-navigation .site-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex; /* Make the ul itself only as wide as its items, and enable flex for items */
+  flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+  justify-content: center; /* Center the flex items (li) within the ul */
+  gap: 1.5rem; /* Space between list items (li) - replaces individual margins */
+}
+
+.under-hero-navigation .site-nav ul li {
+  /* margin-left: 0; /* Remove if using gap on ul */
+  /* No specific margin needed here now due to 'gap' on ul */
+}
+
+.under-hero-navigation .site-nav ul li a {
+  font-family: 'Poppins', sans-serif; /* Or your chosen nav font */
+  font-weight: bold;
+  font-size: 1rem; /* Adjust as needed */
+  color: #333; /* Dark color for text on light background */
+  text-decoration: none;
+  padding: 0.5rem 0.75rem; /* Padding for clickable area */
+  border-radius: 4px; /* Optional: slight rounding if you want pill-like links */
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.under-hero-navigation .site-nav ul li a:hover,
+.under-hero-navigation .site-nav ul li a:focus,
+.under-hero-navigation .site-nav ul li a.active { /* If you have an active class */
+  color: #007bff; /* Your primary blue accent on hover/active */
+  /* background-color: #f0f0f0; /* Optional: slight background on hover */
+  text-decoration: none; /* Keep no underline or add one if preferred */
+}
+
+/* Adjust original .site-header nav styles if they are too general and conflict */
+/* For example, you might want to scope them more like: */
+/*
+.site-header .site-nav nav a {
+  color: #E0E0E0 !important; /* For the top bar if it still has other items or a logo */
+/* ... etc.
+}
+*/
+
+/* Your existing .site-header (top bar) might now just need padding or could be simpler */
+.site-header {
+  background-color: #2C2F33 !important;
+  padding: 0.75rem 0 !important; /* Reduced padding if only logo or minimal items remain */
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+/* If the top bar .site-header NO LONGER contains .site-nav because you moved it,
+   you might not need any of the .site-header nav ul, .site-header nav li rules anymore,
+   OR they only apply if that nav *is* in the .site-header on *other* pages. */
+
+/* === Blog Card Styling === */
+
+.blog-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block; /* Important for the link to properly wrap the card */
+  height: 100%; /* Make the link fill the card if cards are equal height */
+}
+
+article.card.blog-card {
+  background-color: #fff !important; /* Ensure it's white */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* To help align items in a grid row to same height */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+article.card.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15) !important;
+}
+
+img.blog-card-image {
+  display: block !important; /* Good practice */
+  width: 100% !important;    /* Make image fill container width */
+  height: 200px !important;  /* << SET YOUR DESIRED FIXED HEIGHT for the image area */
+  object-fit: cover !important; /* << CRUCIAL: Scales image to cover, crops to fit the height/width */
+  background-color: #e0e0e0; /* Fallback */
+}
+/* Add a rule to hide the faint title text overlay (adjust selector if needed) */
+/* This needs to target the specific pseudo-element the theme uses */
+
+.blog-card-content {
+  padding: 15px 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+.blog-card-title a { /* Links inside title */
+  color: inherit;
+  text-decoration: none;
+}
+.blog-card-title a:hover {
+  color: #007bff; /* Or your accent */
+  text-decoration: underline;
+}
+
+.blog-card-excerpt {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+.blog-card-readmore {
+  font-weight: bold;
+  color: #007bff; /* Or your accent */
+  margin-top: auto; /* Pushes to bottom */
+  align-self: flex-start;
+}
 
 /* Styling for Homepage "Tutorials" & "Tool Reviews" Sections container */
 /* Two-Column Layout Container */
 .home-section.two-cols {
   display: flex; /* Use Flexbox */
+  flex-wrap: wrap; /* Allow columns to wrap on smaller screens if needed */
   gap: 2rem; /* Space between columns, adjust as needed */
   margin-bottom: 3rem; /* Space before the next section */
-  flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
-}
+} 
+
 
 .home-section.two-cols .col {
   flex: 1; /* Allow columns to grow and shrink */
-  min-width: 300px; /* Ensure columns don't get too narrow */
+  min-width: 280px; /* Ensure columns don't get too narrow before wrapping */
 }
 
 /* Section Titles */
 .home-section .section-title {
-  /* Existing styles should apply: font-family, font-size, font-weight, color, display, align-items */
-  margin-bottom: 1.5rem; /* Space before the list */
+  /* Ensure existing styles apply: font-family, font-size, font-weight, color, display, align-items */
 }
 
-/* Icons within Section Titles */
-.home-section .section-title .icon {
-  /* Existing styles should apply: width, height, vertical-align, margin-right */
-}
-
-  width: 2rem;
-  height: 2rem;
-  vertical-align: middle;
-  margin-right: 0.75rem; /* Space between icon and text */
-}
-
-/* Lists within Tutorials and Tool Reviews Sections */
-.home-section.two-cols .col ul {
-  list-style-type: none; /* Remove default bullets */
-  padding-left: 0; /* Remove default padding */
-  margin-bottom: 1.5rem; /* Space before the "View All" button */
-}
-
-.home-section.two-cols .col ul li {
-  margin-bottom: 0.75rem; /* Space between list items */
-}
-
-.home-section.two-cols .col ul li a {
-  font-family: 'Open Sans', sans-serif; /* Body or link font */
-  /* Existing color: #007bff; or #00AFFF; */
-  /* Using the blue from your existing button styles, confirm #007bff is preferred */
-  color: #007bff;
-  text-decoration: none;
-  font-size: 1rem; /* Adjust as needed */
-  transition: color 0.2s ease;
-}
-
-.tutorials-section ul li a:hover,
-.tool-reviews-section ul li a:hover {
-  color: #0056b3; /* Darker shade of blue */
-  text-decoration: underline;
-}
-
-/* Buttons */
-.home-section.two-cols .col .btn {
-  margin-top: 1rem; /* Space above buttons */
-}
 
 /* Two-Column Layout */
 /* Note: .two-column-layout and .two-column-layout .column seem to be remnants or alternative approach. The .home-section.two-cols rules above handle the layout for these specific sections. */
+
+/* For the "Latest from the Blog" card grid */
+/* Targeting the inner .grid div within the post-grid section */
+.home-section.post-grid .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+  gap: 2rem; /* Space between blog cards */
+  margin-top: 1.5rem; /* Space below the "Latest from the Blog" H2 */
+}
+/* End of added layout styles */
+
+/* Note: Other existing CSS rules from your file are not included in this diff for brevity but are assumed to be present. */
+
+/* Ensure the following CSS rules for the blog card grid are present and use !important to increase specificity: */
+
+.home-section.post-grid .grid { /* Targeting the inner .grid div */
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 2rem !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 2rem !important;
+}
+
+a.blog-card-link {
+  display: block;
+  height: 100%;
+}
+
+article.card.blog-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
