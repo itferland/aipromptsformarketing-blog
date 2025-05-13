@@ -83,7 +83,7 @@ a:hover, a:focus {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/AI-Marketing.jpg') no-repeat center center fixed !important;
   background-size: cover !important;
   color: white !important;
-  padding: 4rem 1rem !important;
+  padding: 3rem 1rem !important; /* Adjusted padding */
  min-height: 45vh !important; /* Adjusted min-height to reduce overall height */
   text-align: center !important;
 }
@@ -114,7 +114,8 @@ a:hover, a:focus {
   line-height: 1.6 !important;
   color: #E0E0E0 !important; /* Light grey color */
   margin-bottom: 0 !important;
-} /* Removed redundant .home .hero rule */
+} 
+/* Removed redundant .home .hero rule below */
   text-align: center;
 }
 
@@ -126,6 +127,8 @@ img.blog-card-image { /* Or use a more specific selector if needed: article.card
   height: 200px !important;  /* << SET YOUR DESIRED FIXED HEIGHT for the image area */
   object-fit: cover !important; /* << CRUCIAL: Scales image to cover, crops to fit the height/width */
 }
+/* Add a rule to hide the faint title text overlay (adjust selector if needed) */
+/* This needs to target the specific pseudo-element the theme uses */
 
 /* Hero Section Enhancements */
 .hero
@@ -137,8 +140,8 @@ img.blog-card-image { /* Or use a more specific selector if needed: article.card
   gap: 2rem; /* Space between columns, adjust as needed */
   margin-bottom: 3rem; /* Space before the next section */
   flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
-}
-/* Added specific min-height for hero section to control vertical space */
+} 
+
 
 .home-section.two-cols .col {
   flex: 1; /* Allow columns to grow and shrink */
@@ -146,7 +149,7 @@ img.blog-card-image { /* Or use a more specific selector if needed: article.card
 
 /* Section Titles */
 .home-section .section-title {
-  /* Existing styles should apply: font-family, font-size, font-weight, color, display, align-items */
+  /* Ensure existing styles apply: font-family, font-size, font-weight, color, display, align-items */
   margin-bottom: 1.5rem; /* Space before the list */
 }
 
@@ -155,10 +158,10 @@ img.blog-card-image { /* Or use a more specific selector if needed: article.card
   /* Existing styles should apply: width, height, vertical-align, margin-right */
 }
 
-  width: 2rem;
+/* Moved from inside .home-section .section-title .icon rule */
+/* width: 2rem; */
   height: 2rem;
   vertical-align: middle;
-  margin-right: 0.75rem; /* Space between icon and text */
 }
 
 /* Lists within Tutorials and Tool Reviews Sections */
@@ -173,10 +176,10 @@ img.blog-card-image { /* Or use a more specific selector if needed: article.card
 }
 
 .home-section.two-cols .col ul li a {
-  font-family: 'Open Sans', sans-serif; /* Body or link font */
-  /* Existing color: #007bff; or #00AFFF; */
+  font-family: 'Open Sans', sans-serif !important; /* Body or link font */
+  /* Existing color: #007bff; or #00AFFF; Ensure your desired link color is used */
   /* Using the blue from your existing button styles, confirm #007bff is preferred */
-  color: #007bff;
+  color: #007bff !important; /* Blue link color */
   text-decoration: none;
   font-size: 1rem; /* Adjust as needed */
   transition: color 0.2s ease;
@@ -184,7 +187,7 @@ img.blog-card-image { /* Or use a more specific selector if needed: article.card
 
 .tutorials-section ul li a:hover,
 .tool-reviews-section ul li a:hover {
-  color: #0056b3; /* Darker shade of blue */
+  color: #0056b3 !important; /* Darker shade of blue */
   text-decoration: underline;
 }
 
@@ -192,6 +195,7 @@ img.blog-card-image { /* Or use a more specific selector if needed: article.card
 .home-section.two-cols .col .btn {
   margin-top: 1rem; /* Space above buttons */
 }
+
 
 /* Two-Column Layout */
 /* Note: .two-column-layout and .two-column-layout .column seem to be remnants or alternative approach. The .home-section.two-cols rules above handle the layout for these specific sections. */
