@@ -83,7 +83,8 @@ a:hover, a:focus {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/AI-Marketing.jpg') no-repeat center center fixed !important;
   background-size: cover !important;
   color: white !important;
- padding: 4rem 1rem !important; /* Adjusted padding */
+  padding: 4rem 1rem !important;
+ min-height: 45vh !important; /* Adjusted min-height to reduce overall height */
   text-align: center !important;
 }
 
