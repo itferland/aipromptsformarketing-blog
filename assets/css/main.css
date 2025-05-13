@@ -118,6 +118,15 @@ a:hover, a:focus {
   text-align: center;
 }
 
+/* === Blog Card Styling === */
+
+img.blog-card-image { /* Or use a more specific selector if needed: article.card.blog-card img.blog-card-image */
+  display: block !important; /* Good practice */
+  width: 100% !important;    /* Make image fill container width */
+  height: 200px !important;  /* << SET YOUR DESIRED FIXED HEIGHT for the image area */
+  object-fit: cover !important; /* << CRUCIAL: Scales image to cover, crops to fit the height/width */
+}
+
 /* Hero Section Enhancements */
 .hero
 
