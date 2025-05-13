@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<!-- Ensure the document is rendered in Standards Mode -->
-
-  <!-- _includes/head.html -->
-<head>
-  <meta charset="utf-8">
-  ... rest of head content ...
-</head>
-
-<body class="home">
-  ... body content ...
-</body>
+img.blog-card-image {
+          width: 100% !important;
+          height: 200px !important; /* Fixed height for images */
+          object-fit: cover !important;
+          background-color: #e0e0e0 !important; /* Fallback */
+        }
 /* assets/css/main.css */
 .site-header {
   background-color: #2C2F33 !important; /* Dark charcoal */
