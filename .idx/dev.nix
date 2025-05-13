@@ -6,6 +6,14 @@
 
   # Use https://search.nixos.org/packages to find packages
   packages = [
+    pkgs.ruby_3_2 # Or the specific Ruby version your Gemfile needs (e.g., ruby_3_1, ruby_3_0)
+                  # Check your Gemfile for a line like "ruby '~> 3.2.0'"
+    pkgs.bundler
+    pkgs.gcc # For compiling native extensions for some gems
+    pkgs.gnumake # For compiling native extensions
+    pkgs.libxml2 # Often needed by Nokogiri
+    pkgs.libxslt # Often needed by Nokogiri
+    pkgs.pkg-config # Tool to help configure build dependencies
     # pkgs.go
     # pkgs.python311
     # pkgs.python311Packages.pip
@@ -13,7 +21,6 @@
     # pkgs.nodePackages.nodemon
   ];
 
-  # Sets environment variables in the workspace
   env = {};
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
@@ -21,29 +28,24 @@
       # "vscodevim.vim"
     ];
 
-    # Enable previews
     previews = {
       enable = true;
       previews = {
-        # web = {
-        #   # Example: run "npm run dev" with PORT set to IDX's defined port for previews,
-        #   # and show it in IDX's web preview panel
-        #   command = ["npm" "run" "dev"];
-        #   manager = "web";
-        #   env = {
-        #     # Environment variables to set for your server
-        #     PORT = "$PORT";
-        #   };
-        # };
+        # For Jekyll, the command is usually `bundle exec jekyll serve ...`
+        jekyll = {
+          # Command to start Jekyll server for preview
+          command = ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--port", "$PORT", "--livereload", "--trace"];
+          manager = "web"; # Tells IDX this is a web server
+          # No extra env vars needed here typically for Jekyll beyond what IDX provides for $PORT
+        };
       };
     };
 
-    # Workspace lifecycle hooks
     workspace = {
-      # Runs when a workspace is first created
+      # Runs when a workspace is first created, and also after dev.nix changes if you rebuild
       onCreate = {
-        # Example: install JS dependencies from NPM
-        # npm-install = "npm install";
+        bundle-install = "bundle config set --local without 'production' && bundle install"; # Install gems
+        # If you need to ensure specific permissions or other one-time setup
       };
       # Runs when the workspace is (re)started
       onStart = {
