@@ -1,3 +1,4 @@
+nix
 # To learn more about how to use Nix to configure your environment
 # see: https://firebase.google.com/docs/studio/customize-workspace
 { pkgs, ... }: {
@@ -6,10 +7,13 @@
 
   # Use https://search.nixos.org/packages to find packages
   packages = [
+    pkgs.ruby
+    pkgs.rubyPackages.bundler
     # pkgs.go
     # pkgs.python311
     # pkgs.python311Packages.pip
-    # pkgs.nodejs_20
+    pkgs.nodejs_20
+    pkgs.nodePackages.npm # or pkgs.nodePackages.yarn depending on your project
     # pkgs.nodePackages.nodemon
   ];
 
