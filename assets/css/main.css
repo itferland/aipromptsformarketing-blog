@@ -83,7 +83,7 @@ a:hover, a:focus {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/AI-Marketing.jpg') no-repeat center center fixed !important;
   background-size: cover !important;
   color: white !important;
-  padding: 6rem 1rem !important; /* Adjusted padding */
+ padding: 4rem 1rem !important; /* Adjusted padding */
   text-align: center !important;
 }
 
@@ -114,7 +114,6 @@ a:hover, a:focus {
   color: #E0E0E0 !important; /* Light grey color */
   margin-bottom: 0 !important;
 } /* Removed redundant .home .hero rule */
-.home .hero {
   text-align: center;
 }
 
@@ -130,9 +129,6 @@ a:hover, a:focus {
   flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
 }
 /* Added specific min-height for hero section to control vertical space */
-.hero-section {
-  min-height: 40vh !important; /* Reduced min-height */
-}
 
 .home-section.two-cols .col {
   flex: 1; /* Allow columns to grow and shrink */
