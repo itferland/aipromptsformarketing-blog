@@ -1,21 +1,6 @@
-<header class="site-header">...</header>
-
-<section class="hero-section">
-  <div class="hero-overlay">
-    ... Hero content (title, subhead) ...
-  </div>
-  ... any other hero-specific elements ...
-</section>
-
-<div class="home-section container two-cols">
-  ... Tutorials and Tool Reviews content ...
-</div>
-
-<div class="home-section container post-grid">
-  ... Latest from the Blog content (blog cards) ...
-</div>
-
-<footer>...</footer>
+/* --- HEIGHT CONTROL - Option 1: Use Padding to define height --- */
+    padding: 60px 20px !important; /* Adjust 60px for desired top/bottom space */
+    min-height: auto !important; /* Remove any fixed min-height if using padding for height */
 /* assets/css/main.css */
 .site-header {
   background-color: #2C2F33 !important; /* Dark charcoal */
