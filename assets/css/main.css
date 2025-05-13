@@ -83,7 +83,7 @@ a:hover, a:focus {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/AI-Marketing.jpg') no-repeat center center fixed !important;
   background-size: cover !important;
   color: white !important;
-  padding: 4rem 1rem !important;
+  padding: 6rem 1rem !important; /* Adjusted padding */
   text-align: center !important;
 }
 
@@ -91,7 +91,7 @@ a:hover, a:focus {
   background-color: rgba(0, 0, 0, 0.6) !important; /* Semi-transparent dark background */
   padding: 2rem !important;
   border-radius: 8px !important;
-  display: inline-block !important; /* Wrap around content */
+  display: inline-block !important;
   backdrop-filter: blur(5px) !important; /* Frosted glass effect */
   box-shadow: 0 0 20px rgba(0, 198, 207, 0.7) !important; /* Cyan glow */
 }
@@ -113,7 +113,7 @@ a:hover, a:focus {
   line-height: 1.6 !important;
   color: #E0E0E0 !important; /* Light grey color */
   margin-bottom: 0 !important;
-}
+} /* Removed redundant .home .hero rule */
 .home .hero {
   text-align: center;
 }
@@ -129,11 +129,14 @@ a:hover, a:focus {
   margin-bottom: 3rem; /* Space before the next section */
   flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
 }
+/* Added specific min-height for hero section to control vertical space */
+.hero-section {
+  min-height: 40vh !important; /* Reduced min-height */
+}
 
 .home-section.two-cols .col {
   flex: 1; /* Allow columns to grow and shrink */
   min-width: 300px; /* Ensure columns don't get too narrow */
-}
 
 /* Section Titles */
 .home-section .section-title {
