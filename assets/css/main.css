@@ -1,9 +1,4 @@
-img.blog-card-image {
-          width: 100% !important;
-          height: 200px !important; /* Fixed height for images */
-          object-fit: cover !important;
-          background-color: #e0e0e0 !important; /* Fallback */
-        }
+*   Save the `_layouts/home.html` file.
 /* assets/css/main.css */
 .site-header {
   background-color: #2C2F33 !important; /* Dark charcoal */
