@@ -122,6 +122,69 @@ a:hover, a:focus {
   margin-bottom: 0 !important;
 } 
 
+/* === Under Hero Navigation (Homepage) === */
+.under-hero-navigation {
+  padding: 2rem 0; /* Add some vertical space around this nav section */
+  text-align: center; /* Helps center the ul if it's inline-block/flex */
+  border-bottom: 1px solid #e0e0e0; /* Optional: subtle separator line */
+  margin-bottom: 3rem; /* Space before next content section */
+}
+
+.under-hero-navigation .site-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex; /* Make the ul itself only as wide as its items, and enable flex for items */
+  flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+  justify-content: center; /* Center the flex items (li) within the ul */
+  gap: 1.5rem; /* Space between list items (li) - replaces individual margins */
+}
+
+.under-hero-navigation .site-nav ul li {
+  /* margin-left: 0; /* Remove if using gap on ul */
+  /* No specific margin needed here now due to 'gap' on ul */
+}
+
+.under-hero-navigation .site-nav ul li a {
+  font-family: 'Poppins', sans-serif; /* Or your chosen nav font */
+  font-weight: bold;
+  font-size: 1rem; /* Adjust as needed */
+  color: #333; /* Dark color for text on light background */
+  text-decoration: none;
+  padding: 0.5rem 0.75rem; /* Padding for clickable area */
+  border-radius: 4px; /* Optional: slight rounding if you want pill-like links */
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.under-hero-navigation .site-nav ul li a:hover,
+.under-hero-navigation .site-nav ul li a:focus,
+.under-hero-navigation .site-nav ul li a.active { /* If you have an active class */
+  color: #007bff; /* Your primary blue accent on hover/active */
+  /* background-color: #f0f0f0; /* Optional: slight background on hover */
+  text-decoration: none; /* Keep no underline or add one if preferred */
+}
+
+/* Adjust original .site-header nav styles if they are too general and conflict */
+/* For example, you might want to scope them more like: */
+/*
+.site-header .site-nav nav a {
+  color: #E0E0E0 !important; /* For the top bar if it still has other items or a logo */
+/* ... etc.
+}
+*/
+
+/* Your existing .site-header (top bar) might now just need padding or could be simpler */
+.site-header {
+  background-color: #2C2F33 !important;
+  padding: 0.75rem 0 !important; /* Reduced padding if only logo or minimal items remain */
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+/* If the top bar .site-header NO LONGER contains .site-nav because you moved it,
+   you might not need any of the .site-header nav ul, .site-header nav li rules anymore,
+   OR they only apply if that nav *is* in the .site-header on *other* pages. */
+
 /* === Blog Card Styling === */
 
 .blog-card-link {
