@@ -1,6 +1,15 @@
-/* --- HEIGHT CONTROL - Option 1: Use Padding to define height --- */
-    padding: 60px 20px !important; /* Adjust 60px for desired top/bottom space */
-    min-height: auto !important; /* Remove any fixed min-height if using padding for height */
+<!DOCTYPE html>
+<!-- Ensure the document is rendered in Standards Mode -->
+
+  <!-- _includes/head.html -->
+<head>
+  <meta charset="utf-8">
+  ... rest of head content ...
+</head>
+
+<body class="home">
+  ... body content ...
+</body>
 /* assets/css/main.css */
 .site-header {
   background-color: #2C2F33 !important; /* Dark charcoal */
