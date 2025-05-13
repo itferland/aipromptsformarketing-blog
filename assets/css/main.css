@@ -226,3 +226,24 @@ img.blog-card-image {
 /* End of added layout styles */
 
 /* Note: Other existing CSS rules from your file are not included in this diff for brevity but are assumed to be present. */
+
+/* Ensure the following CSS rules for the blog card grid are present and use !important to increase specificity: */
+
+.home-section.post-grid .grid { /* Targeting the inner .grid div */
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 2rem !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 2rem !important;
+}
+
+a.blog-card-link {
+  display: block;
+  height: 100%;
+}
+
+article.card.blog-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
