@@ -56,4 +56,13 @@
       }; # No semicolon needed as 'onStart' is the last attribute in 'workspace' set
     }; # No semicolon needed as 'workspace' is the last attribute in 'idx' set
   }; # No semicolon needed as 'idx' is the last attribute in the top-level set
-}
+}nix
+# Runs when a workspace is first created, and also after dev.nix changes if IDX triggers a rebuild
+onCreate = {
+  # Configure bundler to not install 'production' group gems (if any)
+  # and then install all other gems specified in your Gemfile.
+  bundle-install = ''
+    bundle config set --local without 'production'
+    bundle install --verbose --force # Add --force to recompile native extensions
+  '';
+};
