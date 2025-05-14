@@ -57,6 +57,8 @@
     }; # No semicolon needed as 'workspace' is the last attribute in 'idx' set
   }; # No semicolon needed as 'idx' is the last attribute in the top-level set
 }nix
+59   onCreate = {
+
 # Runs when a workspace is first created, and also after dev.nix changes if IDX triggers a rebuild
 onCreate nix
     # Workspace lifecycle hooks
