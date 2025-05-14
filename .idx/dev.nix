@@ -58,7 +58,23 @@
   }; # No semicolon needed as 'idx' is the last attribute in the top-level set
 }nix
 # Runs when a workspace is first created, and also after dev.nix changes if IDX triggers a rebuild
-onCreate = {
+onCreate nix
+    # Workspace lifecycle hooks
+    workspace = {
+      # Runs when a workspace is first created, and also after dev.nix changes if IDX triggers a rebuild
+      onCreate = {
+        bundle-install = "bundle config set --local path 'vendor/bundle' && bundle config set --local without 'production' && bundle install --verbose";
+      };
+      # Runs when the workspace is (re)started
+      onStart = {
+        # You could automatically start the Jekyll server here if you always want it running.
+        # However, manually starting it via the "Previews" panel or terminal gives more control.
+        # start-jekyll = "echo 'Starting Jekyll server...' && bundle exec jekyll serve --host 0.0.0.0 --port $PORT --livereload";
+      };
+    }; **;** <--- Add semicolon here
+  }; # This is the closing brace for the 'idx' attribute set
+} # This is the closing brace for the main attribute set
+= {
   # Configure bundler to not install 'production' group gems (if any)
   # and then install all other gems specified in your Gemfile.
   bundle-install = ''
