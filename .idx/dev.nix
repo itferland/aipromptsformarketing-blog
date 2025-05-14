@@ -26,7 +26,7 @@
 
   idx = {
     extensions = [
-      "rebornix.Ruby",
+      "rebornix.Ruby"
       "castwide.solargraph"
       # "vscodevim.vim"
     ]; # Semicolon needed as 'previews' follows
