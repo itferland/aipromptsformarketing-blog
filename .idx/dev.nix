@@ -7,8 +7,7 @@
   # Use https://search.nixos.org/packages to find packages
   packages = [
     # --- Ruby and Jekyll Dependencies ---
-    pkgs.ruby_3_2  # IMPORTANT: Verify this matches your Gemfile (e.g., ruby_3_1, ruby_3_0)
-                   # If Gemfile has `ruby "~> 3.2.0"`, then pkgs.ruby_3_2 is good.
+    pkgs.ruby_3_1  # IMPORTANT: VERIFY THIS MATCHES YOUR Gemfile (e.g., ruby_3_1, ruby_3_0)
     pkgs.bundler
     pkgs.gcc         # For compiling native extensions for some gems
     pkgs.gnumake     # For compiling native extensions
@@ -37,9 +36,9 @@
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
-      "rebornix.Ruby",        # Recommended VS Code extension for Ruby
-      "castwide.solargraph",  # Ruby intellisense and language server
-      # "vscodevim.vim"     # If you use Vim keybindings
+      "rebornix.Ruby",
+      "castwide.solargraph"  # NO TRAILING COMMA if "vscodevim.vim" below is commented out
+      # "vscodevim.vim"     # If you use Vim keybindings (currently commented out)
     ];
 
     # Enable previews for Jekyll
@@ -66,7 +65,7 @@
       onCreate = {
         # Configure bundler to not install 'production' group gems (if any)
         # and then install all other gems specified in your Gemfile.
-        bundle-install = "bundle config set --local without 'production' && bundle install";
+        bundle-install = "bundle config set --local without 'production' && bundle install --verbose"; # Added --verbose
       };
       # Runs when the workspace is (re)started
       onStart = {
