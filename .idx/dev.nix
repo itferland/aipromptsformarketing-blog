@@ -48,7 +48,20 @@
         jekyll = {
           # Command to start Jekyll server for preview within IDX
           command = [
-            "bundle", "exec", "jekyll", "serve",
+            "bundle", "exec", "jekyll", "serve",nix
+command = [
+  "bundle", "exec", "jekyll", "serve",
+  "--host", "0.0.0.0",
+  "--port", "$PORT",
+  "--livereload",
+  "--trace"
+];
+# Command to start Jekyll server for preview within IDX
+# Makes it accessible within IDX's network
+# IDX provides $PORT environment variable
+# Auto-refresh browser on changes
+# More detailed error output from Jekyll
+
             "--host", "0.0.0.0",         # Makes it accessible within IDX's network
             "--port", "$PORT",           # IDX provides $PORT environment variable
             "--livereload",              # Auto-refresh browser on changes
