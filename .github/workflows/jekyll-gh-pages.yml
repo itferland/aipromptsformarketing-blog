@@ -28,7 +28,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2' # IMPORTANT: Change this to match your Gemfile or desired Ruby version (e.g., '3.1')
+          ruby-version: '3.1' # IMPORTANT: Change this to match your Gemfile or desired Ruby version (e.g., '3.1')
           bundler-cache: true # Runs 'bundle install' and caches installed gems automatically
 
       - name: Setup Pages
