@@ -56,15 +56,6 @@
       }; # No semicolon needed as 'onStart' is the last attribute in 'workspace' set
     }; # No semicolon needed as 'workspace' is the last attribute in 'idx' set
  }; # No semicolon needed as 'idx' is the last attribute in the top-level set
-}; # No semicolon needed as 'idx' is the last attribute in the top-level set
-
-# Runs when a workspace is first created, and also after dev.nix changes if IDX triggers a rebuild
-onCreate nix
-    # Workspace lifecycle hooks
-    workspace = {
-      # Runs when a workspace is first created, and also after dev.nix changes if IDX triggers a rebuild
-      onCreate = {
-        bundle-install = "bundle config set --local path 'vendor/bundle' && bundle config set --local without 'production' && bundle install --verbose";
       };
       # Runs when the workspace is (re)started
       onStart = {
