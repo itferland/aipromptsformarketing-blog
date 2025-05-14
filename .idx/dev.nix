@@ -46,17 +46,9 @@
       enable = true;
       previews = {
         jekyll = {
-          # Command to start Jekyll server for preview within IDX
           command = [
-            "bundle", "exec", "jekyll", "serve",nix
-command = [
-  "bundle", "exec", "jekyll", "serve",
-  "--host", "0.0.0.0",
-  "--port", "$PORT",
-  "--livereload",
-  "--trace"
-];
-# Command to start Jekyll server for preview within IDX
+            "bundle", "exec", "jekyll", "serve",
+
 # Makes it accessible within IDX's network
 # IDX provides $PORT environment variable
 # Auto-refresh browser on changes
