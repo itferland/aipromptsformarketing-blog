@@ -55,7 +55,7 @@
         # start-jekyll = "echo 'Starting Jekyll server...' && bundle exec jekyll serve --host 0.0.0.0 --port $PORT --livereload";
       }; # No semicolon needed as 'onStart' is the last attribute in 'workspace' set
     }; # No semicolon needed as 'workspace' is the last attribute in 'idx' set
-  }; # No semicolon needed as 'idx' is the last attribute in the top-level set
+ }; # No semicolon needed as 'idx' is the last attribute in the top-level set
 }; # No semicolon needed as 'idx' is the last attribute in the top-level set
 
 # Runs when a workspace is first created, and also after dev.nix changes if IDX triggers a rebuild
