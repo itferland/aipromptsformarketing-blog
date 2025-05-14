@@ -19,6 +19,7 @@
     pkgs.nodejs_20
     pkgs.nodePackages.npm
   ]; # Semicolon needed as 'env' follows
+This grants the `GITHUB_TOKEN` used in this workflow the permission to read and write to the repository's contents.
 
   env = {
     # NOKOGIRI_USE_SYSTEM_LIBRARIES = "true";
