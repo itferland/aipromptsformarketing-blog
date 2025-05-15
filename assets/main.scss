@@ -10,10 +10,17 @@ body {
   line-height: 1.6;
 }
 
+@keyframes heroFade {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 /* Hero Section */
 .hero {
   background: linear-gradient(135deg, #f0f4ff 0%, #dbeafe 100%);
+  background-size: 200% 200%;
+  animation: heroFade 15s ease infinite;
   padding: 6rem 1rem 8rem;
 
   h1 {
@@ -35,7 +42,7 @@ body {
     margin: 0 auto;
   }
 }
-       
+
 /* Button Styles */
 .button {
   display: inline-block;
