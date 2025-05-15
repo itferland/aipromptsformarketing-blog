@@ -27,11 +27,28 @@ body {
     background-position: 0% 50%;
   }
 }
+/* Header Styles */
+.site-header .container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+}
+.site-header .desktop-nav {
+  gap: 1.5rem;
+}
+
 /* Hero Section */
 .hero {
   background: #f8fafc;
   padding: 4rem 1rem;
+  text-align: center;
   /* Lottie Illustration */
+}
+.hero .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .hero h1 {
   color: #1a365d;
@@ -51,6 +68,9 @@ body {
 .hero .hero-illustration {
   width: 300px;
   margin: 0 auto;
+}
+.hero .stats {
+  justify-content: center;
 }
 
 /* Button Styles */
@@ -76,6 +96,7 @@ body {
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #e2e8f0;
+  text-align: center;
 }
 .prompt-card.skeleton {
   background-color: #e2e8f0;
@@ -83,6 +104,11 @@ body {
 }
 .prompt-card.skeleton > * {
   visibility: hidden;
+}
+.prompt-card .card-footer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .prompt-card:hover {
@@ -113,6 +139,17 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
+}
+.prompts-grid .grid {
+  justify-content: center;
+}
+
+/* Footer Styles */
+.site-footer .footer-columns {
+  text-align: center;
+}
+.site-footer .footer-columns .social-icons {
+  justify-content: center;
 }
 
 /* Header Styles */
