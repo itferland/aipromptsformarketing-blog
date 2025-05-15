@@ -1,83 +1,367 @@
-/* --- Hero Section (Keeping your existing background image structure) --- */
-.hero-section {
-  /* Using your existing background image, potentially with a warmer dark overlay for text contrast */
-  background: linear-gradient(rgba(60, 40, 30, 0.65), rgba(80, 50, 40, 0.75)), /* Subtle WARM dark overlay (from Deep Brown tones) */
-              url('../images/AI-Marketing.jpg') no-repeat center center fixed !important; /* YOUR CURRENT HERO IMAGE */
-  /*
-  IMPORTANT FOR GRADIENT HIGHLIGHTS ON GRAPHICS (nodes, icons, AI letter parts):
-  The warm gradients on the specific 'x' marked areas in your image
-  would best be achieved by EDITING THE 'AI-Marketing.jpg' IMAGE ITSELF
-  in a graphics program to incorporate those warm highlights directly.
-  CSS cannot easily color specific parts of a single raster background image.
-  */
-  background-size: cover !important;
-  color: #FFF8DC !important; /* Cream/Off-White text for contrast on dark hero - NEW */
-  padding: 4rem 1rem !important;
-  min-height: 50vh !important;
-  text-align: center !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* assets/css/main.css - Complete Styling for aipromptsformarketing.net */
 
-.hero-overlay { /* The container for your hero headline and sub-headline */
-  background-color: rgba(92, 64, 51, 0.7) !important; /* Semi-transparent Deep Brown - provides a good base for cream text - NEW */
-  padding: 2rem !important;
-  border-radius: 8px !important;
-  display: inline-block !important;
-  /* backdrop-filter: blur(3px) !important; /* Optional: Frosted glass effect if you like it */
-  box-shadow: 0 0 25px rgba(255, 165, 0, 0.65) !important; /* Rich Orange glow for the text box - NEW */
-}
+/* === Palette Reminders (Hex Codes Used) === */
+/* Cream/Off-White: #FFF8DC (Cornsilk) */
+/* Fiery Red: #FF4500 (OrangeRed) */
+/* Rich Orange: #FFA500 (Standard Orange) */
+/* Golden Yellow/Orange: #FFD700 (Gold) */
+/* Deep Brown: #5C4033 (Dark Warm Brown) */
+/* Leafy Green: #2E8B57 (SeaGreen) */
 
-.hero-overlay h1 { /* Your "Turn AI into Your Secret Marketing Weapon" */
-  font-family: 'Poppins', sans-serif !important; /* As per our font choice - NEW */
-  font-size: 2.8rem !important; /* Or adjust as needed */
-  font-weight: bold;
-  margin-top: 0 !important;
-  margin-bottom: 1rem !important;
-  color: #FFF8DC !important; /* Cream/Off-White text - NEW */
-}
-
-.hero-overlay h1 .ai-highlight { /* For specifically styling the "AI" part of the headline */
-  color: #FFA500 !important; /* Rich Orange highlight - NEW */
-  /* Or try #FF4500 (Fiery Red) for a stronger pop */
-}
-
-.hero-overlay .hero-subhead, .hero-overlay p { /* Your sub-headline text */
-  font-family: 'Open Sans', sans-serif !important; /* For better readability of smaller text - NEW */
-  font-size: 1.2rem !important;
-  line-height: 1.6 !important;
-  color: #FFF8DC !important; /* Cream/Off-White text - NEW */
-  margin-bottom: 0 !important;
-}
-
-/* === THE REST OF THE PAGE (Header, Body, Cards, Links, etc.) === */
-/* Apply the CSS from our PREVIOUS DETAILED RESPONSE where we aligned everything
-   to the "Inspired AI Palette". That CSS includes:
-    - Body background: Cream/Off-White (#FFF8DC)
-    - Text color (body, general headings): Deep Brown (#5C4033)
-    - Header: Deep Brown bg with Cream text, or Cream bg with Deep Brown text
-    - Links: Fiery Red (#FF4500) with Rich Orange (#FFA500) hover
-    - Blog Cards: Cream background, Deep Brown text, Fiery Red/Rich Orange for "Read More" button
-    - And all other elements styled with our agreed palette.
-*/
-
-/* For example, your global body and heading styles would be: */
+/* === Global Typography & Body === */
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #5C4033; /* Deep Brown */
-  background-color: #FFF8DC; /* Cream/Off-White */
+  color: #5C4033; /* Deep Brown for body text */
+  background-color: #FFF8DC; /* Cream/Off-White for page background */
   margin: 0;
+  padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
-  color: #5C4033; /* Deep Brown */
+  color: #5C4033; /* Deep Brown for headings */
   margin-top: 1.5em;
   margin-bottom: 0.75em;
   line-height: 1.3;
 }
 
-/* ... and so on for all other page elements as previously defined. */
+/* Specific H1 style for main page titles */
+.page-title, .post-title {
+  font-size: 2.5rem; /* Can be larger than hero H1 if it's main content page title */
+  font-weight: bold;
+  color: #FF4500; /* Fiery Red for impact, or #5C4033 */
+}
+
+/* Highlight within titles (e.g., "AI" in a post title) */
+.page-title .ai-highlight, .post-title .ai-highlight {
+  color: #FFA500; /* Rich Orange */
+  font-family: 'Poppins', sans-serif; /* Keep consistent */
+  font-weight: bold;
+}
+
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+p { margin-bottom: 1em; }
+
+/* === Global Link Styling === */
+a {
+  color: #FF4500; /* Fiery Red for general links */
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+a:hover, a:focus {
+  color: #FFA500; /* Rich Orange on hover */
+  text-decoration: underline;
+}
+
+/* === Site Header (Top Sticky Bar) === */
+.site-header {
+  background-color: #5C4033 !important; /* Deep Brown */
+  padding: 0.75rem 1rem !important; /* Adjusted padding for a potentially leaner top bar */
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  box-shadow: 0 2px 5px rgba(92, 64, 51, 0.3); /* Subtle shadow for depth */
+}
+
+.site-header nav a { /* Assuming nav links are directly in .site-header or nested within its .site-nav */
+  font-family: 'Poppins', sans-serif !important;
+  color: #FFF8DC !important; /* Cream/Off-White text */
+  text-decoration: none !important;
+  padding: 0.5rem 1rem;
+  font-weight: bold !important;
+  transition: color 0.2s ease;
+}
+
+.site-header nav a:hover,
+.site-header nav a:focus {
+  color: #FFA500 !important; /* Rich Orange hover */
+}
+
+/* === Hero Section === */
+.hero-section {
+  /*
+    IMPORTANT:
+    For the warm gradients on nodes/icons as discussed,
+    you need to EDIT YOUR `AI-Marketing.jpg` IMAGE in a graphics program
+    to add those Fiery Red/Rich Orange/Golden Yellow highlights to it.
+  */
+  background: linear-gradient(rgba(92, 64, 51, 0.65), rgba(92, 64, 51, 0.75)), /* Warm Deep Brown transparent overlay */
+              url('../images/AI-Marketing.jpg') no-repeat center center fixed !important; /* YOUR EDITED HERO IMAGE */
+  background-size: cover !important;
+  color: #FFF8DC !important; /* Cream/Off-White text */
+  
+  /* Height Adjustments */
+  padding: 2.5rem 1rem !important;
+  min-height: 38vh !important; /* Adjust as needed */
+
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.hero-overlay { /* Container for hero text */
+  background-color: rgba(92, 64, 51, 0.75) !important; /* Semi-transparent Deep Brown - slightly more opaque */
+  padding: 1.5rem 2rem !important; /* Padding inside the text box */
+  border-radius: 8px !important;
+  display: inline-block !important;
+  backdrop-filter: blur(3px) !important; /* Optional: Frosted glass effect */
+  box-shadow: 0 0 25px rgba(255, 165, 0, 0.65) !important; /* Rich Orange glow */
+}
+
+.hero-overlay h1 { /* "Turn AI into Your Secret Marketing Weapon" */
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 2.4rem !important; /* Adjusted for smaller hero */
+  font-weight: bold;
+  margin-top: 0 !important;
+  margin-bottom: 0.8rem !important;
+  color: #FFF8DC !important;
+  line-height: 1.2;
+}
+
+.hero-overlay h1 .ai-highlight { /* "AI" part of the hero headline */
+  color: #FFA500 !important; /* Rich Orange */
+}
+
+.hero-overlay .hero-subhead, .hero-overlay p { /* Sub-headline text */
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 1.1rem !important; /* Adjusted for smaller hero */
+  line-height: 1.5 !important;
+  color: #FFF8DC !important; /* Cream/Off-White text */
+  margin-bottom: 0 !important;
+}
+
+/* === Under Hero Navigation (Homepage specific, if used) === */
+.under-hero-navigation {
+  background-color: #FFF8DC; /* Cream page background */
+  padding: 1.5rem 0; /* Reduced padding slightly */
+  text-align: center;
+  border-bottom: 1px solid #e7dbc4; /* Slightly darker cream for subtle separator */
+  margin-bottom: 2.5rem; /* Space before next content section */
+}
+
+.under-hero-navigation .site-nav ul { /* Assuming .site-nav is used here too */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem; /* Adjusted gap */
+}
+
+.under-hero-navigation .site-nav ul li a {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 0.95rem; /* Slightly adjusted */
+  color: #5C4033; /* Deep Brown text */
+  text-decoration: none;
+  padding: 0.4rem 0.7rem; /* Adjusted padding */
+  border-radius: 4px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.under-hero-navigation .site-nav ul li a:hover,
+.under-hero-navigation .site-nav ul li a:focus,
+.under-hero-navigation .site-nav ul li a.active {
+  color: #FF4500; /* Fiery Red text on hover/active */
+  background-color: rgba(255, 248, 220, 0.7); /* Lighter cream hint on hover - rgba from #FFF8DC */
+  /* Or a faint Fiery Red hint: background-color: rgba(255, 69, 0, 0.05); */
+}
+
+
+/* === General Section Styling === */
+.home-section {
+  padding: 0 1rem; /* Add horizontal padding for content within sections if needed */
+  margin-bottom: 3rem;
+}
+
+.home-section .section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #5C4033; /* Deep Brown */
+  /* Or accent: color: #FF4500; /* Fiery Red */
+  margin-bottom: 1.5rem;
+  text-align: center; /* Or left, as preferred */
+}
+
+/* === Two-Column Layout Sections ("Tutorials" & "Tool Reviews") === */
+.home-section.two-cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  /* margin-bottom is handled by .home-section */
+}
+
+.home-section.two-cols .col {
+  flex: 1;
+  min-width: 280px; /* Ensure columns don't get too narrow */
+  /* background-color: #FFF0E1; /* Slightly different cream, if needed for separation */
+  /* padding: 1.5rem; */
+  /* border-radius: 8px; */
+}
+
+/* Styles for lists within these columns (e.g., Tutorial links) */
+.home-section.two-cols .col ul {
+  list-style: none;
+  padding-left: 0;
+}
+.home-section.two-cols .col ul li a {
+  color: #5C4033; /* Deep Brown for these links */
+  text-decoration: none;
+  display: block;
+  padding: 0.3rem 0;
+}
+.home-section.two-cols .col ul li a:hover {
+  color: #FF4500; /* Fiery Red on hover */
+}
+
+
+/* === Blog Card Grid ("Latest from the Blog") === */
+.home-section.post-grid .grid {
+  display: grid !important; /* Using !important if theme overrides are aggressive */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 2rem !important;
+  margin-top: 1.5rem !important; /* Space below "Latest from the Blog" title */
+}
+
+a.blog-card-link { /* Make entire card clickable */
+  text-decoration: none;
+  color: inherit; /* Inherit text color from card content */
+  display: block;
+  height: 100%; /* For cards in a row to have same clickable height */
+}
+
+article.card.blog-card {
+  background-color: #FFF8DC !important; /* Cream for card background */
+  border: 1px solid #e7dbc4; /* Subtle border in darker cream */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(92, 64, 51, 0.12) !important; /* Deep Brown subtle shadow */
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important; /* For consistent height in grid rows */
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+article.card.blog-card:hover {
+  transform: translateY(-6px) scale(1.01); /* Slightly more pronounced hover */
+  box-shadow: 0 8px 18px rgba(92, 64, 51, 0.2) !important; /* Enhanced Deep Brown shadow */
+}
+
+img.blog-card-image {
+  display: block !important;
+  width: 100% !important;
+  height: 200px !important; /* Fixed image height */
+  object-fit: cover !important; /* Scale and crop image */
+  background-color: #e7dbc4; /* Darker cream fallback for missing images */
+  border-bottom: 1px solid #e7dbc4; /* Separator line */
+}
+
+.blog-card-content {
+  padding: 1rem 1.25rem; /* Adjusted padding */
+  flex-grow: 1; /* Allows "Read More" to stick to bottom */
+  display: flex;
+  flex-direction: column;
+  background-color: #FFF8DC; /* Ensure cream background for content */
+}
+
+.blog-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem; /* Slightly adjusted */
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0.6rem; /* Adjusted spacing */
+  color: #5C4033; /* Deep Brown for card titles */
+  line-height: 1.3;
+}
+.blog-card-title a { /* For linked titles, if not using full card link */
+  color: inherit;
+  text-decoration: none;
+}
+.blog-card-title a:hover {
+  color: #FF4500;
+  text-decoration: underline;
+}
+
+.blog-card-excerpt {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #5C4033; /* Deep Brown for excerpts */
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Pushes "Read More" down */
+  line-height: 1.5;
+}
+
+.blog-card-readmore { /* CTA Button style */
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 0.9rem;
+  background-color: #FF4500; /* Fiery Red background */
+  color: #FFF8DC !important; /* Cream text */
+  padding: 0.6em 1.2em; /* Button padding */
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: auto; /* Pushes to bottom of flex container */
+  align-self: flex-start; /* Align to left */
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border: none; /* Ensure no default button border */
+  cursor: pointer;
+}
+
+.blog-card-readmore:hover, .blog-card-readmore:focus {
+  background-color: #FFA500; /* Rich Orange on hover */
+  color: #5C4033 !important; /* Deep Brown text for contrast on orange */
+  text-decoration: none;
+}
+
+/* Category Tags (Example styling) */
+.category-tag {
+  display: inline-block;
+  background-color: #2E8B57; /* Leafy Green */
+  color: #FFF8DC !important; /* Cream text */
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 0.25em 0.6em;
+  border-radius: 10px; /* More rounded */
+  margin-left: 0.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.category-tag:hover {
+  background-color: #257045; /* Darker green */
+  text-decoration: none;
+}
+
+/* === Footer Styling (Basic Example) === */
+.site-footer {
+  background-color: #5C4033; /* Deep Brown */
+  color: #FFF8DC; /* Cream text */
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+.site-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+.site-footer a {
+  color: #FFA500; /* Rich Orange for links in footer */
+}
+.site-footer a:hover {
+  color: #FFD700; /* Golden Yellow/Orange */
+}
+
+/* --- Utility Classes (Optional) --- */
+.text-center {
+  text-align: center !important;
+}
+.mt-1 { margin-top: 1rem !important; }
+.mb-1 { margin-bottom: 1rem !important; }
+/* ... etc. for more spacing utilities */
