@@ -453,15 +453,18 @@ a:hover, a:focus {
 /* === Utility Classes (Keep if useful) === */
 .text-center { text-align: center !important; }
 .mt-1 { margin-top: 1rem !important; }
-/* ... etc. */
-// Shrink the header
+
+/* === Palette (ShumerPrompt-inspired) END === */
+
+/* === Shrink Header Section === */
+
 .site-header {
-  padding: 1rem 0;        // instead of Minima's default ~3rem
-  min-height: auto;       // remove any forced min‐height
+  padding: 1rem 0; /* instead of Minima's default ~3rem */
+  min-height: auto; /* remove any forced min-height */
 }
 
-// (Optional) Tweak the wrapper if you need less horizontal space:
+/* (Optional) Tweak the wrapper if you need less horizontal space: */
 .site-header .wrapper {
-  max-width: 60rem;       // or whatever width feels right
+  max-width: 60rem; /* or whatever width feels right */
   margin: 0 auto;
 }
