@@ -1,3 +1,14 @@
+:root {
+  --primary-color: #4a5568;
+  --secondary-text-color: #1d4ed8;
+  --background: #f8fafc;
+  --header-background: #fff;
+  --header-text-color: #2d3748;
+  --mobile-background: #fff;
+  --mobile-text-color: #2d3748;
+  --primary-dark: rgb(52.797752809, 60.6460674157, 74.202247191);
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--background);
@@ -18,13 +29,13 @@ body {
 }
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #f0f4ff 0%, #dbeafe 100%);
-  background-size: 200% 200%;
-  animation: heroFade 15s ease infinite;
-  padding: 6rem 1rem 8rem;
+  background: #f8fafc;
+  padding: 4rem 1rem;
   /* Lottie Illustration */
 }
 .hero h1 {
+  color: #1a365d;
+  text-shadow: none;
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
@@ -55,7 +66,7 @@ body {
 }
 
 .button:hover {
-  background-color: rgb(18.5714285714, 76.1428571429, 202.4285714286);
+  background-color: rgb(52.797752809, 60.6460674157, 74.202247191);
 }
 
 /* Prompt Cards */
@@ -63,7 +74,8 @@ body {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   background: var(--background);
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
 }
 .prompt-card.skeleton {
   background-color: #e2e8f0;
@@ -74,7 +86,7 @@ body {
 }
 
 .prompt-card:hover {
-  transform: translateY(-4px);
+  transform: none;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -178,9 +190,6 @@ nav li a {
     padding: 1rem 0;
     font-size: 1.2rem;
   }
-}
-:root {
-  --primary-color: #2563eb;
 }
 
 /*# sourceMappingURL=main.css.map */
