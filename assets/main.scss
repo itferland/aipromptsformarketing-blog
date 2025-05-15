@@ -1,6 +1,21 @@
 // Define SCSS color variables
-$primary-color: #2563eb;
+$primary: #4a5568;
+$secondary: #1d4ed8;
+$accent: #48bb78;
 $skeleton-color: #e2e8f0;
+
+// Now assign to CSS custom properties
+:root {
+  --primary-color: #{$primary};
+  --secondary-text-color: #{$secondary};
+  --background: #f8fafc;
+  --header-background: #fff;
+  --header-text-color: #2d3748;
+  --mobile-background: #fff;
+  --mobile-text-color: #2d3748;
+
+  --primary-dark: #{darken($primary, 10%)};
+}
 
 // General Styles
 body {
@@ -18,12 +33,12 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #f0f4ff 0%, #dbeafe 100%);
-  background-size: 200% 200%;
-  animation: heroFade 15s ease infinite;
-  padding: 6rem 1rem 8rem;
+  background: #f8fafc; // Solid instead of gradient
+  padding: 4rem 1rem; // Reduced padding
 
   h1 {
+    color: #1a365d; // Darker, more neutral
+    text-shadow: none;
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     @media (min-width: 768px) {
@@ -42,7 +57,7 @@ body {
     margin: 0 auto;
   }
 }
-
+       
 /* Button Styles */
 .button {
   display: inline-block;
@@ -56,7 +71,7 @@ body {
 }
 
 .button:hover {
-  background-color: darken($primary-color, 10%);
+  background-color: darken($primary, 10%);
 }
 
 /* Prompt Cards */
@@ -64,7 +79,8 @@ body {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   background: var(--background);
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); // Subtler shadow
+  border: 1px solid #e2e8f0; // Add border
   &.skeleton {
     background-color: $skeleton-color;
     color: transparent;
@@ -75,7 +91,7 @@ body {
 }
 
 .prompt-card:hover {
- transform: translateY(-4px);
+ transform: none; // Remove lift effect
  box-shadow: 0 8px 12px rgba(0,0,0,0.1);
 }
 
@@ -185,8 +201,4 @@ nav li a {
     font-size: 1.2rem;
   }
  }
-}
-
-:root {
-  --primary-color: #{$primary-color};
 }
