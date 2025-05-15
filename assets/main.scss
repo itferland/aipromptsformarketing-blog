@@ -1,27 +1,52 @@
+/* Variables */
+$primary-color: #3b82f6;
+$secondary-color: #6b7280;
+$card-background: #ffffff;
+
 /* Hero Section */
 .hero {
+  background: linear-gradient(135deg, #f0f4ff 0%, #dbeafe 100%); /* Softer blues */
+  padding: 8rem 1rem; /* More vertical space */
   text-align: center;
-  padding: 6rem 1rem;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add a subtle SVG wave at the bottom */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 100" xmlns="http://www.w3.org/2000/svg"><path fill="%23ffffff" d="M0 70L1200 0V100H0Z"/></svg>');
 }
 
 .hero h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 3rem; /* Larger text */
+  color: #1e3a8a; /* Darker blue */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Depth */
+  margin-bottom: 1.5rem;
 }
 
 .hero p {
- color: #4a5568
+  color: #4b5563; /* Soft gray */
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
 }
 
-/* Color Scheme */
-$primary-color: #2563eb;
-$secondary-color: #3b82f6;
-$card-background: #f8fafc;
+/* Lottie Illustration */
+.hero-illustration {
+  width: 300px;
+  margin: 0 auto;
+}
 
-h1, h2, h3, h4, h5, h6 {
-  color: $primary-color;
+/* Button Styles */
+.button {
+  background: $primary-color;
+  color: white;
 }
 
 /* Prompt Cards */
@@ -52,25 +77,3 @@ h1, h2 {
         gap: 2rem;
         margin-top: 2rem;
       }
-
-      .prompt-card {
-       background: white;
-       border: 1px solid #e0e0e0;
-       border-radius: 0.5rem;
-       padding: 1.5rem;
-       box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-       display: flex;
-       flex-direction: column;
-       justify-content: space-between;
-     }
-     
-     /* CTA Button */
-.cta-button {
-  background: #2563eb;
-  color: white;
-  padding: 0.75rem 2rem;
-  border-radius: 8px;
-  display: inline-block;
-  margin-top: 1rem;
-  text-decoration: none; /*Removes the underline*/
-}
