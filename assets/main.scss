@@ -249,6 +249,9 @@ nav li a {
 }
 
 .responsive-image {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e2e8f0; // Soft border
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 1rem auto; // Centers the image
+  display: block; // Fixes spacing issues
 }
