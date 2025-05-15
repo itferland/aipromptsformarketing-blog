@@ -16,7 +16,226 @@ body {
   line-height: 1.6;
   color: #4A4A4A;
   background-color: #fff; /* Default page background */
+  margin: 0;---
+# No variables needed here. Jekyll just wants these delimiters.
+---
+
+@import "minima";
+
+// --- Affiliate disclosure styles ---
+.site-disclosure {
+  font-size: 0.9em;
+  color: #555;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+// --- Prompt Library grid styles ---
+.prompt-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
   margin: 0;
+
+  li {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  a {
+    font-weight: 600;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .description {
+    margin-top: 0.5rem;
+    flex-grow: 1;
+    color: #555;
+  }
+
+  .read-more {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* assets/css/main.css - ShumerPrompt-inspired Theme */
+
+/* === Palette (ShumerPrompt-inspired) === */
+/* Primary Background (Very Dark): #1A1A1D */
+/* Secondary Background (Cards): #22252A */
+/* Primary Text (Light): #E0E0E0 */
+/* Accent Color (Blue): #4299E1 */
+/* Secondary Accent (Darker Blue): #3182CE */
+/* Border/Subtle Lines: #33373D */
+
+/* === Global Typography & Body === */
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #E0E0E0; /* Primary Text (Light) */
+  background-color: #1A1A1D; /* Primary Background (Very Dark) */
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  color: #F5F5F5; /* Slightly brighter for headings */
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  line-height: 1.3;
+  font-weight: 600; /* Semi-bold for Poppins often looks good */
+}
+
+h1 { font-size: 2.8rem; margin-bottom: 1rem;}
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+p { margin-bottom: 1em; }
+
+/* === Global Link Styling === */
+a {
+  color: #4299E1; /* Accent Color (Blue) */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover, a:focus {
+  color: #3182CE; /* Secondary Accent (Darker Blue) */
+  text-decoration: none; /* Usually no underline in this style, but optional */
+}
+
+/* === Site Header (Top Navigation Bar) === */
+.site-header {
+  background-color: #1A1A1D; /* Primary Background (Very Dark) */
+  /* Or a slightly different shade for subtle separation: #1E1E1E; */
+  padding: 0.75rem 1.5rem; /* Padding for the header bar */
+  position: sticky; /* Sticky at the top */
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #33373D; /* Subtle border */
+  display: flex;
+  justify-content: space-between; /* Logo left, nav right */
+  align-items: center;
+  min-height: 60px;
+}
+
+.site-header .site-title { /* For your logo/site name */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #F5F5F5;
+  text-decoration: none;
+}
+.site-header .site-title a { /* If logo is a link */
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.site-header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Horizontal layout */
+  align-items: center;
+}
+
+.site-header nav ul li {
+  margin-left: 1.5rem; /* Space between nav items */
+}
+
+.site-header nav ul li a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500; /* Medium weight */
+  color: #E0E0E0; /* Primary Text */
+  text-decoration: none;
+  padding: 0.5rem 0; /* Minimal padding as it's not button-like */
+  position: relative; /* For potential underline effect */
+}
+
+.site-header nav ul li a:hover,
+.site-header nav ul li a.active { /* For current page */
+  color: #4299E1; /* Accent Color (Blue) */
+}
+
+/* Optional: Underline hover effect for nav links */
+/*
+.site-header nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #4299E1;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.site-header nav ul li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+*/
+
+/* === Hero Section (Full-width with Prominent Search) === */
+.hero-section {
+  background-color: #1A1A1D; /* Or a very subtle gradient/pattern */
+  /* Example subtle gradient: background-image: linear-gradient(180deg, #1E1E1E 0%, #121212 100%); */
+  color: #F5F5F5;
+  padding: 5rem 1.5rem; /* Generous padding */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 55vh; /* Good height for impact */
+  border-bottom: 1px solid #33373D;
+}
+
+.hero-section h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem; /* Large headline */
+  font-weight: 700; /* Bold */
+  margin-top: 0;
+  margin-bottom: 1.5rem; /* Space before search bar */
+  max-width: 800px; /* Keep headline from getting too wide */
+}
+.hero-section .ai-highlight { /* For any highlighted part like \"AI\" */
+    color: #4299E1; /* Accent Blue */
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 1em auto;
+    color: #D0D0D0; /* Slightly softer text */
+}
+
+.hero-search-container {
+  width: 100%;
+  max-width: 700px; /* Max width for search bar */
+  margin-top: 1rem;
+  position: relative;
+}
+
+.hero-search-container input[type=\"search\"] {
+  font-family: 'Open Sans', sans-serif;\n  width: 100%;\n  padding: 1rem 1.5rem; /* Generous padding */\n  padding-right: 4rem; /* Space for a search button/icon if placed inside */\n  font-size: 1.1rem;\n  border: 1px solid #33373D; /* Subtle border */\n  border-radius: 8px; /* Rounded corners */\n  background-color: #22252A; /* Secondary Background */\n  color: #E0E0E0; /* Light text for input */\n  outline: none;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n\n.hero-search-container input[type=\"search\"]:focus {\n  border-color: #4299E1; /* Accent Blue on focus */\n  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3); /* Blue glow */\n}\n\n/* Optional: Style for a search button if needed */\n.hero-search-container button[type=\"submit\"] {\n  /* Position it absolutely if inside the input wrapper, or style as a separate button */\n  position: absolute;\n  right: 0.5rem;\n  top: 50%;\n  transform: translateY(-50%);\n  padding: 0.75rem 1.25rem;\n  font-family: \'Poppins\', sans-serif;\n  font-size: 1rem;\n  font-weight: 500;\n  background-color: #4299E1; /* Accent Blue */\n  color: #FFFFFF;\n  border: none;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.hero-search-container button[type=\"submit\"]:hover {\n  background-color: #3182CE; /* Darker Blue */\n}\n\n\n/* === Filter Bar UI (Example basic styling) === */\n.filter-bar {\n  padding: 1.5rem;\n  background-color: #1E1E1E; /* Slightly different dark bg for separation */\n  border-bottom: 1px solid #33373D;\n  display: flex;\n  flex-wrap: wrap;\n  gap: 1rem; /* Space between filter elements */\n  align-items: center;\n  justify-content: center; /* Or \'flex-start\' */\n}\n\n.filter-bar .filter-group select,\n.filter-bar .filter-group input[type=\"text\"] {\n  font-family: \'Open Sans\', sans-serif;\n  padding: 0.6rem 0.8rem;\n  font-size: 0.9rem;\n  border: 1px solid #33373D;\n  border-radius: 6px;\n  background-color: #22252A;\n  color: #E0E0E0;\n  outline: none;\n}\n.filter-bar .filter-group label {\n    margin-right: 0.5rem;\n    font-size: 0.9rem;\n}\n.filter-bar button { /* Generic button style for filter apply, etc. */\n  font-family: \'Poppins\', sans-serif;\n  padding: 0.6rem 1rem;\n  font-size: 0.9rem;\n  font-weight: 500;\n  background-color: #4299E1;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.filter-bar button:hover {\n  background-color: #3182CE;\n}\n\n\n/* === Prompt Card Grid & Cards === */\n.prompt-grid-container {\n /* A wrapper for padding around the grid */\n    padding: 2.5rem 1.5rem;\n}\n.prompt-grid-container .section-title {\n /* If you have titles like \"Featured Prompts\" */\n    text-align: center;\n    margin-bottom: 2rem;\n    font-size: 1.8rem;\n    color: #F5F5F5;\n}\n\n.prompt-card-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */\n  gap: 1.5rem; /* Space between cards */\n}\n\n.prompt-card {\n  background-color: #22252A; /* Secondary Background (Cards) */\n  border: 1px solid #33373D; /* Subtle border */\n  border-radius: 8px;\n  padding: 1.5rem;\n  display: flex;\n  flex-direction: column;\n  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;\n  text-decoration: none; /* If card itself is a link */\n  color: #E0E0E0; /* Ensure text color inheritance */\n}\n\n.prompt-card:hover {\n  transform: translateY(-5px);\n  border-color: #4299E1; /* Accent Blue border on hover */\n  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);\n}\n\n.prompt-card-title {\n  font-family: \'Poppins\', sans-serif;\n  font-size: 1.25rem;\n  font-weight: 600;\n  margin-top: 0;\n  margin-bottom: 0.75rem;\n  color: #F5F5F5; /* Brighter text for titles */\n}\n/* If title itself is a link, ensure color */\n.prompt-card-title a {\n    color: inherit; text-decoration: none;\n}\n.prompt-card-title a:hover {\n    color: #4299E1;\n}\n\n.prompt-card-description {\n /* Or excerpt */\n  font-family: \'Open Sans\', sans-serif;\n  font-size: 0.9rem;\n  color: #B0B0B0; /* Slightly dimmer for less emphasis */\n  margin-bottom: 1rem;\n  flex-grow: 1; /* Pushes elements below it down */\n  line-height: 1.5;\n}\n\n.prompt-card-tags {\n  margin-bottom: 1rem;\n  display: flex;\n  flex-wrap: wrap;\n  gap: 0.5rem;\n}\n\n.prompt-card-tags .tag {\n  font-family: \'Poppins\', sans-serif;\n  font-size: 0.75rem;\n  font-weight: 500;\n  background-color: #33373D; /* Darker grey for tags */\n  color: #B0B0B0;\n  padding: 0.25em 0.6em;\n  border-radius: 4px;\n  text-decoration: none; /* If tags are links */\n}\n.prompt-card-tags .tag:hover {\n    background-color: #4299E1;\n    color: #FFFFFF;\n}\n\n.prompt-card-actions { /* Container for buttons like \"Copy\" or \"View\" */\n  margin-top: auto; /* Pushes to bottom */\n  display: flex;\n  gap: 0.75rem;\n}\n\n.prompt-card-actions .button {\n /* Generic button style for cards */\n  font-family: \'Poppins\', sans-serif;\n  font-size: 0.85rem;\n  font-weight: 500;\n  padding: 0.5rem 1rem;\n  border-radius: 6px;\n  text-decoration: none;\n  text-align: center;\n  cursor: pointer;\n  transition: background-color 0.2s ease, color 0.2s ease;\n}\n.prompt-card-actions .button-primary {\n  background-color: #4299E1; /* Accent Blue */\n  color: #FFFFFF;\n  border: 1px solid #4299E1;\n}\n.prompt-card-actions .button-primary:hover {\n  background-color: #3182CE; /* Darker Blue */\n  border-color: #3182CE;\n}\n.prompt-card-actions .button-secondary {\n  background-color: transparent;\n  color: #4299E1; /* Accent Blue */\n  border: 1px solid #4299E1;\n}\n.prompt-card-actions .button-secondary:hover {\n  background-color: rgba(66, 153, 225, 0.1); /* Faint blue bg */\n  color: #3182CE;\n}\n\n\n/* === Sign Up / Form Elements (Basic Styling) === */\n/* These can be used in modals or dedicated sections */\n.form-group {\n  margin-bottom: 1.5rem;\n}\n.form-group label {\n  display: block;\n  font-family: \'Poppins\', sans-serif;\n  font-size: 0.9rem;\n  font-weight: 500;\n  margin-bottom: 0.5rem;\n  color: #E0E0E0;\n}\n.form-group input[type=\"text\"],\n.form-group input[type=\"email\"],\n.form-group input[type=\"password\"],\n.form-group textarea {\n  font-family: \'Open Sans\', sans-serif;\n  width: 100%; /* Or manage width via form container */\n  padding: 0.75rem 1rem;\n  font-size: 1rem;\n  border: 1px solid #33373D;\n  border-radius: 6px;\n  background-color: #22252A;\n  color: #E0E0E0;\n  outline: none;\n  box-sizing: border-box; /* Important for width: 100% with padding */\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.form-group input[type=\"text\"]:focus,\n.form-group input[type=\"email\"]:focus,\n.form-group input[type=\"password\"]:focus,\n.form-group textarea:focus {\n  border-color: #4299E1; /* Accent Blue on focus */\n  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3); /* Blue glow */\n}\n.form-group textarea {\n  min-height: 100px;\n  resize: vertical;\n}\n\n.button-submit { /* For main form submission buttons */\n  font-family: \'Poppins\', sans-serif;\n  width: 100%; /* Or fixed width as desired */\n  padding: 0.85rem 1.5rem;\n  font-size: 1rem;\n  font-weight: 500;\n  background-color: #4299E1; /* Accent Blue */\n  color: #FFFFFF;\n  border: none;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.button-submit:hover {\n  background-color: #3182CE; /* Darker Blue */\n}\n\n\n/* === Footer Styling === */\n.site-footer {\n  background-color: #121212; /* Darkest background */\n  color: #A0A0A0; /* Dimmer text for footer */\n  padding: 2.5rem 1.5rem;\n  text-align: center;\n  margin-top: 3rem;\n  border-top: 1px solid #33373D;\n}\n.site-footer p {\n  margin: 0.5rem 0;\n  font-size: 0.9rem;\n}\n.site-footer a {\n  color: #4299E1; /* Accent Blue for links */\n  font-weight: 500;\n}\n.site-footer a:hover {\n  color: #3182CE; /* Darker Blue */\n  text-decoration: underline;\n}\n\n/* === Utility Classes (Keep if useful) === */\n.text-center { text-align: center !important; }\n.mt-1 { margin-top: 1rem !important; }\n\n/* === Palette (ShumerPrompt-inspired) END === */\n\n/* === Shrink Header Section === */\n\n.site-header {\n  padding: 1rem 0; /* instead of Minima's default ~3rem */\n  min-height: auto; /* remove any forced min-height */\n}\n\n/* (Optional) Tweak the wrapper if you need less horizontal space: */\n.site-header .wrapper {\n  max-width: 60rem; /* or whatever width feels right */\n  margin: 0 auto;\n}\n\n/* Hero section changes */\n.hero {\n  max-width: 800px;\n  margin: 2rem auto;\n  padding: 4rem 1rem;\n  text-align: center;\n  background: none;     // or a light bg if you like\n}\n\n.hero h1 {\n  font-size: 2rem;\n  line-height: 1.2;\n  margin-bottom: 1rem;\n}\n\n.hero p {\n  font-size: 1rem;\n  color: #ddd;          // adjust for contrast\n  margin: 0 auto;\n  max-width: 600px;\n}\n", path = "assets/css/main.css"))
+
   padding: 0;
 }
 

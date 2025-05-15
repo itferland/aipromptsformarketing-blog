@@ -1,4 +1,7 @@
-/* assets/css/main.css - ShumerPrompt-inspired Theme */
+--- # assets/main.scss - ShumerPrompt-inspired Theme
+---
+
+@import "minima";
 
 /* === Palette (ShumerPrompt-inspired) === */
 /* Primary Background (Very Dark): #1A1A1D */
@@ -62,14 +65,17 @@ a:hover, a:focus {
   min-height: 60px;
 }
 
-.site-header .site-title { /* For your logo/site name */
+.site-header .site-title {
+ /* For your logo/site name */
   font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
   color: #F5F5F5;
   text-decoration: none;
 }
-.site-header .site-title a { /* If logo is a link */
+
+.site-header .site-title a {
+ /* If logo is a link */
     color: inherit;
     text-decoration: none;
 }
@@ -98,7 +104,8 @@ a:hover, a:focus {
 }
 
 .site-header nav ul li a:hover,
-.site-header nav ul li a.active { /* For current page */
+.site-header nav ul li a.active {
+ /* For current page */
   color: #4299E1; /* Accent Color (Blue) */
 }
 
@@ -145,12 +152,13 @@ a:hover, a:focus {
   margin-bottom: 1.5rem; /* Space before search bar */
   max-width: 800px; /* Keep headline from getting too wide */
 }
-.hero-section .ai-highlight { /* For any highlighted part like "AI" */
+.hero-section .ai-highlight {
+ /* For any highlighted part like "AI" */
     color: #4299E1; /* Accent Blue */
 }
 
 .hero-section p {
-    font-size: 1.2rem; 
+    font-size: 1.2rem;
     max-width: 700px;
     margin: 1em auto;
     color: #D0D0D0; /* Slightly softer text */
@@ -250,10 +258,12 @@ a:hover, a:focus {
 
 
 /* === Prompt Card Grid & Cards === */
-.prompt-grid-container { /* A wrapper for padding around the grid */
+.prompt-grid-container {
+ /* A wrapper for padding around the grid */
     padding: 2.5rem 1.5rem;
 }
-.prompt-grid-container .section-title { /* If you have titles like "Featured Prompts" */
+.prompt-grid-container .section-title {
+ /* If you have titles like "Featured Prompts" */
     text-align: center;
     margin-bottom: 2rem;
     font-size: 1.8rem;
@@ -332,13 +342,15 @@ a:hover, a:focus {
     color: #FFFFFF;
 }
 
-.prompt-card-actions { /* Container for buttons like "Copy" or "View" */
+.prompt-card-actions {
+ /* Container for buttons like "Copy" or "View" */
   margin-top: auto; /* Pushes to bottom */
   display: flex;
   gap: 0.75rem;
 }
 
-.prompt-card-actions .button { /* Generic button style for cards */
+.prompt-card-actions .button {
+ /* Generic button style for cards */
   font-family: 'Poppins', sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
@@ -410,7 +422,8 @@ a:hover, a:focus {
   resize: vertical;
 }
 
-.button-submit { /* For main form submission buttons */
+.button-submit {
+ /* For main form submission buttons */
   font-family: 'Poppins', sans-serif;
   width: 100%; /* Or fixed width as desired */
   padding: 0.85rem 1.5rem;
@@ -467,4 +480,26 @@ a:hover, a:focus {
 .site-header .wrapper {
   max-width: 60rem; /* or whatever width feels right */
   margin: 0 auto;
+}
+
+/* Hero section changes */
+.hero {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 4rem 1rem;
+  text-align: center;
+  background: none;     // or a light bg if you like
+}
+
+.hero h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1rem;
+  color: #ddd;          // adjust for contrast
+  margin: 0 auto;
+  max-width: 600px;
 }
