@@ -27,17 +27,15 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.3;
 }
 
-/* Specific H1 style for main page titles */
-.page-title, .post-title {
-  font-size: 2.5rem; /* Can be larger than hero H1 if it's main content page title */
+.page-title, .post-title { /* More specific H1, for main content pages */
+  font-size: 2.5rem;
   font-weight: bold;
-  color: #FF4500; /* Fiery Red for impact, or #5C4033 */
+  color: #FF4500; /* Fiery Red, or #5C4033 for Deep Brown */
 }
 
-/* Highlight within titles (e.g., "AI" in a post title) */
-.page-title .ai-highlight, .post-title .ai-highlight {
+.page-title .ai-highlight, .post-title .ai-highlight { /* e.g., "AI" in a title */
   color: #FFA500; /* Rich Orange */
-  font-family: 'Poppins', sans-serif; /* Keep consistent */
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
 }
 
@@ -47,75 +45,86 @@ p { margin-bottom: 1em; }
 
 /* === Global Link Styling === */
 a {
-  color: #FF4500; /* Fiery Red for general links */
+  color: #FF4500; /* Fiery Red */
   text-decoration: none;
   transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 a:hover, a:focus {
-  color: #FFA500; /* Rich Orange on hover */
+  color: #FFA500; /* Rich Orange */
   text-decoration: underline;
 }
 
-/* === Site Header (Top Sticky Bar) === */
+/* === Site Header (Top Sticky Bar - Minimal on Homepage) === */
 .site-header {
   background-color: #5C4033 !important; /* Deep Brown */
-  padding: 0.75rem 1rem !important; /* Adjusted padding for a potentially leaner top bar */
+  padding: 0.5rem 1rem !important; /* Reduced padding if primarily for a logo */
   position: sticky !important;
   top: 0 !important;
   z-index: 1000 !important;
-  box-shadow: 0 2px 5px rgba(92, 64, 51, 0.3); /* Subtle shadow for depth */
+  box-shadow: 0 2px 5px rgba(92, 64, 51, 0.3);
+  display: flex;
+  align-items: center;
+  min-height: 50px; /* Example minimal height */
 }
 
-.site-header nav a { /* Assuming nav links are directly in .site-header or nested within its .site-nav */
+/* Styles for any links or logo text remaining in the top bar.
+   The main nav list is assumed MOVED on the HOMEPAGE. */
+.site-header .site-title a, /* Example if you have a text logo */
+.site-header nav a { /* For any *other* links that might still be in top bar */
   font-family: 'Poppins', sans-serif !important;
   color: #FFF8DC !important; /* Cream/Off-White text */
   text-decoration: none !important;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem; /* Adjust padding as needed for these specific items */
   font-weight: bold !important;
   transition: color 0.2s ease;
 }
-
+.site-header .site-title a:hover,
 .site-header nav a:hover,
 .site-header nav a:focus {
   color: #FFA500 !important; /* Rich Orange hover */
 }
 
+/* Hide the original main nav UL if it was in .site-header and now moved on homepage */
+/* You might need a body class like 'homepage' for this, applied via your templating system.
+body.homepage .site-header > nav > ul {
+  display: none !important;
+}
+*/
+
+
 /* === Hero Section === */
 .hero-section {
   /*
-    IMPORTANT:
-    For the warm gradients on nodes/icons as discussed,
-    you need to EDIT YOUR `AI-Marketing.jpg` IMAGE in a graphics program
-    to add those Fiery Red/Rich Orange/Golden Yellow highlights to it.
+    IMPORTANT HERO IMAGE NOTE:
+    For the warm gradients on nodes/icons/AI letters,
+    you will need to EDIT YOUR `AI-Marketing.jpg` IMAGE
+    in a graphics program to add those highlights directly.
   */
   background: linear-gradient(rgba(92, 64, 51, 0.65), rgba(92, 64, 51, 0.75)), /* Warm Deep Brown transparent overlay */
-              url('../images/AI-Marketing.jpg') no-repeat center center fixed !important; /* YOUR EDITED HERO IMAGE */
+              url('../images/AI-Marketing.jpg') no-repeat center center fixed !important; /* YOUR EDITED HERO IMAGE PATH */
   background-size: cover !important;
-  color: #FFF8DC !important; /* Cream/Off-White text */
-  
-  /* Height Adjustments */
-  padding: 2.5rem 1rem !important;
-  min-height: 38vh !important; /* Adjust as needed */
-
+  color: #FFF8DC !important; /* Cream/Off-White text for hero content */
+  padding: 2.5rem 1rem !important; /* Adjusted vertical padding for reduced height */
+  min-height: 38vh !important; /* Adjusted min-height (tweak as needed) */
   text-align: center !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
 }
 
-.hero-overlay { /* Container for hero text */
-  background-color: rgba(92, 64, 51, 0.75) !important; /* Semi-transparent Deep Brown - slightly more opaque */
-  padding: 1.5rem 2rem !important; /* Padding inside the text box */
+.hero-overlay { /* Box containing hero headline and sub-headline */
+  background-color: rgba(92, 64, 51, 0.75) !important; /* Semi-transparent Deep Brown */
+  padding: 1.5rem 2rem !important;
   border-radius: 8px !important;
   display: inline-block !important;
   backdrop-filter: blur(3px) !important; /* Optional: Frosted glass effect */
   box-shadow: 0 0 25px rgba(255, 165, 0, 0.65) !important; /* Rich Orange glow */
 }
 
-.hero-overlay h1 { /* "Turn AI into Your Secret Marketing Weapon" */
+.hero-overlay h1 { /* Hero Headline: "Turn AI into Your Secret Marketing Weapon" */
   font-family: 'Poppins', sans-serif !important;
-  font-size: 2.4rem !important; /* Adjusted for smaller hero */
+  font-size: 2.4rem !important; /* Adjusted for potentially smaller hero */
   font-weight: bold;
   margin-top: 0 !important;
   margin-bottom: 0.8rem !important;
@@ -123,164 +132,174 @@ a:hover, a:focus {
   line-height: 1.2;
 }
 
-.hero-overlay h1 .ai-highlight { /* "AI" part of the hero headline */
+.hero-overlay h1 .ai-highlight { /* For styling "AI" in hero headline */
   color: #FFA500 !important; /* Rich Orange */
 }
 
-.hero-overlay .hero-subhead, .hero-overlay p { /* Sub-headline text */
+.hero-overlay .hero-subhead, .hero-overlay p { /* Hero Sub-headline text */
   font-family: 'Open Sans', sans-serif !important;
-  font-size: 1.1rem !important; /* Adjusted for smaller hero */
+  font-size: 1.1rem !important; /* Adjusted for potentially smaller hero */
   line-height: 1.5 !important;
-  color: #FFF8DC !important; /* Cream/Off-White text */
+  color: #FFF8DC !important;
   margin-bottom: 0 !important;
 }
 
-/* === Under Hero Navigation (Homepage specific, if used) === */
+/* === UNDER HERO NAVIGATION (Primary Navigation on Homepage) === */
 .under-hero-navigation {
-  background-color: #FFF8DC; /* Cream page background */
-  padding: 1.5rem 0; /* Reduced padding slightly */
-  text-align: center;
-  border-bottom: 1px solid #e7dbc4; /* Slightly darker cream for subtle separator */
+  width: 100%;
+  background-color: #FFF8DC; /* Cream background - same as page */
+  /* Or, for a distinct bar: background-color: #e7dbc4; /* Slightly darker cream */
+  padding: 1rem 0; /* Vertical padding for the nav bar */
+  text-align: center; /* Centers the UL if it doesn't take full width (e.g., if max-width set on UL) */
+  border-top: 1px solid #e7dbc4;
+  border-bottom: 1px solid #e7dbc4;
   margin-bottom: 2.5rem; /* Space before next content section */
+  box-shadow: 0 2px 4px rgba(92, 64, 51, 0.05); /* Very subtle shadow */
 }
 
-.under-hero-navigation .site-nav ul { /* Assuming .site-nav is used here too */
+.under-hero-navigation ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem; /* Adjusted gap */
+  padding: 0 1rem; /* Padding on sides if ul isn't full width and for small screens */
+  margin: 0 auto; /* Center the UL, especially if using max-width below */
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  justify-content: center; /* Center items horizontally */
+  /* For more spread with fewer items: */
+  /* justify-content: space-around; */
+  /* max-width: 1200px; /* Optional: Constrain width of nav items */
 }
 
-.under-hero-navigation .site-nav ul li a {
+.under-hero-navigation ul li {
+  margin: 0.25rem 0.5rem; /* Margin for spacing when items wrap, and base horizontal */
+}
+
+.under-hero-navigation ul li a {
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
-  font-size: 0.95rem; /* Slightly adjusted */
+  font-size: 1rem;
   color: #5C4033; /* Deep Brown text */
   text-decoration: none;
-  padding: 0.4rem 0.7rem; /* Adjusted padding */
+  padding: 0.75rem 1.5rem; /* Generous padding for click targets and spread */
   border-radius: 4px;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  display: block;
 }
 
-.under-hero-navigation .site-nav ul li a:hover,
-.under-hero-navigation .site-nav ul li a:focus,
-.under-hero-navigation .site-nav ul li a.active {
+.under-hero-navigation ul li a:hover,
+.under-hero-navigation ul li a:focus,
+.under-hero-navigation ul li a.active { /* Add .active class via JS or templating for current page */
   color: #FF4500; /* Fiery Red text on hover/active */
-  background-color: rgba(255, 248, 220, 0.7); /* Lighter cream hint on hover - rgba from #FFF8DC */
-  /* Or a faint Fiery Red hint: background-color: rgba(255, 69, 0, 0.05); */
+  background-color: rgba(255, 248, 220, 0.8); /* Light Cream bg on hover (from #FFF8DC) */
+  transform: translateY(-2px); /* Subtle lift */
+  text-decoration: none;
 }
 
 
-/* === General Section Styling === */
+/* === General Section Styling (for sections like Tutorials, Blog Grid container) === */
 .home-section {
-  padding: 0 1rem; /* Add horizontal padding for content within sections if needed */
-  margin-bottom: 3rem;
+  padding: 0 1rem; /* Horizontal padding for content */
+  margin-bottom: 3rem; /* Space between sections */
 }
 
-.home-section .section-title {
+.home-section .section-title { /* e.g., "Latest from the Blog", "Tutorials" */
   font-family: 'Poppins', sans-serif;
   font-size: 1.8rem;
   font-weight: bold;
   color: #5C4033; /* Deep Brown */
-  /* Or accent: color: #FF4500; /* Fiery Red */
+  /* Or if you prefer accent titles: color: #FF4500; /* Fiery Red */
   margin-bottom: 1.5rem;
-  text-align: center; /* Or left, as preferred */
+  text-align: center; /* Or 'left' as preferred */
 }
 
-/* === Two-Column Layout Sections ("Tutorials" & "Tool Reviews") === */
+/* === Two-Column Layout Sections ("Tutorials" & "Tool Reviews" example) === */
 .home-section.two-cols {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  /* margin-bottom is handled by .home-section */
+  gap: 2rem; /* Space between the two columns */
 }
 
 .home-section.two-cols .col {
-  flex: 1;
-  min-width: 280px; /* Ensure columns don't get too narrow */
-  /* background-color: #FFF0E1; /* Slightly different cream, if needed for separation */
-  /* padding: 1.5rem; */
-  /* border-radius: 8px; */
+  flex: 1; /* Each column takes up equal space */
+  min-width: 280px; /* Prevent columns from getting too narrow before wrapping */
 }
 
-/* Styles for lists within these columns (e.g., Tutorial links) */
+/* Example styling for lists within these columns (e.g., Tutorial links) */
 .home-section.two-cols .col ul {
   list-style: none;
   padding-left: 0;
+  margin-top: 0; /* Remove default ul margin */
 }
 .home-section.two-cols .col ul li a {
-  color: #5C4033; /* Deep Brown for these links */
+  color: #5C4033; /* Deep Brown */
   text-decoration: none;
-  display: block;
-  padding: 0.3rem 0;
+  display: block; /* Make full width clickable */
+  padding: 0.4rem 0.2rem; /* Padding for links */
+  border-radius: 3px;
 }
 .home-section.two-cols .col ul li a:hover {
-  color: #FF4500; /* Fiery Red on hover */
+  color: #FF4500; /* Fiery Red */
+  background-color: rgba(255, 248, 220, 0.7); /* Light Cream highlight */
 }
-
 
 /* === Blog Card Grid ("Latest from the Blog") === */
 .home-section.post-grid .grid {
-  display: grid !important; /* Using !important if theme overrides are aggressive */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-  gap: 2rem !important;
-  margin-top: 1.5rem !important; /* Space below "Latest from the Blog" title */
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; /* Responsive columns */
+  gap: 2rem !important; /* Space between cards */
+  margin-top: 1.5rem !important; /* Space below the section title */
 }
 
-a.blog-card-link { /* Make entire card clickable */
+a.blog-card-link { /* Makes the entire card clickable */
   text-decoration: none;
-  color: inherit; /* Inherit text color from card content */
+  color: inherit;
   display: block;
-  height: 100%; /* For cards in a row to have same clickable height */
+  height: 100%;
 }
 
 article.card.blog-card {
-  background-color: #FFF8DC !important; /* Cream for card background */
-  border: 1px solid #e7dbc4; /* Subtle border in darker cream */
+  background-color: #FFF8DC !important; /* Cream card background */
+  border: 1px solid #e7dbc4; /* Subtle border using darker cream */
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(92, 64, 51, 0.12) !important; /* Deep Brown subtle shadow */
-  overflow: hidden !important;
+  box-shadow: 0 4px 10px rgba(92, 64, 51, 0.12) !important; /* Subtle Deep Brown shadow */
+  overflow: hidden !important; /* For image and rounded corners */
   display: flex !important;
   flex-direction: column !important;
-  height: 100% !important; /* For consistent height in grid rows */
+  height: 100% !important; /* Ensures cards in a row are same height if content varies */
   transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
 article.card.blog-card:hover {
-  transform: translateY(-6px) scale(1.01); /* Slightly more pronounced hover */
-  box-shadow: 0 8px 18px rgba(92, 64, 51, 0.2) !important; /* Enhanced Deep Brown shadow */
+  transform: translateY(-6px) scale(1.01); /* Enhanced hover effect */
+  box-shadow: 0 8px 18px rgba(92, 64, 51, 0.2) !important; /* More pronounced shadow */
 }
 
 img.blog-card-image {
   display: block !important;
   width: 100% !important;
-  height: 200px !important; /* Fixed image height */
-  object-fit: cover !important; /* Scale and crop image */
-  background-color: #e7dbc4; /* Darker cream fallback for missing images */
+  height: 200px !important; /* Fixed image height for uniformity */
+  object-fit: cover !important; /* Scale image to cover, crop as needed */
+  background-color: #e7dbc4; /* Fallback bg for missing images (darker cream) */
   border-bottom: 1px solid #e7dbc4; /* Separator line */
 }
 
 .blog-card-content {
-  padding: 1rem 1.25rem; /* Adjusted padding */
-  flex-grow: 1; /* Allows "Read More" to stick to bottom */
+  padding: 1rem 1.25rem;
+  flex-grow: 1; /* Essential for pushing "Read More" to the bottom */
   display: flex;
   flex-direction: column;
-  background-color: #FFF8DC; /* Ensure cream background for content */
+  background-color: #FFF8DC; /* Ensure cream background */
 }
 
 .blog-card-title {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem; /* Slightly adjusted */
+  font-size: 1.2rem;
   font-weight: bold;
   margin-top: 0;
-  margin-bottom: 0.6rem; /* Adjusted spacing */
-  color: #5C4033; /* Deep Brown for card titles */
+  margin-bottom: 0.6rem;
+  color: #5C4033; /* Deep Brown */
   line-height: 1.3;
 }
-.blog-card-title a { /* For linked titles, if not using full card link */
+.blog-card-title a { /* If titles are linked individually (not full card link) */
   color: inherit;
   text-decoration: none;
 }
@@ -292,9 +311,9 @@ img.blog-card-image {
 .blog-card-excerpt {
   font-family: 'Open Sans', sans-serif;
   font-size: 0.9rem;
-  color: #5C4033; /* Deep Brown for excerpts */
+  color: #5C4033;
   margin-bottom: 1rem;
-  flex-grow: 1; /* Pushes "Read More" down */
+  flex-grow: 1; /* Pushes "Read More" down if excerpt is short */
   line-height: 1.5;
 }
 
@@ -302,25 +321,25 @@ img.blog-card-image {
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 0.9rem;
-  background-color: #FF4500; /* Fiery Red background */
+  background-color: #FF4500; /* Fiery Red */
   color: #FFF8DC !important; /* Cream text */
-  padding: 0.6em 1.2em; /* Button padding */
+  padding: 0.6em 1.2em;
   border-radius: 4px;
   text-decoration: none;
   margin-top: auto; /* Pushes to bottom of flex container */
-  align-self: flex-start; /* Align to left */
+  align-self: flex-start; /* Align to left within card content */
   transition: background-color 0.2s ease, color 0.2s ease;
-  border: none; /* Ensure no default button border */
+  border: none;
   cursor: pointer;
 }
 
 .blog-card-readmore:hover, .blog-card-readmore:focus {
   background-color: #FFA500; /* Rich Orange on hover */
-  color: #5C4033 !important; /* Deep Brown text for contrast on orange */
+  color: #5C4033 !important; /* Deep Brown text */
   text-decoration: none;
 }
 
-/* Category Tags (Example styling) */
+/* Category Tags (Example styling for blog cards) */
 .category-tag {
   display: inline-block;
   background-color: #2E8B57; /* Leafy Green */
@@ -329,39 +348,62 @@ img.blog-card-image {
   font-size: 0.7rem;
   font-weight: bold;
   padding: 0.25em 0.6em;
-  border-radius: 10px; /* More rounded */
-  margin-left: 0.5em;
+  border-radius: 10px; /* Pill shape */
+  margin-left: 0.5em; /* Or margin-right if placed before other metadata */
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  transition: background-color 0.2s ease;
 }
 .category-tag:hover {
   background-color: #257045; /* Darker green */
   text-decoration: none;
 }
 
-/* === Footer Styling (Basic Example) === */
+/* === Footer Styling === */
 .site-footer {
   background-color: #5C4033; /* Deep Brown */
   color: #FFF8DC; /* Cream text */
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem; /* More padding */
   text-align: center;
   margin-top: 3rem;
+  border-top: 3px solid #FFA500; /* Rich Orange accent top border */
 }
 .site-footer p {
-  margin: 0;
+  margin: 0.5rem 0;
   font-size: 0.9rem;
 }
 .site-footer a {
-  color: #FFA500; /* Rich Orange for links in footer */
+  color: #FFA500; /* Rich Orange for links */
+  font-weight: bold;
 }
 .site-footer a:hover {
   color: #FFD700; /* Golden Yellow/Orange */
+  text-decoration: underline;
 }
 
-/* --- Utility Classes (Optional) --- */
-.text-center {
-  text-align: center !important;
-}
+/* === Utility Classes (Optional Additions) === */
+.text-center { text-align: center !important; }
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+
+.mt-0 { margin-top: 0 !important; }
 .mt-1 { margin-top: 1rem !important; }
-.mb-1 { margin-bottom: 1rem !important; }
-/* ... etc. for more spacing utilities */
+.mt-2 { margin-top: 2rem !important; }
+/* ... add more for mb, pt, pb, etc. as needed */
+
+.d-block { display: block !important; }
+.d-flex { display: flex !important; }
+.d-none { display: none !important; }
+
+/* Simple responsive utility to hide elements on small screens */
+@media (max-width: 768px) {
+  .hide-sm {
+    display: none !important;
+  }
+}
+/* Simple responsive utility to hide elements on medium screens and up */
+@media (min-width: 769px) {
+  .hide-md-up {
+    display: none !important;
+  }
+}
