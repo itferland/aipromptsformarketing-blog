@@ -29,4 +29,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Function to create skeleton cards
+    function createSkeletonCards(num) {
+        const skeletonCards = [];
+        for (let i = 0; i < num; i++) {
+            const card = document.createElement('div');
+            card.classList.add('prompt-card', 'skeleton');
+            skeletonCards.push(card);
+        }
+        return skeletonCards;
+    }
+
+    // Function to replace skeleton cards with actual data
+    function replaceWithData(skeletonCards, data) {
+      //Replace Skeleton cards with actual data cards here.
+    }
+
+    // TODO: Implement skeleton loaders
+    // 1. Call createSkeletonCards(number_of_cards_to_show) and add them to the prompts-grid
+    // 2. Fetch the JSON data
+    // 3. Call replaceWithData(skeletonCards, fetched_data)
+
 });
