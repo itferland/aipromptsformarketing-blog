@@ -1,0 +1,18 @@
+current directory: /home/user/aipromptsformarketing-blog/vendor/bundle/ruby/3.1.0/gems/racc-1.8.1/ext/racc/cparse
+/nix/store/zwljh4pgk74a9pbgfy9qzaypymdk9ajr-ruby-3.1.6/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/user/aipromptsformarketing-blog/vendor/bundle/ruby/3.1.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20250514-605-uropnt sitelibdir\=./.gem.20250514-605-uropnt clean
+
+current directory: /home/user/aipromptsformarketing-blog/vendor/bundle/ruby/3.1.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20250514-605-uropnt sitelibdir\=./.gem.20250514-605-uropnt
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: /home/user/aipromptsformarketing-blog/vendor/bundle/ruby/3.1.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20250514-605-uropnt sitelibdir\=./.gem.20250514-605-uropnt install
+install -c -p -m 755 cparse.so ./.gem.20250514-605-uropnt/racc
+
+current directory: /home/user/aipromptsformarketing-blog/vendor/bundle/ruby/3.1.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20250514-605-uropnt sitelibdir\=./.gem.20250514-605-uropnt clean
