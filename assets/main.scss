@@ -1,5 +1,6 @@
 // Define SCSS color variables
 $primary-color: #2563eb;
+$skeleton-color: #e2e8f0;
 
 // General Styles
 body {
@@ -57,6 +58,13 @@ body {
   background: var(--background);
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  &.skeleton {
+    background-color: $skeleton-color;
+    color: transparent;
+    & > * {
+      visibility: hidden;
+    }
+  }
 }
 
 .prompt-card:hover {
