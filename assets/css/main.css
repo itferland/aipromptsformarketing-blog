@@ -1,366 +1,83 @@
-/* assets/css/main.css */
-
-/* --- Header --- */
-.site-header {
-  /* background-color: #2C2F33 !important; /* Dark charcoal - OLD */
-  background-color: #5C4033 !important; /* Deep Brown - NEW: Header could be a darker anchor */
-  /* Or, if you prefer a lighter header to blend with a cream page:
-  background-color: #FFF8DC !important; /* Cream/Off-White */
-  /* border-bottom: 2px solid #FFA500; /* Optional: Rich Orange accent line */
-  padding: 1rem 0 !important;
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 1000 !important;
-}
-
-.site-header nav a {
-  /* color: #E0E0E0 !important; /* Light grey - OLD */
-  color: #FFF8DC !important; /* Cream/Off-White text on Deep Brown header - NEW */
-  /* Or if header is cream, text would be Deep Brown:
-  color: #5C4033 !important; */
-  text-decoration: none !important;
-  padding: 0.5rem 1rem;
-  transition: color 0.2s ease;
-  font-family: 'Poppins', sans-serif; /* Ensuring Poppins */
-  font-weight: bold !important;
-}
-
-.site-header nav a:hover,
-.site-header nav a:focus {
-  /* color: #00C6CF; /* Cyan hover/active state - OLD */
-  color: #FFA500 !important; /* Rich Orange hover/active state - NEW */
-  padding: 0.75rem 1rem;
-  margin: 0;
+/* --- Hero Section (Keeping your existing background image structure) --- */
+.hero-section {
+  /* Using your existing background image, potentially with a warmer dark overlay for text contrast */
+  background: linear-gradient(rgba(60, 40, 30, 0.65), rgba(80, 50, 40, 0.75)), /* Subtle WARM dark overlay (from Deep Brown tones) */
+              url('../images/AI-Marketing.jpg') no-repeat center center fixed !important; /* YOUR CURRENT HERO IMAGE */
+  /*
+  IMPORTANT FOR GRADIENT HIGHLIGHTS ON GRAPHICS (nodes, icons, AI letter parts):
+  The warm gradients on the specific 'x' marked areas in your image
+  would best be achieved by EDITING THE 'AI-Marketing.jpg' IMAGE ITSELF
+  in a graphics program to incorporate those warm highlights directly.
+  CSS cannot easily color specific parts of a single raster background image.
+  */
+  background-size: cover !important;
+  color: #FFF8DC !important; /* Cream/Off-White text for contrast on dark hero - NEW */
+  padding: 4rem 1rem !important;
+  min-height: 50vh !important;
+  text-align: center !important;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-/* Site Nav (might be redundant if covered by .site-header nav a or if site-nav is only under hero) */
-.site-nav a {
-  text-decoration: none;
-  /* color: #E0E0E0; /* Light grey text - OLD */
-  /* This is likely for the under-hero nav if distinct from top bar */
-  color: #5C4033; /* Deep Brown text (assuming light background for under-hero nav) - NEW */
-  font-weight: 500; /* Poppins Medium */
-  transition: color 0.2s ease;
+.hero-overlay { /* The container for your hero headline and sub-headline */
+  background-color: rgba(92, 64, 51, 0.7) !important; /* Semi-transparent Deep Brown - provides a good base for cream text - NEW */
+  padding: 2rem !important;
+  border-radius: 8px !important;
+  display: inline-block !important;
+  /* backdrop-filter: blur(3px) !important; /* Optional: Frosted glass effect if you like it */
+  box-shadow: 0 0 25px rgba(255, 165, 0, 0.65) !important; /* Rich Orange glow for the text box - NEW */
 }
 
-.site-nav a:hover,
-.site-nav a:focus,
-.site-nav a:active {
-  /* color: #00C6CF; /* Cyan hover/active state - OLD */
-  color: #FF4500; /* Fiery Red hover/active state for strong emphasis - NEW */
+.hero-overlay h1 { /* Your "Turn AI into Your Secret Marketing Weapon" */
+  font-family: 'Poppins', sans-serif !important; /* As per our font choice - NEW */
+  font-size: 2.8rem !important; /* Or adjust as needed */
+  font-weight: bold;
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+  color: #FFF8DC !important; /* Cream/Off-White text - NEW */
 }
 
-/* --- Global Typography --- */
+.hero-overlay h1 .ai-highlight { /* For specifically styling the "AI" part of the headline */
+  color: #FFA500 !important; /* Rich Orange highlight - NEW */
+  /* Or try #FF4500 (Fiery Red) for a stronger pop */
+}
+
+.hero-overlay .hero-subhead, .hero-overlay p { /* Your sub-headline text */
+  font-family: 'Open Sans', sans-serif !important; /* For better readability of smaller text - NEW */
+  font-size: 1.2rem !important;
+  line-height: 1.6 !important;
+  color: #FFF8DC !important; /* Cream/Off-White text - NEW */
+  margin-bottom: 0 !important;
+}
+
+/* === THE REST OF THE PAGE (Header, Body, Cards, Links, etc.) === */
+/* Apply the CSS from our PREVIOUS DETAILED RESPONSE where we aligned everything
+   to the "Inspired AI Palette". That CSS includes:
+    - Body background: Cream/Off-White (#FFF8DC)
+    - Text color (body, general headings): Deep Brown (#5C4033)
+    - Header: Deep Brown bg with Cream text, or Cream bg with Deep Brown text
+    - Links: Fiery Red (#FF4500) with Rich Orange (#FFA500) hover
+    - Blog Cards: Cream background, Deep Brown text, Fiery Red/Rich Orange for "Read More" button
+    - And all other elements styled with our agreed palette.
+*/
+
+/* For example, your global body and heading styles would be: */
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  /* color: #4A4A4A; /* OLD */
-  color: #5C4033; /* Deep Brown for body text - NEW */
-  /* background-color: #fff; /* OLD */
-  background-color: #FFF8DC; /* Cream/Off-White for page background - NEW */
+  color: #5C4033; /* Deep Brown */
+  background-color: #FFF8DC; /* Cream/Off-White */
   margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
-  /* color: #333; /* OLD */
-  color: #5C4033; /* Deep Brown for headings - NEW */
-  /* Consider using Fiery Red or Rich Orange for H1s or specific important H2s */
+  color: #5C4033; /* Deep Brown */
   margin-top: 1.5em;
   margin-bottom: 0.75em;
   line-height: 1.3;
 }
 
-.page-title, .post-title { /* More specific H1, usually */
-  font-size: 2.5rem;
-  font-weight: bold;
-  /* color: #FF4500; /* Fiery Red for main titles - NEW and specific */
-}
-
-/* .page-title .ai-highlight, .post-title .ai-highlight { /* Replaced Orbitron usage */
-/* color: #00C6CF; /* OLD Cyan */
-/* font-family: 'Orbitron', sans-serif; /* OLD */
-/* If you want a highlight within titles, use an accent from our palette */
-.page-title .ai-highlight, .post-title .ai-highlight {
-  color: #FFA500; /* Rich Orange for AI highlight in titles - NEW */
-  font-family: 'Poppins', sans-serif; /* Keep consistent with Poppins */
-  font-weight: bold; /* Or a heavier weight */
-}
-
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
-p { margin-bottom: 1em; }
-
-/* --- Global Link Styling --- */
-a {
-  /* color: #00AFFF; /* OLD Blue */
-  color: #FF4500; /* Fiery Red for general links - NEW */
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover, a:focus {
-  /* color: #007ACC; /* OLD Darker Blue */
-  color: #FFA500; /* Rich Orange on hover - NEW */
-  text-decoration: underline;
-}
-
-/* --- Hero Section --- */
-.hero-section {
-  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/AI-Marketing.jpg') no-repeat center center fixed !important; /* OLD */
-  /* --- NEW HERO BACKGROUND --- */
-  /* Option 1: Abstract CSS Gradient representing warm AI flow */
-  background: linear-gradient(135deg, #FF4500 0%, #FFA500 50%, #FFD700 100%) !important;
-  /* Option 2: If you create an abstract image that fits the palette, use: */
-  /* background: url('../images/warm-abstract-ai.jpg') no-repeat center center !important; */
-  /* background-attachment: fixed; /* If you want parallax */
-
-  background-size: cover !important;
-  color: #FFF8DC !important; /* Cream/Off-White text on vibrant hero - NEW */
-  padding: 4rem 1rem !important; /* Increased padding for more impact */
-  min-height: 50vh !important; /* Keep or adjust as needed */
-  text-align: center !important;
-  display: flex; /* For better vertical centering of content */
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-overlay {
-  /* background-color: rgba(0, 0, 0, 0.6) !important; /* OLD dark overlay */
-  /* The new hero background IS the visual. We might not need a distinct overlay block,
-     or if we do for text contrast, it should be from our palette */
-  background-color: rgba(92, 64, 51, 0.7) !important; /* Semi-transparent Deep Brown for text legibility if needed - NEW */
-  padding: 2rem !important;
-  border-radius: 8px !important;
-  display: inline-block !important;
-  /* backdrop-filter: blur(5px) !important; /* Glass effect, can be kept if desired */
-  /* box-shadow: 0 0 20px rgba(0, 198, 207, 0.7) !important; /* OLD Cyan glow */
-  box-shadow: 0 0 25px rgba(255, 165, 0, 0.6) !important; /* Rich Orange subtle glow - NEW */
-}
-
-.hero-overlay h1 {
-  /* font-family: 'Orbitron', sans-serif !important; /* OLD */
-  font-family: 'Poppins', sans-serif !important; /* Poppins for Hero H1 - NEW */
-  font-size: 2.8rem !important; /* Keep size or adjust */
-  font-weight: bold; /* Ensure bold */
-  margin-top: 0 !important;
-  margin-bottom: 1rem !important;
-  color: #FFF8DC !important; /* Cream/Off-White for hero headline - NEW */
-}
-
-.hero-overlay h1 .ai-highlight {
-  /* color: #00C6CF !important; /* OLD Cyan */
-  color: #FFD700 !important; /* Golden Yellow/Orange for AI highlight in Hero - NEW */
-}
-
-.hero-overlay .hero-subhead, .hero-overlay p {
-  font-size: 1.2rem !important;
-  line-height: 1.6 !important;
-  /* color: #E0E0E0 !important; /* OLD light grey */
-  color: #FFF8DC !important; /* Cream/Off-White for subhead - NEW */
-  margin-bottom: 0 !important;
-  font-family: 'Open Sans', sans-serif; /* Ensuring Open Sans if preferred for readability */
-}
-
-/* === Under Hero Navigation (Homepage) === */
-.under-hero-navigation {
-  background-color: #FFF8DC; /* Cream background to stand out from a diff body or separate sections */
-  padding: 2rem 0;
-  text-align: center;
-  border-bottom: 1px solid #e7dbc4; /* Slightly darker cream for subtle separator */
-  margin-bottom: 3rem;
-}
-
-.under-hero-navigation .site-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-.under-hero-navigation .site-nav ul li a {
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-  font-size: 1rem;
-  /* color: #333; /* OLD dark color */
-  color: #5C4033; /* Deep Brown text on cream background - NEW */
-  text-decoration: none;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
-
-.under-hero-navigation .site-nav ul li a:hover,
-.under-hero-navigation .site-nav ul li a:focus,
-.under-hero-navigation .site-nav ul li a.active {
-  /* color: #007bff; /* OLD primary blue accent */
-  color: #FF4500; /* Fiery Red text on hover/active - NEW */
-  background-color: rgba(255, 69, 0, 0.1); /* Very light Fiery Red background hint - NEW */
-  text-decoration: none;
-}
-
-/* Original .site-header might be simplified if nav is moved, adjust as per your HTML */
-
-/* === Blog Card Styling === */
-.blog-card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  height: 100%;
-}
-
-article.card.blog-card {
-  /* background-color: #fff !important; /* OLD White */
-  background-color: #FFF8DC !important; /* Cream for card background - NEW */
-  border-radius: 8px;
-  /* box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important; /* OLD Grey shadow */
-  box-shadow: 0 4px 12px rgba(92, 64, 51, 0.15) !important; /* Deep Brown subtle shadow - NEW */
-  overflow: hidden !important;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-article.card.blog-card:hover {
-  transform: translateY(-5px);
-  /* box-shadow: 0 6px 16px rgba(0,0,0,0.15) !important; /* OLD */
-  box-shadow: 0 6px 16px rgba(92, 64, 51, 0.25) !important; /* Enhanced Deep Brown shadow - NEW */
-}
-
-img.blog-card-image {
-  display: block !important;
-  width: 100% !important;
-  height: 200px !important;
-  object-fit: cover !important;
-  /* background-color: #e0e0e0; /* Fallback OLD */
-  background-color: #e7dbc4; /* Darker cream fallback - NEW */
-}
-
-.blog-card-content {
-  padding: 15px 20px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  background-color: #FFF8DC; /* Ensure cream background for content part - NEW */
-}
-
-.blog-card-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  /* color: #333; /* OLD */
-  color: #5C4033; /* Deep Brown for card titles - NEW */
-}
-.blog-card-title a {
-  color: inherit;
-  text-decoration: none;
-}
-.blog-card-title a:hover {
-  /* color: #007bff; /* OLD Blue */
-  color: #FF4500; /* Fiery Red - NEW */
-  text-decoration: underline;
-}
-
-.blog-card-excerpt {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.9rem;
-  /* color: #555; /* OLD */
-  color: #5C4033; /* Deep Brown for excerpts - NEW */
-  margin-bottom: 1rem;
-  flex-grow: 1;
-  line-height: 1.5;
-}
-
-.blog-card-readmore { /* This should look like a button ideally */
-  font-family: 'Poppins', sans-serif; /* Button Text */
-  font-weight: bold;
-  /* color: #007bff; /* OLD Blue Link */
-  background-color: #FF4500; /* Fiery Red background - NEW */
-  color: #FFF8DC; /* Cream text - NEW */
-  padding: 0.5em 1em;
-  border-radius: 4px;
-  text-decoration: none;
-  margin-top: auto;
-  align-self: flex-start;
-  transition: background-color 0.2s ease;
-}
-
-.blog-card-readmore:hover {
-  /* background-color: #0056b3; /* Darker Blue */
-  background-color: #FFA500; /* Rich Orange on hover - NEW */
-  color: #5C4033; /* Deep Brown text for contrast on orange */
-}
-
-
-/* === Two-Column Sections ("Tutorials" & "Tool Reviews") === */
-.home-section.two-cols {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-bottom: 3rem;
-  /* Assuming page background is Cream, these columns will sit on it */
-}
-
-.home-section.two-cols .col {
-  flex: 1;
-  min-width: 280px;
-  /* Optional: Add a background to columns if you want them to stand out from page bg */
-  /* background-color: #fff; /* Could be a slightly different white/cream if needed */
-  /* padding: 1.5rem; */
-  /* border-radius: 8px; */
-  /* box-shadow: 0 2px 8px rgba(92, 64, 51, 0.1); */
-}
-
-/* Section Titles in two-col */
-.home-section .section-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem; /* Example size */
-  font-weight: bold;
-  color: #5C4033; /* Deep Brown */
-  margin-bottom: 1.5rem;
-  /* If you want accent color for titles:
-  /* color: #FF4500; /* Fiery Red */
-}
-
-/* Blog Card Grid alignment */
-.home-section.post-grid .grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-  gap: 2rem !important;
-  margin-top: 1.5rem !important;
-  margin-bottom: 2rem !important;
-}
-
-/* Ensure card link fills for consistent clickability */
-a.blog-card-link {
-  display: block;
-  height: 100%;
-}
-
-article.card.blog-card {
-  display: flex !important;
-  flex-direction: column !important;
-  height: 100% !important;
-}
-
-/* Add styles for CATEGORY TAGS if you implement them */
-.category-tag {
-  display: inline-block;
-  background-color: #2E8B57; /* Leafy Green */
-  color: #FFF8DC; /* Cream text */
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.75rem;
-  font-weight: bold;
-  padding: 0.25em 0.6em;
-  border-radius: 4px;
-  margin-left: 0.5em;
-  text-transform: uppercase;
-}
+/* ... and so on for all other page elements as previously defined. */
