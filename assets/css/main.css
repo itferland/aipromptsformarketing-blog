@@ -1,409 +1,448 @@
-/* assets/css/main.css - Complete Styling for aipromptsformarketing.net */
+/* assets/css/main.css - ShumerPrompt-inspired Theme */
 
-/* === Palette Reminders (Hex Codes Used) === */
-/* Cream/Off-White: #FFF8DC (Cornsilk) */
-/* Fiery Red: #FF4500 (OrangeRed) */
-/* Rich Orange: #FFA500 (Standard Orange) */
-/* Golden Yellow/Orange: #FFD700 (Gold) */
-/* Deep Brown: #5C4033 (Dark Warm Brown) */
-/* Leafy Green: #2E8B57 (SeaGreen) */
+/* === Palette (ShumerPrompt-inspired) === */
+/* Primary Background (Very Dark): #1A1A1D */
+/* Secondary Background (Cards): #22252A */
+/* Primary Text (Light): #E0E0E0 */
+/* Accent Color (Blue): #4299E1 */
+/* Secondary Accent (Darker Blue): #3182CE */
+/* Border/Subtle Lines: #33373D */
 
 /* === Global Typography & Body === */
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #5C4033; /* Deep Brown for body text */
-  background-color: #FFF8DC; /* Cream/Off-White for page background */
+  color: #E0E0E0; /* Primary Text (Light) */
+  background-color: #1A1A1D; /* Primary Background (Very Dark) */
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
-  color: #5C4033; /* Deep Brown for headings */
+  color: #F5F5F5; /* Slightly brighter for headings */
   margin-top: 1.5em;
   margin-bottom: 0.75em;
   line-height: 1.3;
+  font-weight: 600; /* Semi-bold for Poppins often looks good */
 }
 
-.page-title, .post-title { /* More specific H1, for main content pages */
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #FF4500; /* Fiery Red, or #5C4033 for Deep Brown */
-}
-
-.page-title .ai-highlight, .post-title .ai-highlight { /* e.g., "AI" in a title */
-  color: #FFA500; /* Rich Orange */
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-}
-
+h1 { font-size: 2.8rem; margin-bottom: 1rem;}
 h2 { font-size: 2rem; }
 h3 { font-size: 1.75rem; }
 p { margin-bottom: 1em; }
 
 /* === Global Link Styling === */
 a {
-  color: #FF4500; /* Fiery Red */
+  color: #4299E1; /* Accent Color (Blue) */
   text-decoration: none;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 a:hover, a:focus {
-  color: #FFA500; /* Rich Orange */
-  text-decoration: underline;
+  color: #3182CE; /* Secondary Accent (Darker Blue) */
+  text-decoration: none; /* Usually no underline in this style, but optional */
 }
 
-/* === Site Header (Top Sticky Bar - Minimal on Homepage) === */
+/* === Site Header (Top Navigation Bar) === */
 .site-header {
-  background-color: #5C4033 !important; /* Deep Brown */
-  padding: 0.5rem 1rem !important; /* Reduced padding if primarily for a logo */
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 1000 !important;
-  box-shadow: 0 2px 5px rgba(92, 64, 51, 0.3);
+  background-color: #1A1A1D; /* Primary Background (Very Dark) */
+  /* Or a slightly different shade for subtle separation: #1E1E1E; */
+  padding: 0.75rem 1.5rem; /* Padding for the header bar */
+  position: sticky; /* Sticky at the top */
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #33373D; /* Subtle border */
   display: flex;
+  justify-content: space-between; /* Logo left, nav right */
   align-items: center;
-  min-height: 50px; /* Example minimal height */
+  min-height: 60px;
 }
 
-/* Styles for any links or logo text remaining in the top bar.
-   The main nav list is assumed MOVED on the HOMEPAGE. */
-.site-header .site-title a, /* Example if you have a text logo */
-.site-header nav a { /* For any *other* links that might still be in top bar */
-  font-family: 'Poppins', sans-serif !important;
-  color: #FFF8DC !important; /* Cream/Off-White text */
-  text-decoration: none !important;
-  padding: 0.5rem 1rem; /* Adjust padding as needed for these specific items */
-  font-weight: bold !important;
-  transition: color 0.2s ease;
+.site-header .site-title { /* For your logo/site name */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #F5F5F5;
+  text-decoration: none;
 }
-.site-header .site-title a:hover,
-.site-header nav a:hover,
-.site-header nav a:focus {
-  color: #FFA500 !important; /* Rich Orange hover */
+.site-header .site-title a { /* If logo is a link */
+    color: inherit;
+    text-decoration: none;
 }
 
-/* Hide the original main nav UL if it was in .site-header and now moved on homepage */
-/* You might need a body class like 'homepage' for this, applied via your templating system.
-body.homepage .site-header > nav > ul {
-  display: none !important;
+
+.site-header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Horizontal layout */
+  align-items: center;
+}
+
+.site-header nav ul li {
+  margin-left: 1.5rem; /* Space between nav items */
+}
+
+.site-header nav ul li a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500; /* Medium weight */
+  color: #E0E0E0; /* Primary Text */
+  text-decoration: none;
+  padding: 0.5rem 0; /* Minimal padding as it's not button-like */
+  position: relative; /* For potential underline effect */
+}
+
+.site-header nav ul li a:hover,
+.site-header nav ul li a.active { /* For current page */
+  color: #4299E1; /* Accent Color (Blue) */
+}
+
+/* Optional: Underline hover effect for nav links */
+/*
+.site-header nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #4299E1;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.site-header nav ul li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 */
 
-
-/* === Hero Section === */
+/* === Hero Section (Full-width with Prominent Search) === */
 .hero-section {
-  /*
-    IMPORTANT HERO IMAGE NOTE:
-    For the warm gradients on nodes/icons/AI letters,
-    you will need to EDIT YOUR `AI-Marketing.jpg` IMAGE
-    in a graphics program to add those highlights directly.
-  */
-  background: linear-gradient(rgba(92, 64, 51, 0.65), rgba(92, 64, 51, 0.75)), /* Warm Deep Brown transparent overlay */
-              url('../images/AI-Marketing.jpg') no-repeat center center fixed !important; /* YOUR EDITED HERO IMAGE PATH */
-  background-size: cover !important;
-  color: #FFF8DC !important; /* Cream/Off-White text for hero content */
-  padding: 2.5rem 1rem !important; /* Adjusted vertical padding for reduced height */
-  min-height: 38vh !important; /* Adjusted min-height (tweak as needed) */
-  text-align: center !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-.hero-overlay { /* Box containing hero headline and sub-headline */
-  background-color: rgba(92, 64, 51, 0.75) !important; /* Semi-transparent Deep Brown */
-  padding: 1.5rem 2rem !important;
-  border-radius: 8px !important;
-  display: inline-block !important;
-  backdrop-filter: blur(3px) !important; /* Optional: Frosted glass effect */
-  box-shadow: 0 0 25px rgba(255, 165, 0, 0.65) !important; /* Rich Orange glow */
-}
-
-.hero-overlay h1 { /* Hero Headline: "Turn AI into Your Secret Marketing Weapon" */
-  font-family: 'Poppins', sans-serif !important;
-  font-size: 2.4rem !important; /* Adjusted for potentially smaller hero */
-  font-weight: bold;
-  margin-top: 0 !important;
-  margin-bottom: 0.8rem !important;
-  color: #FFF8DC !important;
-  line-height: 1.2;
-}
-
-.hero-overlay h1 .ai-highlight { /* For styling "AI" in hero headline */
-  color: #FFA500 !important; /* Rich Orange */
-}
-
-.hero-overlay .hero-subhead, .hero-overlay p { /* Hero Sub-headline text */
-  font-family: 'Open Sans', sans-serif !important;
-  font-size: 1.1rem !important; /* Adjusted for potentially smaller hero */
-  line-height: 1.5 !important;
-  color: #FFF8DC !important;
-  margin-bottom: 0 !important;
-}
-
-/* === UNDER HERO NAVIGATION (Primary Navigation on Homepage) === */
-.under-hero-navigation {
-  width: 100%;
-  background-color: #FFF8DC; /* Cream background - same as page */
-  /* Or, for a distinct bar: background-color: #e7dbc4; /* Slightly darker cream */
-  padding: 1rem 0; /* Vertical padding for the nav bar */
-  text-align: center; /* Centers the UL if it doesn't take full width (e.g., if max-width set on UL) */
-  border-top: 1px solid #e7dbc4;
-  border-bottom: 1px solid #e7dbc4;
-  margin-bottom: 2.5rem; /* Space before next content section */
-  box-shadow: 0 2px 4px rgba(92, 64, 51, 0.05); /* Very subtle shadow */
-}
-
-.under-hero-navigation ul {
-  list-style: none;
-  padding: 0 1rem; /* Padding on sides if ul isn't full width and for small screens */
-  margin: 0 auto; /* Center the UL, especially if using max-width below */
-  display: flex;
-  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-  justify-content: center; /* Center items horizontally */
-  /* For more spread with fewer items: */
-  /* justify-content: space-around; */
-  /* max-width: 1200px; /* Optional: Constrain width of nav items */
-}
-
-.under-hero-navigation ul li {
-  margin: 0.25rem 0.5rem; /* Margin for spacing when items wrap, and base horizontal */
-}
-
-.under-hero-navigation ul li a {
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-  font-size: 1rem;
-  color: #5C4033; /* Deep Brown text */
-  text-decoration: none;
-  padding: 0.75rem 1.5rem; /* Generous padding for click targets and spread */
-  border-radius: 4px;
-  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-  display: block;
-}
-
-.under-hero-navigation ul li a:hover,
-.under-hero-navigation ul li a:focus,
-.under-hero-navigation ul li a.active { /* Add .active class via JS or templating for current page */
-  color: #FF4500; /* Fiery Red text on hover/active */
-  background-color: rgba(255, 248, 220, 0.8); /* Light Cream bg on hover (from #FFF8DC) */
-  transform: translateY(-2px); /* Subtle lift */
-  text-decoration: none;
-}
-
-
-/* === General Section Styling (for sections like Tutorials, Blog Grid container) === */
-.home-section {
-  padding: 0 1rem; /* Horizontal padding for content */
-  margin-bottom: 3rem; /* Space between sections */
-}
-
-.home-section .section-title { /* e.g., "Latest from the Blog", "Tutorials" */
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #5C4033; /* Deep Brown */
-  /* Or if you prefer accent titles: color: #FF4500; /* Fiery Red */
-  margin-bottom: 1.5rem;
-  text-align: center; /* Or 'left' as preferred */
-}
-
-/* === Two-Column Layout Sections ("Tutorials" & "Tool Reviews" example) === */
-.home-section.two-cols {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem; /* Space between the two columns */
-}
-
-.home-section.two-cols .col {
-  flex: 1; /* Each column takes up equal space */
-  min-width: 280px; /* Prevent columns from getting too narrow before wrapping */
-}
-
-/* Example styling for lists within these columns (e.g., Tutorial links) */
-.home-section.two-cols .col ul {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 0; /* Remove default ul margin */
-}
-.home-section.two-cols .col ul li a {
-  color: #5C4033; /* Deep Brown */
-  text-decoration: none;
-  display: block; /* Make full width clickable */
-  padding: 0.4rem 0.2rem; /* Padding for links */
-  border-radius: 3px;
-}
-.home-section.two-cols .col ul li a:hover {
-  color: #FF4500; /* Fiery Red */
-  background-color: rgba(255, 248, 220, 0.7); /* Light Cream highlight */
-}
-
-/* === Blog Card Grid ("Latest from the Blog") === */
-.home-section.post-grid .grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; /* Responsive columns */
-  gap: 2rem !important; /* Space between cards */
-  margin-top: 1.5rem !important; /* Space below the section title */
-}
-
-a.blog-card-link { /* Makes the entire card clickable */
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  height: 100%;
-}
-
-article.card.blog-card {
-  background-color: #FFF8DC !important; /* Cream card background */
-  border: 1px solid #e7dbc4; /* Subtle border using darker cream */
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(92, 64, 51, 0.12) !important; /* Subtle Deep Brown shadow */
-  overflow: hidden !important; /* For image and rounded corners */
-  display: flex !important;
-  flex-direction: column !important;
-  height: 100% !important; /* Ensures cards in a row are same height if content varies */
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-}
-
-article.card.blog-card:hover {
-  transform: translateY(-6px) scale(1.01); /* Enhanced hover effect */
-  box-shadow: 0 8px 18px rgba(92, 64, 51, 0.2) !important; /* More pronounced shadow */
-}
-
-img.blog-card-image {
-  display: block !important;
-  width: 100% !important;
-  height: 200px !important; /* Fixed image height for uniformity */
-  object-fit: cover !important; /* Scale image to cover, crop as needed */
-  background-color: #e7dbc4; /* Fallback bg for missing images (darker cream) */
-  border-bottom: 1px solid #e7dbc4; /* Separator line */
-}
-
-.blog-card-content {
-  padding: 1rem 1.25rem;
-  flex-grow: 1; /* Essential for pushing "Read More" to the bottom */
+  background-color: #1A1A1D; /* Or a very subtle gradient/pattern */
+  /* Example subtle gradient: background-image: linear-gradient(180deg, #1E1E1E 0%, #121212 100%); */
+  color: #F5F5F5;
+  padding: 5rem 1.5rem; /* Generous padding */
+  text-align: center;
   display: flex;
   flex-direction: column;
-  background-color: #FFF8DC; /* Ensure cream background */
+  align-items: center;
+  justify-content: center;
+  min-height: 55vh; /* Good height for impact */
+  border-bottom: 1px solid #33373D;
 }
 
-.blog-card-title {
+.hero-section h1 {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 3rem; /* Large headline */
+  font-weight: 700; /* Bold */
   margin-top: 0;
-  margin-bottom: 0.6rem;
-  color: #5C4033; /* Deep Brown */
-  line-height: 1.3;
+  margin-bottom: 1.5rem; /* Space before search bar */
+  max-width: 800px; /* Keep headline from getting too wide */
 }
-.blog-card-title a { /* If titles are linked individually (not full card link) */
-  color: inherit;
-  text-decoration: none;
-}
-.blog-card-title a:hover {
-  color: #FF4500;
-  text-decoration: underline;
+.hero-section .ai-highlight { /* For any highlighted part like "AI" */
+    color: #4299E1; /* Accent Blue */
 }
 
-.blog-card-excerpt {
+.hero-search-container {
+  width: 100%;
+  max-width: 700px; /* Max width for search bar */
+  margin-top: 1rem;
+  position: relative;
+}
+
+.hero-search-container input[type="search"] {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  padding: 1rem 1.5rem; /* Generous padding */
+  padding-right: 4rem; /* Space for a search button/icon if placed inside */
+  font-size: 1.1rem;
+  border: 1px solid #33373D; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #22252A; /* Secondary Background */
+  color: #E0E0E0; /* Light text for input */
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-search-container input[type="search"]:focus {
+  border-color: #4299E1; /* Accent Blue on focus */
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3); /* Blue glow */
+}
+
+/* Optional: Style for a search button if needed */
+.hero-search-container button[type="submit"] {
+  /* Position it absolutely if inside the input wrapper, or style as a separate button */
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.75rem 1.25rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #4299E1; /* Accent Blue */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.hero-search-container button[type="submit"]:hover {
+  background-color: #3182CE; /* Darker Blue */
+}
+
+
+/* === Filter Bar UI (Example basic styling) === */
+.filter-bar {
+  padding: 1.5rem;
+  background-color: #1E1E1E; /* Slightly different dark bg for separation */
+  border-bottom: 1px solid #33373D;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Space between filter elements */
+  align-items: center;
+  justify-content: center; /* Or 'flex-start' */
+}
+
+.filter-bar .filter-group select,
+.filter-bar .filter-group input[type="text"] {
+  font-family: 'Open Sans', sans-serif;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  border: 1px solid #33373D;
+  border-radius: 6px;
+  background-color: #22252A;
+  color: #E0E0E0;
+  outline: none;
+}
+.filter-bar .filter-group label {
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}
+.filter-bar button { /* Generic button style for filter apply, etc. */
+  font-family: 'Poppins', sans-serif;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: #4299E1;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.filter-bar button:hover {
+  background-color: #3182CE;
+}
+
+
+/* === Prompt Card Grid & Cards === */
+.prompt-grid-container { /* A wrapper for padding around the grid */
+    padding: 2.5rem 1.5rem;
+}
+.prompt-grid-container .section-title { /* If you have titles like "Featured Prompts" */
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: #F5F5F5;
+}
+
+.prompt-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+  gap: 1.5rem; /* Space between cards */
+}
+
+.prompt-card {
+  background-color: #22252A; /* Secondary Background (Cards) */
+  border: 1px solid #33373D; /* Subtle border */
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+  text-decoration: none; /* If card itself is a link */
+  color: #E0E0E0; /* Ensure text color inheritance */
+}
+
+.prompt-card:hover {
+  transform: translateY(-5px);
+  border-color: #4299E1; /* Accent Blue border on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.prompt-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #F5F5F5; /* Brighter text for titles */
+}
+/* If title itself is a link, ensure color */
+.prompt-card-title a {
+    color: inherit; text-decoration: none;
+}
+.prompt-card-title a:hover {
+    color: #4299E1;
+}
+
+.prompt-card-description { /* Or excerpt */
   font-family: 'Open Sans', sans-serif;
   font-size: 0.9rem;
-  color: #5C4033;
+  color: #B0B0B0; /* Slightly dimmer for less emphasis */
   margin-bottom: 1rem;
-  flex-grow: 1; /* Pushes "Read More" down if excerpt is short */
+  flex-grow: 1; /* Pushes elements below it down */
   line-height: 1.5;
 }
 
-.blog-card-readmore { /* CTA Button style */
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-  font-size: 0.9rem;
-  background-color: #FF4500; /* Fiery Red */
-  color: #FFF8DC !important; /* Cream text */
-  padding: 0.6em 1.2em;
-  border-radius: 4px;
-  text-decoration: none;
-  margin-top: auto; /* Pushes to bottom of flex container */
-  align-self: flex-start; /* Align to left within card content */
-  transition: background-color 0.2s ease, color 0.2s ease;
-  border: none;
-  cursor: pointer;
+.prompt-card-tags {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-.blog-card-readmore:hover, .blog-card-readmore:focus {
-  background-color: #FFA500; /* Rich Orange on hover */
-  color: #5C4033 !important; /* Deep Brown text */
-  text-decoration: none;
-}
-
-/* Category Tags (Example styling for blog cards) */
-.category-tag {
-  display: inline-block;
-  background-color: #2E8B57; /* Leafy Green */
-  color: #FFF8DC !important; /* Cream text */
+.prompt-card-tags .tag {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.7rem;
-  font-weight: bold;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: #33373D; /* Darker grey for tags */
+  color: #B0B0B0;
   padding: 0.25em 0.6em;
-  border-radius: 10px; /* Pill shape */
-  margin-left: 0.5em; /* Or margin-right if placed before other metadata */
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  border-radius: 4px;
+  text-decoration: none; /* If tags are links */
+}
+.prompt-card-tags .tag:hover {
+    background-color: #4299E1;
+    color: #FFFFFF;
+}
+
+.prompt-card-actions { /* Container for buttons like "Copy" or "View" */
+  margin-top: auto; /* Pushes to bottom */
+  display: flex;
+  gap: 0.75rem;
+}
+
+.prompt-card-actions .button { /* Generic button style for cards */
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.prompt-card-actions .button-primary {
+  background-color: #4299E1; /* Accent Blue */
+  color: #FFFFFF;
+  border: 1px solid #4299E1;
+}
+.prompt-card-actions .button-primary:hover {
+  background-color: #3182CE; /* Darker Blue */
+  border-color: #3182CE;
+}
+.prompt-card-actions .button-secondary {
+  background-color: transparent;
+  color: #4299E1; /* Accent Blue */
+  border: 1px solid #4299E1;
+}
+.prompt-card-actions .button-secondary:hover {
+  background-color: rgba(66, 153, 225, 0.1); /* Faint blue bg */
+  color: #3182CE;
+}
+
+
+/* === Sign Up / Form Elements (Basic Styling) === */
+/* These can be used in modals or dedicated sections */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+.form-group label {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #E0E0E0;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%; /* Or manage width via form container */
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #33373D;
+  border-radius: 6px;
+  background-color: #22252A;
+  color: #E0E0E0;
+  outline: none;
+  box-sizing: border-box; /* Important for width: 100% with padding */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group textarea:focus {
+  border-color: #4299E1; /* Accent Blue on focus */
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3); /* Blue glow */
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.button-submit { /* For main form submission buttons */
+  font-family: 'Poppins', sans-serif;
+  width: 100%; /* Or fixed width as desired */
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #4299E1; /* Accent Blue */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
   transition: background-color 0.2s ease;
 }
-.category-tag:hover {
-  background-color: #257045; /* Darker green */
-  text-decoration: none;
+.button-submit:hover {
+  background-color: #3182CE; /* Darker Blue */
 }
+
 
 /* === Footer Styling === */
 .site-footer {
-  background-color: #5C4033; /* Deep Brown */
-  color: #FFF8DC; /* Cream text */
-  padding: 2.5rem 1rem; /* More padding */
+  background-color: #121212; /* Darkest background */
+  color: #A0A0A0; /* Dimmer text for footer */
+  padding: 2.5rem 1.5rem;
   text-align: center;
   margin-top: 3rem;
-  border-top: 3px solid #FFA500; /* Rich Orange accent top border */
+  border-top: 1px solid #33373D;
 }
 .site-footer p {
   margin: 0.5rem 0;
   font-size: 0.9rem;
 }
 .site-footer a {
-  color: #FFA500; /* Rich Orange for links */
-  font-weight: bold;
+  color: #4299E1; /* Accent Blue for links */
+  font-weight: 500;
 }
 .site-footer a:hover {
-  color: #FFD700; /* Golden Yellow/Orange */
+  color: #3182CE; /* Darker Blue */
   text-decoration: underline;
 }
 
-/* === Utility Classes (Optional Additions) === */
+/* === Utility Classes (Keep if useful) === */
 .text-center { text-align: center !important; }
-.text-left { text-align: left !important; }
-.text-right { text-align: right !important; }
-
-.mt-0 { margin-top: 0 !important; }
 .mt-1 { margin-top: 1rem !important; }
-.mt-2 { margin-top: 2rem !important; }
-/* ... add more for mb, pt, pb, etc. as needed */
-
-.d-block { display: block !important; }
-.d-flex { display: flex !important; }
-.d-none { display: none !important; }
-
-/* Simple responsive utility to hide elements on small screens */
-@media (max-width: 768px) {
-  .hide-sm {
-    display: none !important;
-  }
-}
-/* Simple responsive utility to hide elements on medium screens and up */
-@media (min-width: 769px) {
-  .hide-md-up {
-    display: none !important;
-  }
-}
+/* ... etc. */
