@@ -1,48 +1,76 @@
----
----
-
-/* === Affiliate disclosure styles === */
-.site-disclosure {
-  font-size: 0.9em;
-  color: #555;
+/* Hero Section */
+.hero {
   text-align: center;
-  margin: 1.5rem 0;
+  padding: 6rem 1rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
-/* === Prompt Library grid styles === */
-.prompt-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-.prompt-list li {
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.hero p {
+ color: #4a5568
 }
 
-.prompt-list a {
+/* Color Scheme */
+$primary-color: #2563eb;
+$secondary-color: #3b82f6;
+$card-background: #f8fafc;
+
+h1, h2, h3, h4, h5, h6 {
+  color: $primary-color;
+}
+
+/* Prompt Cards */
+.prompt-card {
+  background: $card-background;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.prompt-card:hover {
+  transform: translateY(-4px);
+}
+
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2 {
   font-weight: 600;
-  color: inherit;
-  text-decoration: none;
 }
 
-.prompt-list .description {
-  margin-top: 0.5rem;
-  flex-grow: 1;
-  color: #555;
-}
+/*Layout & Spacing*/
+.prompt-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
 
-.prompt-list .read-more {
+      .prompt-card {
+       background: white;
+       border: 1px solid #e0e0e0;
+       border-radius: 0.5rem;
+       padding: 1.5rem;
+       box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+     }
+     
+     /* CTA Button */
+.cta-button {
+  background: #2563eb;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  display: inline-block;
   margin-top: 1rem;
-  font-size: 0.9rem;
+  text-decoration: none; /*Removes the underline*/
 }
