@@ -1,7 +1,11 @@
-/* Variables */
-$primary-color: #3b82f6;
-$secondary-color: #6b7280;
-$card-background: #ffffff;
+:root {
+  --primary: #2563eb;       /* Bold blue */
+  --secondary: #3b82f6;     /* Light blue */
+  --accent: #f59e0b;        /* Orange for CTAs */
+  --background: #f8fafc;    /* Page BG */
+  --text: #1e293b;          /* Main text */
+  --text-light: #64748b;    /* Subdued text */
+}
 
 /* Hero Section */
 .hero {
@@ -45,13 +49,33 @@ $card-background: #ffffff;
 
 /* Button Styles */
 .button {
-  background: $primary-color;
-  color: white;
+  background: var(--primary);
+  color: white !important;
+        padding: 12px 24px;
+        border-radius: 8px;
+        transition: transform 0.2s;
+}
+
+.button:hover {
+        transform: translateY(-2px);
+        background: var(--secondary);
+}
+
+/* Update the "Load More" button */
+.load-more {
+  background: var(--accent); /* Use accent color */
+}
+
+/* Links */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 2px solid var(--secondary);
 }
 
 /* Prompt Cards */
 .prompt-card {
-  background: $card-background;
+  background: var(--background);
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
@@ -64,10 +88,12 @@ $card-background: #ffffff;
 /* General Styles */
 body {
   font-family: 'Poppins', sans-serif;
+  color: var(--text);
 }
 
 h1, h2 {
   font-weight: 600;
+  color: var(--text);
 }
 
 /*Layout & Spacing*/
