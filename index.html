@@ -3,214 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Prompts for Marketing</title>
-    <link rel="stylesheet" href="/assets/main.css">
+    <title>AIPromptsForMarketing - AI-Powered Marketing Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #f59e0b;
+            --text: #1e293b;
+            --background: #f8fafc;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header Styles */
+        .site-header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f4ff 0%, #dbeafe 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        /* Card Grid System */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Pricing Section */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 3rem 0;
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background: var(--text);
+            color: white;
+            padding: 4rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Utility Classes */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--accent);
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <header class="site-header">
-        <div class="container">
+        <nav class="nav-main container">
             <a href="/" class="brand">
-                <span class="brand-icon">🤖</span>
-                <span class="brand-text">AIPromptsForMarketing</span>
+                <span>🤖</span>
+                <span>AIPromptsForMarketing</span>
             </a>
-            <nav class="desktop-nav">
-                <a href="/prompt-library/" class="nav-link">Prompt Library</a>
-                <a href="/tool-reviews/" class="nav-link">AI Tools</a>
-                <a href="/tutorials/" class="nav-link">Guides</a>
-                <a href="/blog/" class="nav-link">Blog</a>
-                <a href="/about/" class="nav-link">About</a>
-            </nav>
-            <button class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav class="mobile-nav">
-                <a href="/prompt-library/" class="nav-link">Prompt Library</a>
-                <a href="/tool-reviews/" class="nav-link">AI Tools</a>
-                <a href="/tutorials/" class="nav-link">Guides</a>
-                <a href="/blog/" class="nav-link">Blog</a>
-                <a href="/about/" class="nav-link">About</a>
-            </nav>
-        </div>
+            <div class="nav-links">
+                <a href="#prompts" class="btn">Prompt Library</a>
+                <a href="#tools" class="btn">AI Tools</a>
+                <a href="#guides" class="btn">Guides</a>
+            </div>
+        </nav>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
+    <main>
+        <section class="hero">
+            <div class="container">
                 <h1>Supercharge Your Marketing with AI</h1>
-                <p>Generate high-converting copy and automate marketing tasks</p>
+                <p class="subtitle">Generate high-converting copy and automate marketing tasks</p>
                 <div class="cta-buttons">
-                    <a href="#prompts" class="btn primary">Explore Prompts</a>
-                    <a href="#tools" class="btn secondary">AI Tools</a>
+                    <a href="#prompts" class="btn btn-primary">Explore Prompts</a>
+                    <a href="#tools" class="btn btn-secondary">Discover AI Tools</a>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200"
-                     alt="AI analytics dashboard" 
-                     class="responsive-image"
-                     loading="lazy">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="prompts" class="prompts">
-        <div class="container">
-            <h2>Unlock the Power of AI with Proven Prompts</h2>
-            <p class="section-description">Our library of AI prompts is designed to help you overcome marketing challenges and achieve your business goals.</p>
-            <div class="prompt-categories">
-                <div class="category">
-                    <h3>Email Marketing</h3>
-                    <p>Boost your open rates and conversions with compelling email copy.</p>
-                    <a href="#" class="btn small">Explore Email Prompts</a>
-                </div>
-                <div class="category">
-                    <h3>Social Media</h3>
-                    <p>Create engaging content that captures attention and drives results.</p>
-                    <a href="#" class="btn small">Explore Social Media Prompts</a>
-                </div>
-                <div class="category">
-                    <h3>Website Copy</h3>
-                    <p>Craft persuasive website copy that turns visitors into customers.</p>
-                    <a href="#" class="btn small">Explore Website Copy Prompts</a>
-                </div>
-            </div>
-            <a href="/prompt-library/" class="btn">View All Prompts</a>
-        </div>
-    </section>
-
-    <section id="tools" class="ai-tools">
-        <div class="container">
-            <h2>Discover the Best AI Marketing Tools</h2>
-            <p class="section-description">Find the perfect AI tool to streamline your workflow and maximize your marketing impact.</p>
-            <div class="tool-list">
-                <div class="tool">
-                    <img src="/assets/images/jasper-ai.jpg" alt="Jasper AI interface">
+        <!-- Repeat this card grid pattern for other sections -->
+        <section class="container">
+            <h2>Featured AI Tools</h2>
+            <div class="card-grid">
+                <div class="card">
                     <h3>Jasper.ai</h3>
-                    <p>Generate creative content, from blog posts to social media updates, in seconds.</p>
-                    <a href="#" class="btn small">Read Review</a>
+                    <p>Generate creative content in seconds</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
                 </div>
-                <div class="tool">
-                    <img src="/assets/images/copy-ai-dashboard.jpg" alt="Copy.ai dashboard">
-                    <h3>Copy.ai</h3>
-                    <p>Automate your copywriting with AI-powered templates and workflows.</p>
-                    <a href="#" class="btn small">Read Review</a>
-                </div>
-                 <div class="tool">
-                    <img src="/assets/images/AI-Marketing.jpg" alt="Rytr">
-                    <h3>Rytr</h3>
-                    <p>Rytr is an AI writing assistant that helps you create high-quality content, in just a few seconds, at a fraction of the cost!</p>
-                    <a href="#" class="btn small">Read Review</a>
-                </div>
+                <!-- Add more cards -->
             </div>
-            <a href="/tool-reviews/" class="btn">Explore All Tools</a>
-        </div>
-    </section>
-
-   <section id="tutorials" class="tutorials">
-        <div class="container">
-            <h2>Learn AI Marketing with Our Tutorials</h2>
-            <p class="section-description">Learn how to use AI tools effectively. Streamline your workflow and maximize your marketing impact.</p>
-            <div class="tutorial-list">
-                <div class="tutorial">
-                    <img src="/assets/images/AI-Marketing.jpg" alt="AI Tutorial 1">
-                    <h3>Email Sequences with AI</h3>
-                    <p>Automate your email sequence with AI.</p>
-                    <a href="#" class="btn small">Read Tutorial</a>
-                </div>
-                <div class="tutorial">
-                    <img src="/assets/images/AI-Marketing.jpg" alt="AI Tutorial 2">
-                    <h3>ChatGPT for Marketing</h3>
-                    <p>A Beginners Guide to ChatGPT for marketing.</p>
-                    <a href="#" class="btn small">Read Tutorial</a>
-                </div>
-                 
-            </div>
-            <a href="/tutorials/" class="btn">Explore All Tutorials</a>
-        </div>
-    </section>
-
-    <section id="case-studies" class="case-studies">
-        <div class="container">
-            <h2>AI Marketing Case Studies</h2>
-            <p class="section-description">See real examples of AI use cases.</p>
-            <div class="case-study-list">
-                <div class="case-study">
-                    <img src="/assets/images/AI-Marketing.jpg" alt="AI Case Study 1">
-                    <h3>Email Marketing</h3>
-                    <p>AI for writing high conversion Email Markeing campaigns.</p>
-                    <a href="#" class="btn small">View Case Study</a>
-                </div>
-                <div class="case-study">
-                    <img src="/assets/images/AI-Marketing.jpg" alt="AI Case Study 2">
-                    <h3>Facebook Ads</h3>
-                     <p>AI to Generate High Conversion Facebook Ad Copy.</p>
-                    <a href="#" class="btn small">View Case Study</a>
-                </div>
-                 
-            </div>
-            <a href="/case-studies/" class="btn">Explore All Case Studies</a>
-        </div>
-    </section>
-
-
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h2>Get Started Today</h2>
-            <p class="section-description">Start using AI-powered marketing to grow your business.</p>
-            <div class="pricing-options">
-                <div class="pricing-card">
-                    <h3>Free</h3>
-                    <p class="price">$0/month</p>
-                    <ul>
-                        <li>Access to basic prompts</li>
-                        <li>Limited AI tool reviews</li>
-                    </ul>
-                    <a href="#" class="btn primary">Get Started</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Pro</h3>
-                    <p class="price">$49/month</p>
-                    <ul>
-                        <li>Unlimited access to all prompts</li>
-                        <li>Exclusive AI tool reviews</li>
-                        <li>Priority support</li>
-                    </ul>
-                    <a href="#" class="btn primary">Upgrade to Pro</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="site-footer">
-        <div class="container">
-            <div class="footer-columns">
-                <div class="footer-column">
-                    <h3>About Us</h3>
-                    <p>We are dedicated to helping marketers leverage the power of AI to achieve their business goals.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/prompt-library/">Prompt Library</a></li>
-                        <li><a href="/tool-reviews/">AI Tools</a></li>
-                        <li><a href="/tutorials/">Tutorials</a></li>
-                        <li><a href="/blog/">Blog</a></li>
-                        <li><a href="/about/">About</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact</h3>
-                    <p>Email: contact@aipromptsformarketing.com</p>
-                    <p>Phone: (123) 456-7890</p>
-                </div>
+        <div class="container footer-grid">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>contact@aipromptsformarketing.com</p>
+                <p>(123) 456-7890</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 AI Prompts for Marketing. All rights reserved.</p>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#about">About</a>
+                <a href="#blog">Blog</a>
+                <a href="#privacy">Privacy Policy</a>
             </div>
         </div>
     </footer>
-
-    <script src="/assets/js/scripts.js"></script>
 </body>
 </html>
