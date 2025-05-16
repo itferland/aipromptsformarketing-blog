@@ -1,0 +1,50 @@
+---
+---
+@import "jekyll-theme-midnight";
+
+// Navigation Styles
+.site-header {
+  position: sticky;
+  top: 0;
+  background: white;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  z-index: 1000;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 1rem;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+
+      &.active {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+}
+
+// …then paste your Hero, Card, Pricing, Footer rules here…
