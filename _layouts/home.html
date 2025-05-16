@@ -14,23 +14,24 @@ layout: null
   </title>
 
   {%- comment -%}
-  1) Include the remote theme’s head (CSS, meta tags, etc.).
+  1) Include everything the remote theme normally injects: CSS, JS, metadata…
   {%- endcomment -%}
   {% include head.html %}
 
   {%- comment -%}
-  2) Then load your overrides:
+  2) Then load your overrides (must come after the theme’s CSS)
   {%- endcomment -%}
   <link rel="stylesheet" href="{{ '/assets/custom.css' | relative_url }}" />
 </head>
 <body class="home">
+
   {%- comment -%}
-  3) Render your header (with class="site-header"):
+  3) Render your site header (with class="site-header")
   {%- endcomment -%}
   {% include header.html %}
 
   {%- comment -%}
-  4) Now your homepage content:
+  4) Your homepage content
   {%- endcomment -%}
   <section class="hero hero-section">
     <div class="hero-overlay">
@@ -88,8 +89,9 @@ layout: null
   </div>
 
   {%- comment -%}
-  5) (Optional) include your site footer here:
-     {% include footer.html %}
+  (Optional) You can include a footer here:
+  {% include footer.html %}
   {%- endcomment -%}
+
 </body>
 </html>
