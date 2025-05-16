@@ -1,32 +1,25 @@
+---
+---
 <!DOCTYPE html>
-<!-- Ensure the document is rendered in Standards Mode -->
-<html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
-  <head>
-    {% include head.html %}
-  </head>
-  <body class="{{ page.layout }}{% if page.sidebar %} with-sidebar{% endif %}">
-    {% include header.html %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title | escape }} – {{ site.title | escape }}</title>
 
-    <main class="main-content container" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </main>
+  {%- comment -%}
+  Include the remote theme’s head (styles, scripts, metadata):
+  {%- endcomment -%}
+  {% include head.html %}
 
-    <footer class="site-footer h-card" role="contentinfo">
-      <div class="wrapper">
-        {% include footer.html %}
-      </div>
-      <div class="ad-footer">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXXXXXXXXXXXXX"
-             data-ad-slot="0987654321"
-             data-ad-format="auto"></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-    </footer>
-  </body>
+  {%- comment -%}
+  Now link your own compiled stylesheet:
+  {%- endcomment -%}
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}" />
+</head>
+<body>
+  {%- comment -%} Render the page content {% endcomment -%}
+  {{ content }}
+</body>
 </html>
