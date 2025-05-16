@@ -6,20 +6,35 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ page.title | escape }} – {{ site.title | escape }}</title>
+
+  <title>
+    {% if page.title %}{{ page.title | escape }} – {% endif %}
+    {{ site.title | escape }}
+  </title>
 
   {%- comment -%}
-  Include the remote theme’s head (styles, scripts, metadata):
+  1) Include everything the remote theme normally injects:
+     └─ this pulls in the theme’s CSS, JS, meta tags, etc.
   {%- endcomment -%}
   {% include head.html %}
 
   {%- comment -%}
-  Now link your own compiled stylesheet:
+  2) Then load your custom overrides (custom.css),
+     which Jekyll will output from assets/custom.scss
   {%- endcomment -%}
-  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/custom.css' | relative_url }}" />
 </head>
 <body>
-  {%- comment -%} Render the page content {% endcomment -%}
+  {%- comment -%}
+  3) Render the page (includes your <header class="site-header">,
+     any includes, and the page/post content)
+  {%- endcomment -%}
   {{ content }}
+
+  {%- comment -%}
+  If you need a footer include, you could do:
+    {% include footer.html %}
+  here.
+  {%- endcomment -%}
 </body>
 </html>
