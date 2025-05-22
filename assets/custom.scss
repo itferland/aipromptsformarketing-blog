@@ -2,12 +2,25 @@
 ---
 @import "jekyll-theme-midnight";
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Open+Sans:wght@400;700&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--color-text); /* Ensure text color uses the palette */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700; /* Assuming Bold Nunito is imported */
+  color: var(--color-primary); /* Ensure headings use the palette */
+}
+
 // Navigation Styles
 .site-header {
   position: sticky;
   top: 0;
-  background: white;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  background-color: var(--color-bg); // Updated background
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); // Updated box-shadow
   z-index: 1000;
 
   .container {
@@ -21,13 +34,22 @@
     display: flex;
     gap: 2rem;
 
+    a { // Styles for .nav-links a
+      color: var(--color-text);
+      text-decoration: none; // Assuming default link styles might add underline
+
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+
     @media (max-width: 768px) {
       display: none;
       position: absolute;
       top: 100%;
       left: 0;
       right: 0;
-      background: white;
+      background: var(--color-bg); // Use palette color for mobile menu bg
       padding: 1rem;
       box-shadow: 0 2px 15px rgba(0,0,0,0.1);
 
@@ -47,4 +69,124 @@
   }
 }
 
+// General site navigation link styling (if .site-nav is used elsewhere)
+.site-nav a,
+.site-nav-links a { // Covering both possibilities based on previous files
+  color: var(--color-text);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-primary);
+    text-decoration: underline; // Keep underline on hover for .site-nav as per original
+  }
+}
+
+.site-nav .active a,
+.site-nav-links .active a {
+  color: var(--color-primary);
+  font-weight: bold; // Make active link bold for emphasis
+}
+
+
+// Buttons
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white; // Assuming white is a good contrast with the primary color
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700; // Ensure button text is bold
+  display: inline-block; // Ensure padding and other properties apply correctly
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease; // Smooth transition for hover
+
+  &:hover {
+    background-color: var(--color-secondary); // Use secondary color for hover
+    // If secondary is not contrasting enough, consider darken(var(--color-primary), 10%) if SASS functions were available
+    // For now, we use var(--color-secondary) as specified
+  }
+}
+
+// Update .tool-review .cta .btn specifically
+.tool-review .cta .btn {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 0.5em; // Retain margin from original style if needed
+
+  &:hover {
+    background-color: var(--color-secondary);
+    color: white; // Ensure text color remains white on hover
+  }
+}
+
+
+// Content Sections
+.tool-review .cta {
+  background-color: #FFF8E1; // Light accent background as per instructions
+  // Consider using a variable if this color is tied to the accent palette: e.g., lighten(var(--color-accent), 30%)
+  padding: 1.5em; // Adjusted padding
+  border-radius: 8px; // Slightly larger radius
+  text-align: center;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+
+  small { // Style for the small text in CTA
+    color: var(--color-muted);
+  }
+}
+
+.tutorial {
+  background-color: var(--color-bg); // Use palette background color
+  // If var(--color-bg) is pure white, consider a slightly off-white like #FAFAFA if more distinction is needed
+  // For now, sticking to var(--color-bg)
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); // Consistent subtle shadow
+  max-width: 800px;
+  margin: 2rem auto; // Added top/bottom margin
+
+  h2 {
+    color: var(--color-primary); // Already set by global h1-h6, but good to be explicit
+    margin-top: 0; // Adjust if needed, default is 2rem from original
+  }
+
+  pre {
+    background-color: lighten(var(--color-bg), 5%); // Slightly lighter than bg
+    // If SASS functions not available, use a static color e.g. #f0f0f0 if bg is dark, or #fafafa if bg is light
+    // Assuming --color-bg is #FDFCFB (warm off-white), so a slightly lighter version or a contrasting light grey.
+    // Let's use a static light grey for now.
+    background-color: #f5f5f5; // Fallback if SASS functions are not processed
+    border: 1px solid #eee; // Add a light border to pre blocks
+  }
+
+  code {
+    color: var(--color-accent); // Use accent color for inline code
+    font-family: "Courier New", Courier, monospace; // Keep monospace for code
+  }
+
+  .disclosure {
+    border-top: 1px dashed var(--color-muted); // Use muted color for divider
+    color: var(--color-muted);
+  }
+}
+
 // …then paste your Hero, Card, Pricing, Footer rules here…
+// Ensure to check if any of the above classes had styles here and merge/override appropriately.
+// For example, .site-nav styling was previously in _palette.scss.
+// The styles added here should override or complement them.
+
+// Specificity: Ensure these custom styles are loaded after theme styles.
+// The `--- --- @import "jekyll-theme-midnight";` at the top handles this.

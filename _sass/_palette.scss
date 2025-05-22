@@ -1,16 +1,18 @@
+/*
 :root {
-  /* Primary palette */
-  --color-primary: #1E3A8A;  /* deep royal blue */
-  --color-secondary: #14B8A6; /* vibrant teal */
+  // Primary palette
+  --color-primary: #1E3A8A;  // deep royal blue
+  --color-secondary: #14B8A6; // vibrant teal
 
-  /* Accent */
-  --color-accent: #F59E0B;    /* amber/orange for CTAs */
+  // Accent
+  --color-accent: #F59E0B;    // amber/orange for CTAs
 
-  /* Neutrals */
+  // Neutrals
   --color-bg: #FFFFFF;
-  --color-text: #1F2937;      /* dark slate for readability */
-  --color-muted: #6B7280;     /* medium slate for secondary text */
+  --color-text: #1F2937;      // dark slate for readability
+  --color-muted: #6B7280;     // medium slate for secondary text
 }
+*/
 
 .tool-review {
   margin-bottom: 2em;
@@ -134,4 +136,50 @@
 }
 .site-nav .active a {
   color: #007acc;
+}
+
+/*
+// Option 1: Professional & Trustworthy
+// :root {
+//   --color-primary: #2A4A87;   // Deeper, more traditional blue
+//   --color-secondary: #4A90E2; // Brighter, clear blue for secondary actions
+//   --color-accent: #F39C12;    // Engaging orange for highlights
+//   --color-bg: #F8F9FA;        // Very light grey for a clean, spacious feel
+//   --color-text: #333333;      // Standard dark grey for text
+//   --color-muted: #777777;     // Lighter grey for less emphasis
+// }
+*/
+
+/*
+// Option 2: Modern & Energetic
+// :root {
+//   --color-primary: #007A7A;   // Teal variant for a modern, unique primary
+//   --color-secondary: #FF6F61; // Coral for a vibrant, energetic secondary
+//   --color-accent: #F7C844;    // Bright yellow for accents
+//   --color-bg: #FFFFFF;        // Pure white for a crisp, modern look
+//   --color-text: #212121;      // Very dark grey/off-black for strong contrast
+//   --color-muted: #666666;     // Medium grey for muted text
+// }
+*/
+
+/*
+// Option 3: Elegant & Sophisticated
+// :root {
+//   --color-primary: #4A4A4A;   // Charcoal grey for a sophisticated base
+//   --color-secondary: #8E7964; // Muted brown/taupe for an earthy, elegant secondary
+//   --color-accent: #C0A080;    // Softer, desaturated gold/bronze for accents
+//   --color-bg: #FDFCFB;        // Off-white with a hint of warmth
+//   --color-text: #3B3B3B;      // Dark, warm grey for text
+//   --color-muted: #858585;     // Lighter, warm grey for muted text
+// }
+*/
+
+/* Option 3: Fresh & Energetic */
+:root {
+  --color-primary: #00A8E8;     /* Bright Blue */
+  --color-secondary: #A2E800;  /* Lime Green */
+  --color-accent: #FF8C00;     /* Dark Orange */
+  --color-bg: #F0F4F8;         /* Very Light Blue-Gray */
+  --color-text: #34495E;       /* Charcoal */
+  --color-muted: #7F8C8D;      /* Grayish Cyan */
 }
