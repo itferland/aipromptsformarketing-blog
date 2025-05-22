@@ -1,0 +1,125 @@
+﻿diff --git a/_sass/_site-header.scss b/_sass/_site-header.scss
+index 1234567..89abcde 100644
+--- a/_sass/_site-header.scss
++++ b/_sass/_site-header.scss
+@@ -1,5 +1,5 @@
+-.site-header
+-  position: sticky
+-  top: 0
+-  background: -header-bg
+-  z-index: 10
++.site-header {
++  position: sticky;
++  top: 0;
++  background: -header-bg;
++  z-index: 10;
+
+-  .container
+-    display: flex
+-    align-items: center
+-    justify-content: space-between
+-    padding: 1rem
++  .container {
++    display: flex;
++    align-items: center;
++    justify-content: space-between;
++    padding: 1rem;
++  }
+
+-  .brand
+-    display: flex
+-    align-items: center
+-    text-decoration: none
+-    color: inherit
++  .brand {
++    display: flex;
++    align-items: center;
++    text-decoration: none;
++    color: inherit;
+
+-    .brand-icon
+-      font-size: 1.5rem
+-      margin-right: 0.5rem
++    .brand-icon {
++      font-size: 1.5rem;
++      margin-right: 0.5rem;
++    }
+
+-    .brand-text
+-      font-size: 1.25rem
+-      font-weight: bold
++    .brand-text {
++      font-size: 1.25rem;
++      font-weight: bold;
++    }
++  }
+
+-  .main-nav
+-    display: flex
+-    align-items: center
++  .main-nav {
++    display: flex;
++    align-items: center;
+
+-    .mobile-menu-toggle
+-      display: none
+-      background: none
+-      border: none
+-      font-size: 1.25rem
+-      cursor: pointer
++    .mobile-menu-toggle {
++      display: none;
++      background: none;
++      border: none;
++      font-size: 1.25rem;
++      cursor: pointer;
++    }
+
+-    .nav-links
+-      display: flex
+-      gap: 1rem
++    .nav-links {
++      display: flex;
++      gap: 1rem;
+
+-      .nav-link
+-        text-decoration: none
+-        font-weight: 500
+-        color: inherit
++      .nav-link {
++        text-decoration: none;
++        font-weight: 500;
++        color: inherit;
+
+-        &.active
+-          border-bottom: 2px solid currentColor
++        &.active {
++          border-bottom: 2px solid currentColor;
++        }
++      }
++    }
++
++    @media (max-width: 768px) {
++      .mobile-menu-toggle {
++        display: block;
++      }
++
++      .nav-links {
++        display: none;
++        flex-direction: column;
++        background: -header-bg;
++        position: absolute;
++        top: 100%;
++        left: 0;
++        width: 100%;
++        padding: 1rem;
++      }
++
++      &.open {
++        .nav-links {
++          display: flex;
++        }
++      }
++    }
++  }
++}
