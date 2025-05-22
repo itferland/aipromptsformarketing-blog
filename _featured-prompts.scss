@@ -1,0 +1,64 @@
+.featured-prompts {
+  padding: 4rem 0;
+  
+  .prompt-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .prompt-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    
+    .tool-tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      
+      &.chatgpt {
+        background: #e0f2fe;
+        color: #075985;
+      }
+    }
+
+    .prompt-title {
+      margin: 1rem 0 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .prompt-description {
+      color: var(--text-medium);
+      margin-bottom: 1.5rem;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      .copy-button {
+        background: var(--primary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .usage {
+        color: var(--text-medium);
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+    }
+  }
+}

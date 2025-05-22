@@ -1,0 +1,19 @@
+current directory: /home/user/aipromptsformarketing-blog/vendor/bundle/ruby/3.1.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+/nix/store/zwljh4pgk74a9pbgfy9qzaypymdk9ajr-ruby-3.1.6/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/user/aipromptsformarketing-blog/vendor/bundle/ruby/3.1.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20250514-605-o0hvmy sitelibdir\=./.gem.20250514-605-o0hvmy clean
+
+current directory: /home/user/aipromptsformarketing-blog/vendor/bundle/ruby/3.1.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20250514-605-o0hvmy sitelibdir\=./.gem.20250514-605-o0hvmy
+compiling ruby_http_parser.c
+compiling ryah_http_parser.c
+linking shared-object ruby_http_parser.so
+
+current directory: /home/user/aipromptsformarketing-blog/vendor/bundle/ruby/3.1.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20250514-605-o0hvmy sitelibdir\=./.gem.20250514-605-o0hvmy install
+install -c -p -m 755 ruby_http_parser.so ./.gem.20250514-605-o0hvmy
+
+current directory: /home/user/aipromptsformarketing-blog/vendor/bundle/ruby/3.1.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20250514-605-o0hvmy sitelibdir\=./.gem.20250514-605-o0hvmy clean

@@ -1,32 +1,40 @@
+---
+---
 <!DOCTYPE html>
-<!-- Ensure the document is rendered in Standards Mode -->
-<html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
-  <head>
-    {% include head.html %}
-  </head>
-  <body class="{{ page.layout }}{% if page.sidebar %} with-sidebar{% endif %}">
-    {% include header.html %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <main class="main-content container" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </main>
+  <title>
+    {% if page.title %}{{ page.title | escape }} – {% endif %}
+    {{ site.title | escape }}
+  </title>
 
-    <footer class="site-footer h-card" role="contentinfo">
-      <div class="wrapper">
-        {% include footer.html %}
-      </div>
-      <div class="ad-footer">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXXXXXXXXXXXXX"
-             data-ad-slot="0987654321"
-             data-ad-format="auto"></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-    </footer>
-  </body>
+  {%- comment -%}
+  1) Include everything the remote theme normally injects:
+     └─ this pulls in the theme’s CSS, JS, meta tags, etc.
+  {%- endcomment -%}
+  {% include head.html %}
+
+  {%- comment -%}
+  2) Then load your custom overrides (custom.css),
+     which Jekyll will output from assets/custom.scss
+  {%- endcomment -%}
+  <link rel="stylesheet" href="{{ '/assets/custom.css' | relative_url }}" />
+</head>
+<body>
+  {%- comment -%}
+  3) Render the page (includes your <header class="site-header">,
+     any includes, and the page/post content)
+  {%- endcomment -%}
+  {{ content }}
+
+  {%- comment -%}
+  If you need a footer include, you could do:
+    {% include footer.html %}
+  here.
+  {%- endcomment -%}
+</body>
 </html>

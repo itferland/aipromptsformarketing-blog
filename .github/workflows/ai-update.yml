@@ -8,6 +8,9 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch: # lets you run it by hand in the Actions UI
 
+permissions:
+  contents: write
+  
 jobs:
   generate:
     name: Generate & Commit AI Updates
