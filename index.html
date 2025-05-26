@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Arcade Gemini Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'press-start': ['"Press Start 2P"', 'cursive'],
+            'sans': ['"Noto Sans"', 'sans-serif'],
+          },
+          colors: {
+            'arcade-bg': '#111827', // gray-900
+            'arcade-bg-alt': '#1f2937', // gray-800
+            'arcade-cyan': '#22d3ee',
+            'arcade-yellow': '#facc15',
+            'arcade-pink': '#ec4899',
+            'arcade-green': '#22c55e',
+            'arcade-red': '#f87171', // red-400
+            'arcade-text': '#d1d5db', // gray-300
+            'arcade-text-muted': '#6b7280', // gray-500
+            'arcade-border': '#374151', // gray-700
+          }
+        }
+      }
+    }
+  </script>
+
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.0.1"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-0AWYJhoB.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-C4QyTP5u.css">
+</head>
+<body class="bg-arcade-bg font-sans text-arcade-text">
+  <div id="root"></div>
+</body>
+</html>
