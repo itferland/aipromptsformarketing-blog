@@ -4,12 +4,13 @@ import path from 'path';
 
 export default defineConfig({
   root: 'src', // Tell Vite to treat /src as the root
+  base: '/',   // ✅ IMPORTANT for correct asset path resolution on custom domain
   plugins: [react()],
   build: {
-    outDir: '../dist', // Output goes to root-level dist/
+    outDir: '../dist',
     emptyOutDir: true,
     rollupOptions: {
-      input: path.resolve(__dirname, 'src/index.html'), // Use new HTML path
+      input: path.resolve(__dirname, 'src/index.html'),
     },
   },
   resolve: {
