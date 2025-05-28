@@ -3,13 +3,16 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 
 export default defineConfig({
-  root: 'src', // Tell Vite to treat /src as the root
+  base: '/', // Required for GitHub Pages w/ custom domain
+  root: 'src',
   plugins: [react()],
   build: {
-    outDir: '../dist', // Output goes to root-level dist/
+    outDir: '../dist',
     emptyOutDir: true,
     rollupOptions: {
-      input: path.resolve(__dirname, 'src/index.html'), // Use new HTML path
+      input: {
+        main: path.resolve(__dirname, 'src/index.html'),
+      },
     },
   },
   resolve: {

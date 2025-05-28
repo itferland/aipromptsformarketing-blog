@@ -1,0 +1,10 @@
+# netlify.toml
+[build]
+  command = "npm run build" # Your existing build command
+  publish = "dist"          # The directory Vite builds to
+  functions = "netlify/functions" # The directory for your serverless functions
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
