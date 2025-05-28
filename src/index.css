@@ -16,7 +16,7 @@ body {
 
 .terminal-output {
   @apply text-green-400 bg-black whitespace-pre-wrap p-2;
-  font-family: "VT323", monospace;
+  font-family: 'VT323', monospace;
   font-size: 1.1rem;
 }
 
