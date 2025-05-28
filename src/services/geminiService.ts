@@ -1,14 +1,13 @@
-// src/services/geminiService.ts
-
+// This file should now call your backend serverless function
+// Ensure this matches the implementation from previous steps
 export async function askGemini(prompt: string): Promise<string> {
   try {
-    // The path to your Netlify function will be /.netlify/functions/ask-gemini
-    const response = await fetch('/.netlify/functions/ask-gemini', {
+    const response = await fetch('/.netlify/functions/ask-gemini', { // Or /api/ask-gemini if using redirects
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ prompt }), // Send the prompt in the request body
+      body: JSON.stringify({ prompt }),
     });
 
     if (!response.ok) {
@@ -17,19 +16,18 @@ export async function askGemini(prompt: string): Promise<string> {
         const errorData = await response.json();
         errorMsg = errorData.error || errorMsg;
       } catch (e) {
-        // Ignore if response is not JSON
+        // Response might not be JSON, stick with status
       }
       throw new Error(errorMsg);
     }
 
     const data = await response.json();
-    if (data.error) { // Check for error property from your function's response
+     if (data.error) {
       throw new Error(data.error);
     }
     return data.text;
   } catch (error) {
-    console.error("Error calling backend proxy:", error);
-    // Provide a more user-friendly error message
-    return `❌ Failed to get response: ${error instanceof Error ? error.message : String(error)}`;
+    console.error("Error calling backend proxy in geminiService:", error);
+    return `❌ Transmission Error: ${error instanceof Error ? error.message : String(error)}`;
   }
 }

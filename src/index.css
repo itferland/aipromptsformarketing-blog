@@ -1,0 +1,61 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brand-deep-violet text-brand-text font-vt323;
+    /* Optional: Add a subtle scanline effect for more retro feel */
+    /* background-image: linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px); */
+    /* background-size: 100% 3px; */
+    /* animation: scanline 10s linear infinite; */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-press-start;
+  }
+
+  /* Custom scrollbar for a more thematic feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1a001a; /* Dark violet */
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #7e22ce; /* CTA purple */
+    border-radius: 4px;
+    border: 2px solid #1a001a; /* Dark violet */
+  }
+   ::-webkit-scrollbar-thumb:hover {
+    background-color: #00f0ff; /* Primary Neon */
+  }
+}
+
+/* For the "code box" or terminal-like text areas */
+.terminal-input {
+  @apply w-full p-3 bg-brand-bg-codebox text-brand-success-neon font-vt323 border-2 border-brand-primary-neon rounded-md placeholder-brand-text-muted focus:ring-2 focus:ring-brand-primary-neon focus:border-brand-primary-neon outline-none resize-none;
+  caret-color: #00ff00; /* Bright green caret */
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.3), inset 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-output {
+  @apply mt-4 p-4 bg-brand-bg-codebox text-brand-success-neon font-vt323 border-2 border-brand-secondary-neon rounded-md whitespace-pre-wrap overflow-x-auto;
+  box-shadow: 0 0 8px rgba(240, 0, 255, 0.3), inset 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Blinking cursor effect for placeholders or static text */
+.blinking-cursor::after {
+  content: '_';
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+} 
