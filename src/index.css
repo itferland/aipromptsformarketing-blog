@@ -1,61 +1,87 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+/* src/index.css */
+@import url(&#39;https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=VT323&amp;display=swap&#39;);
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-brand-deep-violet text-brand-text font-vt323;
-    /* Optional: Add a subtle scanline effect for more retro feel */
-    /* background-image: linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px); */
-    /* background-size: 100% 3px; */
-    /* animation: scanline 10s linear infinite; */
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-press-start;
-  }
-
-  /* Custom scrollbar for a more thematic feel */
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #1a001a; /* Dark violet */
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #7e22ce; /* CTA purple */
-    border-radius: 4px;
-    border: 2px solid #1a001a; /* Dark violet */
-  }
-   ::-webkit-scrollbar-thumb:hover {
-    background-color: #00f0ff; /* Primary Neon */
-  }
+body {
+@apply bg-jules-bg text-jules-text-green font-vt323 antialiased;
+/\* Scanline effect for the whole body */
+background-image: linear-gradient(rgba(10, 10, 30, 0.15) 1px, transparent 1px);
+background-size: 100% 2px; /* Adjust size and opacity as needed */
+animation: scanline-effect 20s linear infinite; /* Slower animation for subtle effect \*/
 }
 
-/* For the "code box" or terminal-like text areas */
+h1, h2, h3, h4, h5, h6, .font-display { /\* Added .font-display for flexibility \*/
+@apply font-press-start;
+}
+
+p, li, span, div, label, input, textarea, button, a { /\* Ensure most text uses vt323 \*/
+@apply font-vt323;
+}
+
+/\* Basic link styling \*/
+a {
+@apply text-jules-cyan hover:text-jules-link-hover underline underline-offset-2 decoration-dotted;
+}
+
+::selection {
+@apply bg-jules-yellow text-jules-bg;
+}
+
+/\* WebKit scrollbar styles */
+::-webkit-scrollbar {
+width: 8px;
+height: 8px;
+}
+::-webkit-scrollbar-track {
+@apply bg-jules-bg-panel;
+}
+::-webkit-scrollbar-thumb {
+@apply bg-jules-text-green-dim;
+border-radius: 0px; /* Sharp edges \*/
+}
+::-webkit-scrollbar-thumb:hover {
+@apply bg-jules-text-green;
+}
+}
+
+@layer components {
 .terminal-input {
-  @apply w-full p-3 bg-brand-bg-codebox text-brand-success-neon font-vt323 border-2 border-brand-primary-neon rounded-md placeholder-brand-text-muted focus:ring-2 focus:ring-brand-primary-neon focus:border-brand-primary-neon outline-none resize-none;
-  caret-color: #00ff00; /* Bright green caret */
-  box-shadow: 0 0 8px rgba(0, 240, 255, 0.3), inset 0 0 8px rgba(0, 0, 0, 0.5);
+@apply w-full p-3 bg-black text-jules-text-green font-vt323 text-lg border-2 border-jules-border-accent rounded-none placeholder-jules-text-green-dim focus:ring-1 focus:ring-jules-cyan focus:border-jules-cyan outline-none resize-none shadow-neon-cyan;
+caret-color: theme('colors.jules-text-green');
 }
 
 .terminal-output {
-  @apply mt-4 p-4 bg-brand-bg-codebox text-brand-success-neon font-vt323 border-2 border-brand-secondary-neon rounded-md whitespace-pre-wrap overflow-x-auto;
-  box-shadow: 0 0 8px rgba(240, 0, 255, 0.3), inset 0 0 8px rgba(0, 0, 0, 0.5);
+@apply mt-6 p-4 bg-black text-jules-text-green font-vt323 text-base border-2 border-jules-border rounded-none whitespace-pre-wrap overflow-x-auto shadow-neon-green;
+line-height: 1.7;
 }
 
-/* Blinking cursor effect for placeholders or static text */
+.panel {
+@apply bg-jules-bg-panel border-2 border-jules-border p-6 shadow-panel-glow;
+/\* Removed rounded-lg for sharper edges, add back if desired \*/
+}
+
+.panel-title {
+@apply text-xl md:text-2xl text-jules-cyan mb-6 text-center animate-text-glow;
+/\* text-shadow: 0 0 5px theme('colors.jules-cyan'); \*/
+}
+
+.retro-button {
+@apply font-press-start text-sm px-6 py-2.5 border-2 rounded-none transform active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed;
+}
+.retro-button-primary {
+@apply retro-button bg-jules-bg-panel border-jules-cyan text-jules-cyan hover:bg-jules-cyan hover:text-jules-bg shadow-neon-cyan;
+}
+.retro-button-secondary {
+@apply retro-button bg-jules-bg-panel border-jules-magenta text-jules-magenta hover:bg-jules-magenta hover:text-jules-bg shadow-neon-magenta;
+}
+}
+
+/\* Blinking cursor effect \*/
 .blinking-cursor::after {
-  content: '_';
-  animation: blink 1s step-start infinite;
+content: '\_';
+@apply animate-cursor-blink;
 }
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-} 

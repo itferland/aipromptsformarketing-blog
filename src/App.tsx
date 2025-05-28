@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { askGemini } from './services/geminiService'; // Assuming this calls your backend
+// src/App.tsx
+import React, { useState, useEffect, useRef } from 'react';
+// Assuming your geminiService.ts is correctly set up to call your backend proxy
+import { askGemini } from './services/geminiService'; 
 
-// Component for stylized text, like an old terminal
-const ArcadeText = ({ as: Component = 'p', children, className = "", ...props }) => {
+// Use this for headings primarily
+const PixelHeading = ({ as: Component = 'p', children, className = "", ...props }) => {
   return (
     <Component className={`font-press-start ${className}`} {...props}>
       {children}
@@ -10,91 +12,79 @@ const ArcadeText = ({ as: Component = 'p', children, className = "", ...props })
   );
 };
 
-// Header Component
-const AppHeader = ({ title, navItems }) => {
-  const [isMenuVisible, setIsMenuVisible] = useState(true); // Or manage with scroll
-  // Add scroll effect for menu if desired
-  // useEffect(() => { ... });
-
+// Use this for most body/terminal text
+const PixelText = ({ as: Component = 'p', children, className = "", ...props }) => {
   return (
-    <header className="bg-brand-bg-alt/80 backdrop-blur-md sticky top-0 z-50 shadow-lg border-b-2 border-brand-primary-neon">
+    <Component className={`font-vt323 ${className}`} {...props}>
+      {children}
+    </Component>
+  );
+};
+
+
+const AppHeader = ({ title, navItems }) => {
+  return (
+    <header className="bg-jules-bg-header/90 backdrop-blur-sm sticky top-0 z-50 border-b-2 border-jules-border-accent shadow-neon-cyan">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex-shrink-0">
-            <ArcadeText as="h1" className="text-xl md:text-2xl text-brand-primary-neon tracking-wider animate-text-flicker [--tw-shadow-color:theme(colors.brand-primary-neon)]">
-              {title}
-            </ArcadeText>
+            <PixelHeading as="h1" className="text-lg md:text-xl text-jules-cyan animate-text-glow">
+              {title} <span className="blinking-cursor"></span>
+            </PixelHeading>
           </div>
           <nav className="hidden md:block">
-            <ul className="ml-10 flex items-baseline space-x-4">
+            <ul className="ml-10 flex items-baseline space-x-2">
               {navItems.map((item) => (
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className="font-press-start text-xs text-brand-secondary-neon hover:text-brand-accent-neon hover:shadow-neon-secondary px-3 py-2 rounded-md transition-all duration-200 ease-in-out"
-                    aria-label={`Navigate to ${item.label} section`}
+                    className="font-press-start text-xs text-jules-magenta hover:text-jules-yellow px-3 py-2 transition-colors duration-200 ease-in-out"
+                    aria-label={`Maps to ${item.label} section`}
                   >
-                    {item.label}
+                    [{item.label}]
                   </a>
                 </li>
               ))}
             </ul>
           </nav>
-          {/* Add a mobile menu button here if needed */}
+          {/* TODO: Mobile menu button and panel */}
         </div>
       </div>
     </header>
   );
 };
 
-// Section Component
-const Section = ({ id, title, children, className = "" }) => (
-  <section id={id} aria-labelledby={`${id}-title`} className={`py-12 md:py-20 border-b-2 border-brand-border last:border-b-0 ${className}`}>
-    <ArcadeText as="h2" id={`${id}-title`} className="text-2xl md:text-3xl lg:text-4xl text-brand-accent-neon mb-10 md:mb-16 text-center animate-text-flicker [--tw-shadow-color:theme(colors.brand-accent-neon)]">
-      {title}
-    </ArcadeText>
+const Section = ({ id, title, children, className = "", titleClassName = "" }) => (
+  <section id={id} aria-labelledby={`${id}-title`} className={`py-10 md:py-16 ${className}`}>
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <PixelHeading as="h2" id={`${id}-title`} className={`panel-title text-xl md:text-2xl lg:text-3xl mb-8 md:mb-12 ${titleClassName}`}>
+        {title}
+      </PixelHeading>
       {children}
     </div>
   </section>
 );
 
-// Button Component
-const Button = ({ children, variant = "primary", size = "md", className = "", Icon, ...props }) => {
-  const baseStyles = "font-press-start focus:outline-none focus:ring-4 focus:ring-opacity-60 transition-all duration-200 ease-in-out transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none inline-flex items-center justify-center rounded-md border-2";
-  
+const RetroButton = ({ children, variant = "primary", size = "md", className = "", Icon, ...props }) => {
   let variantStyles = "";
   switch (variant) {
     case "secondary":
-      variantStyles = "bg-brand-bg-alt border-brand-secondary-neon text-brand-secondary-neon hover:bg-brand-secondary-neon hover:text-brand-deep-violet focus:ring-brand-secondary-neon";
-      break;
-    case "danger":
-      variantStyles = "bg-brand-bg-alt border-brand-error-neon text-brand-error-neon hover:bg-brand-error-neon hover:text-brand-deep-violet focus:ring-brand-error-neon";
+      variantStyles = "retro-button-secondary";
       break;
     case "primary":
     default:
-      variantStyles = "bg-brand-bg-alt border-brand-primary-neon text-brand-primary-neon hover:bg-brand-primary-neon hover:text-brand-deep-violet focus:ring-brand-primary-neon";
+      variantStyles = "retro-button-primary";
       break;
   }
-
-  let sizeStyles = "", iconSize = "w-4 h-4";
-  switch (size) {
-    case "sm": sizeStyles = "px-4 py-2 text-xs"; iconSize = "w-3 h-3"; break;
-    case "lg": sizeStyles = "px-8 py-3 text-base"; iconSize = "w-5 h-5"; break;
-    case "md":
-    default: sizeStyles = "px-6 py-2.5 text-sm"; break;
-  }
-
   return (
-    <button className={`${baseStyles} ${variantStyles} ${sizeStyles} ${className}`} {...props}>
-      {Icon && <Icon className={`mr-2 ${iconSize}`} aria-hidden="true" />}
+    <button className={`${variantStyles} ${className}`} {...props}>
+      {Icon && <Icon className="mr-2 h-4 w-4" aria-hidden="true" />}
       {children}
     </button>
   );
 };
 
 
-// Gemini Query Component (AI Strategy Tool)
 const GeminiQuery = () => {
   const [prompt, setPrompt] = useState('');
   const [response, setResponse] = useState('');
@@ -111,87 +101,89 @@ const GeminiQuery = () => {
       setResponse(result);
     } catch (err) {
       console.error("Gemini error in component:", err);
-      setError(err instanceof Error ? err.message : "⚠️ Failed to get a response.");
+      setError(err instanceof Error ? err.message : "ERROR: Transmission failed.");
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-brand-bg-codebox border-2 border-brand-primary-neon rounded-lg shadow-neon-primary">
-      <ArcadeText as="label" htmlFor="prompt-input" className="block mb-3 text-lg text-brand-primary-neon">
-        Enter Your Marketing Challenge:
-      </ArcadeText>
+    <div className="panel max-w-3xl mx-auto">
+      <PixelHeading as="label" htmlFor="prompt-input" className="block mb-4 text-lg text-jules-cyan">
+        &gt; Input Command // AI Strategy Query:
+      </PixelHeading>
       <textarea
         id="prompt-input"
-        className="terminal-input h-32"
+        className="terminal-input h-36 text-base"
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
-        placeholder="e.g., How can I use AI to improve customer engagement for a small coffee shop?"
+        placeholder="e.g., Generate marketing slogans for a retro arcade bar..."
         disabled={isLoading}
       />
-      <Button onClick={handleSubmit} disabled={isLoading || !prompt.trim()} className="mt-4 w-full" variant="primary">
-        {isLoading ? "Generating Ideas..." : "Get AI Strategy"}
-      </Button>
-      {error && <p className="text-brand-error-neon mt-3 text-sm">{error}</p>}
+      <RetroButton onClick={handleSubmit} disabled={isLoading || !prompt.trim()} className="mt-5 w-full text-base py-3" variant="primary">
+        {isLoading ? "EXECUTING..." : "EXECUTE QUERY"}
+      </RetroButton>
+      {error && (
+        <PixelText className="text-jules-magenta mt-4 text-sm bg-black/30 p-2 border border-jules-magenta">
+          SYSTEM ERROR: {error}
+        </PixelText>
+      )}
       {response && (
         <div className="terminal-output mt-6">
-          <ArcadeText as="strong" className="block text-brand-accent-neon mb-2">
-            Gemini's Strategic Insights:
-          </ArcadeText>
-          <p className="font-vt323 text-base leading-relaxed">{response}</p>
+          <PixelHeading as="strong" className="block text-jules-yellow mb-2 text-sm">
+            &gt; Gemini Matrix Output:
+          </PixelHeading>
+          <PixelText className="text-base leading-relaxed">{response}</PixelText>
         </div>
       )}
     </div>
   );
 };
 
-// Case Studies Component
 const CaseStudies = ({ studies }) => {
   if (!studies || studies.length === 0) {
     return (
-      <div className="text-center text-brand-text-muted py-8">
-        <ArcadeText as="p">No case studies available. Check back soon, human!</ArcadeText>
+      <div className="text-center text-jules-text-light py-8">
+        <PixelText as="p">&lt;No mission logs found in archive&gt;</PixelText>
       </div>
     );
   }
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {studies.map((study) => (
         <article
           key={study.id}
-          className="bg-brand-bg-alt p-6 rounded-lg shadow-lg border-2 border-brand-border hover:border-brand-secondary-neon hover:shadow-neon-secondary transition-all duration-300 flex flex-col"
+          className="panel flex flex-col h-full" /* Apply panel style and ensure full height for flex items */
         >
           {study.imageUrl && (
             <img
-              src={study.imageUrl || `https://placehold.co/600x400/2a003a/f000ff?text=${encodeURIComponent(study.title)}`}
-              alt={`${study.title} visual representation`}
-              className="rounded-md mb-4 h-48 w-full object-cover border-2 border-brand-secondary-neon"
-              onError={(e) => (e.currentTarget.src = `https://placehold.co/600x400/1a001a/f000ff?text=Image+Error`)}
+              src={study.imageUrl || `https://placehold.co/600x400/${study.id === 'wicked-skateboards' ? '0A0A1A/00FFFF' : '0A0A1A/FF00FF'}?text=${encodeURIComponent(study.title)}`}
+              alt={`${study.title} visual dossier`}
+              className="mb-4 h-48 w-full object-cover border-2 border-jules-border-accent"
             />
           )}
-          <ArcadeText as="h3" className="text-lg text-brand-primary-neon mb-2">{study.title}</ArcadeText>
-          <p className="text-sm text-brand-text-muted mb-1 font-bold font-vt323">{study.clientName}</p>
-          <div className="space-y-3 text-sm text-brand-text flex-grow font-vt323 leading-relaxed">
+          <PixelHeading as="h3" className="text-md text-jules-cyan mb-2">{study.title}</PixelHeading>
+          <PixelText as="p" className="text-sm text-jules-text-light mb-3 font-bold">{study.clientName}</PixelText>
+          <div className="space-y-4 text-sm text-jules-text-light flex-grow leading-relaxed">
             <div>
-              <strong className="block text-brand-accent-neon font-press-start text-xs">Challenge:</strong>
-              <p>{study.challenge}</p>
+              <PixelHeading as="strong" className="block text-jules-yellow text-xs">Objective_</PixelHeading>
+              <PixelText>{study.challenge}</PixelText>
             </div>
             <div>
-              <strong className="block text-brand-accent-neon font-press-start text-xs">Solution:</strong>
-              <p>{study.solution}</p>
+              <PixelHeading as="strong" className="block text-jules-yellow text-xs">Strategy_</PixelHeading>
+              <PixelText>{study.solution}</PixelText>
             </div>
             <div>
-              <strong className="block text-brand-accent-neon font-press-start text-xs">Results:</strong>
-              <p>{study.results}</p>
+              <PixelHeading as="strong" className="block text-jules-yellow text-xs">Outcome_</PixelHeading>
+              <PixelText>{study.results}</PixelText>
             </div>
           </div>
           {study.tags && study.tags.length > 0 && (
-            <div className="mt-4 pt-4 border-t-2 border-brand-border">
-              <ArcadeText as="h4" className="text-xs text-brand-text-muted mb-2">Key Areas:</ArcadeText>
+            <div className="mt-auto pt-4 border-t-2 border-jules-border">
+              <PixelHeading as="h4" className="text-xs text-jules-text-light mb-2">Keywords_</PixelHeading>
               <div className="flex flex-wrap gap-2">
                 {study.tags.map((tag) => (
-                  <span key={tag} className="bg-brand-bg-codebox text-brand-primary-neon text-xs font-press-start px-2 py-1 rounded-sm border border-brand-primary-neon/50">
+                  <span key={tag} className="bg-black text-jules-magenta text-xs font-press-start px-2 py-1 border border-jules-magenta/50">
                     {tag}
                   </span>
                 ))}
@@ -204,9 +196,8 @@ const CaseStudies = ({ studies }) => {
   );
 };
 
-// Modal Component (for Insights)
 const Modal = ({ isOpen, onClose, title, children }) => {
-  const modalRef = React.useRef(null);
+  const modalRef = useRef(null);
 
   useEffect(() => {
     const handleEsc = (event) => {
@@ -230,73 +221,75 @@ const Modal = ({ isOpen, onClose, title, children }) => {
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
-      className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+      className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-jules-bg/80 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
         ref={modalRef}
         tabIndex={-1}
-        className="relative bg-brand-bg-alt w-full max-w-3xl max-h-[90vh] rounded-lg shadow-neon-primary border-2 border-brand-primary-neon flex flex-col overflow-hidden"
+        className="panel w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden !border-jules-cyan shadow-neon-cyan" // Emphasize modal
         onClick={(e) => e.stopPropagation()}
       >
-        <header className="flex items-center justify-between p-4 md:p-6 border-b-2 border-brand-border sticky top-0 bg-brand-bg-alt z-10">
-          <ArcadeText as="h2" id="modal-title" className="text-lg md:text-xl text-brand-primary-neon">
+        <header className="flex items-center justify-between p-4 md:p-5 border-b-2 border-jules-border-accent sticky top-0 bg-jules-bg-panel z-10">
+          <PixelHeading as="h2" id="modal-title" className="text-lg text-jules-cyan">
             {title}
-          </ArcadeText>
+          </PixelHeading>
           <button
             onClick={onClose}
-            aria-label="Close modal"
-            className="p-1 rounded-full text-brand-text-muted hover:text-brand-primary-neon hover:bg-brand-bg-codebox focus:outline-none focus:ring-2 ring-offset-2 ring-offset-brand-bg-alt focus:ring-brand-primary-neon"
+            aria-label="Close Modal"
+            className="p-1 text-jules-text-light hover:text-jules-magenta focus:outline-none focus:ring-2 ring-offset-2 ring-offset-jules-bg-panel focus:ring-jules-magenta"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-7 h-7">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </header>
-        <div className="p-4 md:p-6 overflow-y-auto flex-grow font-vt323 text-base leading-relaxed">
-          <div className="prose prose-sm sm:prose-base max-w-none text-brand-text prose-headings:font-press-start prose-headings:text-brand-accent-neon prose-strong:text-brand-primary-neon prose-a:text-brand-secondary-neon hover:prose-a:text-brand-accent-neon">
-            {/* Forcing pre-wrap for the content passed as children */}
-            <div className="whitespace-pre-line">{children}</div>
+        <div className="p-5 md:p-6 overflow-y-auto flex-grow">
+          <div className="prose prose-sm sm:prose-base max-w-none 
+                          text-jules-text-light font-vt323 leading-relaxed 
+                          prose-headings:font-press-start prose-headings:text-jules-yellow prose-headings:mb-3 prose-headings:mt-5
+                          prose-strong:text-jules-cyan prose-strong:font-bold
+                          prose-a:text-jules-magenta hover:prose-a:text-jules-yellow
+                          prose-p:mb-3
+                          whitespace-pre-line">
+            {children}
           </div>
         </div>
-        <footer className="p-4 border-t-2 border-brand-border sticky bottom-0 bg-brand-bg-alt z-10 text-right">
-          <Button onClick={onClose} variant="secondary" size="sm">
-            Close Window
-          </Button>
+        <footer className="p-4 border-t-2 border-jules-border-accent sticky bottom-0 bg-jules-bg-panel z-10 text-right">
+          <RetroButton onClick={onClose} variant="secondary" size="sm">
+            [ Close ]
+          </RetroButton>
         </footer>
       </div>
     </div>
   );
 };
 
-
-// Insight Card Component
 const InsightCard = ({ insight, onReadMore }) => (
-  <article className="bg-brand-bg-alt p-6 rounded-lg shadow-lg border-2 border-brand-border hover:border-brand-accent-neon hover:shadow-neon-secondary transition-all duration-300 flex flex-col h-full">
-    <ArcadeText as="h4" className="text-md text-brand-primary-neon mb-2">{insight.title}</ArcadeText>
-    <p className="text-xs text-brand-text-muted mb-1 font-vt323">
-      Published on: {insight.date}
-      {insight.author && ` by ${insight.author}`}
-    </p>
-    <p className="text-sm text-brand-text mb-4 flex-grow font-vt323 leading-relaxed">{insight.summary}</p>
+  <article className="panel flex flex-col h-full"> {/* Apply panel style */}
+    <PixelHeading as="h4" className="text-md text-jules-cyan mb-2">{insight.title}</PixelHeading>
+    <PixelText as="p" className="text-xs text-jules-text-light mb-1">
+      Published: {insight.date}
+      {insight.author && ` // Author: ${insight.author}`}
+    </PixelText>
+    <PixelText as="p" className="text-sm text-jules-text-light mb-4 flex-grow leading-relaxed">{insight.summary}</PixelText>
     {insight.tags && insight.tags.length > 0 && (
       <div className="mb-4">
         <div className="flex flex-wrap gap-2">
           {insight.tags.map((tag) => (
-            <span key={tag} className="bg-brand-bg-codebox text-brand-secondary-neon text-xs font-press-start px-2 py-1 rounded-sm border border-brand-secondary-neon/50">
+            <span key={tag} className="bg-black text-jules-yellow text-xs font-press-start px-2 py-1 border border-jules-yellow/50">
               {tag}
             </span>
           ))}
         </div>
       </div>
     )}
-    <Button variant="secondary" size="sm" onClick={onReadMore} className="mt-auto" aria-label={`Read more about ${insight.title}`}>
-      Read More &gt;
-    </Button>
+    <RetroButton variant="secondary" size="sm" onClick={onReadMore} className="mt-auto" aria-label={`Access dossier: ${insight.title}`}>
+      Read Dossier &gt;
+    </RetroButton>
   </article>
 );
 
-// Insights Section Component
 const InsightsSection = ({ insights }) => {
   const [selectedInsight, setSelectedInsight] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -314,8 +307,8 @@ const InsightsSection = ({ insights }) => {
   return (
     <div className="space-y-12">
       {!insights || insights.length === 0 ? (
-        <div className="text-center text-brand-text-muted py-8">
-          <ArcadeText as="p">No insights available. System scan complete.</ArcadeText>
+        <div className="text-center text-jules-text-light py-8">
+          <PixelText as="p">&lt;No intel briefings available&gt;</PixelText>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -324,177 +317,200 @@ const InsightsSection = ({ insights }) => {
           ))}
         </div>
       )}
-      <div className="text-center pt-8 mt-8 border-t-2 border-brand-border">
-        <ArcadeText as="h3" className="text-xl text-brand-primary-neon mb-4">Want More Intel?</ArcadeText>
-        <p className="text-brand-text max-w-md mx-auto mb-6 font-vt323 text-lg">
-          Subscribe to our transmission for new articles and strategic dispatches.
-        </p>
-        <Button variant="primary" onClick={() => alert("Newsletter sign-up sequence initiated... (Coming Soon!)")} aria-label="Notify me about new insights and guides">
-          Engage Hyperdrive
-        </Button>
+      <div className="text-center pt-10 mt-10 border-t-2 border-jules-border">
+        <PixelHeading as="h3" className="text-lg text-jules-cyan mb-4">Request Uplink_</PixelHeading>
+        <PixelText className="max-w-md mx-auto mb-6 text-base">
+          Subscribe for classified intel drops and advanced strategy guides.
+        </PixelText>
+        <RetroButton variant="primary" onClick={() => alert("Uplink sequence initiated... (Newsletter Subscription Offline)")} aria-label="Subscribe for new insights">
+          INITIATE SUBSCRIBE
+        </RetroButton>
       </div>
       {selectedInsight && (
-        <Modal isOpen={isModalOpen} onClose={handleCloseModal} title={selectedInsight.title}>
-          {selectedInsight.fullContent || "Full transmission corrupted... (Content coming soon)"}
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal} title={`// INTEL BRIEFING: ${selectedInsight.title}`}>
+          {selectedInsight.fullContent || "<Transmission corrupted. Full data unavailable...>"}
         </Modal>
       )}
     </div>
   );
 };
 
-
+// --- DATA (Keep this or fetch from an external source) ---
 const APP_TITLE = "StrategyAI Forge";
-
 const NAV_ITEMS = [
-  { label: "AI Strategy Tool", href: "#ai-tool" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Our Approach", href: "#approach" },
-  { label: "Insights", href: "#insights" },
+  { label: "AI Interface", href: "#ai-tool" },
+  { label: "Mission Logs", href: "#case-studies" },
+  { label: "Doctrine", href: "#approach" },
+  { label: "Intel", href: "#insights" },
 ];
-
 const CASE_STUDIES_DATA = [
   {
-    id: "wicked-skateboards",
-    clientName: "Wicked Skateboards",
-    title: "Boosting Engagement with AI-Driven Content",
-    challenge: "Wicked Skateboards, a local NH skate shop, struggled to consistently create engaging social media content and reach a wider audience.",
-    solution: "Developed a 30-day AI-powered content calendar focusing on Instagram. Leveraged Gemini to brainstorm post ideas, draft captions, and suggest relevant hashtags. Implemented a strategy that blended product showcases, local skate spots, and community engagement.",
-    results: "Achieved a 40% increase in Instagram engagement, 25% follower growth in the first month. Client reported more customer interactions mentioning their online presence.",
-    tags: ["Social Media Marketing", "AI Content Generation", "Community Engagement", "Local Business"],
-    imageUrl: "https://placehold.co/600x400/2a003a/00f0ff?text=Wicked+Skateboards+AI" // Placeholder
+    id: "wicked-skateboards", clientName: "Wicked Skateboards [NH Div.]", title: "Op: Engagement Matrix",
+    challenge: "LocalNH unit 'Wicked Skateboards' reported low signal-to-noise ratio on social channels, failing to penetrate target demographic.",
+    solution: "Deployed AI-driven content protocol for IG-channel. Gemini-Core tasked with ideation, caption generation, hashtag-vectoring. Strategy integrated product showcases, geo-tagged reconnaissance (local skate spots), and community ops.",
+    results: "Achieved 40% uplift in IG-channel engagement; 25% operative (follower) growth in cycle 1. Unit reports increased field contacts referencing comms array.",
+    tags: ["Social Comms", "AI Content Gen", "Community Ops", "Local Unit Support"],
+    imageUrl: "https://placehold.co/600x400/030310/39FF14?text=Op%3AEngagement+Matrix"
   },
   {
-    id: "startup-automation",
-    clientName: "Tech Innovators Inc.",
-    title: "Streamlining Operations with Marketing Automation",
-    challenge: "A growing tech startup needed to automate lead nurturing and email marketing campaigns to handle increasing volume without hiring more staff.",
-    solution: "Audited existing marketing processes and identified key areas for automation. Implemented an email marketing platform with automated workflows for lead segmentation, drip campaigns, and performance tracking. Used AI to personalize email subject lines and content.",
-    results: "Reduced manual effort in email marketing by 60%. Improved lead conversion rate by 15% through targeted nurturing. Provided clear dashboards for monitoring campaign performance.",
-    tags: ["Marketing Automation", "Email Marketing", "Lead Nurturing", "AI Personalization"],
-    imageUrl: "https://placehold.co/600x400/2a003a/f000ff?text=Tech+Automation" // Placeholder
+    id: "startup-automation", clientName: "Innovators Swarm [Tech Div.]", title: "Op: Autonomous Relay",
+    challenge: "Expanding tech unit required automation of operative-contact nurturing and comms relays to manage increased signal volume without expanding personnel.",
+    solution: "System audit of existing comms protocols identified key automation vectors. Deployed email relay platform with automated workflows for operative segmentation, drip-feed indoctrination sequences, and performance telemetry. AI-Core utilized for comms personalization.",
+    results: "Reduced manual load on comms relay by 60%. Uplifted operative conversion by 15% via targeted nurturing. Clear telemetry established for protocol monitoring.",
+    tags: ["Marketing Automation", "Comms Relay", "Operative Nurturing", "AI Personalization"],
+    imageUrl: "https://placehold.co/600x400/030310/FF00FF?text=Op%3AAutonomous+Relay"
   }
 ];
-
 const INSIGHTS_DATA = [
    {
-    id: "ai-content-future",
-    title: "The Future of Content: How AI is Revolutionizing Strategy",
-    summary: "Explore the transformative impact of artificial intelligence on content creation, personalization, and distribution. Learn how to leverage AI tools for a more effective content strategy in the modern digital landscape.",
-    date: "November 20, 2023",
-    slug: "future-of-content-ai-strategy",
-    author: "Dr. Lex AI",
-    tags: ["AI", "Content Marketing", "Strategy", "Innovation", "Future Tech"],
-    fullContent: `Artificial Intelligence (AI) is no longer a futuristic concept but a present-day reality reshaping industries, and content strategy is no exception. Its ability to process vast amounts of data, learn patterns, and generate human-like text is revolutionizing how businesses approach content creation, personalization, and distribution.
+    id: "ai-content-future", title: "Intel Drop: The AI Content Singularity",
+    summary: "Analysis of AI's impact on content creation, memetic personalization, and signal distribution. Directive: Leverage AI for superior content strategy in the evolving datasphere.",
+    date: "Cycle 7, Day 283", author: "Oracle-7",
+    tags: ["AI", "Content Warfare", "PsyOps", "Innovation", "Future Systems"],
+    fullContent: `**CLASSIFIED INTEL // FORGE EYES ONLY**
 
-**1. Enhanced Content Creation:**
-AI-powered tools can assist in brainstorming ideas, generating drafts, optimizing for SEO, and even creating variations of content for different platforms. This significantly speeds up the content lifecycle and allows marketers to focus on higher-level strategy and creativity. From blog posts to social media updates and product descriptions, AI can provide a solid foundation, ensuring consistency in tone and style.
+SUBJECT: The AI Content Singularity - Strategic Implications
 
-**2. Hyper-Personalization at Scale:**
-Understanding customer preferences is key to effective marketing. AI algorithms can analyze user behavior, demographic data, and interaction history to deliver highly personalized content experiences. This means showing the right content to the right person at the right time, increasing engagement and conversion rates. Imagine website content that dynamically adapts to each visitor or email campaigns with individually tailored messaging.
+1.  **Enhanced Content Generation Matrix:**
+    AI protocols now capable of ideation, draft-gen, SEO vectoring, and multi-platform content replication. This accelerates content lifecycle, freeing human assets for high-level strategy & creative ops. All comms channels (blogs, social relays, product specs) can achieve baseline consistency.
 
-**3. Optimized Content Distribution:**
-AI can help identify the best channels and times to distribute content for maximum reach and impact. It can analyze platform performance, predict trends, and automate posting schedules. Furthermore, AI tools can assist in identifying influencers and optimizing ad spend for content promotion.
+2.  **Hyper-Personalization at Scale (Project CHIMERA):**
+    Operative preference is paramount. AI algorithms analyze behavioral data, demographic markers, and interaction logs to deliver tailored content experiences. Objective: Right signal, right operative, right cycle-time. Increases engagement & conversion vectors. Anticipate adaptive web-fronts & individually-vectored email comms.
 
-**4. Data-Driven Insights and Performance Tracking:**
-By analyzing content performance metrics, AI can provide actionable insights into what resonates with the audience and what doesn't. This allows for continuous improvement of content strategy, ensuring that efforts are aligned with business objectives and audience expectations.
+3.  **Optimized Signal Distribution (Project ECHO):**
+    AI determines optimal channels & timings for max signal propagation. Platform performance analysis, trend prediction, automated posting schedules. AI assists in operative-of-influence ID & ad-spend optimization.
 
-**Embracing the AI Revolution:**
-To stay competitive, businesses must embrace AI in their content strategies. This doesn't mean replacing human creativity but augmenting it. The future lies in a symbiotic relationship where AI handles repetitive tasks and data analysis, freeing up human marketers to focus on strategic thinking, storytelling, and building genuine connections with their audience.
+4.  **Data-Driven Telemetry & Performance Feedback:**
+    Content performance metrics analyzed by AI provide actionable intel on signal resonance. Enables continuous refinement of content doctrine, ensuring alignment with mission objectives & operative expectations.
 
-While there are ethical considerations and challenges to address, such as data privacy and the potential for bias, the transformative potential of AI in content marketing is undeniable.`
+**STRATEGIC DIRECTIVE: EMBRACE THE AI REVOLUTION**
+Competitive viability requires AI integration. This augments, not replaces, human creativity. Symbiotic relationship: AI handles data ops & repetitive tasks; human assets focus on strategic thought, narrative crafting, & genuine operative connection. Ethical parameters & data integrity protocols remain priority Alpha. Transformative potential is undeniable.
+
+**END TRANSMISSION**`
   },
   {
-    id: "automation-roi-maximization",
-    title: "Maximizing ROI with Marketing Automation: A Practical Guide",
-    summary: "Discover practical steps to implement marketing automation effectively and measure its return on investment. From email workflows to lead scoring, unlock efficiency and sustainable growth for your business.",
-    date: "November 12, 2023",
-    slug: "marketing-automation-roi-guide",
-    author: "Auto Bot",
-    tags: ["Marketing Automation", "ROI", "Efficiency", "Lead Nurturing", "Email Marketing"],
-    fullContent: `Marketing automation promises efficiency and improved results, but achieving a tangible return on investment (ROI) requires a strategic approach. This guide outlines practical steps to implement marketing automation effectively and ensure it contributes to sustainable business growth.
+    id: "automation-roi-maximization", title: "Directive: Maximize ROI via Automation",
+    summary: "Field manual for effective marketing automation deployment & ROI measurement. From email sequences to lead-value assessment, achieve system efficiency & sustainable growth.",
+    date: "Cycle 7, Day 201", author: "Unit 404",
+    tags: ["System Automation", "ROI", "Efficiency", "Lead Indoctrination", "Email Protocol"],
+    fullContent: `**FIELD MANUAL // AUTOMATION PROTOCOL ROI-7**
 
-**1. Define Clear Objectives:**
-Before implementing any automation, clearly define what you want to achieve. Are you looking to increase lead generation, improve conversion rates, enhance customer retention, or reduce manual workload? Specific, measurable, achievable, relevant, and time-bound (SMART) goals will guide your strategy and help measure success.
+SUBJECT: Maximizing Return on Investment via Marketing Automation
 
-**2. Understand Your Audience and Customer Journey:**
-Map out your customer journey to identify touchpoints where automation can add value. Segment your audience based on demographics, behavior, and engagement levels to deliver targeted and relevant automated communications.
+1.  **Define Mission Objectives (SMART Protocol):**
+    Prior to system integration, define clear outcomes. Increased lead acquisition? Enhanced conversion rates? Improved operative retention? Reduced manual load? Goals must be Specific, Measurable, Achievable, Relevant, Time-bound.
 
-**3. Choose the Right Tools:**
-Select a marketing automation platform that aligns with your needs and budget. Consider features like email marketing, lead management, CRM integration, analytics, and scalability. Start simple if needed and expand capabilities as your business grows.
+2.  **Operative Journey Mapping & Segmentation:**
+    Map operative journey to ID touchpoints for automation value-add. Segment operatives (demographics, behavior, engagement) for targeted, relevant automated comms.
 
-**4. Implement Key Automation Workflows:**
-- **Welcome Series:** Automate a series of emails to onboard new subscribers or customers.
-- **Lead Nurturing Campaigns:** Develop drip campaigns to educate leads and guide them through the sales funnel.
-- **Abandoned Cart Reminders:** For e-commerce, automatically remind customers about items left in their cart.
-- **Lead Scoring:** Assign scores to leads based on their engagement and demographics to prioritize sales follow-up.
-- **Post-Purchase Follow-ups:** Engage customers after a purchase to encourage repeat business and gather feedback.
+3.  **Select Optimal Tooling:**
+    Choose automation platform aligned with current needs & projected resource allocation. Key features: email protocol, lead management, CRM sync, telemetry, scalability. Initiate with core functions; expand as unit grows.
 
-**5. Personalize Your Communications:**
-Leverage data to personalize automated messages. Use dynamic content, merge tags, and behavioral triggers to make your communications feel more relevant and less robotic.
+4.  **Implement Key Automation Sequences:**
+    - **Acquisition Protocol (Welcome):** Automate initial comms for new subscribers/operatives.
+    - **Indoctrination Campaigns (Lead Nurturing):** Drip-feed intel to guide leads through conversion funnel.
+    - **Asset Recovery (Abandoned Cart):** For e-commerce units, auto-ping operatives on abandoned acquisitions.
+    - **Lead Prioritization (Scoring):** Assign value scores based on engagement/demographics for sales-asset follow-up.
+    - **Post-Acquisition Engagement:** Follow-up post-conversion to encourage repeat ops & gather intel.
 
-**6. Test, Analyze, and Optimize:**
-Continuously monitor the performance of your automation workflows. A/B test different elements like subject lines, content, and calls to action. Use analytics to identify what's working and where improvements can be made. Regularly refine your strategies based on data-driven insights.
+5.  **Personalize Transmissions:**
+    Leverage intel for personalized automated messaging. Use dynamic content, merge tags, behavioral triggers. Objective: Reduce signal noise, increase relevance.
 
-**7. Integrate with Other Systems:**
-Ensure your marketing automation platform integrates seamlessly with your CRM, sales tools, and other relevant systems. This provides a unified view of customer interactions and improves overall efficiency.
+6.  **Test, Analyze, Optimize (Project ITERATE):**
+    Continuously monitor workflow performance. A/B test variables (subject lines, content, CTAs). Utilize telemetry for actionable insights. Refine strategy based on data.
 
-By following these practical steps, businesses can move beyond simply using automation tools to strategically leveraging them for maximizing ROI and achieving significant improvements in their marketing and sales outcomes.`
-  },
-  {
-    id: "nh-tech-spotlight",
-    title: "Emerging Tech Trends in New Hampshire: A Local Perspective",
-    summary: "A deep dive into the burgeoning tech scene in New Hampshire. Highlighting key areas of growth, local innovators, and what these advancements mean for businesses operating in the Granite State.",
-    date: "November 5, 2023",
-    slug: "nh-tech-trends-local-perspective",
-    author: "Granite Coder",
-    tags: ["New Hampshire", "Local Tech", "Innovation", "Business Growth", "Community"],
-    fullContent: `The Granite State is increasingly becoming a hub for technological innovation. This article explores some of the key tech trends emerging in New Hampshire and their implications for local businesses and the community.
-(Full content for this article would explore specific NH tech sectors, companies, and initiatives in more detail...)`
+7.  **System Integration (Project NEXUS):**
+    Ensure seamless sync between automation platform, CRM, sales tools, & other relevant systems for unified operative view & improved efficiency.
+
+Adherence to these protocols will transition units from tool-users to strategic automation leverages, yielding significant ROI and outcome improvement.
+
+**END MANUAL**`
   }
 ];
 
 
 function App() {
+  // A simple ASCII art animation for the header
+  const [logoFrame, setLogoFrame] = useState(0);
+  const logoFrames = [
+    "S T R A T E G Y",
+    "[STRATEGY]",
+    "S.T.R.A.T.E.G.Y",
+    "STRATEGY_AI",
+    "STRATEGY.AI.FORGE"
+  ];
+   useEffect(() => {
+    const interval = setInterval(() => {
+      setLogoFrame((prevFrame) => (prevFrame + 1) % logoFrames.length);
+    }, 750); // Change frame every 750ms
+    return () => clearInterval(interval);
+  }, []);
+
+
   return (
-    <div className="min-h-screen flex flex-col antialiased">
-      <AppHeader title={APP_TITLE} navItems={NAV_ITEMS} />
-      <main className="flex-grow">
-        <Section id="ai-tool" title="AI STRATEGY INTERFACE" className="bg-brand-deep-violet">
+    <div className="min-h-screen flex flex-col"> {/* Main background is on body via index.css */}
+      <AppHeader title={logoFrames[logoFrame]} navItems={NAV_ITEMS} />
+      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
+        <Section 
+          id="ai-tool" 
+          title="> AI_STRATEGY_INTERFACE_" 
+          className="mb-12"
+          titleClassName="text-jules-text-green"
+        >
           <GeminiQuery />
         </Section>
-        <Section id="case-studies" title="MISSION LOGS // SUCCESSES" className="bg-brand-bg-alt">
+
+        <Section 
+          id="case-studies" 
+          title="> MISSION_LOGS // ARCHIVES" 
+          className="mb-12"
+          titleClassName="text-jules-magenta"
+        >
           <CaseStudies studies={CASE_STUDIES_DATA} />
         </Section>
-        <Section id="approach" title="THE FORGE // OUR DOCTRINE" className="bg-brand-deep-violet">
-          <div className="space-y-6 text-brand-text text-lg leading-relaxed max-w-3xl mx-auto text-center font-vt323">
-            <p>
-              <ArcadeText as="span" className="text-brand-primary-neon">SYSTEM ONLINE:</ArcadeText> Welcome to {APP_TITLE}! We specialize in crafting AI-powered marketing and automation strategies to elevate your brand and streamline your operations.
-            </p>
-            <p>
-              Our approach is collaborative and results-driven. We combine deep expertise in emerging technologies like Google's Gemini API with proven marketing principles to deliver innovative solutions tailored to your unique business needs.
-            </p>
-            <p>
-              Whether you're looking to generate creative content, automate repetitive tasks, or gain deeper insights from your data, we're here to help you navigate the evolving digital landscape and achieve sustainable growth.
-            </p>
-            <p>
-              Access the <ArcadeText as="span" className="text-brand-accent-neon">AI Strategy Interface</ArcadeText> for instant ideas, or browse our <ArcadeText as="span" className="text-brand-accent-neon">Mission Logs</ArcadeText> to see the tangible impact we've made.
-            </p>
+
+        <Section 
+          id="approach" 
+          title="> THE_FORGE // DOCTRINE" 
+          className="mb-12"
+          titleClassName="text-jules-yellow"
+        >
+          <div className="panel space-y-6 text-jules-text-light text-lg leading-relaxed max-w-3xl mx-auto text-left">
+            <PixelText>
+              <PixelHeading as="span" className="text-jules-cyan text-xl block mb-2">SYSTEM_ONLINE:</PixelHeading>
+              Welcome to {APP_TITLE}! We specialize in crafting AI-powered marketing and automation strategies to elevate your brand and streamline your operations. Unit designation: Information & Strategy.
+            </PixelText>
+            <PixelText>
+              Our approach is collaborative and results-driven. We combine deep expertise in emerging technologies like Google's Gemini API with proven marketing principles to deliver innovative solutions tailored to your unique business needs. All protocols optimized for maximum efficiency.
+            </PixelText>
+            <PixelText>
+              Whether you're looking to generate creative content, automate repetitive tasks, or gain deeper insights from your data, we're here to help you navigate the evolving digital landscape and achieve sustainable growth. Query a solution.
+            </PixelText>
+            <PixelText>
+              Access the <a href="#ai-tool" className="text-jules-accent-neon hover:underline">AI Strategy Interface</a> for tactical ideation, or browse our <a href="#case-studies" className="text-jules-accent-neon hover:underline">Mission Logs</a> to observe prior operational success.
+            </PixelText>
           </div>
         </Section>
-        <Section id="insights" title="DATA STREAMS // LATEST INTEL" className="bg-brand-bg-alt">
+
+        <Section 
+          id="insights" 
+          title="> DATA_STREAMS // INTEL_BRIEFINGS"
+          titleClassName="text-jules-text-green"
+        >
           <InsightsSection insights={INSIGHTS_DATA} />
         </Section>
       </main>
-      <footer className="bg-brand-bg-codebox border-t-2 border-brand-primary-neon py-8 text-center">
-        <ArcadeText as="p" className="text-brand-text-muted text-sm">
-          © {new Date().getFullYear()} {APP_TITLE}. AI-Powered Marketing & Automation.
-        </ArcadeText>
-        <ArcadeText as="p" className="text-brand-secondary-neon text-xs mt-1">
-          Let's build the future of your business, together. END OF LINE.
-        </ArcadeText>
+
+      <footer className="bg-jules-bg-header border-t-2 border-jules-border-accent py-6 text-center">
+        <PixelText as="p" className="text-jules-text-light text-sm mb-1">
+          © {new Date().getFullYear()} {APP_TITLE} // Sector AI-MAR-AUT // All Rights Reserved
+        </PixelText>
+        <PixelText as="p" className="text-jules-magenta text-xs mt-1">
+          INITIATE_CONTACT // BUILD_FUTURE // END_OF_LINE<span className="blinking-cursor"></span>
+        </PixelText>
       </footer>
     </div>
   );
 }
 
-export default App; 
+export default App;
