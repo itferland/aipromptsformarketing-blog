@@ -1,22 +1,3 @@
-# netlify.toml
-# Place this file in the root of your project
-
 [build]
-  command = "npm run build" # Your existing Vite build command
-  publish = "dist"          # The directory Vite builds to
-  functions = "netlify/functions" # The directory for your serverless functions
-
-# This redirect makes your function available at /api/ask-gemini
-# If you use this, update the fetch URL in src/services/geminiService.ts to '/api/ask-gemini'
-# Otherwise, you can call /.netlify/functions/ask-gemini directly (as in the current geminiService.ts example)
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200 # 200 for proxying API calls
-
-# Node.js version for functions (optional, but good to specify)
-[functions]
-  node_bundler = "esbuild"
-  [functions.environment]
-    # You will set GEMINI_API_KEY_SERVER in the Netlify UI
-    # NODE_VERSION = "18" # Example: Specify Node.js version if needed
+  command = "npm run build"
+  publish = "dist"

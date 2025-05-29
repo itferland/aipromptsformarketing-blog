@@ -6,14 +6,12 @@ export default function App() {
   const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowWelcome(false);
-    }, 4000);
+    const timer = setTimeout(() => setShowWelcome(false), 4000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="bg-jules-bg text-jules-text-light min-h-screen">
+    <div className="bg-jules-bg text-jules-text-light min-h-screen font-vt323">
       {showWelcome ? <WelcomeScreen /> : <MainApp />}
     </div>
   );
