@@ -1,7 +1,7 @@
 // src/App.tsx
 import { useState, useEffect } from 'react';
 import WelcomeScreen from "./components/WelcomeScreen";
-import MainApp from './src/components/MainApp';
+import MainApp from "./components/MainApp";
 
 export default function App() {
   const [showWelcome, setShowWelcome] = useState(true);

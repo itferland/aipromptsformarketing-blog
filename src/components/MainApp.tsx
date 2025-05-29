@@ -1,8 +1,8 @@
 export default function MainApp() {
   return (
-    <div className="p-8 text-center text-white">
-      <h1 className="text-4xl font-bold">Welcome to AI Solutions Consulting</h1>
-      <p className="mt-4">Your next-gen partner in AI-driven innovation.</p>
-    </div>
+    <main className="text-jules-text-light p-8">
+      <h1 className="text-3xl font-press-start">AI Solutions Consulting</h1>
+      <p className="mt-4">This is the main app content after the welcome screen.</p>
+    </main>
   );
 }
