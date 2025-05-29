@@ -1,6 +1,6 @@
 // src/App.tsx
 import { useState, useEffect } from 'react';
-import WelcomeScreen from './src/components/WelcomeScreen';
+import WelcomeScreen from "./components/WelcomeScreen";
 import MainApp from './src/components/MainApp';
 
 export default function App() {
