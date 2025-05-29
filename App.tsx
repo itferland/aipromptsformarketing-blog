@@ -12,10 +12,12 @@ const App: React.FC = () => {
     <div className="min-h-screen flex flex-col bg-consultancy-bg">
       <Header title={APP_TITLE} navItems={NAV_ITEMS} />
       
-      <main className="flex-grow container mx-auto px-4 py-8 md:py-12">
-        <Section id="ai-tool" title="AI STRATEGY TOOL">
-          <GeminiQuery />
-        </Section>
+{/* 
+<section className="text-center py-12">
+  <ArcadeText text="AI STRATEGY TOOL" />
+  <GeminiQuery />
+</section>
+*/}
 
         <Section id="case-studies" title="SUCCESS STORIES">
           <CaseStudies studies={CASE_STUDIES_DATA} />
