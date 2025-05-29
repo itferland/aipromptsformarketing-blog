@@ -1,33 +1,21 @@
 // src/App.tsx
-import { useState } from "react";
-import TypingText from "./components/TypingText";
-import "./index.css";
+import { useState, useEffect } from 'react';
+import WelcomeScreen from './src/components/WelcomeScreen';
+import MainApp from './src/components/MainApp';
 
 export default function App() {
-  const [response, setResponse] = useState("");
+  const [showWelcome, setShowWelcome] = useState(true);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const input = (e.currentTarget.elements.namedItem("prompt") as HTMLInputElement).value;
-
-    // Simulated API response for demo
-    setResponse("Thinking...\n\n" + "Here's what I found about that prompt:\n\n" + input.toUpperCase());
-  };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowWelcome(false);
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-black text-green-400 font-mono flex flex-col items-center justify-center p-4">
-      <h1 className="text-2xl mb-4 terminal-title">AI Prompts Terminal</h1>
-
-      <form onSubmit={handleSubmit} className="w-full max-w-xl">
-        <input
-          name="prompt"
-          type="text"
-          className="terminal-input w-full p-2 mb-4 bg-black border border-green-400 text-green-400 focus:outline-none"
-          placeholder="Enter your prompt..."
-        />
-      </form>
-
-      {response && <TypingText text={response} />}
+    <div className="bg-jules-bg text-jules-text-light min-h-screen">
+      {showWelcome ? <WelcomeScreen /> : <MainApp />}
     </div>
   );
 }
