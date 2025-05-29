@@ -1,23 +1,20 @@
-import { useEffect, useState } from 'react';
-import WelcomeScreen from './components/WelcomeScreen';
-import Dashboard from './components/Dashboard'; // Or your main component
+import { useState, useEffect } from 'react';
+import WelcomeScreen from './src/components/WelcomeScreen';
+import MainApp from './src/components/MainApp';
 
-function App() {
+export default function App() {
   const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowWelcome(false);
-    }, 4000); // Show welcome screen for 4 seconds
-
+    }, 4000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="bg-jules-bg text-jules-text-light min-h-screen">
-      {showWelcome ? <WelcomeScreen /> : <Dashboard />}
+      {showWelcome ? <WelcomeScreen /> : <MainApp />}
     </div>
   );
 }
-
-export default App;
