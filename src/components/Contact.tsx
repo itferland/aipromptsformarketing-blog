@@ -1,33 +1,54 @@
+// src/components/Contact.tsx
+import { FaLinkedin, FaTwitter } from "react-icons/fa";
+
 export default function Contact() {
   return (
-    <section id="contact" className="py-16 bg-black/80 border-b border-gray-700">
+    <section
+      id="contact"
+      className="py-16 bg-black border-t border-gray-700 text-center"
+    >
       <h2
-        className="font-mono text-4xl md:text-5xl text-cyan-300 font-bold mb-6 text-center"
+        className="font-mono text-3xl md:text-4xl text-cyan-400 font-bold mb-5 crt-text"
         style={{
           fontFamily: "'VT323', 'Fira Mono', monospace",
-          textShadow: "0 0 6px #0ff, 0 0 10px #fff",
-          letterSpacing: "2px"
+          textShadow: "0 0 8px #00fff7, 0 0 16px #00bcd4",
+          letterSpacing: "2px",
         }}
       >
-        Contact Us
+        Contact
       </h2>
-      <div className="max-w-xl mx-auto text-center">
-        <p className="text-lg mb-6 text-gray-200">
-          Reach out for a consultation, demo, or just to talk shop!
-        </p>
+      <p className="text-gray-200 mb-8 font-mono text-lg">
+        DM me on LinkedIn or X!
+      </p>
+      <div className="flex justify-center gap-6 mb-6">
+        <a
+          href="https://www.linkedin.com/in/eferland/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-2 rounded bg-blue-700 hover:bg-blue-800 text-white font-mono text-lg shadow transition-all"
+        >
+          <FaLinkedin size={24} />
+          LinkedIn
+        </a>
+        <a
+          href="https://x.com/aipromptsforyou"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-2 rounded bg-gray-900 hover:bg-gray-700 text-white font-mono text-lg shadow transition-all"
+        >
+          <FaTwitter size={22} />
+          X (@aipromptsforyou)
+        </a>
+      </div>
+      <p className="text-gray-400 font-mono text-xs">
+        Or email:{" "}
         <a
           href="mailto:itferland@gmail.com"
-          className="inline-block px-6 py-3 rounded-xl bg-cyan-600 hover:bg-cyan-400 transition-colors font-mono text-xl text-white shadow-lg"
-          style={{
-            fontFamily: "'VT323', 'Fira Mono', monospace",
-            letterSpacing: "2px",
-            textShadow: "0 0 10px #0ff",
-          }}
+          className="underline text-cyan-300"
         >
           itferland@gmail.com
         </a>
-        <div className="mt-8 text-gray-400 text-xs">Or DM me on LinkedIn/X!</div>
-      </div>
+      </p>
     </section>
   );
 }
