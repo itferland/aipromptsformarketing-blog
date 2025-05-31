@@ -1,14 +1,56 @@
-import React from 'react'
+import React from "react";
+
+const menu = [
+  {
+    label: "Case Studies",
+    href: "#success-stories",
+    color: "bg-cyan-500",
+  },
+  {
+    label: "Blog",
+    href: "#blog",
+    color: "bg-purple-600",
+  },
+  {
+    label: "Contact",
+    href: "#contact",
+    color: "bg-yellow-400",
+  },
+  {
+    label: "Our Approach",
+    href: "#approach",
+    color: "bg-red-500",
+  },
+];
 
 export default function FloatingMenu() {
   return (
-    <div className="fixed right-6 bottom-6 bg-zinc-900 border border-zinc-700 p-4 rounded z-50 shadow-xl">
-      <div className="grid grid-cols-2 gap-2 text-xs font-bold">
-        <button className="bg-pink-500 px-2 py-1 rounded">Case Studies</button>
-        <button className="bg-cyan-400 px-2 py-1 rounded">Blog</button>
-        <button className="bg-yellow-400 px-2 py-1 rounded">Contact</button>
-        <button className="bg-purple-500 px-2 py-1 rounded">Our Approach</button>
+    <nav
+      className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2 pointer-events-auto"
+      aria-label="Floating Navigation"
+    >
+      <div className="bg-black/70 rounded-2xl p-3 shadow-2xl border border-gray-700 flex flex-col gap-2">
+        {menu.map(({ label, href, color }) => (
+          <a
+            key={label}
+            href={href}
+            className={`
+              flex items-center font-mono text-sm md:text-base rounded-lg px-4 py-2 mb-1
+              shadow-lg hover:scale-105 active:scale-95 transition-all duration-150
+              ${color} text-white
+            `}
+            style={{
+              fontFamily: "'VT323', 'Fira Mono', monospace",
+              letterSpacing: "1px",
+              textShadow: "0 0 8px #fff, 0 0 16px #000",
+              boxShadow: `0 0 10px ${color.replace('bg-', '').replace('-500','')}44`,
+              border: "1.5px solid #222"
+            }}
+          >
+            {label}
+          </a>
+        ))}
       </div>
-    </div>
-  )
+    </nav>
+  );
 }
