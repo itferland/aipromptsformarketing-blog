@@ -1,21 +1,16 @@
 // src/App.tsx
-import { useState, useEffect } from 'react';
-import WelcomeScreen from "./components/WelcomeScreen";
+import FloatingMenu from "./components/FloatingMenu";
+import SuccessStories from "./components/SuccessStories";
 import MainApp from "./components/MainApp";
 
 export default function App() {
-  const [showWelcome, setShowWelcome] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowWelcome(false);
-    }, 4000);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <div className="bg-jules-bg text-jules-text-light min-h-screen">
-      {showWelcome ? <WelcomeScreen /> : <MainApp />}
+    <div className="relative min-h-screen bg-jules-bg text-jules-text-light overflow-x-hidden">
+      <MainApp />
+      <FloatingMenu />
+      <div className="z-10 relative">
+        <SuccessStories />
+      </div>
     </div>
   );
 }
