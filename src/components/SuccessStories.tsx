@@ -56,4 +56,4 @@ export default function SuccessStories() {
                 className="bg-fuchsia-700 text-white px-3 py-1 rounded font-mono text-xs"
               >
                 {tag}
-              </spa
+              </span>
