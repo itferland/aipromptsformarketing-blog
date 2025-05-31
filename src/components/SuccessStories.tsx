@@ -57,3 +57,10 @@ export default function SuccessStories() {
               >
                 {tag}
               </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
