@@ -8,7 +8,7 @@ export default function Home() {
       <section className="glow-card w-full max-w-2xl">
         <h2 className="crt-text text-2xl mb-3">Welcome!</h2>
         <p>
-          <b>aipromptsformarketing.net</b> empowers you to automate your marketing with intelligent AI prompts. Streamline your workflow, scale your business, and focus on creative strategy—while your site runs itself.
+          <b>aisolutionsconsulting.net</b> empowers you to automate your marketing with intelligent AI prompts. Streamline your workflow, scale your business, and focus on creative strategy—while your site runs itself.
         </p>
         <ul className="mt-4 list-disc list-inside">
           <li>Automation guides for content, email, and social</li>
