@@ -17,4 +17,4 @@ Stay Updated
 Catch the latest AI & tech news and insights on our blog.
 
 Contact
-Connect via LinkedIn, X (@aipromptsforyou), or email: itferland@gmail.com.
+Connect via LinkedIn, X (@aipromptsforyou), or email: contact@aisolutionsconsulting.net.
