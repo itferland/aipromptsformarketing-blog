@@ -6,7 +6,7 @@ export default function Contact() {
       <section className="glow-card w-full max-w-xl">
         <div className="crt-text mb-2 text-xl">Let's talk AI automation!</div>
         <div>
-          <b>Email:</b> <a href="mailto:contact@aipromptsformarketing.net" className="crt-link">contact@aipromptsformarketing.net</a>
+          <b>Email:</b> <a href="mailto:contact@aisolutionsconsulting.net" className="crt-link">contact@aisolutionsconsulting.net</a>
         </div>
         <div className="mt-3 flex flex-wrap gap-4">
           <a href="https://www.linkedin.com/in/eferland/" className="cta-button" target="_blank" rel="noopener noreferrer">
