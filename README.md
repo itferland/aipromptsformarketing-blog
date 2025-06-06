@@ -18,3 +18,12 @@ Catch the latest AI & tech news and insights on our blog.
 
 Contact
 Connect via LinkedIn, X (@aisolutionsconsulting), or email: contact@aisolutionsconsulting.net.
+
+Environment Variables
+To run this project locally, create a `.env` file in the repository root with the following keys:
+
+```
+VITE_GEMINI_API_KEY=your_client_side_key
+GEMINI_API_KEY_SERVER=your_server_side_key
+```
+
