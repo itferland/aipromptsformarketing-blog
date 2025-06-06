@@ -1,6 +1,6 @@
 import { NavItem, CaseStudy, Insight } from './types';
 
-export const APP_TITLE = "StrategyAI Forge";
+export const APP_TITLE = "AI Solutions Consulting";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "AI Strategy Tool", href: "#ai-tool" },
