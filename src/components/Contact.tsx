@@ -31,22 +31,22 @@ export default function Contact() {
           LinkedIn
         </a>
         <a
-          href="https://x.com/aipromptsforyou"
+          href="https://x.com/aisolutionsconsulting"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-5 py-2 rounded bg-gray-900 hover:bg-gray-700 text-white font-mono text-lg shadow transition-all"
         >
           <FaTwitter size={22} />
-          X (@aipromptsforyou)
+          X (@aisolutionsconsulting)
         </a>
       </div>
       <p className="text-gray-400 font-mono text-xs">
         Or email:{" "}
         <a
-          href="mailto:itferland@gmail.com"
+          href="mailto:contact@aisolutionsconsulting.net"
           className="underline text-cyan-300"
         >
-          itferland@gmail.com
+          contact@aisolutionsconsulting.net
         </a>
       </p>
     </section>

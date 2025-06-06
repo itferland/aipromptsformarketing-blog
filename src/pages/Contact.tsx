@@ -12,7 +12,7 @@ export default function Contact() {
           <a href="https://www.linkedin.com/in/eferland/" className="cta-button" target="_blank" rel="noopener noreferrer">
             DM on LinkedIn
           </a>
-          <a href="https://x.com/aipromptsforyou" className="cta-button" target="_blank" rel="noopener noreferrer">
+          <a href="https://x.com/aisolutionsconsulting" className="cta-button" target="_blank" rel="noopener noreferrer">
             Message on X (Twitter)
           </a>
         </div>
