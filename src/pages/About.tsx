@@ -3,7 +3,7 @@ export default function About() {
   return (
     <main className="min-h-screen flex flex-col items-center bg-[#181c20] pt-10">
       <div className="crt-text text-4xl mb-6 text-center">
-        About <span className="text-[#fff0b6]">AI Prompts for Marketing</span>
+        About <span className="text-[#fff0b6]">AI Solutions Consulting</span>
       </div>
       <section className="glow-card w-full max-w-2xl">
         <h2 className="crt-text text-2xl mb-3">Our Mission</h2>
