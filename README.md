@@ -25,5 +25,6 @@ To run this project locally, create a `.env` file in the repository root with th
 ```
 VITE_GEMINI_API_KEY=your_client_side_key
 GEMINI_API_KEY_SERVER=your_server_side_key
+NEWS_API_KEY=your_newsapi_key
 ```
 
