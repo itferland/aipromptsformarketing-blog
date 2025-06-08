@@ -28,3 +28,7 @@ GEMINI_API_KEY_SERVER=your_server_side_key
 NEWS_API_KEY=your_newsapi_key
 ```
 
+### Sitemap Generation
+
+Run `npm run sitemap` to create `public/sitemap.xml` and update `public/robots.txt` with the sitemap URL. Submit this file to search engines to improve indexing.
+
