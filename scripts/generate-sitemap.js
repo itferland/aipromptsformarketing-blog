@@ -31,7 +31,7 @@ const xml =
   `${urls}\n` +
   `</urlset>\n`;
 
-const publicDir = path.join(__dirname, '../public');
+const publicDir = path.join(__dirname, '../dist');
 if (!fs.existsSync(publicDir)) {
   fs.mkdirSync(publicDir, { recursive: true });
 }
