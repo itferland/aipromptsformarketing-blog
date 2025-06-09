@@ -32,3 +32,5 @@ NEWS_API_KEY=your_newsapi_key
 
 Run `npm run sitemap` to create `public/sitemap.xml` and update `public/robots.txt` with the sitemap URL. Submit this file to search engines to improve indexing.
 
+The script scans `src/pages` for `.tsx` files and automatically updates the list of URLs. Run it again whenever you add or rename a page to keep the sitemap current.
+
