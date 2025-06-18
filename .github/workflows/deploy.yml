@@ -34,3 +34,5 @@ jobs:
           deploy-message: "Automated deployment from GitHub Actions"
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4a059b56-f6fa-4c3d-96b3-5871b7013fc2/deploy-status)](https://app.netlify.com/sites/taupe-pie-a28077/deploys)
