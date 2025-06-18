@@ -26,5 +26,27 @@
   "build": {
     "command": "npm run build",
     "publish": "dist"
+  },
+  "jobs": {
+    "build-deploy": {
+      "runs-on": "ubuntu-latest",
+      "steps": [
+        {
+          "uses": "actions/checkout@v3"
+        },
+        {
+          "name": "Install dependencies",
+          "run": "npm ci"
+        },
+        {
+          "name": "Build",
+          "run": "npm run build"
+        },
+        {
+          "name": "Deploy",
+          "run": "echo \"Your deploy command here\""
+        }
+      ]
+    }
   }
 }
