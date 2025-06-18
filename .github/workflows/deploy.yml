@@ -30,18 +30,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           cname: aisolutionsconsulting.net
-          allow_empty_commit: true
-          destination_dir: ./
-          source_dir: ./dist
-          custom_domain: aisolutionsconsulting.net
-          skip_cleanup: true
           publish_branch: gh-pages
-          publish_dir: ./dist
           user_name: GitHub Actions
           user_email: actions@github.com
           commit_message: 'Deploy to GitHub Pages'
-
-      - name: Rewrite index.html
-        run: |
-          echo "/*    /index.html   200" >> ./dist/_redirects
-          cat ./dist/_redirects
