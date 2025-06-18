@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build": "vite build && cpx public/_redirects dist && cpx public/404.html dist",
+    "build": "vite build && cpx public/_redirects dist",
     "test": "echo \"No tests specified\" && exit 0"
   },
   "dependencies": {
