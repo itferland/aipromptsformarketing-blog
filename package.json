@@ -1,16 +1,22 @@
 {
-  "name": "aipromptsformarketing-blog",
+  "name": "ai-solutions-consulting",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "sitemap": "node scripts/generate-sitemap.js",
+    "preview": "vite preview",
+    "test": "echo \"No tests defined\" && exit 0"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+<<<<<<< HEAD
     "gray-matter": "^4.0.3",
     "node-fetch": "^3.3.2",
+=======
+    "axios": "^1.9.0",
+>>>>>>> origin/main
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.5.0",
