@@ -28,6 +28,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # Assuming 'dist' is the build output directory for Vite
-          custom_domain: 'your-custom-domain.com' # Add your custom domain here
-          cname_file: ./CNAME # Path to the CNAME file in your repository
+          publish_dir: ./dist
+          cname: aisolutionsconsulting.net
