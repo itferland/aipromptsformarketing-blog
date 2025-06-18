@@ -34,3 +34,7 @@ jobs:
           user_name: GitHub Actions
           user_email: actions@github.com
           commit_message: 'Deploy to GitHub Pages'
+
+      - name: Rewrite index.html
+        run: |
+          echo "/*    /index.html   200" >> ./dist/_redirects
