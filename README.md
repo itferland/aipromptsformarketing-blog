@@ -34,3 +34,13 @@ Run `npm run sitemap` to create `public/sitemap.xml` and update `public/robots.t
 
 The script scans `src/pages` for `.tsx` files and automatically updates the list of URLs. Run it again whenever you add or rename a page to keep the sitemap current.
 
+### Installation
+
+Before running the build or development server, install dependencies with:
+
+```bash
+npm install
+```
+
+Then you can start a dev server using `npm run dev` or create a production build with `npm run build` (also used by Netlify, see [`netlify.toml`](netlify.toml)).
+
