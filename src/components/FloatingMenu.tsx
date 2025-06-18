@@ -12,6 +12,16 @@ const menu = [
     color: "bg-purple-600",
   },
   {
+    label: "About",
+    href: "/about",
+    color: "bg-green-600",
+  },
+  {
+    label: "Services",
+    href: "/services",
+    color: "bg-blue-600",
+  },
+  {
     label: "Contact",
     href: "#contact",
     color: "bg-yellow-400",
