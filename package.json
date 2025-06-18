@@ -1,6 +1,7 @@
 {
   "name": "ai-solutions-consulting",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,10 +11,16 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+<<<<<<< HEAD
+    "gray-matter": "^4.0.3",
+    "node-fetch": "^3.3.2",
+=======
     "axios": "^1.9.0",
+>>>>>>> origin/main
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^5.5.0"
+    "react-icons": "^5.5.0",
+    "rss-parser": "^3.13.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",

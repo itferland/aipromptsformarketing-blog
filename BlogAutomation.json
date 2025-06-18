@@ -1,0 +1,84 @@
+{
+  "name": "Auto-Blog: Google Sheets + DALL-E Image",
+  "nodes": [
+    {
+      "parameters": {
+        "sheetId": "YOUR_GOOGLE_SHEET_ID",
+        "range": "Sheet1!A:C",
+        "options": {
+          "valueRenderMode": "FORMATTED_VALUE"
+        }
+      },
+      "id": "Google Sheets - Read Rows",
+      "name": "Read Blog Posts",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [300, 200],
+      "credentials": {
+        "googleSheetsOAuth2Api": "YOUR_GOOGLE_SHEETS_CREDENTIAL"
+      }
+    },
+    {
+      "parameters": {
+        "operation": "createImage",
+        "prompt": "Create a vibrant, modern blog header image for: \"{{$json[\"Title\"]}}\". Theme: {{$json[\"Summary\"]}}",
+        "n": 1,
+        "size": "1024x1024"
+      },
+      "id": "OpenAI - Generate Image",
+      "name": "Generate Cover Image",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [600, 200],
+      "credentials": {
+        "openAIApi": "YOUR_OPENAI_API_CREDENTIAL"
+      }
+    },
+    {
+      "parameters": {
+        "sheetId": "YOUR_GOOGLE_SHEET_ID",
+        "range": "Sheet1!A:C",
+        "options": {},
+        "updateFields": [
+          {
+            "name": "ImageURL",
+            "value": "={{$json[\"data\"][0][\"url\"]}}"
+          }
+        ],
+        "keyField": "Title"
+      },
+      "id": "Google Sheets - Update Row",
+      "name": "Update Sheet with Image",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [900, 200],
+      "credentials": {
+        "googleSheetsOAuth2Api": "YOUR_GOOGLE_SHEETS_CREDENTIAL"
+      }
+    }
+  ],
+  "connections": {
+    "Read Blog Posts": {
+      "main": [
+        [
+          {
+            "node": "Generate Cover Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Cover Image": {
+      "main": [
+        [
+          {
+            "node": "Update Sheet with Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
