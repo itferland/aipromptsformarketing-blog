@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/<BADGE_ID>/status)](https://app.netlify.com/sites/<SITE_NAME>/deployments)
 AI Solutions Consulting
 Unlock your brand's full potential with AI-powered automation and engineering excellence.
 
