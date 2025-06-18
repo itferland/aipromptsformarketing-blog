@@ -30,3 +30,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist # Assuming 'dist' is the build output directory for Vite
           /*    /index.html   200
+
+"scripts": {
+  "build": "vite build && cpx public/_redirects dist && cpx public/404.html dist"
+}
