@@ -1,0 +1,307 @@
+*   [33m0ca00f8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m 1
+[31m|[m[32m\[m  
+[31m|[m * [33m1de6dee[m[33m ([m[1;31morigin/feat/spa-netlify-routing-clean[m[33m, [m[1;32mfeat/spa-netlify-routing-clean[m[33m)[m Remove npm test step to fix deploy failure
+[31m|[m * [33m7079fa4[m 1
+[31m|[m * [33mafa774d[m 1
+[31m|[m * [33mcaa8298[m 1
+[31m|[m * [33m6b35b9a[m Trigger Netlify redeploy
+* [32m|[m [33m7dd005d[m Merge pull request #18 from itferland/feat/spa-netlify-routing-clean
+[33m|[m[32m\[m[32m|[m 
+[33m|[m * [33m3567cd6[m 1
+[33m|[m * [33m24295fc[m 1
+[33m|[m * [33m9c8e206[m new
+* [34m|[m [33mf1adac4[m Merge pull request #17 from itferland/feat/spa-netlify-routing-clean
+[35m|[m[34m\[m[34m|[m 
+[35m|[m *   [33m39893d3[m Resolve merge conflicts from main
+[35m|[m [1;31m|[m[35m\[m  
+[35m|[m [1;31m|[m[35m/[m  
+[35m|[m[35m/[m[1;31m|[m   
+* [1;31m|[m   [33me555191[m Merge pull request #16 from itferland/pr/fix-netlify-routing
+[1;33m|[m[1;34m\[m [1;31m\[m  
+[1;33m|[m * [1;31m|[m [33mffcce3a[m Add files via upload
+[1;33m|[m[1;33m/[m [1;31m/[m  
+* [1;31m|[m   [33mffc9c4a[m Merge pull request #15 from itferland/pr/redirect-readme-final
+[1;35m|[m[1;36m\[m [1;31m\[m  
+[1;35m|[m * [1;31m|[m [33m19dce7f[m Add files via upload
+[1;35m|[m[1;35m/[m [1;31m/[m  
+* [1;31m|[m   [33meabd8b3[m Merge pull request #14 from itferland/pr/markdown-pages
+[31m|[m[32m\[m [1;31m\[m  
+[31m|[m * [1;31m|[m [33m39162a6[m Add files via upload
+[31m|[m[31m/[m [1;31m/[m  
+* [1;31m|[m [33m504e2b2[m Add files via upload
+* [1;31m|[m   [33mc85ba8b[m Merge pull request #13 from itferland/codex/fix-404-page-not-found-error
+[33m|[m[34m\[m [1;31m\[m  
+[33m|[m * [1;31m|[m [33mf9c0283[m docs: add install instructions
+[33m|[m[33m/[m [1;31m/[m  
+* [1;31m|[m [33m2433bcb[m Add files via upload
+* [1;31m|[m   [33m5c9726f[m Merge pull request #12 from itferland/codex/integrate-starter-web-bundle-into-repo
+[35m|[m[36m\[m [1;31m\[m  
+[35m|[m * [1;31m|[m [33mb005085[m Add marketing pages, update home content and SEO
+[35m|[m[35m/[m [1;31m/[m  
+* [1;31m|[m   [33m0438f69[m Merge pull request #11 from itferland/codex/create-new-pr
+[1;31m|[m[1;32m\[m [1;31m\[m  
+[1;31m|[m * [1;31m|[m [33m4f34fb8[m docs: clarify sitemap instructions
+[1;31m|[m[1;31m/[m [1;31m/[m  
+[1;31m|[m * [33m70ac4d3[m Add Netlify SPA routing support and repository cleanup automation
+[1;31m|[m [1;32m|[m * [33m156703e[m[33m ([m[1;31morigin/gh-pages[m[33m)[m deploy: 5c9726ff615f3a9f6c7e12a4483b518130e8ff29
+[1;31m|[m [1;32m|[m * [33m4f28b7a[m deploy: 13d847ef67b867467d8171245eed7ad5bc02cd4e
+[1;31m|[m [1;32m|[m * [33m51ac47e[m deploy: e00b0e938f1f4f396de44e719f24f634a7659cbe
+[1;31m|[m [1;32m|[m * [33m116c19d[m deploy: 4b5269d25d18adcfd8e22e3dceb7287c7c57f2a2
+[1;31m|[m [1;32m|[m * [33m1b7fec8[m deploy: 3475d597a40cf48d57c0707ada7e500aece58af6
+[1;31m|[m [1;32m|[m * [33m50faa6f[m deploy: a4bc8667fed4cb34def9a6a35a9c635493741885
+[1;31m|[m [1;32m|[m * [33mbc3fa80[m deploy: 6b87436b9afa9a9c5868ef74185022af4f9293b5
+[1;31m|[m [1;32m|[m * [33mdc3b827[m deploy: 50f3ebc41025e2f4bc3d7c8f470a3b642b8b2ad9
+[1;31m|[m [1;32m|[m * [33m8292e75[m deploy: 51ed2abe659200f92c28968ca300c76f60e93552
+[1;31m|[m [1;32m|[m * [33md92d5fa[m deploy: 5db084f145d79a5f3491f1cd06d37fe3517c3b3a
+[1;31m|[m [1;32m|[m * [33me1dbb31[m deploy: 1028a849448cb49f3e6d62dee16d135dfe5b3e3c
+[1;31m|[m [1;32m|[m * [33m35fe5ce[m deploy: f0c9a9508b803f2eac15deae4252328015220dcf
+[1;31m|[m [1;32m|[m * [33m325a83c[m deploy: a3bd809afcd9eb56cdde47ef14453e62e247e708
+[1;31m|[m [1;32m|[m * [33md2aa71c[m deploy: fe0a1d4b49b75918f81d33f4788298bdda3da50e
+[1;31m|[m [1;32m|[m * [33md69e0b2[m deploy: 95e1dd6be1f985443870e33740e615d91b576555
+[1;31m|[m [1;32m|[m * [33mdc3d8bd[m deploy: 6a997dacdbf6650bed36933b04fba4a3d78c5c1c
+[1;31m|[m [1;32m|[m * [33m8d4d0e0[m deploy: cfbd91eb93bc08989226e9c48cef1a8cfe9eba84
+[1;31m|[m [1;32m|[m * [33m0d885ad[m deploy: 5bcc23af909e71856da7d7b576c79cb87ac15064
+[1;31m|[m [1;32m|[m * [33m2895351[m deploy: a594836a137b353b2062b0adaff04eda6afbf290
+[1;31m|[m [1;32m|[m * [33md117d24[m deploy: d2bde04442686c86030ce7cb8754324fa4321c94
+[1;31m|[m [1;32m|[m * [33m855a797[m Updates
+[1;31m|[m [1;32m|[m * [33m4869360[m Updates
+[1;31m|[m [1;32m|[m * [33md3251bc[m Updates
+[1;31m|[m [1;32m|[m * [33m91fe8c3[m deploy: cfeca24394087425db71338a81916f91d91f4014
+[1;31m|[m [1;32m|[m * [33m539166d[m deploy: 4772fff5a7f54a89f35605df66a9d3e67a0fb1b3
+[1;31m|[m [1;32m|[m * [33m6b2e3a5[m deploy: 0487e94abfd56fe08020169f26ce28980f972667
+[1;31m|[m [1;32m|[m * [33md28dd81[m Updates
+[1;31m|[m [1;32m|[m * [33mc7d3d39[m Updates
+[1;31m|[m [1;32m|[m * [33mc34138b[m Updates
+[1;31m|[m [1;32m|[m * [33m132c638[m Updates
+[1;31m|[m [1;32m|[m * [33m0fa1689[m Updates
+[1;31m|[m [1;32m|[m * [33m413ac9e[m Updates
+[1;31m|[m [1;32m|[m * [33m2f6a180[m Updates
+[1;31m|[m [1;32m|[m * [33md190e6b[m Updates
+[1;31m|[m [1;32m|[m * [33m2b26494[m deploy: 4dba65beb2fa437f9ce4a1d9fcf0b9603b49b167
+[1;31m|[m [1;32m|[m * [33m2bb94c7[m Create CNAME
+[1;31m|[m [1;32m|[m * [33m00b24e5[m Updates
+[1;31m|[m [1;32m|[m * [33m2cb922e[m Create CNAME
+[1;31m|[m [1;32m|[m * [33mfcafb07[m deploy: ff25f77667f1a747a90d336c4ab2e9ad360b54d2
+[1;31m|[m [1;32m|[m * [33m3261100[m Updates
+[1;31m|[m [1;32m|[m * [33m74399c5[m deploy: 2ae18291dffe4f7923f36c51d4c3e51664ae8761
+[1;31m|[m [1;32m|[m * [33ma7be840[m Create CNAME
+[1;31m|[m [1;32m|[m * [33m064fd58[m Updates
+[1;31m|[m [1;32m|[m * [33m49e85e1[m Create CNAME
+[1;31m|[m [1;32m|[m * [33m3e2c110[m Updates
+[1;31m|[m [1;32m|[m * [33mf2ff7ab[m deploy: 4dcf3b0a179f505ce6c791e05caffcfb68789b2b
+[1;31m|[m [1;32m|[m * [33m4879f6d[m deploy: ff7d4cd2ddb73b069e8931cac5f4d9c1d93d7e13
+[1;31m|[m [1;32m|[m * [33m1ee1602[m deploy: 5f9962ff403e1112d59f7d484da016747726e918
+[1;31m|[m [1;32m|[m * [33m8ac4b69[m deploy: 738bc9e9b159b6a6679b445f64f44d8bf3215bcf
+[1;31m|[m [1;32m|[m * [33m99a580f[m deploy: 06faf258d6bb5df02b1acccf581952aecbc32663
+[1;31m|[m [1;32m|[m * [33mea8746a[m[33m ([m[1;31morigin/fix/sitemap-html-error[m[33m)[m Alright, I've made some changes to ensure your `sitemap.xml` is correctly generated and located.
+[1;31m|[m [1;32m|[m[1;31m/[m  
+[1;31m|[m[1;31m/[m[1;32m|[m   
+* [1;32m|[m   [33m13d847e[m Merge pull request #10 from itferland/codex/add-new-sitemap
+[1;35m|[m[1;36m\[m [1;32m\[m  
+[1;35m|[m * [1;32m|[m [33m4887b0f[m Refine sitemap generator
+[1;35m|[m * [1;32m|[m [33mee2bec8[m Add sitemap generator and robots
+[1;35m|[m[1;35m/[m [1;32m/[m  
+* [1;32m|[m   [33me00b0e9[m Merge pull request #9 from itferland/codex/create-professional--about--page-for-website
+[31m|[m[32m\[m [1;32m\[m  
+[31m|[m * [1;32m\[m   [33m1bb36fb[m Merge branch 'main' into codex/create-professional--about--page-for-website
+[31m|[m [33m|[m[31m\[m [1;32m\[m  
+[31m|[m [33m|[m[31m/[m [1;32m/[m  
+[31m|[m[31m/[m[33m|[m [1;32m|[m   
+* [33m|[m [1;32m|[m   [33m4b5269d[m Merge pull request #8 from itferland/codex/create-professional--about--page-for-website
+[35m|[m[36m\[m [33m\[m [1;32m\[m  
+[35m|[m * [33m|[m [1;32m|[m [33m5ea13dd[m Update About page with professional profile
+[35m|[m[35m/[m [33m/[m [1;32m/[m  
+[35m|[m * [1;32m/[m [33m232e466[m Add favicon for browser tab
+[35m|[m[35m/[m [1;32m/[m  
+* [1;32m|[m   [33m374032d[m Merge pull request #5 from itferland/codex/update-.gitignore-and-document-env-variables
+[1;31m|[m[1;32m\[m [1;32m\[m  
+[1;31m|[m * [1;32m|[m [33m1d0882b[m Ignore env file and document keys
+* [1;32m|[m [1;32m|[m   [33m85d44e3[m Merge pull request #6 from itferland/codex/verify-and-clean-up-blog.tsx-component
+[1;33m|[m[1;34m\[m [1;32m\[m [1;32m\[m  
+[1;33m|[m * [1;32m\[m [1;32m\[m   [33m757d8dc[m Merge branch 'main' into codex/verify-and-clean-up-blog.tsx-component
+[1;33m|[m [1;35m|[m[1;33m\[m [1;32m\[m [1;32m\[m  
+[1;33m|[m [1;35m|[m[1;33m/[m [1;32m/[m [1;32m/[m  
+[1;33m|[m[1;33m/[m[1;35m|[m [1;32m|[m [1;32m|[m   
+* [1;35m|[m [1;32m|[m [1;32m|[m   [33m8bfbd7a[m Merge pull request #7 from itferland/codex/define-test-script-in-package.json
+[1;32m|[m[32m\[m [1;35m\[m [1;32m\[m [1;32m\[m  
+[1;32m|[m [32m|[m[1;32m_[m[1;35m|[m[1;32m/[m [1;32m/[m  
+[1;32m|[m[1;32m/[m[32m|[m [1;35m|[m [1;32m|[m   
+[1;32m|[m * [1;35m|[m [1;32m|[m [33m22b30bb[m chore(ci): add basic test script
+[1;32m|[m[1;32m/[m [1;35m/[m [1;32m/[m  
+[1;32m|[m * [1;32m/[m [33m5dcc6c2[m chore: remove unused Blog component
+[1;32m|[m[1;32m/[m [1;32m/[m  
+* [1;32m|[m   [33m3475d59[m Merge pull request #4 from itferland/codex/rename-repository-and-update-references
+[33m|[m[34m\[m [1;32m\[m  
+[33m|[m * [1;32m|[m [33md99e21f[m Finalize rebrand references
+[33m|[m * [1;32m|[m [33m95d3b3c[m Update contact info to new handle
+[33m|[m * [1;32m|[m [33m9cf48ae[m Rename project to ai-solutions-consulting
+[33m|[m[33m/[m [1;32m/[m  
+* [1;32m|[m   [33ma4bc866[m Merge pull request #3 from itferland/codex/update-form-url-to-aisolutionsconsulting.net
+[35m|[m[36m\[m [1;32m\[m  
+[35m|[m * [1;32m|[m [33m52657d0[m Update contact email in README
+[35m|[m * [1;32m|[m [33mb6b1739[m Update contact email and domain references
+[35m|[m[35m/[m [1;32m/[m  
+* [1;32m|[m [33m09b9bf8[m Update CNAME
+* [1;32m|[m [33m09b0dee[m Update CNAME
+* [1;32m|[m [33md0a36b8[m Update README.md
+[1;32m|[m[1;32m/[m  
+* [33me952283[m Add GitHub Actions workflow for automated blog post fetching
+* [33m6b87436[m Add react-icons dependency for Contact component
+* [33m50f3ebc[m Add react-icons dependency for Contact component
+* [33m9dce2f9[m Update Contact section: add LinkedIn/X DM buttons
+* [33m51ed2ab[m Fix closing tag typo in SuccessStories
+* [33mfeb8dd8[m Update styles
+* [33ma3cb975[m Update styles
+* [33m5db084f[m Update styles
+* [33maeb1e3d[m Update styles
+* [33m1028a84[m Update styles
+* [33mf0c9a95[m Update styles
+* [33ma3bd809[m Update styles
+* [33mfe0a1d4[m Update styles
+* [33m95e1dd6[m Add @google/generative-ai dependency for Netlify Functions
+* [33m6a997da[m Fix index.html: remove reference to /index.tsx, rely on Vite auto-entry
+* [33me8b3b04[m Remove src/index.tsx, use src/main.tsx as Vite entry point
+* [33mf592f25[m Fix import path: use './App' in src/index.tsx
+* [33m455faf1[m Remove duplicate App.tsx from root directory
+* [33mdca57a1[m Final cleanup: all components in src/components, import paths verified
+* [33mbc4b256[m Finalize homepage redesign: CRT pixel hero, ASCII animation, floating menu, and new components structure
+* [33mcfbd91e[m Fix Tailwind and custom styles
+* [33m5bcc23a[m Apply CRT styling to MainApp
+* [33ma594836[m Fix import path for WelcomeScreen
+* [33md2bde04[m Fix import path for WelcomeScreen
+* [33m06241e1[m Trigger Netlify redeploy
+* [33m54d1e8c[m Use postcss.config.cjs for Netlify compatibility
+* [33ma3dcd00[m Remove broken postcss.config.js file
+* [33m3cb62e6[m Fix import paths for MainApp and WelcomeScreen
+* [33m88b3764[m Remove AI STRATEGY TOOL section from homepage
+* [33me9b58c4[m Remove AI STRATEGY TOOL section from homepage
+* [33m4be72f4[m Implement Jules-inspired retro terminal theme
+* [33m397a3a9[m Implement Jules-inspired retro terminal theme
+* [33me445d4e[m Implement Jules-inspired retro terminal theme
+* [33mcfeca24[m Update Tailwind config with retro terminal theme
+* [33m4772fff[m Enhance Tailwind CSS configuration with new color palette, font families, and animations; update geminiService error handling for improved user feedback.
+*   [33m0487e94[m Merge branch 'main' of https://github.com/itferland/aipromptsformarketing-blog
+[1;31m|[m[1;32m\[m  
+[1;31m|[m * [33m4dba65b[m Create CNAME
+[1;31m|[m *   [33mff25f77[m Merge pull request #2 from itferland/fix/csp-unsafe-eval
+[1;31m|[m [1;33m|[m[1;34m\[m  
+[1;31m|[m [1;33m|[m * [33m00dd1c1[m[33m ([m[1;31morigin/fix/csp-unsafe-eval[m[33m)[m Fix: Add CSP meta tag with 'unsafe-eval' to allow string evaluation
+[1;31m|[m [1;33m|[m[1;33m/[m  
+[1;31m|[m * [33m361fa19[m Update vite.config.ts
+[1;31m|[m * [33m2ae1829[m Update vite.config.ts
+* [1;34m|[m [33mc54f396[m Implement serverless function for API key and fix build files
+* [1;34m|[m [33m4d563dd[m Add serverless function and Netlify config
+[1;34m|[m[1;34m/[m  
+* [33m131d4fa[m feat: overwrite with Jules-style landing page (React + Tailwind)
+* [33m771272e[m[33m ([m[1;31morigin/ui-refresh-modern-fun[m[33m)[m feat: Update UI to be more modern and fun
+* [33m97b882c[m Update home.html
+* [33m157938f[m Update home layout to load custom.css
+* [33mae3a8f4[m Update home layout to load custom.css
+*   [33m85d6dbe[m Merge branch 'main' of https://github.com/itferland/aipromptsformarketing-blog
+[1;36m|[m[31m\[m  
+[1;36m|[m * [33mbd2d30c[m Create custom.scss
+* [31m|[m [33m319af3f[m 1
+* [31m|[m [33m5638cf8[m 5
+[31m|[m[31m/[m  
+* [33m9c252c4[m 6
+* [33m045bbfb[m 1
+* [33m41bf1d9[m 1
+* [33m327928a[m 5
+* [33m2f4c8cd[m 4
+* [33mceb6151[m 3
+* [33mac2e17f[m 3
+* [33ma538777[m 3
+* [33m8db6738[m 3
+* [33m8dc67e8[m 3
+* [33mfaa0f2e[m 3
+* [33mb8f7c9f[m 3
+* [33mad03da8[m 3
+* [33m6713e6d[m 2
+* [33md0cd2d5[m 2
+* [33m4b61b74[m 2
+* [33m7e0fb9c[m 2
+* [33me21c975[m 2
+* [33m7411e92[m 2
+* [33m156286c[m 1
+* [33m4222b76[m 1
+* [33m89b9d19[m 1
+* [33mc562b63[m 1
+* [33ma6a8b41[m 1
+* [33m151d26b[m  added the keyframes
+* [33m0c51bf8[m 1
+* [33m8d5a803[m 1
+* [33mfcee285[m 1
+* [33m9822087[m 1
+* [33m1fb8d96[m 1
+* [33m6208c1f[m 1
+* [33m49e188e[m 1
+* [33m0f8e0f5[m 1
+* [33m3343926[m 1
+* [33m8391ea9[m 1
+* [33m3df47f0[m 1
+* [33m751d15a[m 1
+* [33m5b70b4b[m 1
+* [33ma1e9f23[m 1
+* [33m1cd333a[m 1
+* [33m4fe50e3[m 1
+* [33m6dbf0e6[m 1
+* [33m8180a8a[m 1
+* [33mac25aba[m Reset main.scss to minimal overrides
+* [33mcde7063[m Ensure main.scss only has minimal front matter
+* [33mfc95f14[m Fix main.scss: only one front-matter block at top
+* [33m73de3dd[m Fix main.scss: only one front-matter block at top
+* [33m5bfa825[m Minimal main.scss to ensure compilation
+* [33mfc20c57[m Remove @import "minima" (using midnight theme instead)
+* [33m8484e32[m Fix SCSS and shrink hero section
+* [33m7d9a05e[m Fix SCSS front-matter and adjust hero section
+* [33m35411f0[m 5
+* [33med7972d[m 5
+* [33m9eedcf6[m 5
+* [33m5cc8e96[m 5
+* [33mea8baad[m 6
+* [33m81b65a2[m 5
+* [33mc01cc00[m 5
+* [33m99f8f95[m 5
+* [33maa489d1[m Inspired AI Palett
+* [33m6e2a1cd[m 5
+* [33m88f1111[m 4
+* [33m163fe9c[m 4
+* [33m252d616[m 4
+* [33m1aa7789[m 4
+* [33m7753b1b[m 4
+* [33mc99372a[m Update ai-update.yml
+* [33md91bc70[m 4
+* [33me8ef780[m 4
+* [33m1c3c409[m Update jekyll-gh-pages.yml
+* [33m295b731[m 4
+* [33m15e52c6[m 4
+* [33m43008ea[m 4
+* [33m064c2c6[m 4
+* [33mb7c72d5[m 4
+* [33mf212946[m 4
+* [33m49e5991[m 4
+* [33mf99a201[m 4
+* [33m40e4818[m 4
+* [33m4f99c3a[m 3
+*   [33mfbbf06d[m Merge branch 'main' of https://github.com/itferland/aipromptsformarketing-blog
+[32m|[m[33m\[m  
+[32m|[m * [33mbb05628[m 3
+[32m|[m * [33mba3102d[m 2
+* [33m|[m [33m52d26a0[m 4
+[33m|[m[33m/[m  
+*   [33m78ef552[m Merge branch 'main' of https://github.com/itferland/aipromptsformarketing-blog
+[34m|[m[35m\[m  
+[34m|[m * [33m7bf4469[m 2
+[34m|[m * [33m786ff86[m 2
+[34m|[m * [33m911a1e4[m 2
+[34m|[m * [33m511f810[m 2
+[34m|[m * [33m9dfa817[m 2
+[34m|[m * [33m3b8245d[m 1
+[34m|[m * [33m1a04dd5[m 1
+[34m|[m * [33m2b188e8[m 2
+[34m|[m * [33ma5d2d57[m 1
+[34m|[m * [33m695af5b[m 1
+[34m|[m * [33mf7fbebe[m Update main.scss
+[34m|[m * [33mbfaec61[m 1
+[34m|[m * [33m57b95dc[m 1
+[34m|[m * [33md7bb3fe[m 1
