@@ -1,0 +1,6 @@
+
+4. **Commit and push your changes**:
+```bash
+git add .github/workflows/deploy.yml public/_redirects
+git commit -m "Fix: remove redirect rule from workflow and create public/_redirects"
+git push origin main
