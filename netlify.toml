@@ -30,8 +30,3 @@ export default function About({ mdxSource }) {
   from = "/*"
   to = "/index.html"
   status = 200
-
-[[redirects]]
-  from = "/index.html"
-  to = "/"
-  status = 301
