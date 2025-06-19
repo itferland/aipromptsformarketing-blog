@@ -1,32 +1,15 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { MDXRemote } from 'next-mdx-remote';
-import { serialize } from 'next-mdx-remote/serialize';
-
-export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), 'content', 'about.md');
-  const source = fs.readFileSync(filePath, 'utf8');
-  const { content } = matter(source);
-  const mdxSource = await serialize(content);
-  return { props: { mdxSource } };
-}
-
-export default function About({ mdxSource }) {
-  return (
-    <article>
-      <MDXRemote {...mdxSource} />
-    </article>
-  );
-}
-
-# This section defines your build settings
+# This defines your build settings
 [build]
   command = "npm run build"
   publish = "dist"
 
-# Each redirect rule is a member of an array
+# This defines your redirect rules
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
