@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import CaseStudies from "./pages/CaseStudies";
 import Services from "./pages/Services";
 import Approach from "./pages/Approach";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/approach" element={<Approach />} />
         </Routes>
+<Route path="*" element={<NotFound />} />
       </BrowserRouter>
     </div>
   );

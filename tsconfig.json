@@ -7,6 +7,9 @@
     "baseUrl": ".", // <--- Required for aliasing
     "paths": {
       "@components/*": ["src/components/*"]
+"allowSyntheticDefaultImports": true,
+"allowSyntheticDefaultImports": true, <!-- Add comma if not last property -->
+"allowSyntheticDefaultImports": true,
     }
   }
 }
