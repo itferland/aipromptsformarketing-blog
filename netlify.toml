@@ -20,11 +20,18 @@ export default function About({ mdxSource }) {
   );
 }
 
+# This section defines your build settings
 [build]
   command = "npm run build"
   publish = "dist"
 
+# Each redirect rule is a member of an array
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
