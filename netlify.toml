@@ -22,14 +22,9 @@ export default function About({ mdxSource }) {
 
 [build]
   command = "npm run build"
-  publish = "dist"
+  publish = "out"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-[[redirects]]
-  from = "/index.html"
-  to = "/"
-  status = 301
