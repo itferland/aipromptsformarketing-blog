@@ -4,12 +4,12 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "jsx": "react-jsx",
-    "baseUrl": ".", // <--- Required for aliasing
+    "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"]
-"allowSyntheticDefaultImports": true,
-"allowSyntheticDefaultImports": true, <!-- Add comma if not last property -->
-"allowSyntheticDefaultImports": true,
-    }
-  }
+    },
+    "allowSyntheticDefaultImports": true,
+    "strict": true
+  },
+  "include": ["src"]
 }
