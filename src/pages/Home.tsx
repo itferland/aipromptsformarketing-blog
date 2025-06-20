@@ -1,8 +1,11 @@
 import React from "react";
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center bg-[#181c20] pt-10">
-      <div className="crt-text text-4xl mb-4 text-center">
+    <div className="flex flex-col items-center pt-10">
+      <h1 className="text-4xl md:text-6xl text-green-400 font-mono animate-glow text-center mb-4">
+        AI Solutions Consulting
+      </h1>
+      <div className="crt-text text-2xl mb-4 text-center">
         AI Automation Made Practical — SaaS + Consulting That Actually Solves IT Problems
       </div>
       <p className="mb-6 text-center max-w-2xl">
@@ -20,7 +23,6 @@ export default function Home() {
           <li>Blog that updates from a public Google Sheet</li>
         </ul>
       </section>
-      <div className="crt-scanlines" />
-    </main>
+    </div>
   );
 }

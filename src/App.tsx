@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import FloatingMenu from "./components/FloatingMenu";
+import MainApp from "./components/MainApp";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
@@ -11,9 +11,8 @@ import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
-    <div className="bg-black text-white min-h-screen">
-      <BrowserRouter>
-        <FloatingMenu />
+    <BrowserRouter>
+      <MainApp>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -24,7 +23,7 @@ export default function App() {
           <Route path="/approach" element={<Approach />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </MainApp>
+    </BrowserRouter>
   );
 }
