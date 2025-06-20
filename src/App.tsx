@@ -22,8 +22,8 @@ export default function App() {
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/services" element={<Services />} />
           <Route path="/approach" element={<Approach />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
-<Route path="*" element={<NotFound />} />
       </BrowserRouter>
     </div>
   );
