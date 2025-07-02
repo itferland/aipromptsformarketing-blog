@@ -4,7 +4,6 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Parser from 'rss-parser';
-import matter from 'gray-matter';
 
 const fetch = global.fetch || (await import('node-fetch')).default;
 
@@ -16,7 +15,8 @@ const FEED_URLS = [
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const POSTS_DIR = path.resolve(__dirname, '../src/posts/');
+// Save downloaded articles in Astro's content collection
+const POSTS_DIR = path.resolve(__dirname, '../src/content/posts/');
 
 function yamlQuote(str) {
   return `"${String(str).replace(/"/g, '\\"')}"`;
@@ -51,6 +51,8 @@ async function firecrawlToMarkdown(url) {
   const parser = new Parser();
   if (!fs.existsSync(POSTS_DIR)) fs.mkdirSync(POSTS_DIR, { recursive: true });
 
+  let savedCount = 0;
+
   for (const feedUrl of FEED_URLS) {
     console.log(`Fetching: ${feedUrl}`);
     const feed = await parser.parseURL(feedUrl);
@@ -69,19 +71,22 @@ async function firecrawlToMarkdown(url) {
           markdown = `> **Note:** Only RSS summary available for this post.\n\n` +
                      cleanContent(entry.contentSnippet || entry.content || entry.summary || '');
         }
-        const frontmatter = [
+        const frontmatterLines = [
           '---',
           `title: ${yamlQuote(entry.title || '')}`,
-          `link: ${yamlQuote(entry.link || '')}`,
           `date: ${yamlQuote(entry.pubDate || new Date().toISOString())}`,
-          `source: ${yamlQuote(feed.title || '')}`,
-          '---'
-        ].join('\n');
+        ];
+        if (entry.link) frontmatterLines.push(`link: ${yamlQuote(entry.link)}`);
+        if (feed.title) frontmatterLines.push(`source: ${yamlQuote(feed.title)}`);
+        frontmatterLines.push('---');
+        const frontmatter = frontmatterLines.join('\n');
         fs.writeFileSync(filePath, `${frontmatter}\n\n${markdown.trim()}\n`, "utf8");
+        savedCount++;
         console.log(`Saved: ${filePath}`);
       } catch (err) {
         console.error(`Failed on ${entry.link}:`, err.message);
       }
     }
   }
+  console.log(`✅ Saved ${savedCount} posts to src/content/posts/`);
 })();
