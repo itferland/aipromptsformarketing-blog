@@ -88,5 +88,4 @@ async function firecrawlToMarkdown(url) {
       }
     }
   }
-  console.log(`✅ Saved ${savedCount} posts to src/content/posts/`);
 })();
