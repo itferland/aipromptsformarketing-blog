@@ -8,7 +8,7 @@ const menu = [
   },
   {
     label: "Blog",
-    href: "#blog",
+    href: "/blog",
     color: "bg-purple-600",
   },
   {
