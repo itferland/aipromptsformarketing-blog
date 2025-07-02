@@ -16,7 +16,8 @@ const FEED_URLS = [
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const POSTS_DIR = path.resolve(__dirname, '../src/posts/');
+// Save downloaded articles in Astro's content collection
+const POSTS_DIR = path.resolve(__dirname, '../src/content/posts/');
 
 function yamlQuote(str) {
   return `"${String(str).replace(/"/g, '\\"')}"`;
@@ -84,4 +85,5 @@ async function firecrawlToMarkdown(url) {
       }
     }
   }
+  console.log('✅ Blog posts saved to src/content/posts/');
 })();
