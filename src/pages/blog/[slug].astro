@@ -10,17 +10,23 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const post = await getEntryBySlug('posts', slug);
 if (!post) {
-  throw new Error(\Post not found: ${slug}\);
+  throw new Error(`Post not found: ${slug}`);
 }
 const { Content } = await post.render();
 ---
 
 <Layout title={post.data.title}>
-  <article>
+  <article class="prose prose-invert mx-auto">
     <h1>{post.data.title}</h1>
     <p><time>{post.data.pubDate ?? post.data.date}</time></p>
     <Content />
-    {post.data.link && <p><a href={post.data.link}>Original Link</a></p>}
+    {post.data.link && (
+      <p>
+        <a href={post.data.link} rel="noopener noreferrer" target="_blank">
+          Original Link
+        </a>
+      </p>
+    )}
     {post.data.source && <p>Source: {post.data.source}</p>}
   </article>
 </Layout>
