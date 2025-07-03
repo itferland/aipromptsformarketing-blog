@@ -3,10 +3,16 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build": "vite build",
+    "build": "astro build",
     "astro:dev": "astro dev",
     "astro:build": "astro build",
-    "test": "echo \"No tests specified\" && exit 0"
+    "test": "echo \"No tests specified\" && exit 0",
+    "fetch-posts": "node scripts/fetch-news.js",
+    "test-fetch": "node scripts/test-fetch.js",
+    "create-mock-posts": "node scripts/create-mock-posts.js",
+    "dev": "astro dev",
+    "preview": "astro preview",
+    "daily-update": "npm run fetch-posts && npm run build"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
@@ -22,13 +28,14 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
+    "astro": "^5.10.2",
     "autoprefixer": "^10.4.0",
     "cpx": "^1.5.0",
-    "astro": "^5.10.2",
     "postcss": "^8.4.0",
     "tailwindcss": "^3.3.0",
     "typescript": "^5.0.0",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "node-fetch": "^3.3.2"
   },
   "build": {
     "command": "npm run build",
