@@ -7,6 +7,7 @@ date: "2025-06-02T18:27:08.000Z"
 source: "The Verge"
 ---
 
+
 Purchasing a new MacBook can certainly be a pricey endeavor, but thankfully, finding a deal is actually not that difficult. Apple has recently shaken up the starting RAM for several models, creating more options than ever before and resulting in steeper discounts on older models.
 
 Although Macs may not get perpetual discounts, it's not uncommon to see various models discounted by as much as $400. Alternatively, purchasing refurbished options directly from Apple is another way to save money without waiting for the changing deal winds to blow your way. It's also the only option to find certain SKUs of older models as Apple continues to move forward on newer releases. Apple's refurbished store provides a one-year warranty on all products, and generally offers discounts of up to 15 to 20 percent off the price of a new unit.

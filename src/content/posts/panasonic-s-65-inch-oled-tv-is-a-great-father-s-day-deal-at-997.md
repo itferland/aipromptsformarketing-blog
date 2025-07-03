@@ -1,11 +1,12 @@
 ---
 title: "Panasonic’s 65-inch OLED TV is a great Father’s Day deal at $997"
+description: "Panasonic’s 65-inch OLED TV is a great Father’s Day deal at $997 - Latest insights and analysis"
+pubDate: "2025-06-02"
 link: "https://www.theverge.com/tech/677961/panasonic-oled-tv-4k-blu-ray-ps5-anker-battery-deal-sale"
 date: "2025-06-02T14:51:26.000Z"
 source: "The Verge"
-description: "Panasonic’s 65-inch OLED TV is a great Father’s Day deal at $997 - Latest insights and analysis"
-pubDate: "2025-06-02T14:51:26.000Z"
 ---
+
 
 Panasonic may not be as well-known in the US for its TVs as it is in other parts of the globe, but that’s starting to change.
  The company has a solid lineup of high-end TVs that are available through Amazon, one of which is selling at a great price right now.

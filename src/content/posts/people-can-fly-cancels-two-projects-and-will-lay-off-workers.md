@@ -1,11 +1,12 @@
 ---
 title: "People Can Fly cancels two projects and will lay off workers"
+description: "People Can Fly cancels two projects and will lay off workers - Latest insights and analysis"
+pubDate: "2025-06-02"
 link: "https://www.theverge.com/news/678017/people-can-fly-cancelled-projects-square-enix"
 date: "2025-06-02T14:27:37.000Z"
 source: "The Verge"
-description: "People Can Fly cancels two projects and will lay off workers - Latest insights and analysis"
-pubDate: "2025-06-02T14:27:37.000Z"
 ---
+
 
 People Can Fly has announced it has cancelled two in-development projects and will undergo a round of layoffs.&nbsp;
 “Today we made the very difficult decision to suspend the development of project Gemini and project Bifrost,” wrote People Can Fly CEO Sebastian Wojciechowski on the studio’s LinkedIn page. “As a result we have to significantly regroup as a studio and scale down our teams.” Little was known publicly about either project.

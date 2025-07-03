@@ -7,4 +7,5 @@ date: "2025-06-02T14:00:00.000Z"
 source: "The Verge"
 ---
 
+
 This is a summary. Read the full article at: https://www.theverge.com/decoder-podcast-with-nilay-patel/677324/airbnb-ceo-brian-chesky-services-redesign-app-future-travel

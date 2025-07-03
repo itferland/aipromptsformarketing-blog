@@ -1,11 +1,12 @@
 ---
 title: "Gen V returns to Amazon for season 2 this September"
+description: "Gen V returns to Amazon for season 2 this September - Latest insights and analysis"
+pubDate: "2025-06-02"
 link: "https://www.theverge.com/news/678130/gen-v-season-2-premiere-date-september-17"
 date: "2025-06-02T16:49:44.000Z"
 source: "The Verge"
-description: "Gen V returns to Amazon for season 2 this September - Latest insights and analysis"
-pubDate: "2025-06-02T16:49:44.000Z"
 ---
+
 
 While we&#8217;re still a ways out from The Boys returning to Amazon for its fifth season, the franchise&#8217;s spinoff series, Gen V, will be back this fall.
 At this year&#8217;s CCXP convention in Mexico, Amazon announced that Gen V is set to return for its second season on September 17th with a three episode premiere.

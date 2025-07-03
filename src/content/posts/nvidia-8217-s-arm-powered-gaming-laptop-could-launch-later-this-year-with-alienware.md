@@ -1,11 +1,12 @@
 ---
 title: "Nvidia&#8217;s Arm-powered gaming laptop could launch later this year with Alienware"
+description: "Nvidia&#8217;s Arm-powered gaming laptop could launch later this year with Alienware - Latest insights and analysis"
+pubDate: "2025-06-02"
 link: "https://www.theverge.com/news/678000/nvidia-arm-gaming-laptop-mediatek-alienware"
 date: "2025-06-02T14:18:51.000Z"
 source: "The Verge"
-description: "Nvidia&#8217;s Arm-powered gaming laptop could launch later this year with Alienware - Latest insights and analysis"
-pubDate: "2025-06-02T14:18:51.000Z"
 ---
+
 
 Nvidia’s Arm-based PC chip could make its debut in Alienware’s laptops later this year or in early 2026, according to a report from the Taiwanese publication United Daily News.
  The chipmaking giant is reportedly working with MediaTek to develop an accelerated processing unit (APU) that combines an Arm-powered CPU with Nvidia’s Blackwell GPU architecture.

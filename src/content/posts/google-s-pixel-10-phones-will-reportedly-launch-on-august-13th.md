@@ -1,11 +1,12 @@
 ---
 title: "Google’s Pixel 10 phones will reportedly launch on August 13th"
+description: "Google’s Pixel 10 phones will reportedly launch on August 13th - Latest insights and analysis"
+pubDate: "2025-06-02"
 link: "https://www.theverge.com/news/678088/google-pixel-10-release-date-launch-august"
 date: "2025-06-02T16:30:51.000Z"
 source: "The Verge"
-description: "Google’s Pixel 10 phones will reportedly launch on August 13th - Latest insights and analysis"
-pubDate: "2025-06-02T16:30:51.000Z"
 ---
+
 
 The Pixel 10 phones are likely to look an awful lot like last year’s Pixel 9 models.
 Google will reportedly launch the Pixel 10 series at a Made by Google event on August 13th, with the handsets arriving in stores a week later on the 20th.
