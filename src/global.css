@@ -49,4 +49,9 @@ body {
 @keyframes ascii-glow {
   0% { text-shadow: 0 0 8px var(--neon-green), 0 0 16px var(--pixel-border); }
   100% { text-shadow: 0 0 16px var(--neon-green), 0 0 32px var(--pixel-border); }
+}
+
+/* Safari/iOS particle layer fix */
+.ascii-particles {
+  transform: translateZ(0); /* forces GPU layer & isolates context */
 } 

@@ -1,9 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero   from '../components/Hero.astro';
+
+const title = "AI Solutions Consulting – Home";
+const description = "Asynchronous coding agents that handle the tasks you don't want to. AI automation made practical with SaaS + consulting that actually solves IT problems.";
 ---
 
-<Layout title="Home">
+<Layout title={title}>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content="/og-image.png" />
   <Hero />
   <div class="flex flex-col items-center pt-10">
     <h1 class="text-4xl md:text-6xl text-green-400 font-mono animate-glow text-center mb-4">

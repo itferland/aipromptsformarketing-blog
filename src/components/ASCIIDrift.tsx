@@ -33,7 +33,7 @@ export default function ASCIIDrift() {
   }, []);
 
   return (
-    <div className="absolute inset-0 -z-10 isolate pointer-events-none select-none hidden md:block">
+    <div className="absolute inset-0 -z-10 isolate pointer-events-none select-none hidden md:block ascii-particles">
       <canvas
         ref={canvasRef}
         width={COLS * 20}
