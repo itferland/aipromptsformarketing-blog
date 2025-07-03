@@ -13,6 +13,10 @@ const { title } = Astro.props;
     <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
+    <!-- Shimmering ASCII art header -->
+    <pre class="ascii-header neon-glow mb-2 select-none">
+Mc:∘cCM**+.Nm::++NM+:Xm:.N.Mc:+
+    </pre>
     <nav class="ascii-header neon-glow">
       <a href="/" class="hover:underline">Home</a> |
       <a href="/about" class="hover:underline">About</a> |
@@ -25,62 +29,43 @@ const { title } = Astro.props;
 
     <!-- Floating ASCII glyphs -->
     <script is:inline>
-      const chars = ['*', '+', '.', 'x', 'M', 'N', ':', 'c'];
-      const numParticles = 40;
-      for (let i = 0; i < numParticles; i++) {
-        const span = document.createElement('span');
-        span.className = 'floating-char';
-        span.innerText = chars[Math.floor(Math.random() * chars.length)];
-        span.style.left = `${Math.random() * 100}vw`;
-        span.style.animationDuration = `${4 + Math.random() * 6}s`;
-        span.style.fontSize = `${0.8 + Math.random()}rem`;
-        document.body.appendChild(span);
+      const chars = ['*', '+', '.', 'M', 'c', ':', 'N'];
+      for (let i = 0; i < 40; i++) {
+        const el = document.createElement('div');
+        el.textContent = chars[Math.floor(Math.random() * chars.length)];
+        el.style.position = 'fixed';
+        el.style.left = Math.random() * 100 + 'vw';
+        el.style.top = Math.random() * 100 + 'vh';
+        el.style.color = '#00ff99';
+        el.style.fontFamily = 'monospace';
+        el.style.opacity = 0.5;
+        el.style.pointerEvents = 'none';
+        el.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
+        el.style.zIndex = 1;
+        el.style.animation = `floatUp ${5 + Math.random() * 10}s linear infinite`;
+        document.body.appendChild(el);
       }
     </script>
     <style>
-      .floating-char {
-        position: absolute;
-        font-family: 'Fira Mono', monospace;
-        font-size: 1.2rem;
-        animation: float-up linear infinite;
-        opacity: 0.13;
-        pointer-events: none;
-        user-select: none;
-        color: var(--neon-green);
-        text-shadow: 0 0 8px var(--neon-green), 0 0 16px var(--pixel-border);
-      }
-      @keyframes float-up {
-        0% {
-          transform: translateY(100vh) scale(1);
-          opacity: 0;
-        }
-        50% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(-20vh) scale(1.2);
-          opacity: 0;
-        }
+      @keyframes floatUp {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-100vh); }
       }
       .pixel-avatar {
         position: fixed;
         bottom: 1rem;
         left: 1rem;
-        width: 64px;
-        height: 64px;
+        width: 48px;
+        height: 48px;
         image-rendering: pixelated;
         animation: bounce 2s infinite ease-in-out;
         z-index: 50;
       }
       @keyframes bounce {
-        0%, 100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-5px);
-        }
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
       }
     </style>
-    <img class="pixel-avatar" src="/pixel-bot.gif" alt="Pixel Bot" />
+    <img src="/pixel-bot.gif" alt="Pixel Bot" class="pixel-avatar" />
   </body>
 </html>
