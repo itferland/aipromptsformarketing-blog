@@ -5,6 +5,10 @@
   --neon: #7efeff;
   --accent: #ff5af3;
   --bg-terminal: #111318;
+  --chip-0: #7efeff20;
+  --chip-1: #ff5af320;
+  --chip-2: #9eff6b20;
+  --chip-3: #ffd76b20;
 }
 
 /* utility layers --------------------------------------------------------- */
@@ -90,4 +94,11 @@
   );
   pointer-events: none;
   mix-blend-mode: overlay;
+}
+
+.ascii-bullet::before {
+  content: '❯';
+  margin-right: 0.25em;
+  color: var(--accent);
+  aria-hidden: true;
 }

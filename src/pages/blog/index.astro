@@ -44,9 +44,9 @@ const posts = await getCollection('posts');
           {/* ⬇ NEW tag chips ⬇ */}
           {post.data.tags && (
             <div class="flex flex-wrap gap-2">
-              {post.data.tags.map((tag) => (
+              {post.data.tags.map((tag, i) => (
                 <span
-                  class="before:content-['--'] before:text-pink-400 px-1 font-mono text-xs md:text-sm bg-white/5 rounded shadow-inner"
+                  class={`before:content-['--'] before:text-[--accent] px-1 font-mono text-xs rounded bg-[--chip-${i % 4}]`}
                 >
                   {tag}
                 </span>
