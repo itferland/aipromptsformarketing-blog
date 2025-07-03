@@ -1,92 +1,173 @@
-// scripts/fetch-news.js
-
-import fs from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import Parser from 'rss-parser';
+import { createHash } from 'crypto';
+import fetch from 'node-fetch';
 
-const fetch = global.fetch || (await import('node-fetch')).default;
+const parser = new Parser({
+  customFields: { item: ['description', 'content:encoded', 'summary'] }
+});
 
-const FIRECRAWL_API_KEY = 'fc-2395cafc954c40ddbc0ce0a88e3b5df7';
-const FEED_URLS = [
-  'https://feeds.arstechnica.com/arstechnica/technology-lab',
-  'https://www.theverge.com/rss/index.xml'
+const RSS_SOURCES = [
+  { url: 'https://rss.cnn.com/rss/edition.rss', name: 'CNN Tech' },
+  { url: 'https://feeds.feedburner.com/TechCrunch', name: 'TechCrunch' },
+  { url: 'https://www.wired.com/feed/rss', name: 'Wired' },
+  { url: 'https://feeds.arstechnica.com/arstechnica/index', name: 'Ars Technica' },
+  { url: 'https://rss.slashdot.org/Slashdot/slashdotMain', name: 'Slashdot' },
+  { url: 'https://feeds.feedburner.com/venturebeat/SZYF', name: 'VentureBeat' }
 ];
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-// Save downloaded articles in Astro's content collection
-const POSTS_DIR = path.resolve(__dirname, '../src/content/posts/');
+const KEYWORDS = [
+  'artificial intelligence', 'machine learning', 'automation', 'ai',
+  'gpt', 'chatgpt', 'neural', 'workflow', 'llm'
+];
 
-function yamlQuote(str) {
-  return `"${String(str).replace(/"/g, '\\"')}"`;
+const POSTS_DIR = path.join(process.cwd(), 'src/content/posts');
+
+const delay = ms => new Promise(r => setTimeout(r, ms));
+
+const slugify = text => text
+  .toLowerCase()
+  .replace(/[^\w\s-]/g, '')
+  .trim()
+  .replace(/[\s_-]+/g, '-')
+  .replace(/^-+|-+$/g, '');
+
+const hash = str => createHash('md5').update(str).digest('hex').substring(0,8);
+
+async function sendWebhook(message) {
+  const discord = process.env.DISCORD_WEBHOOK_URL;
+  const slack = process.env.SLACK_WEBHOOK_URL;
+  const payloadDiscord = { content: message };
+  const payloadSlack = { text: message };
+
+  const send = async (url, payload) => {
+    try {
+      await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+    } catch (err) {
+      console.error('Webhook error:', err.message);
+    }
+  };
+
+  if (discord) await send(discord, payloadDiscord);
+  if (slack) await send(slack, payloadSlack);
 }
 
-function slugify(title) {
-  return title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-}
-
-function cleanContent(content) {
-  if (!content) return '';
-  return content.replace(/(Read more|Continue reading).*$/gmi, '')
-                .replace(/[\r\n]{3,}/g, '\n\n')
-                .trim();
-}
-
-async function firecrawlToMarkdown(url) {
-  const res = await fetch('https://api.firecrawl.dev/v1/sync/webpage/extract', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': FIRECRAWL_API_KEY
-    },
-    body: JSON.stringify({ url, extractType: "markdown" })
-  });
-  if (!res.ok) throw new Error(`Firecrawl error: ${res.statusText}`);
-  const data = await res.json();
-  return data.markdown || null;
-}
-
-(async () => {
-  const parser = new Parser();
-  if (!fs.existsSync(POSTS_DIR)) fs.mkdirSync(POSTS_DIR, { recursive: true });
-
-  let savedCount = 0;
-
-  for (const feedUrl of FEED_URLS) {
-    console.log(`Fetching: ${feedUrl}`);
-    const feed = await parser.parseURL(feedUrl);
-    for (const entry of feed.items) {
-      const slug = slugify(entry.title || entry.link);
-      const filePath = path.join(POSTS_DIR, slug + ".md");
-      if (fs.existsSync(filePath)) continue;
-      try {
-        let markdown = null;
-        try {
-          markdown = await firecrawlToMarkdown(entry.link);
-        } catch (err) {
-          // fallback
-        }
-        if (!markdown) {
-          markdown = `> **Note:** Only RSS summary available for this post.\n\n` +
-                     cleanContent(entry.contentSnippet || entry.content || entry.summary || '');
-        }
-        const frontmatterLines = [
-          '---',
-          `title: ${yamlQuote(entry.title || '')}`,
-          `date: ${yamlQuote(entry.pubDate || new Date().toISOString())}`,
-        ];
-        if (entry.link) frontmatterLines.push(`link: ${yamlQuote(entry.link)}`);
-        if (feed.title) frontmatterLines.push(`source: ${yamlQuote(feed.title)}`);
-        frontmatterLines.push('---');
-        const frontmatter = frontmatterLines.join('\n');
-        fs.writeFileSync(filePath, `${frontmatter}\n\n${markdown.trim()}\n`, "utf8");
-        savedCount++;
-        console.log(`Saved: ${filePath}`);
-      } catch (err) {
-        console.error(`Failed on ${entry.link}:`, err.message);
-      }
+async function fetchFeed(url, retries = 3) {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      return await parser.parseURL(url);
+    } catch (err) {
+      if (attempt === retries) throw err;
+      console.warn(`Retry ${attempt + 1} for ${url}: ${err.message}`);
+      await delay(1000 * (attempt + 1));
     }
   }
-  console.log(`✅ Saved ${savedCount} posts to src/content/posts/`);
-})();
+}
+
+function relevant(text) {
+  const lower = text.toLowerCase();
+  return KEYWORDS.some(k => lower.includes(k));
+}
+
+function buildFrontmatter(post) {
+  const fm = {
+    title: post.title,
+    description: post.description,
+    pubDate: post.pubDate,
+    author: post.author,
+    source: post.source,
+    sourceUrl: post.link,
+    tags: post.tags
+  };
+  const yaml = Object.entries(fm)
+    .map(([k,v]) => `${k}: ${JSON.stringify(v)}`)
+    .join('\n');
+  return `---\n${yaml}\n---\n\n${post.content}\n`;
+}
+
+async function savePost(post) {
+  await fs.mkdir(POSTS_DIR, { recursive: true });
+  const slug = `${slugify(post.title)}-${hash(post.title)}`;
+  const file = path.join(POSTS_DIR, `${slug}.md`);
+  try {
+    await fs.access(file);
+    console.log(`Skipping existing post: ${slug}`);
+    return false;
+  } catch {
+    await fs.writeFile(file, buildFrontmatter(post), 'utf8');
+    console.log(`Saved post: ${slug}`);
+    return true;
+  }
+}
+
+async function cleanupOld(days = 30) {
+  const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
+  try {
+    const files = await fs.readdir(POSTS_DIR);
+    for (const name of files) {
+      if (!name.endsWith('.md')) continue;
+      const filePath = path.join(POSTS_DIR, name);
+      const stat = await fs.stat(filePath);
+      if (stat.mtimeMs < cutoff) {
+        await fs.unlink(filePath);
+        console.log(`Removed old post: ${name}`);
+      }
+    }
+  } catch (err) {
+    if (err.code !== 'ENOENT') console.error('Cleanup failed:', err.message);
+  }
+}
+
+async function gatherPosts() {
+  const posts = [];
+  for (const src of RSS_SOURCES) {
+    console.log(`Fetching from ${src.name}`);
+    try {
+      const feed = await fetchFeed(src.url);
+      for (const item of feed.items) {
+        const desc = item['content:encoded'] || item.description || item.summary || '';
+        if (!item.title || !item.link) continue;
+        if (!relevant(item.title + ' ' + desc)) continue;
+        posts.push({
+          title: item.title,
+          description: desc.replace(/<[^>]+>/g,'').slice(0,160),
+          pubDate: new Date(item.pubDate || item.isoDate || Date.now()).toISOString(),
+          author: item.creator || item.author || src.name,
+          source: src.name,
+          link: item.link,
+          tags: [src.name],
+          content: desc.length ? desc : `[Read more](${item.link})`
+        });
+      }
+    } catch (err) {
+      console.error(`Failed to fetch ${src.name}:`, err.message);
+    }
+    await delay(1000);
+  }
+  return posts.slice(0, 10);
+}
+
+async function main() {
+  try {
+    const posts = await gatherPosts();
+    let created = 0;
+    for (const post of posts) {
+      if (await savePost(post)) created++;
+    }
+    await cleanupOld();
+    console.log(`Done. ${created} new posts.`);
+    if (created > 0) {
+      await sendWebhook(`Blog updated with ${created} new posts.`);
+    }
+  } catch (err) {
+    console.error('Fatal error:', err);
+    process.exit(1);
+  }
+}
+
+main();
