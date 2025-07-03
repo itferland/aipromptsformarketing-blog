@@ -3,14 +3,27 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <h1>Welcome to AI Solutions Consulting</h1>
-  <p>We specialize in automation, AI integration, and cutting-edge solutions for your business.</p>
-
-  <nav>
-    <ul>
-      <li><a href="/about">About Us</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/blog">Blog</a></li>
-    </ul>
-  </nav>
+  <div class="flex flex-col items-center pt-10">
+    <h1 class="text-4xl md:text-6xl text-green-400 font-mono animate-glow text-center mb-4">
+      AI Solutions Consulting
+    </h1>
+    <div class="crt-text text-2xl mb-4 text-center">
+      AI Automation Made Practical — SaaS + Consulting That Actually Solves IT Problems
+    </div>
+    <p class="mb-6 text-center max-w-2xl">
+      We help SMBs eliminate manual IT work, secure cloud identity, and modernize operations with lightweight SaaS tools and expert consulting — no enterprise complexity, no bloated software.
+    </p>
+    <section class="glow-card w-full max-w-2xl">
+      <h2 class="crt-text text-2xl mb-3">Welcome!</h2>
+      <p>
+        <b>aisolutionsconsulting.net</b> empowers you to automate your marketing with intelligent AI prompts. Streamline your workflow, scale your business, and focus on creative strategy—while your site runs itself.
+      </p>
+      <ul class="mt-4 list-disc list-inside">
+        <li>Automation guides for content, email, and social</li>
+        <li>Prompt libraries to use with any AI</li>
+        <li>Tool reviews and real-world blueprints</li>
+        <li>Blog that updates from a public Google Sheet</li>
+      </ul>
+    </section>
+  </div>
 </Layout> 
