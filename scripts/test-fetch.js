@@ -5,12 +5,7 @@ const testBasicFunctionality = () => {
   console.log('🧪 Testing basic functionality...');
   const testData = {
     title: 'Test AI Article',
-    pubDate: new Date().toISOString(),
-    author: 'Test Source',
-    source: 'Test Source',
-    sourceUrl: 'https://example.com/test',
-    description: 'This is a test article about artificial intelligence and automation.',
-    tags: ['AI', 'Test'],
+
     content: 'This is test content for the blog automation system.'
   };
   console.log('✅ Test data created:', testData);
@@ -19,11 +14,7 @@ const testBasicFunctionality = () => {
 
 const testFileOperations = async () => {
   console.log('🧪 Testing file operations...');
-  const POSTS_DIR = path.join(process.cwd(), 'src/content/blog');
-  try {
-    await fs.mkdir(POSTS_DIR, { recursive: true });
-    console.log('✅ Posts directory created/verified');
-    const testContent = `---\ntitle: \"Test Post\"\ndescription: \"Test description\"\npubDate: \"${new Date().toISOString()}\"\nauthor: \"Test\"\nsource: \"Test\"\nsourceUrl: \"https://example.com\"\ntags: [\"Test\"]\n---\n\nThis is a test post to verify the automation system works correctly.\n`;
+
     const testFile = path.join(POSTS_DIR, 'test-post.md');
     await fs.writeFile(testFile, testContent, 'utf8');
     console.log('✅ Test file created');
@@ -78,7 +69,7 @@ const main = async () => {
   if (fileTest) {
     console.log('✅ Core functionality is working!');
     console.log('Next steps:');
-    console.log('1. Run the full script: node scripts/fetch-news.js');
+
   } else {
     console.log('❌ Issues detected. Check file permissions and directory structure.');
   }
