@@ -16,6 +16,7 @@
     "lint:ctrl": "powershell -Command \"Get-ChildItem -Recurse -Include *.ts,*.tsx,*.astro -Path src | Select-String -Pattern '[\\x00-\\x08\\x0B-\\x0C\\x0E-\\x1F\\x7F]' | ForEach-Object { \"$($_.Path):$($_.LineNumber):$($_.Line)\" }\" || echo '✓ no control chars'"
   },
   "dependencies": {
+    "@astrojs/react": "^4.3.0",
     "@google/generative-ai": "^0.24.1",
     "axios": "^1.9.0",
     "date-fns": "^4.1.0",
