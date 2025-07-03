@@ -23,6 +23,15 @@
   --text:    #c9ffcb;
 }
 
+/* Solarized Dark override --------------------------------------------- */
+[data-theme="solarized"] {
+  --bg:      #002b36;
+  --surface: #073642;
+  --neon:    #2aa198;
+  --accent:  #b58900;
+  --text:    #fdf6e3;
+}
+
 /* 1–B  ─── base + utilities */
 @tailwind base;
 @tailwind components;
