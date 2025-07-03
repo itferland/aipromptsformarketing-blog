@@ -1,7 +1,7 @@
 ---
 import AsciiHeading from "../components/AsciiHeading.jsx";
 import DynamicCode  from "../components/DynamicCode.jsx";
-import code from '../data/hero-snippet.ts?raw'; // any demo snippet you like
+import { asciiLogo } from "../data/asciiLogo";
 ---
 
 <section class="relative pt-28 pb-40 px-4 overflow-hidden">
@@ -11,12 +11,7 @@ import code from '../data/hero-snippet.ts?raw'; // any demo snippet you like
            md:text-[140px] tracking-tight text-neon/80
            drop-shadow-[0_0_4px_var(--neon)]"
   >
-{`
- .xx;              :MWo
- XMM0              :MMW
- OMMx ,MMM  XMMc   :MMW  1 dXMM. .dXMMKW. ; .@W.MMMMW,
- ...
-`}
+    {asciiLogo}
   </AsciiHeading>
 
   <p class="text-center mt-4 text-accent text-sm sm:text-base">
