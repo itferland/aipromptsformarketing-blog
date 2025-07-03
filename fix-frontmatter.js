@@ -4,7 +4,7 @@
  *
  * • Converts pubDate values to ISO‑8601 YYYY-MM-DD.
  * • Ensures title, description, and pubDate exist.
- * • Quotes all string scalars (so 2024-01‑01 is treated as a string, not a date).
+ * • Quotes all string scalars (so 2024-01‑01 is treated as a string, not a date), except pubDate which is unquoted.
  * • Respects existing YAML spacing / line‑endings where possible.
  * • Provides CLI feedback + fail‑fast summary.
  *
@@ -73,13 +73,15 @@ async function main() {
         fm.pubDate = normalized;
       }
 
-      // Quote all scalars – gray-matter will stringify via YAML
+      // Custom stringify: pubDate as unquoted date, others quoted
       const newRaw = matter.stringify(parsed.content.trimStart(), fm, {
         lineWidth: 0, // keep one prop per line
-        // ensure double quotes around strings; use custom replacer
         stringify: (key, value) => {
+          if (key === "pubDate" && typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value)) {
+            return value; // unquoted for YAML date
+          }
           if (typeof value === "string") {
-            return `\"${value.replace(/\"/g, '\\\"')}\"`;
+            return `"${value.replace(/"/g, '\"')}"`;
           }
           return value;
         },
