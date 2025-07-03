@@ -3,12 +3,7 @@
   command = "npm run build"
   publish = "dist"
 
-# This defines your redirect rules
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
+# Optional: redirect `/index.html` to `/` for cleanliness
 [[redirects]]
   from = "/index.html"
   to = "/"
