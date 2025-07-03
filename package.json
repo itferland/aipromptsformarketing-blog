@@ -12,7 +12,8 @@
     "create-mock-posts": "node scripts/create-mock-posts.js",
     "dev": "astro dev",
     "preview": "astro preview",
-    "daily-update": "npm run fetch-posts && npm run build"
+    "daily-update": "npm run fetch-posts && npm run build",
+    "lint:ctrl": "powershell -Command \"Get-ChildItem -Recurse -Include *.ts,*.tsx,*.astro -Path src | Select-String -Pattern '[\\x00-\\x08\\x0B-\\x0C\\x0E-\\x1F\\x7F]' | ForEach-Object { \"$($_.Path):$($_.LineNumber):$($_.Line)\" }\" || echo '✓ no control chars'"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
