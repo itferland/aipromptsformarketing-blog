@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 
 
+
 const mockPosts = [
   {
     title: 'The Future of AI-Powered Marketing',

@@ -1,5 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
 const posts = await getCollection('posts');
 
 ---
@@ -9,7 +11,7 @@ const posts = await getCollection('posts');
   <h1 class="text-green-500 text-center text-2xl font-bold my-6">Blog – Latest AI Automation</h1>
 
   {posts.length === 0 ? (
-
+    <p>No posts found.</p>
   ) : (
     <ul class="grid gap-6 px-4">
       {posts.map(post => (
@@ -17,7 +19,9 @@ const posts = await getCollection('posts');
           <a href={`/blog/${post.slug}`} class="text-green-400 hover:underline text-lg font-mono">
             {post.data.title}
           </a>
-          <div class="text-sm text-gray-400 mt-1">{new Date(post.data.date).toLocaleDateString()}</div>
+          <div class="text-sm text-gray-400 mt-1">
+            {new Date(post.data.pubDate ?? post.data.date).toLocaleDateString()}
+          </div>
         </li>
       ))}
     </ul>
