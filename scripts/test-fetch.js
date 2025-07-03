@@ -5,12 +5,7 @@ const testBasicFunctionality = () => {
   console.log('🧪 Testing basic functionality...');
   const testData = {
     title: 'Test AI Article',
-    date: new Date().toISOString().split('T')[0],
-    source: 'Test Source',
-    link: 'https://example.com/test',
-    description: 'This is a test article about artificial intelligence and automation.',
-    tags: ['AI', 'Test'],
-    readTime: 2,
+
     content: 'This is test content for the blog automation system.'
   };
   console.log('✅ Test data created:', testData);
@@ -19,11 +14,7 @@ const testBasicFunctionality = () => {
 
 const testFileOperations = async () => {
   console.log('🧪 Testing file operations...');
-  const POSTS_DIR = path.join(process.cwd(), 'src/content/posts');
-  try {
-    await fs.mkdir(POSTS_DIR, { recursive: true });
-    console.log('✅ Posts directory created/verified');
-    const testContent = `---\ntitle: "Test Post"\ndate: "${new Date().toISOString().split('T')[0]}"\nsource: "Test"\nlink: "https://example.com"\ndescription: "Test description"\ntags: ["Test"]\nreadTime: 1\n---\n\nThis is a test post to verify the automation system works correctly.\n`;
+
     const testFile = path.join(POSTS_DIR, 'test-post.md');
     await fs.writeFile(testFile, testContent, 'utf8');
     console.log('✅ Test file created');
@@ -78,8 +69,7 @@ const main = async () => {
   if (fileTest) {
     console.log('✅ Core functionality is working!');
     console.log('Next steps:');
-    console.log('1. Install rss-parser: npm install rss-parser');
-    console.log('2. Run the full script: node scripts/fetch-news.js');
+
   } else {
     console.log('❌ Issues detected. Check file permissions and directory structure.');
   }
