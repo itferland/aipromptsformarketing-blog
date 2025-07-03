@@ -1,6 +1,7 @@
 ---
 import "../global.css";
 import TerminalFooter from '../components/TerminalFooter.astro';
+import ThemeToggle from "../components/ThemeToggle.jsx";
 const { title } = Astro.props;
 ---
 <!DOCTYPE html>
@@ -13,7 +14,10 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
   </head>
-  <body class="font-mono bg-[--background] text-[--ascii-color] relative overflow-hidden">
+  <body class="font-mono bg-[--background] text-[--ascii-color] relative overflow-hidden min-h-screen">
+    <header class="flex justify-end p-4">
+      <ThemeToggle />
+    </header>
     <!-- Floating particles -->
     <script is:inline>
       const chars = ['*', '+', '.', 'M', 'c', ':', 'N'];
