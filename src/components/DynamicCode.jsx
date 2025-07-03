@@ -46,7 +46,7 @@ export default function DynamicCode({ cycle = 5000, className = "" }) {
   }, [cycle]);
 
   return (
-    <pre className={className}>
+    <pre className={`${className} rounded-xl overflow-hidden text-sm font-mono bg-gray-800`}>
       <code ref={codeRef} className="language-diff">
         {frames[index]}
       </code>

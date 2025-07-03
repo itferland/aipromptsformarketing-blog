@@ -18,10 +18,10 @@ import { asciiLogo } from "../data/asciiLogo";
 
   <!-- dotted code pane with live edits -->
   <div
-    class="border-dotted-pixel rounded-2xl mx-auto mt-16 max-w-5xl
-           bg-surface/80 backdrop-blur hover:neon-glow transition"
+    class="relative z-10 mx-auto max-w-4xl w-full rounded-3xl border border-gray-300 bg-white/80
+           shadow-xl backdrop-blur-sm px-8 py-14 md:px-14 mt-16"
   >
-    <DynamicCode className="px-8 py-10 text-xs sm:text-sm overflow-x-auto" />
+    <DynamicCode className="text-xs sm:text-sm overflow-x-auto" />
   </div>
 
   <!-- mascot -->
@@ -44,15 +44,13 @@ import { asciiLogo } from "../data/asciiLogo";
     <div class="flex gap-2">
       <a
         href="/services#bug-fixing"
-        class="flex-1 bg-accent text-bg rounded py-1 text-center text-xs font-bold
-               hover:neon-glow transition"
+        class="inline-flex items-center gap-2 rounded-lg bg-sky-600 px-5 py-3 font-semibold text-white shadow hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 flex-1 text-center text-xs"
       >
         Bug Fixing
       </a>
       <a
         href="/services#version-bump"
-        class="flex-1 bg-neon text-bg rounded py-1 text-center text-xs font-bold
-               hover:neon-glow transition"
+        class="inline-flex items-center gap-2 rounded-lg bg-sky-600 px-5 py-3 font-semibold text-white shadow hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 flex-1 text-center text-xs"
       >
         Version Bump
       </a>

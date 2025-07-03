@@ -33,21 +33,21 @@ export default function ASCIIDrift() {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      width={COLS * 20}
-      height={ROWS * 24}
-      style={{
-        position: "fixed",
-        zIndex: 0,
-        left: 0,
-        top: 0,
-        width: "100vw",
-        height: "100vh",
-        pointerEvents: "none",
-        opacity: 0.32,
-      }}
-      aria-hidden="true"
-    />
+    <div className="absolute inset-0 -z-10 isolate pointer-events-none select-none hidden md:block">
+      <canvas
+        ref={canvasRef}
+        width={COLS * 20}
+        height={ROWS * 24}
+        style={{
+          position: "fixed",
+          left: 0,
+          top: 0,
+          width: "100vw",
+          height: "100vh",
+          opacity: 0.32,
+        }}
+        aria-hidden="true"
+      />
+    </div>
   );
 }
