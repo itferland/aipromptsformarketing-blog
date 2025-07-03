@@ -8,25 +8,53 @@ const posts = await getCollection('posts');
 
 <!-- ✅ Blog index rendering via content collections -->
 <Layout title="Blog">
-  <section class="space-y-8 px-2 md:px-0">
-    {posts.map(post => (
-      <div>
-        <div class="flex items-center gap-2 mb-1 animate-pulse">
-          <span class="text-[--neon-green] font-mono text-base select-none">$</span>
-          <span class="text-[--ascii-color] font-mono text-xs md:text-sm opacity-80 select-none">cat {post.slug}.md</span>
-        </div>
-        <article class="border-2 border-[--border-color] bg-black/80 text-[--ascii-color] font-mono p-4 rounded-xl shadow-md hover:shadow-[0_0_15px_var(--border-color)] transition duration-300 backdrop-blur-sm">
-          <header class="mb-2">
-            <h2 class="text-lg md:text-xl font-bold">
-              <a href={post.slug ? `/blog/${post.slug}/` : '#'} class="hover:underline text-[--neon-green]">
-                {post.data.title}
-              </a>
-            </h2>
-            <time class="block text-xs md:text-sm opacity-70">{post.data.pubDate}</time>
-          </header>
-          <p class="text-xs md:text-sm leading-relaxed">{post.data.description}</p>
-        </article>
-      </div>
-    ))}
+  <section class="flex flex-col gap-8 px-2 md:px-0">
+    {posts.map((post) => {
+      // derive word-count (~bytes) and formatted date for ls-l row
+      const bytes = new Blob([post.body]).size;
+      const niceDate = new Date(post.data.pubDate).toLocaleDateString('en-US', {
+        month: 'short',
+        day: '2-digit',
+        year: 'numeric',
+      });
+      return (
+        <a
+          href={`/blog/${post.slug}`}
+          class="group block font-mono border-neon px-4 py-5 rounded-xl bg-terminal transition ring-inset hover:ring-4 focus-visible:outline-none focus-visible:ring-4"
+        >
+          {/* animated prompt */}
+          <p class="text-accent/90 mb-1 select-none" aria-hidden="true">
+            $ cat <span class="underline">{post.slug}.md</span><span class="cursor" />
+          </p>
+
+          {/* title */}
+          <h2 class="text-lg md:text-2xl font-semibold tracking-wide text-white mb-1">
+            {post.data.title}
+          </h2>
+
+          {/* ⬇ NEW “ls -l” metadata row ⬇ */}
+          <p class="ls-line text-xs md:text-sm text-green-300 mb-3">
+            {Math.round(bytes / 1024)}k  {niceDate}  post.md
+          </p>
+
+          <p class="text-sm md:text-base text-slate-300 mb-4">
+            {post.data.description}
+          </p>
+
+          {/* ⬇ NEW tag chips ⬇ */}
+          {post.data.tags && (
+            <div class="flex flex-wrap gap-2">
+              {post.data.tags.map((tag) => (
+                <span
+                  class="before:content-['--'] before:text-pink-400 px-1 font-mono text-xs md:text-sm bg-white/5 rounded shadow-inner"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </a>
+      );
+    })}
   </section>
 </Layout>

@@ -1,5 +1,6 @@
 ---
 import "../global.css";
+import TerminalFooter from '../components/TerminalFooter.astro';
 const { title } = Astro.props;
 ---
 <!DOCTYPE html>
@@ -60,5 +61,6 @@ Mc:∘cCM**+.Nm::++NM+:Xm:.N.Mc:+
     <main class="relative z-10 max-w-3xl mx-auto px-6 py-8 border-2 border-[--border-color] rounded-xl shadow-[0_0_20px_var(--border-color)] bg-[--background]">
       <slot />
     </main>
+    <TerminalFooter />
   </body>
 </html>

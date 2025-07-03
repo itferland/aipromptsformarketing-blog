@@ -1,8 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+/* neon palette */
+:root {
+  --neon: #7efeff;
+  --accent: #ff5af3;
+  --bg-terminal: #111318;
+}
+
+/* utility layers --------------------------------------------------------- */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* terminal card */
+.bg-terminal { @apply bg-[--bg-terminal] backdrop-blur-sm; }
+.border-neon { @apply border-2 border-[--neon]/60; }
+
+/* ls -l row: hide permission bits from a11y tree */
+.ls-line::before {
+  content: 'rw-r--r--  1 jules devs ';
+  @apply text-green-500 aria-hidden block sm:inline;
+}
+
+/* blinking cursor (prefers-reduced-motion safe) */
+@media (prefers-reduced-motion: no-preference) {
+  .cursor::after {
+    content: '';
+    display: inline-block;
+    width: 0.6ch;
+    height: 1em;
+    background: var(--accent);
+    animation: blink 1s steps(2, start) infinite;
+  }
+  @keyframes blink { to { visibility: hidden; } }
+}
 
 /* CRT hero pixel glow */
 .crt-text {
