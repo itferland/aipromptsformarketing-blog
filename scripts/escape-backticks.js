@@ -1,33 +1,15 @@
-#!/usr/bin/env node
-/**
- * Escape any raw back-tick (`) that isn't already preceded by a backslash
- * inside String.raw template-literals (or any back-tick that happens to live
- * in a Markdown/ASCII block). Normal code back-ticks in JS won't be touched.
- */
+// scripts/escape-backticks.js
+import fs from "fs";
 
-import fs from "fs/promises";
-import { glob } from "glob";
+const file = "src/data/asciiLogo.ts";
+let txt = fs.readFileSync(file, "utf8");
 
-const TARGET_GLOBS = [
-  "src/**/*.{ts,tsx,js,jsx,astro,md}",
-  "!node_modules",
-];
+// escape any raw ` that isn't already preceded by \
+const fixed = txt.replace(/([^\\])`/g, (_, p1) => `${p1}\\\``);
 
-const PATTERN = /([^\\])`/g;                 // "one char that is not \" followed by `
-let changedFiles = 0;
-
-for (const file of await glob(TARGET_GLOBS)) {
-  let txt = await fs.readFile(file, "utf8");
-  const updated = txt.replace(PATTERN, (_, p1) => `${p1}\\`);
-  if (updated !== txt) {
-    await fs.writeFile(file, updated, "utf8");
-    changedFiles++;
-    console.log(`✓ Escaped back-tick(s) in ${file}`);
-  }
+if (fixed !== txt) {
+  fs.writeFileSync(file, fixed, "utf8");
+  console.log("✓ Escaped stray back-ticks in", file);
+} else {
+  console.log("✓ No raw back-ticks found in", file);
 }
-
-console.log(
-  changedFiles
-    ? `\n✅  Escaped back-ticks in ${changedFiles} file(s).`
-    : "🎉  No stray back-ticks found."
-); 
