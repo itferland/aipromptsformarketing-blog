@@ -1,10 +1,15 @@
 ---
-title: "Windows 11’s most important new feature is post-quantum cryptography. Here’s why."
-description: "Windows 11’s most important new feature is post-quantum cryptography. Here’s why. - Latest insights and analysis"
-pubDate: ""
-link: "https://arstechnica.com/security/2025/05/heres-how-windows-11-aims-to-make-the-world-safe-in-the-post-quantum-era/"
-date: "Tue, 20 May 2025 18:48:54 +0000"
-source: "Biz & IT – Ars Technica"
+title: >-
+  Windows 11’s most important new feature is post-quantum cryptography. Here’s
+  why.
+description: >-
+  Windows 11’s most important new feature is post-quantum cryptography. Here’s
+  why. - Latest insights and analysis
+pubDate: '2025-05-20'
+link: >-
+  https://arstechnica.com/security/2025/05/heres-how-windows-11-aims-to-make-the-world-safe-in-the-post-quantum-era/
+date: 'Tue, 20 May 2025 18:48:54 +0000'
+source: Biz & IT – Ars Technica
 ---
 
 
