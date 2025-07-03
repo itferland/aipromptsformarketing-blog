@@ -71,7 +71,7 @@ export default function FlowNodesBackground() {
       if (svg) {
         // Nodes
         nodesRef.current.forEach((n, i) => {
-          const rect = svg.querySelector(\#node-${i}\) as SVGRectElement;
+          const rect = svg.querySelector(\#node-${i}\) as SVGRectElement;
           if (rect) {
             rect.setAttribute("x", n.x.toString());
             rect.setAttribute("y", n.y.toString());
@@ -81,7 +81,7 @@ export default function FlowNodesBackground() {
         connectionsRef.current.forEach(([a, b], idx) => {
           const n1 = nodesRef.current[a];
           const n2 = nodesRef.current[b];
-          const line = svg.querySelector(\#line-${idx}\) as SVGLineElement;
+          const line = svg.querySelector(\#line-${idx}\) as SVGLineElement;
           if (line) {
             line.setAttribute("x1", (n1.x + 24).toString());
             line.setAttribute("y1", (n1.y + 12).toString());
@@ -116,8 +116,8 @@ export default function FlowNodesBackground() {
       {/* Draw lines (connections) */}
       {Array.from({ length: MAX_LINES }).map((_, idx) => (
         <line
-          id={\line-${idx}\}
-          key={\line-${idx}\}
+          id={\line-${idx}\}
+          key={\line-${idx}\}
           stroke="#03ffe1"
           strokeWidth="2.2"
           opacity="0.55"
@@ -127,8 +127,8 @@ export default function FlowNodesBackground() {
       {/* Draw nodes (rounded rectangles) */}
       {Array.from({ length: NODE_COUNT }).map((_, i) => (
         <rect
-          id={\node-${i}\}
-          key={\node-${i}\}
+          id={\node-${i}\}
+          key={\node-${i}\}
           x="0"
           y="0"
           width="48"

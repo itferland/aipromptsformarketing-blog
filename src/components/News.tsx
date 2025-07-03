@@ -14,9 +14,9 @@ export default function News() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const url = \https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
+    const url = \https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
       RSS_FEED_URL
-    )}\;
+    )}\;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
