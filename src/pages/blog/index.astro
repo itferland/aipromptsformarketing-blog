@@ -7,23 +7,26 @@ const posts = await getCollection('posts');
 ---
 
 <!-- ✅ Blog index rendering via content collections -->
-<Layout title="Blog – Latest AI Automation">
-  <h1 class="text-green-500 text-center text-2xl font-bold my-6">Blog – Latest AI Automation</h1>
-
-  {posts.length === 0 ? (
-    <p>No posts found.</p>
-  ) : (
-    <ul class="grid gap-6 px-4">
-      {posts.map(post => (
-        <li class="bg-zinc-900 p-4 rounded-lg border border-green-500">
-          <a href={`/blog/${post.slug}`} class="text-green-400 hover:underline text-lg font-mono">
-            {post.data.title}
-          </a>
-          <div class="text-sm text-gray-400 mt-1">
-            {new Date(post.data.pubDate ?? post.data.date).toLocaleDateString()}
-          </div>
-        </li>
-      ))}
-    </ul>
-  )}
+<Layout title="Blog">
+  <section class="space-y-8 px-2 md:px-0">
+    {posts.map(post => (
+      <div>
+        <div class="flex items-center gap-2 mb-1 animate-pulse">
+          <span class="text-[--neon-green] font-mono text-base select-none">$</span>
+          <span class="text-[--ascii-color] font-mono text-xs md:text-sm opacity-80 select-none">cat {post.slug}.md</span>
+        </div>
+        <article class="border-2 border-[--border-color] bg-black/80 text-[--ascii-color] font-mono p-4 rounded-xl shadow-md hover:shadow-[0_0_15px_var(--border-color)] transition duration-300 backdrop-blur-sm">
+          <header class="mb-2">
+            <h2 class="text-lg md:text-xl font-bold">
+              <a href={post.slug ? `/blog/${post.slug}/` : '#'} class="hover:underline text-[--neon-green]">
+                {post.data.title}
+              </a>
+            </h2>
+            <time class="block text-xs md:text-sm opacity-70">{post.data.pubDate}</time>
+          </header>
+          <p class="text-xs md:text-sm leading-relaxed">{post.data.description}</p>
+        </article>
+      </div>
+    ))}
+  </section>
 </Layout>
