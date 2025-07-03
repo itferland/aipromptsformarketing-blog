@@ -3,7 +3,7 @@ title: Chicago Sun-Times prints summer reading list full of fake books
 description: >-
   Chicago Sun-Times prints summer reading list full of fake books - Latest
   insights and analysis
-pubDate: '2025-05-20'
+pubDate: 2025-05-20
 link: >-
   https://arstechnica.com/ai/2025/05/chicago-sun-times-prints-summer-reading-list-full-of-fake-books/
 date: 'Tue, 20 May 2025 14:52:35 +0000'

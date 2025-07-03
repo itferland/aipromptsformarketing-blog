@@ -3,7 +3,7 @@ title: New Claude 4 AI model refactored code for 7 hours straight
 description: >-
   New Claude 4 AI model refactored code for 7 hours straight - Latest insights
   and analysis
-pubDate: '2025-05-22'
+pubDate: 2025-05-22
 link: >-
   https://arstechnica.com/ai/2025/05/anthropic-calls-new-claude-4-worlds-best-ai-coding-model/
 date: 'Thu, 22 May 2025 16:45:45 +0000'
