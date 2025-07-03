@@ -26,7 +26,7 @@ const THEMES = [
 export default function ThemeToggle() {
   // read saved theme, else fall back to midnight
   const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "midnight"
+    () => typeof window !== "undefined" ? localStorage.getItem("theme") || "midnight" : "midnight"
   );
   const [fade, setFade] = useState(false);
 
@@ -39,6 +39,8 @@ export default function ThemeToggle() {
 
   // keep <html data-theme="…"> in sync
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    
     const root = document.documentElement;
     if (theme === "midnight") {
       root.removeAttribute("data-theme");

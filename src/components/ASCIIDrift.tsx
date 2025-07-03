@@ -9,6 +9,8 @@ export default function ASCIIDrift() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    
     let raf: number;
     const ctx = canvasRef.current?.getContext("2d");
     if (!ctx) return;

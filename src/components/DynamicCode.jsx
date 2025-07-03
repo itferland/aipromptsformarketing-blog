@@ -32,6 +32,8 @@ export default function DynamicCode({ cycle = 5000, className = "" }) {
 
   // rotate frames, respecting prefers-reduced-motion
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)")
       ?.matches;
     if (reduce) return;          // static for motion-sensitive users
