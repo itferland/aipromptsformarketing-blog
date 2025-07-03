@@ -3,46 +3,33 @@ import "../global.css";
 const { title } = Astro.props;
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-[--background] text-[--ascii-color]">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title ? `${title} | Blog` : 'Blog'}</title>
+    <title>{title ? `${title} | AI Solutions` : 'AI Solutions Consulting'}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <!-- Shimmering ASCII art header -->
-    <pre class="ascii-header neon-glow mb-2 select-none">
-Mc:∘cCM**+.Nm::++NM+:Xm:.N.Mc:+
-    </pre>
-    <nav class="ascii-header neon-glow">
-      <a href="/" class="hover:underline">Home</a> |
-      <a href="/about" class="hover:underline">About</a> |
-      <a href="/services" class="hover:underline">Services</a> |
-      <a href="/blog" class="hover:underline">Blog</a>
-    </nav>
-    <div class="terminal-container">
-      <slot />
-    </div>
-
-    <!-- Floating ASCII glyphs -->
+  <body class="font-mono bg-[--background] text-[--ascii-color] relative overflow-hidden">
+    <!-- Floating particles -->
     <script is:inline>
       const chars = ['*', '+', '.', 'M', 'c', ':', 'N'];
-      for (let i = 0; i < 40; i++) {
+      for (let i = 0; i < 50; i++) {
         const el = document.createElement('div');
         el.textContent = chars[Math.floor(Math.random() * chars.length)];
         el.style.position = 'fixed';
         el.style.left = Math.random() * 100 + 'vw';
         el.style.top = Math.random() * 100 + 'vh';
-        el.style.color = '#00ff99';
+        el.style.color = 'var(--ascii-color)';
         el.style.fontFamily = 'monospace';
-        el.style.opacity = 0.5;
+        el.style.opacity = 0.4;
+        el.style.fontSize = Math.random() * 1.2 + 0.8 + 'rem';
+        el.style.zIndex = '0';
         el.style.pointerEvents = 'none';
-        el.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
-        el.style.zIndex = 1;
-        el.style.animation = `floatUp ${5 + Math.random() * 10}s linear infinite`;
+        el.setAttribute('aria-hidden', 'true');
+        el.style.animation = `floatUp ${6 + Math.random() * 8}s linear infinite`;
         document.body.appendChild(el);
       }
     </script>
@@ -51,21 +38,27 @@ Mc:∘cCM**+.Nm::++NM+:Xm:.N.Mc:+
         0% { transform: translateY(0); }
         100% { transform: translateY(-100vh); }
       }
-      .pixel-avatar {
-        position: fixed;
-        bottom: 1rem;
-        left: 1rem;
-        width: 48px;
-        height: 48px;
-        image-rendering: pixelated;
-        animation: bounce 2s infinite ease-in-out;
-        z-index: 50;
-      }
-      @keyframes bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-5px); }
-      }
     </style>
-    <img src="/pixel-bot.gif" alt="Pixel Bot" class="pixel-avatar" />
+
+    <!-- Pixel Avatar -->
+    <img src="/pixel-bot.gif" alt="Bot" class="fixed bottom-4 left-4 w-12 animate-bounce z-20" />
+
+    <!-- ASCII Banner -->
+    <pre class="text-[--ascii-color] text-sm md:text-base leading-none font-mono text-center mt-4 mb-2 glow select-none">
+Mc:∘cCM**+.Nm::++NM+:Xm:.N.Mc:+
+    </pre>
+
+    <!-- Nav -->
+    <nav class="text-center text-xl font-bold mb-6 text-glow">
+      <a href="/" class="mx-2 hover:underline">Home</a> |
+      <a href="/about" class="mx-2 hover:underline">About</a> |
+      <a href="/services" class="mx-2 hover:underline">Services</a> |
+      <a href="/blog" class="mx-2 hover:underline">Blog</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 max-w-3xl mx-auto px-6 py-8 border-2 border-[--border-color] rounded-xl shadow-[0_0_20px_var(--border-color)] bg-[--background]">
+      <slot />
+    </main>
   </body>
 </html>
