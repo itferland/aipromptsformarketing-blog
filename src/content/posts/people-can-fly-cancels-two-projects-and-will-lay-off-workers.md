@@ -3,6 +3,8 @@ title: "People Can Fly cancels two projects and will lay off workers"
 link: "https://www.theverge.com/news/678017/people-can-fly-cancelled-projects-square-enix"
 date: "2025-06-02T14:27:37.000Z"
 source: "The Verge"
+description: "People Can Fly cancels two projects and will lay off workers - Latest insights and analysis"
+pubDate: "2025-06-02T14:27:37.000Z"
 ---
 
 People Can Fly has announced it has cancelled two in-development projects and will undergo a round of layoffs.&nbsp;

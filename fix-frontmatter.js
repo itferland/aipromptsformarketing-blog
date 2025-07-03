@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Polyfill __dirname for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Simple YAML frontmatter parser and generator
 function parseFrontmatter(content) {
@@ -107,7 +112,7 @@ function processMarkdownFile(filePath) {
 }
 
 function main() {
-    const postsDir = path.join(process.cwd(), 'src', 'content', 'posts');
+    const postsDir = path.join(__dirname, 'src', 'content', 'posts');
     
     if (!fs.existsSync(postsDir)) {
         console.error(`❌ Error: Directory ${postsDir} does not exist`);

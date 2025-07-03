@@ -1,7 +1,7 @@
 ---
 title: "The best deals on MacBooks right now"
 description: "A roundup of the latest deals and discounts on MacBooks, including M1, M2, and M3 models."
-pubDate: 2025-06-02
+pubDate: "2025-06-02"
 link: "https://www.theverge.com/22399419/apple-macbook-air-pro-mac-mini-imac-deals"
 date: "2025-06-02T18:27:08.000Z"
 source: "The Verge"

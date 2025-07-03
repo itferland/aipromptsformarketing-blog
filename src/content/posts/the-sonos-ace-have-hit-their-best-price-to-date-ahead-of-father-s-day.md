@@ -3,6 +3,8 @@ title: "The Sonos Ace have hit their best price to date ahead of Father’s Day�
 link: "https://www.theverge.com/tech/678138/sonos-ace-headphones-arc-ultra-fathers-day-2025-deal-sale"
 date: "2025-06-02T18:59:17.000Z"
 source: "The Verge"
+description: "The Sonos Ace have hit their best price to date ahead of Father’s Day  - Latest insights and analysis"
+pubDate: "2025-06-02T18:59:17.000Z"
 ---
 
 June is here, and with it comes a wave of Father’s Day sales from a range of retailers — including Sonos, which is discounting everything from the Arc Ultra soundbar to the excellent Era 100 smart speaker.
