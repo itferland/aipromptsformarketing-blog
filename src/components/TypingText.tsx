@@ -1,5 +1,5 @@
 // src/components/TypingText.tsx
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface TypingTextProps {
   text: string;

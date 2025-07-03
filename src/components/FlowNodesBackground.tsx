@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 
 const NODE_COUNT = 13;
 const WIDTH = 1920;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const RSS_FEED_URL = "https://news.google.com/rss/search?q=artificial+intelligence+OR+technology";
 
