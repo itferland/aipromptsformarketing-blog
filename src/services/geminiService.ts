@@ -18,7 +18,7 @@ export async function askGemini(prompt: string): Promise<string> {
     });
 
     if (!response.ok) {
-      let errorMsg = `SERVER_RESPONSE_ERROR: ${response.status}`;
+      let errorMsg = \SERVER_RESPONSE_ERROR: ${response.status}\;
       try {
         const errorData = await response.json();
         errorMsg = errorData.error || errorMsg; // Use server's error message if available
@@ -42,6 +42,6 @@ export async function askGemini(prompt: string): Promise<string> {
     console.error("Error calling backend proxy in geminiService:", error);
     const message = error instanceof Error ? error.message : String(error);
     // Provide a more user-friendly error message
-    return `// CRITICAL_SYSTEM_FAILURE // Transmission_Error: ${message}`;
+    return \// CRITICAL_SYSTEM_FAILURE // Transmission_Error: ${message}\;
   }
 }

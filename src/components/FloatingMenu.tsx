@@ -44,16 +44,16 @@ export default function FloatingMenu() {
           <a
             key={label}
             href={href}
-            className={`
+            className={\
               flex items-center font-mono text-sm md:text-base rounded-lg px-4 py-2 mb-1
               shadow-lg hover:scale-105 active:scale-95 transition-all duration-150
               ${color} text-white
-            `}
+            \}
             style={{
               fontFamily: "'VT323', 'Fira Mono', monospace",
               letterSpacing: "1px",
               textShadow: "0 0 8px #fff, 0 0 16px #000",
-              boxShadow: `0 0 10px ${color.replace('bg-', '').replace('-500','')}44`,
+              boxShadow: \0 0 10px ${color.replace('bg-', '').replace('-500','')}44\,
               border: "1.5px solid #222"
             }}
           >
