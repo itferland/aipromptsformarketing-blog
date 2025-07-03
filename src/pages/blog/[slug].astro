@@ -4,13 +4,13 @@ import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
-  return posts.map(post => ({ params: { slug: post.slug } }));
+  return posts.map((post) => ({ params: { slug: post.slug } }));
 }
 
 const { slug } = Astro.params;
 const post = await getEntryBySlug('posts', slug);
 if (!post) {
-  throw new Error(\Post not found: ${slug}\);
+  throw new Error(`Post not found: ${slug}`);
 }
 const { Content } = await post.render();
 ---
