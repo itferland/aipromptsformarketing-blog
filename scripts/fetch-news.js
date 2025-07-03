@@ -2,49 +2,6 @@ import fs from 'fs/promises';
 import path from 'path';
 import Parser from 'rss-parser';
 import { createHash } from 'crypto';
-import fetch from 'node-fetch';
-
-const parser = new Parser({
-  customFields: {
-    item: ['description', 'content:encoded', 'summary']
-  }
-});
-
-const RSS_SOURCES = [
-  { url: 'https://rss.cnn.com/rss/edition.rss', name: 'CNN Tech', category: 'Technology' },
-  { url: 'https://feeds.feedburner.com/TechCrunch', name: 'TechCrunch', category: 'Technology' },
-  { url: 'https://www.wired.com/feed/rss', name: 'Wired', category: 'Technology' },
-  { url: 'https://feeds.arstechnica.com/arstechnica/index', name: 'Ars Technica', category: 'Technology' },
-  { url: 'https://rss.slashdot.org/Slashdot/slashdotMain', name: 'Slashdot', category: 'Technology' },
-  { url: 'https://feeds.feedburner.com/venturebeat/SZYF', name: 'VentureBeat', category: 'Technology' }
-];
-
-const RELEVANT_KEYWORDS = [
-  'artificial intelligence', 'machine learning', 'automation', 'AI',
-  'deep learning', 'neural networks', 'chatbot', 'LLM', 'GPT',
-  'workflow automation', 'business automation', 'process automation',
-  'digital transformation', 'smart systems', 'intelligent systems'
-];
-
-const POSTS_DIR = path.join(process.cwd(), 'src/content/posts');
-
-const slugify = (text) => {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/[\s_-]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-};
-
-const generateHash = (content) => {
-  return createHash('md5').update(content).digest('hex').substring(0, 8);
-};
-
-const calculateReadingTime = (text) => {
-  const wordsPerMinute = 200;
-  const wordCount = text.split(/\s+/).length;
-  return Math.ceil(wordCount / wordsPerMinute);
-};
 
 const extractDescription = (content) => {
   if (!content) return '';
@@ -145,38 +102,7 @@ const cleanupOldPosts = async (maxPosts = 100) => {
   }
 };
 
-const sendWebhook = async (message) => {
-  const discordUrl = process.env.DISCORD_WEBHOOK_URL;
-  const slackUrl = process.env.SLACK_WEBHOOK_URL;
-  const headers = { 'Content-Type': 'application/json' };
-
-  if (discordUrl) {
-    try {
-      await fetch(discordUrl, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ content: message })
-      });
-      console.log('✅ Discord notification sent');
-    } catch (err) {
-      console.error('❌ Failed to send Discord webhook:', err.message);
-    }
-  }
-
-  if (slackUrl) {
-    try {
-      await fetch(slackUrl, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ text: message })
-      });
-      console.log('✅ Slack notification sent');
-    } catch (err) {
-      console.error('❌ Failed to send Slack webhook:', err.message);
-    }
-  }
-};
-
+ main
 const main = async () => {
   try {
     console.log('🚀 Starting automated blog post fetch...');
@@ -192,12 +118,7 @@ const main = async () => {
     for (const post of sortedPosts) {
       const created = await createMarkdownFile(post);
       if (created) createdCount++;
-    }
-    await cleanupOldPosts(100);
-    console.log(`✅ Process complete! Created ${createdCount} new posts.`);
-    if (createdCount > 0) {
-      await sendWebhook(`Blog updated with ${createdCount} new post${createdCount > 1 ? 's' : ''}.`);
-    }
+ main
     process.exit(createdCount > 0 ? 0 : 1);
   } catch (error) {
     console.error('❌ Fatal error:', error.message);
