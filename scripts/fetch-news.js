@@ -3,48 +3,6 @@ import path from 'path';
 import Parser from 'rss-parser';
 import { createHash } from 'crypto';
 
-const parser = new Parser({
-  customFields: {
-    item: ['description', 'content:encoded', 'summary']
-  }
-});
-
-const RSS_SOURCES = [
-  { url: 'https://rss.cnn.com/rss/edition.rss', name: 'CNN Tech', category: 'Technology' },
-  { url: 'https://feeds.feedburner.com/TechCrunch', name: 'TechCrunch', category: 'Technology' },
-  { url: 'https://www.wired.com/feed/rss', name: 'Wired', category: 'Technology' },
-  { url: 'https://feeds.arstechnica.com/arstechnica/index', name: 'Ars Technica', category: 'Technology' },
-  { url: 'https://rss.slashdot.org/Slashdot/slashdotMain', name: 'Slashdot', category: 'Technology' },
-  { url: 'https://feeds.feedburner.com/venturebeat/SZYF', name: 'VentureBeat', category: 'Technology' }
-];
-
-const RELEVANT_KEYWORDS = [
-  'artificial intelligence', 'machine learning', 'automation', 'AI',
-  'deep learning', 'neural networks', 'chatbot', 'LLM', 'GPT',
-  'workflow automation', 'business automation', 'process automation',
-  'digital transformation', 'smart systems', 'intelligent systems'
-];
-
-const POSTS_DIR = path.join(process.cwd(), 'src/content/posts');
-
-const slugify = (text) => {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/[\s_-]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-};
-
-const generateHash = (content) => {
-  return createHash('md5').update(content).digest('hex').substring(0, 8);
-};
-
-const calculateReadingTime = (text) => {
-  const wordsPerMinute = 200;
-  const wordCount = text.split(/\s+/).length;
-  return Math.ceil(wordCount / wordsPerMinute);
-};
-
 const extractDescription = (content) => {
   if (!content) return '';
   const plainText = content.replace(/<[^>]*>/g, '');
@@ -144,6 +102,7 @@ const cleanupOldPosts = async (maxPosts = 100) => {
   }
 };
 
+ main
 const main = async () => {
   try {
     console.log('🚀 Starting automated blog post fetch...');
@@ -159,9 +118,7 @@ const main = async () => {
     for (const post of sortedPosts) {
       const created = await createMarkdownFile(post);
       if (created) createdCount++;
-    }
-    await cleanupOldPosts(100);
-    console.log(`✅ Process complete! Created ${createdCount} new posts.`);
+ main
     process.exit(createdCount > 0 ? 0 : 1);
   } catch (error) {
     console.error('❌ Fatal error:', error.message);
