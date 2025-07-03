@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-/* neon palette */
+/* 1–A  ─── theme tokens */
 :root {
-  --neon: #7efeff;
-  --accent: #ff5af3;
+  --bg:      #0c0124;
+  --surface: #14003d;
+  --neon:    #34f0ff;
+  --accent:  #ff4dff;
+  --text:    #e7e7ff;
   --bg-terminal: #111318;
   --chip-0: #7efeff20;
   --chip-1: #ff5af320;
@@ -11,10 +14,12 @@
   --chip-3: #ffd76b20;
 }
 
-/* utility layers --------------------------------------------------------- */
+/* 1–B  ─── base + utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body { @apply bg-[--bg] text-[--text] font-mono leading-relaxed; }
 
 /* terminal card */
 .bg-terminal { @apply bg-[--bg-terminal] backdrop-blur-sm; }
@@ -33,7 +38,7 @@
     display: inline-block;
     width: 0.6ch;
     height: 1em;
-    background: var(--accent);
+    background: var(--neon);
     animation: blink 1s steps(2, start) infinite;
   }
   @keyframes blink { to { visibility: hidden; } }
@@ -102,3 +107,22 @@
   color: var(--accent);
   aria-hidden: true;
 }
+
+/* dotted-pixel border (Jules-style)  */
+.border-dotted-pixel {
+  position: relative;
+}
+.border-dotted-pixel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  /* 2-pixel dotted border recreated with border-image */
+  border: 2px dotted transparent;
+  --d: repeating-linear-gradient(90deg,var(--neon) 0 2px,transparent 2px 4px);
+  border-image: var(--d) 2 stretch;
+}
+
+/* neon hover glow */
+.hover\:neon-glow:hover  { box-shadow: 0 0 10px var(--neon); }

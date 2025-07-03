@@ -4,8 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        neon: 'var(--neon)',
-        accent: 'var(--accent)',
+        bg:      'var(--bg)',
+        surface: 'var(--surface)',
+        neon:    'var(--neon)',
+        accent:  'var(--accent)',
+        text:    'var(--text)',
         'terminal-bg': 'var(--bg-terminal)',
         neon1: '#7efeff',
         neon2: '#ff5af3',
