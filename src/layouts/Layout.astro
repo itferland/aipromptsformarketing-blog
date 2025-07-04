@@ -1,4 +1,16 @@
----
+@@
+-  <!-- this is the ASCII drift text at top -->
+-  <AsciiHeading class="…">Mc::ocCM**+…</AsciiHeading>
++  {/* 
++    <AsciiHeading class="…">Mc::ocCM**+…</AsciiHeading>
++  */}@@
+-  <!-- this is the ASCII drift text at top -->
+-  <AsciiHeading class="…">Mc::ocCM**+…</AsciiHeading>
++  {/* 
++    <AsciiHeading class="…">Mc::ocCM**+…</AsciiHeading>
++  */}@@
+-import AsciiHeading from './AsciiHeading.jsx';
++// import AsciiHeading from './AsciiHeading.jsx';---
 import "../global.css";
 import TerminalFooter from '../components/TerminalFooter.astro';
 import ThemeToggle from "../components/ThemeToggle.jsx";
@@ -23,7 +35,8 @@ const { title } = Astro.props;
     <header class="flex justify-end p-4">
       <ThemeToggle />
     </header>
-    <!-- Floating particles -->
+    <!-- Floating particles (COMMENTED OUT) -->
+    <!--
     <script is:inline>
       const chars = ['*', '+', '.', 'M', 'c', ':', 'N'];
       for (let i = 0; i < 50; i++) {
@@ -49,6 +62,7 @@ const { title } = Astro.props;
         100% { transform: translateY(-100vh); }
       }
     </style>
+    -->
 
     <!-- Pixel Avatar -->
     <img src="/pixel-bot.gif" alt="Bot" class="fixed bottom-4 left-4 w-12 animate-bounce z-20" />
