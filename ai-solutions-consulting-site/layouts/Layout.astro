@@ -3,13 +3,14 @@ import '../styles/global.css';
 import TerminalFooter from '../components/TerminalFooter.astro';
 import ThemeToggle from '../components/ThemeToggle.jsx';
 const { title } = Astro.props;
+const pageTitle = title ? `${title} | AI Solutions` : 'AI Solutions Consulting';
 ---
 <!DOCTYPE html>
 <html lang="en" class="dark bg-bg-dark text-text-light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title ? `${title} | AI Solutions` : 'AI Solutions Consulting'}</title>
+    <title>{pageTitle}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
