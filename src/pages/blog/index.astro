@@ -31,7 +31,7 @@ const posts = await getCollection('posts');
             {post.data.title}
           </h2>
 
-          {/* ⬇ NEW “ls -l” metadata row ⬇ */}
+          {/* \u2b07 NEW \u201cls -l\u201d metadata row \u2b07 */}
           <p class="ls-line text-xs md:text-sm text-green-300 mb-3">
             {Math.round(bytes / 1024)}k  {niceDate}  post.md
           </p>
@@ -40,7 +40,7 @@ const posts = await getCollection('posts');
             {post.data.description}
           </p>
 
-          {/* ⬇ NEW tag chips ⬇ */}
+          {/* \u2b07 NEW tag chips \u2b07 */}
           {post.data.tags && (
             <div class="flex flex-wrap gap-2">
               {post.data.tags.map((tag, i) => (
