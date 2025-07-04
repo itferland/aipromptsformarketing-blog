@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+// import FlowNodesBackground from '../components/FlowNodesBackground.astro';/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
   content: ['./index.html', './src/**/*.{astro,html,js,jsx,ts,tsx,md}'],
