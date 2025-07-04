@@ -32,6 +32,15 @@
   --text:    #fdf6e3;
 }
 
+/* Light theme override --------------------------------------------- */
+[data-theme="light"] {
+  --bg: #f8fafc;
+  --surface: #fff;
+  --neon: #14E3FF;
+  --accent: #0070f3;
+  --text: #1a202c;
+}
+
 /* 1–B  ─── base + utilities */
 @tailwind base;
 @tailwind components;

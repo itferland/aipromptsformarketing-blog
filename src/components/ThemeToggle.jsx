@@ -21,6 +21,12 @@ const THEMES = [
     icon: <Palette size={14} />,
     aria: "Switch to synthwave theme",
   },
+  {
+    key: "light",
+    label: "Light",
+    icon: <Sun size={14} />,
+    aria: "Switch to light mode",
+  },
 ];
 
 export default function ThemeToggle() {
