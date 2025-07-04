@@ -42,7 +42,35 @@
   background: var(--dg-surface);
   color: var(--dg-accent);
   z-index: 100;
-}<a href="#main" class="skip-link">Skip to content</a>---
+}<a href="#main" class="skip-link">Skip to content</a>/* wipe out any leftover particle layers */
+#particleCanvas,
+.background-particles,
+.flow-nodes-background {
+  display: none !important;
+}
+
+/* Skip to content link styles */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  background: var(--dg-surface);
+  color: var(--dg-accent);
+  z-index: 100;
+}pnpm dev
+# or
+npm run build---
 import "../global.css";
 import TerminalFooter from '../components/TerminalFooter.astro';
 import ThemeToggle from "../components/ThemeToggle.jsx";
