@@ -1,15 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --bg-main: #0a001f;
   --neon-green: #00ff99;
   --pixel-border: #44007a;
 }
-
+---
+/{/* <FlowNodesBackground /> *<htm<sectionmodupnpm dev filepath: src/layouts/Layout.astro
+import '../styles/global.css';
+---
+<html lang="en" class="dark bg-dg-bg text-dg-text">
+  <head>
+    <!-- ... -->
+  </head>
+  <body>
+    <!-- ... -->
+  </body>
+</html>
 body {
-  @apply bg-bg-dark text-text-light transition-colors duration-200 ease-in-out;
   font-family: 'Fira Mono', 'Menlo', 'Consolas', monospace;
   min-height: 100vh;
 }
@@ -53,4 +59,4 @@ body {
 /* Safari/iOS particle layer fix */
 .ascii-particles {
   transform: translateZ(0); /* forces GPU layer & isolates context */
-} 
+} <!-- ... --><!-- ... -->
