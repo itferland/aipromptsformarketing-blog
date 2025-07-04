@@ -1,61 +1,78 @@
+/* src/styles/global.css */
+
+/* 1) Update your CSS variables to Deepgram’s palette */
 :root {
-  --bg-main: #0a001f;
-  --neon-green: #00ff99;
-  --pixel-border: #44007a;
-}
----
-/{/* <FlowNodesBackground /> *<htm<sectionmodupnpm dev filepath: src/layouts/Layout.astro
-import '../styles/global.css';
----
-<html lang="en" class="dark bg-dg-bg text-dg-text">
-  <head>
-    <!-- ... -->
-  </head>
-  <body>
-    <!-- ... -->
-  </body>
-</html>
-body {
-  font-family: 'Fira Mono', 'Menlo', 'Consolas', monospace;
-  min-height: 100vh;
+  --dg-bg:    #0A0E1C;  /* page background */
+  --dg-surface: #131A2B; /* panels/cards */
+  --dg-text:  #F1F5F9;  /* body text */
+  --dg-accent: #14E3FF; /* primary CTAs & links */
 }
 
-.neon-glow {
-  text-shadow: 0 0 8px var(--neon-green), 0 0 16px var(--pixel-border);
-}
-
-.terminal-container {
-  background: rgba(10,0,31,0.95);
-  border: 3px solid var(--pixel-border);
-  border-radius: 12px;
-  box-shadow: 0 0 24px 2px var(--pixel-border);
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 700px;
-}
-
+/* 2) Remove any old neon-pixel borders & ASCII glow */
+.ascii-header,
+.neon-glow,
 .pixel-border {
-  border: 2px solid var(--pixel-border);
-  box-shadow: 0 0 8px var(--pixel-border);
-  border-radius: 8px;
+  display: none !important;
 }
 
-.ascii-header {
-  font-size: 2rem;
-  color: var(--neon-green);
-  font-family: 'Fira Mono', 'Menlo', 'Consolas', monospace;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 0 8px var(--neon-green), 0 0 16px var(--pixel-border);
-  letter-spacing: 2px;
-  animation: ascii-glow 2s infinite alternate;
+/* Removed ascii-glow keyframes per Deepgram style */
+.FlowNodesBackground,
+.ascii-particles,
+#background-canvas {
+  display: none !important;
 }
 
-@keyframes ascii-glow {
-  0% { text-shadow: 0 0 8px var(--neon-green), 0 0 16px var(--pixel-border); }
-  100% { text-shadow: 0 0 16px var(--neon-green), 0 0 32px var(--pixel-border); }
+/* 4) Apply Deepgram base styles */
+html, body {
+  font-family: ui-sans-serif, system-ui, Inter, sans-serif;
+  min-height: 100vh;
+  background-color: var(--dg-bg);
+  color: var(--dg-text);
+}
+a:hover {
+  color: var(--dg-accent-dark);
 }
 
-/* Safari/iOS particle layer fix */
-.ascii-particles {
-  transform: translateZ(0); /* forces GPU layer & isolates context */
+/* 5) Surface panels/cards */
+/* Remove any previous empty or broken rulesets for these selectors */
+/* Then add this consolidated, valid block */
+
+/* earlier rules… */
+
+/* Disable animations */
+* {
+  animation: none !important;
+}
+
+/* Your new panel styles */
+p/* Surface papnpm dev {
+- background: rgba(10,0,31,0.95);
+- border: 3px solid var(--pixel-border);
+.terminal-container,
+.page-wrapper,
+.main-container {
+  background-color: var(--dg-surface);
+  border: none;
+  box-shadow: 0 4px 24px rgba(20, 227, 255, 0.15);
+}
+.page-wrapper {
+  padding: 4rem 2rem;
+  margin: 0 auto;
+  max-width: 80rem;
+}
+}
+
+/* 8) Buttons & CTAs */
+.hero {
+  padding: 8rem 0;
+.page-wrapper {
+  padding: 4rem 2rem;
+  margin: 0 auto;
+  max-width: 80rem;
+}
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+}
+button:hover, .btn:hover {
+  background: #0ACAFF; /* slightly darker accent */
+}
