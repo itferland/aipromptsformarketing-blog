@@ -18,7 +18,12 @@
 -  {/* <FlowNodesBackground /> */}
 +  {/*
 +    <FlowNodesBackground />
-+  */}---
++  */}/* wipe out any leftover particle layers */
+#particleCanvas,
+.background-particles,
+.flow-nodes-background {
+  display: none !important;
+}---
 import "../global.css";
 import TerminalFooter from '../components/TerminalFooter.astro';
 import ThemeToggle from "../components/ThemeToggle.jsx";
