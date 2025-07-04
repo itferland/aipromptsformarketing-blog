@@ -9,8 +9,7 @@
 }
 
 body {
-  background: var(--bg-main);
-  color: var(--neon-green);
+  @apply bg-bg-dark text-text-light transition-colors duration-200 ease-in-out;
   font-family: 'Fira Mono', 'Menlo', 'Consolas', monospace;
   min-height: 100vh;
 }

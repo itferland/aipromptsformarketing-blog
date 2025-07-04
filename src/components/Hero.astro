@@ -4,24 +4,25 @@ import DynamicCode  from "../components/DynamicCode.jsx";
 import { asciiLogo } from "../data/asciiLogo";
 ---
 
-<section class="relative pt-28 pb-40 px-4 overflow-hidden">
+<section class="relative pt-28 pb-40 px-4 overflow-hidden bg-bg-dark">
+  <!-- gradient overlay -->
+  <div class="pointer-events-none absolute inset-0 z-0 bg-gradient-to-br from-blue-800/40 via-purple-800/30 to-transparent" />
   <!-- headline -->
   <AsciiHeading
-    class="select-none text-center leading-none text-[min(22vw,160px)] md:text-[140px] tracking-tight text-neon/80 drop-shadow-[0_0_4px_var(--neon)]"
+    class="select-none text-center leading-none text-[min(22vw,160px)] md:text-[140px] tracking-tight text-white drop-shadow-[0_0_8px_#14E3FF]"
   >
     {asciiLogo}
   </AsciiHeading>
 
-  <p class="text-center mt-4 text-accent text-sm sm:text-base">
+  <p class="text-center mt-4 text-accent text-base">
     An asynchronous coding agent
   </p>
 
   <!-- dotted code pane with live edits -->
   <div
-    class="relative z-10 mx-auto max-w-4xl w-full rounded-3xl border border-gray-300 bg-white/80
-           shadow-xl backdrop-blur-sm px-8 py-14 md:px-14 mt-16"
+    class="relative z-10 mx-auto max-w-4xl w-full rounded-3xl border border-white/10 bg-bg-dark/80 shadow-xl backdrop-blur-sm px-8 py-14 md:px-14 mt-16"
   >
-    <DynamicCode className="text-xs sm:text-sm overflow-x-auto" />
+    <DynamicCode className="text-xs sm:text-sm overflow-x-auto text-text-light" />
   </div>
 
   <!-- mascot -->
@@ -29,28 +30,27 @@ import { asciiLogo } from "../data/asciiLogo";
     src="/sprites/bot.svg"
     alt=""
     width="64" height="64"
-    class="absolute -left-8 -top-8 drop-shadow-[0_0_4px_var(--neon)]"
+    class="absolute -left-8 -top-8 drop-shadow-[0_0_8px_#14E3FF]"
   />
 
   <!-- call-out card -->
   <aside
-    class="absolute -right-14 bottom-10 w-64 bg-surface border-dotted-pixel rounded-2xl
-           p-6 shadow-lg"
+    class="absolute -right-14 bottom-10 w-64 bg-bg-dark border border-white/10 rounded-2xl p-6 shadow-lg"
   >
-    <p class="text-center mb-4 text-xs">
+    <p class="text-center mb-4 text-xs text-text-light">
       Jules does coding tasks <br />
       <span class="underline">you don't want</span> to do.
     </p>
     <div class="flex gap-2">
       <a
         href="/services#bug-fixing"
-        class="inline-flex items-center gap-2 rounded-lg bg-sky-600 px-5 py-3 font-semibold text-white shadow hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 flex-1 text-center text-xs"
+        class="inline-flex items-center gap-2 rounded-lg bg-accent text-bg-dark px-5 py-3 font-semibold shadow hover:bg-accent/80 focus:outline-none focus:ring-2 focus:ring-accent flex-1 text-center text-xs"
       >
         Bug Fixing
       </a>
       <a
         href="/services#version-bump"
-        class="inline-flex items-center gap-2 rounded-lg bg-sky-600 px-5 py-3 font-semibold text-white shadow hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 flex-1 text-center text-xs"
+        class="inline-flex items-center gap-2 rounded-lg ring-1 ring-accent text-accent px-5 py-3 font-semibold bg-transparent shadow hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-accent flex-1 text-center text-xs"
       >
         Version Bump
       </a>
