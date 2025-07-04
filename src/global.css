@@ -59,4 +59,4 @@ body {
 /* Safari/iOS particle layer fix */
 .ascii-particles {
   transform: translateZ(0); /* forces GPU layer & isolates context */
-} <!-- ... --><!-- ... -->
+}
