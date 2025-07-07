@@ -8,7 +8,12 @@ const logos = [
 ];
 ---
 <section class="mt-12 mb-6 flex flex-wrap justify-center gap-10 opacity-80">
-  {logos.map(({src, alt}) => (
-    <img src={src} alt={alt} class="h-6 md:h-8 grayscale hover:grayscale-0 transition" loading="lazy" />
+  {logos.map(({ src, alt }) => (
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      class="h-6 md:h-8 grayscale hover:grayscale-0 transition"
+    />
   ))}
 </section> 
