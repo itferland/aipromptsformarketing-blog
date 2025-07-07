@@ -86,3 +86,13 @@
   border: none;
 }
 
+@layer components {
+  .nav-link {
+    @apply text-dg-text/90 hover:text-dg-accent transition-colors;
+  }
+}
+
+body {
+  @apply font-inter;
+}
+
