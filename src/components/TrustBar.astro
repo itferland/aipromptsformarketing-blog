@@ -1,9 +1,19 @@
-<section class="py-10">
-  <div class="mx-auto flex max-w-6xl items-center justify-center gap-10 opacity-80">
-    <img src="/logos/acme.svg" class="h-8 grayscale hover:grayscale-0" alt="Acme" />
-    <img src="/logos/foocorp.svg" class="h-8 grayscale hover:grayscale-0" alt="Foocorp" />
-    <img src="/logos/megacorp.svg" class="h-8 grayscale hover:grayscale-0" alt="Megacorp" />
-    <img src="/logos/startup.svg" class="h-8 grayscale hover:grayscale-0" alt="Startup" />
-    <img src="/logos/enterprisely.svg" class="h-8 grayscale hover:grayscale-0" alt="Enterprisely" />
-  </div>
+---
+const logos = [
+  { src: '/logos/acme.svg',        alt: 'Acme' },
+  { src: '/logos/foocorp.svg',     alt: 'Foocorp' },
+  { src: '/logos/megacorp.svg',    alt: 'Megacorp' },
+  { src: '/logos/startup.svg',     alt: 'Startup' },
+  { src: '/logos/enterprisely.svg',alt: 'Enterprisely' },
+];
+---
+<section class="mt-12 mb-6 flex flex-wrap justify-center gap-10 opacity-80">
+  {logos.map(({ src, alt }) => (
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      class="h-6 md:h-8 grayscale hover:grayscale-0 transition"
+    />
+  ))}
 </section> 
