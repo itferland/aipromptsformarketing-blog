@@ -8,6 +8,7 @@ The project is organized as follows:
 
 ```
 ai-solutions-consulting-site
+├── index.html        # Standalone landing page generated via Codex
 ├── content
 │   ├── about.md        # Company overview and founder information
 │   ├── services.md     # Detailed service offerings
