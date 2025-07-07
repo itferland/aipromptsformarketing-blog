@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import TrustBar from '../components/TrustBar.astro';
 import DynamicCode from '../components/DynamicCode.jsx';
+import FadeUp from '../components/FadeUp.astro';
 
 const title = "AI Solutions Consulting – Home";
 const description = "Asynchronous coding agents that handle the tasks you don't want to. AI automation made practical with SaaS + consulting that actually solves IT problems.";
@@ -18,29 +19,41 @@ const description = "Asynchronous coding agents that handle the tasks you don't 
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content="/og-image.png" />
   
-  <section class="relative mx-auto max-w-7xl pt-40 md:pt-48 text-center">
+  <section class="relative isolate mx-auto max-w-7xl px-6 pt-40 md:pt-56 text-center">
+    <!-- BACKGROUND gradient blob -->
+    <div aria-hidden="true"
+         class="absolute inset-x-0 -top-64 md:-top-80 h-[700px] bg-gradient-radial
+                from-teal-400/10 via-teal-500/5 to-transparent blur-3xl">
+    </div>
     {/*
     <div class="mx-auto max-w-xl rounded-lg bg-dg-surface-2 p-4 shadow-lg/10 ring-1 ring-white/10 backdrop-blur md:-translate-y-8">
       <DynamicCode />
     </div>
     */}
-    <h1 class="mt-12 text-4xl md:text-6xl font-extrabold leading-tight text-white">
-      AI&nbsp;Solutions&nbsp;Consulting
-    </h1>
-    <p class="mt-6 text-lg md:text-xl text-dg-muted max-w-2xl mx-auto">
-      AI Automation Made Practical — SaaS + Consulting That Actually Solves IT Problems
-    </p>
-    <div class="mt-10 flex justify-center gap-4">
-      <a href="/demo"
-         class="bg-dg-accent hover:bg-dg-accent-dark text-dg-bg font-semibold px-8 py-3 rounded-lg">
-         Book a Demo
-      </a>
-      <a href="/blueprint"
-         class="ring-2 ring-dg-accent text-dg-accent font-semibold px-8 py-3 rounded-lg hover:bg-dg-accent/10">
-         Get Your Blueprint
-      </a>
-    </div>
-    <TrustBar />
+    <FadeUp>
+      <h1 class="mt-12 font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight text-white">
+        AI Solutions Consulting
+      </h1>
+    </FadeUp>
+    <FadeUp delay={0.1}>
+      <p class="mt-6 text-lg md:text-2xl text-slate-300/90 max-w-2xl mx-auto">
+        AI Automation Made Practical — SaaS + Consulting That Actually Solves IT Problems
+      </p>
+    </FadeUp>
+    <FadeUp delay={0.2}>
+      <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/demo"
+           class="rounded-full bg-dg-accent/90 px-6 py-3 font-medium
+                  text-dg-surface shadow-lg shadow-dg-accent/20
+                  hover:bg-dg-accent transition">Book a Demo</a>
+        <a href="/blueprint"
+           class="rounded-full border border-dg-accent/40 px-6 py-3 font-medium
+                  text-dg-accent hover:bg-dg-accent/10 transition">Get Your Blueprint</a>
+      </div>
+    </FadeUp>
+    <FadeUp delay={0.3}>
+      <TrustBar />
+    </FadeUp>
   </section>
   <div class="flex flex-col items-center pt-10">
     <p class="mb-6 text-center max-w-2xl">
@@ -63,4 +76,8 @@ const description = "Asynchronous coding agents that handle the tasks you don't 
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"> 
 
-<a href="/" class="text-xl font-semibold text-dg-accent shrink-0">AI Solutions</a> 
+<nav class="mx-auto max-w-7xl flex items-center justify-between
+             py-4 pl-6 pr-6 md:pl-10 md:pr-10">
+  <a href="/" class="shrink-0 text-xl font-semibold text-dg-accent">AI Solutions</a>
+  ...
+</nav> 
