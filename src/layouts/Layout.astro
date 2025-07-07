@@ -30,8 +30,9 @@ if (typeof window !== 'undefined') {
 
     <!-- Top nav + theme toggle -->
     <header class="fixed inset-x-0 top-0 z-50 bg-dg-surface/80 backdrop-blur-md transition-shadow">
-      <nav class="mx-auto max-w-7xl flex items-center justify-between py-4 px-6 md:px-10">
-        <a href="/" class="text-xl font-semibold text-dg-accent">AI Solutions</a>
+      <nav class="mx-auto max-w-7xl flex items-center justify-between py-4 pl-6 pr-6 md:pl-8 md:pr-10">
+        <!-- left-side logo -->
+        <a href="/" class="text-xl font-semibold text-dg-accent shrink-0">AI Solutions</a>
         <!-- desktop links -->
         <div class="hidden md:flex space-x-10 font-medium">
           <a class="nav-link relative {Astro.url.pathname==='/' ? 'active-link' : ''}" href="/">Home</a>
