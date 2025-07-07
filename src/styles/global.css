@@ -1,4 +1,31 @@
-/* src/styles/global.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Deepgram custom utilities ─────────────────────────────── */
+@layer utilities {
+  html, body {
+    @apply bg-dg-bg text-dg-text font-sans antialiased min-h-screen;
+  }
+
+  a {
+    @apply text-dg-accent no-underline transition-colors;
+  }
+  a:hover {
+    @apply text-dg-accent/80;
+  }
+
+  .main-container,
+  .page-wrapper {
+    @apply px-8 md:px-16 lg:px-24;
+  }
+
+  h1, h2, h3, h4 {
+    @apply text-dg-text font-bold;
+  }
+}
+
+/* everything else (pure CSS, no @apply) can stay below */
 
 /* 1) Deepgram dark palette */
 :root {
@@ -11,11 +38,6 @@
 /* 2) Disable all animations */
 * {
   animation: none !important;
-}
-
-/* 3) Base page styles */
-html, body {
-  @apply bg-dg-bg text-dg-text font-sans antialiased min-h-screen;
 }
 
 /* 4) Hide old particle/ASCII layers */
@@ -47,14 +69,6 @@ html, body {
   z-index: 100;
 }
 
-/* 6) Links */
-a {
-  @apply text-dg-accent no-underline transition-colors;
-}
-a:hover {
-  @apply text-dg-accent/80;
-}
-
 /* 7) Surface panels */
 .terminal-container,
 .page-wrapper,
@@ -63,15 +77,4 @@ a:hover {
   background-color: var(--dg-surface);
   box-shadow: 0 4px 24px rgba(20,227,255,0.15);
   border: none;
-}
-
-/* 8) Wider gutters */
-.main-container,
-.page-wrapper {
-  @apply px-8 md:px-16 lg:px-24;
-}
-
-/* 9) Headings & typography */
-h1, h2, h3, h4 {
-  @apply text-dg-text font-bold;
 }
