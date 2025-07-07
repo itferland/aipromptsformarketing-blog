@@ -18,14 +18,16 @@ const description = "Asynchronous coding agents that handle the tasks you don't 
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content="/og-image.png" />
   
-  <Hero />
-  <section class="pt-32 md:pt-40">
-    <h1 class="text-4xl md:text-6xl text-dg-text font-mono animate-glow text-center mb-4">
-      AI Solutions Consulting
-    </h1>
-    <div class="crt-text text-2xl mb-4 text-center">
-      AI Automation Made Practical — SaaS + Consulting That Actually Solves IT Problems
+  <section class="relative mx-auto max-w-7xl pt-40 md:pt-48 text-center">
+    <div class="mx-auto max-w-xl rounded-lg bg-dg-surface-2 p-4 shadow-lg/10 ring-1 ring-white/10 backdrop-blur transition-transform md:-translate-y-8">
+      <DynamicCode snippet={snippet} />
     </div>
+    <h1 class="mt-12 text-4xl md:text-6xl font-extrabold leading-tight text-white">
+      AI&nbsp;Solutions&nbsp;Consulting
+    </h1>
+    <p class="mt-6 text-lg md:text-xl text-dg-muted max-w-2xl mx-auto">
+      AI Automation Made Practical — SaaS + Consulting That Actually Solves IT Problems
+    </p>
     <div class="mt-10 flex justify-center gap-4">
       <a href="/demo"
          class="bg-dg-accent hover:bg-dg-accent-dark text-dg-bg font-semibold px-8 py-3 rounded-lg">
@@ -36,15 +38,15 @@ const description = "Asynchronous coding agents that handle the tasks you don't 
          Get Your Blueprint
       </a>
     </div>
-    <section class="mt-8 flex justify-center gap-10 opacity-75">
-      <img src="/logos/acme.svg" class="h-6 md:h-8" alt="Acme" />
-      <img src="/logos/foocorp.svg" class="h-6 md:h-8" alt="Foocorp" />
-      <img src="/logos/megacorp.svg" class="h-6 md:h-8" alt="Megacorp" />
-      <img src="/logos/startup.svg" class="h-6 md:h-8" alt="Startup" />
-      <img src="/logos/enterprisely.svg" class="h-6 md:h-8" alt="Enterprisely" />
-    </section>
+    <TrustBar />
   </section>
-  <TrustBar />
+  <section class="mt-8 flex justify-center gap-10 opacity-75">
+    <img src="/logos/acme.svg" class="h-6 md:h-8" alt="Acme" />
+    <img src="/logos/foocorp.svg" class="h-6 md:h-8" alt="Foocorp" />
+    <img src="/logos/megacorp.svg" class="h-6 md:h-8" alt="Megacorp" />
+    <img src="/logos/startup.svg" class="h-6 md:h-8" alt="Startup" />
+    <img src="/logos/enterprisely.svg" class="h-6 md:h-8" alt="Enterprisely" />
+  </section>
   <div class="flex flex-col items-center pt-10">
     <p class="mb-6 text-center max-w-2xl">
 
