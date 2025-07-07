@@ -1,46 +1,55 @@
+/* ------------------------------------------------------------------
+   Tailwind baseline – MUST be first
+   ------------------------------------------------------------------ */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Deepgram custom utilities ─────────────────────────────── */
+/* ------------------------------------------------------------------
+   Deepgram dark-theme palette
+   ------------------------------------------------------------------ */
+:root {
+  --dg-bg:      #0A0E1C;
+  --dg-surface: #131A2B;
+  --dg-text:    #F1F5F9;
+  --dg-accent:  #14E3FF;
+  --dg-accent-dark: #0ACAFF;
+}
+
+/* ------------------------------------------------------------------
+   Custom utilities – wrap @apply inside @layer
+   ------------------------------------------------------------------ */
 @layer utilities {
+  /* Page background & base text */
   html, body {
-    @apply bg-dg-bg text-dg-text font-sans antialiased min-h-screen;
+    @apply bg-[color:var(--dg-bg)] text-[color:var(--dg-text)] font-sans antialiased min-h-screen;
   }
 
+  /* Links */
   a {
-    @apply text-dg-accent no-underline transition-colors;
+    @apply text-[color:var(--dg-accent)] no-underline transition-colors;
   }
   a:hover {
-    @apply text-dg-accent/80;
+    @apply text-[color:var(--dg-accent-dark)];
   }
 
+  /* Wider gutters */
   .main-container,
   .page-wrapper {
     @apply px-8 md:px-16 lg:px-24;
   }
 
+  /* Headings */
   h1, h2, h3, h4 {
-    @apply text-dg-text font-bold;
+    @apply text-[color:var(--dg-text)] font-bold;
   }
 }
 
-/* everything else (pure CSS, no @apply) can stay below */
+/* ------------------------------------------------------------------
+   Plain CSS (no @apply) – can sit outside @layer
+   ------------------------------------------------------------------ */
 
-/* 1) Deepgram dark palette */
-:root {
-  --dg-bg:     #0A0E1C;
-  --dg-surface:#131A2B;
-  --dg-text:   #F1F5F9;
-  --dg-accent: #14E3FF;
-}
-
-/* 2) Disable all animations */
-* {
-  animation: none !important;
-}
-
-/* 4) Hide old particle/ASCII layers */
+/* Hide any left-over particle layers */
 #particleCanvas,
 .background-particles,
 .flow-nodes-background,
@@ -49,7 +58,7 @@
   display: none !important;
 }
 
-/* 5) Skip-to-content link */
+/* Skip-link visibility */
 .skip-link {
   position: absolute;
   left: -999px;
@@ -61,8 +70,6 @@
 .skip-link:focus {
   left: 1rem;
   top: 1rem;
-  width: auto;
-  height: auto;
   padding: 0.5rem 1rem;
   background: var(--dg-surface);
   color: var(--dg-accent);
@@ -78,3 +85,4 @@
   box-shadow: 0 4px 24px rgba(20,227,255,0.15);
   border: none;
 }
+
