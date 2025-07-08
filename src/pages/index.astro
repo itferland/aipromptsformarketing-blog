@@ -30,17 +30,17 @@ const description = "Asynchronous coding agents that handle the tasks you don't 
       <DynamicCode />
     </div>
     */}
-    <FadeUp>
+    <FadeUp client:load>
       <h1 class="mt-12 font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight text-white">
         AI Solutions Consulting
       </h1>
     </FadeUp>
-    <FadeUp delay={0.1}>
+    <FadeUp delay={0.1} client:load>
       <p class="mt-6 text-lg md:text-2xl text-slate-300/90 max-w-2xl mx-auto">
         AI Automation Made Practical — SaaS + Consulting That Actually Solves IT Problems
       </p>
     </FadeUp>
-    <FadeUp delay={0.2}>
+    <FadeUp delay={0.2} client:load>
       <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
         <a href="/demo"
            class="rounded-full bg-dg-accent/90 px-6 py-3 font-medium
@@ -51,7 +51,7 @@ const description = "Asynchronous coding agents that handle the tasks you don't 
                   text-dg-accent hover:bg-dg-accent/10 transition">Get Your Blueprint</a>
       </div>
     </FadeUp>
-    <FadeUp delay={0.3}>
+    <FadeUp delay={0.3} client:load>
       <TrustBar />
     </FadeUp>
   </section>
