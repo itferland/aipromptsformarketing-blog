@@ -1,8 +1,6 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro';
+import { Frontmatter } from '../types';
+import { MarkdownInstance } from 'astro';
+const { frontmatter, compiledContent } = await import('./about.md');
 ---
-
-<Layout>
-  <h1>About Us</h1>
-  <p>AI Solutions Consulting is committed to helping organizations unlock the full potential of automation and artificial intelligence.</p>
-</Layout>
