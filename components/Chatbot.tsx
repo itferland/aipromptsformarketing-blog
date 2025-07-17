@@ -1,6 +1,7 @@
 import { GoogleGenAI, Chat } from '@google/genai';
 import React, { useState, useRef, useEffect, FormEvent } from 'react';
 import { ChatBubbleIcon, SendIcon, XIcon } from './Icons';
+import { apiKey } from './apiKey';
 
 interface Message {
   role: 'user' | 'model';
@@ -35,8 +36,8 @@ export default function Chatbot({ isOpen, setIsOpen }: ChatbotProps): React.Reac
   useEffect(scrollToBottom, [messages]);
 
   useEffect(() => {
-    if (process.env.API_KEY) {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    if (apiKey) {
+      const ai = new GoogleGenAI({ apiKey: apiKey });
       chatRef.current = ai.chats.create({
         model: 'gemini-2.5-flash',
         config: {
