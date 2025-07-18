@@ -157,7 +157,7 @@ export default function Home(): React.ReactNode {
                   <p className="mt-2 text-sm text-slate-400">
                     A seed-stage SaaS startup cut user-setup time from 2&nbsp;days to 2&nbsp;hours by integrating our AI Platform.
                   </p>
-                  <a href="/case-studies"
+
                     className="mt-4 inline-block text-sm font-semibold text-teal-400 hover:underline">Learn More →</a>
                 </article>
                 <article className="group relative rounded-lg border border-slate-700 bg-slate-800/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-teal-400/30 hover:bg-slate-800/80 hover:shadow-2xl hover:shadow-teal-900/50">
@@ -167,7 +167,7 @@ export default function Home(): React.ReactNode {
                   <p className="mt-2 text-sm text-slate-400">
                     We automated a complex cloud migration, cutting downtime to near-zero while meeting strict compliance standards.
                   </p>
-                  <a href="/case-studies"
+
                     className="mt-4 inline-block text-sm font-semibold text-teal-400 hover:underline">Learn More →</a>
                 </article>
               </div>
