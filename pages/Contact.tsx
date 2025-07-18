@@ -1,4 +1,5 @@
 import React, { useState, useId } from 'react';
+import { LinkedInIcon, XIcon } from '../components/Icons';
 
 const WaveDivider = (): React.ReactNode => {
   const id = useId();
@@ -84,9 +85,39 @@ const Contact = (): React.ReactNode => {
                   </li>
                   <li>
                     <strong>LinkedIn:</strong><br />
-                    <a href="https://www.linkedin.com/company/zigzagvc/" target="_blank" rel="noopener noreferrer" className="text-teal-400">linkedin.com/company/zigzagvc/</a>
+                    <a href="https://www.linkedin.com/company/ai-solutions-consulting" target="_blank" rel="noopener noreferrer" className="text-teal-400">linkedin.com/company/ai-solutions-consulting</a>
+                  </li>
+                  <li>
+                    <strong>X (Twitter):</strong><br />
+                    <a href="https://x.com/aipromptsforyou" target="_blank" rel="noopener noreferrer" className="text-teal-400">x.com/aipromptsforyou</a>
                   </li>
                 </ul>
+              </div>
+              {/* LinkedIn Button */}
+              <div className="mt-6">
+                <a
+                  href="https://www.linkedin.com/company/ai-solutions-consulting"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-md bg-blue-700 hover:bg-blue-800 px-6 py-3 font-semibold text-white shadow transition-colors"
+                  aria-label="Visit our LinkedIn page"
+                >
+                  <LinkedInIcon className="w-6 h-6" />
+                  Connect on LinkedIn
+                </a>
+              </div>
+              {/* X (Twitter) Button */}
+              <div className="mt-4">
+                <a
+                  href="https://x.com/aipromptsforyou"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-md bg-black hover:bg-gray-900 px-6 py-3 font-semibold text-white shadow transition-colors"
+                  aria-label="Visit our X (Twitter) page"
+                >
+                  <XIcon className="w-6 h-6" />
+                  Follow on X
+                </a>
               </div>
               {/* Column 2: Contact Form */}
               <div>
