@@ -12,16 +12,16 @@
   },
   "dependencies": {
     "@google/genai": "^1.9.0",
+    "axios": "^1.10.0",
     "postcss": "^8.5.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-
     "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
     "@types/react": "^19.1.8",
-    "lychee": "^0.2.12",
+    "lychee": "^0.1.0",
     "typescript": "~5.7.2",
     "vite": "^6.2.0"
   }
