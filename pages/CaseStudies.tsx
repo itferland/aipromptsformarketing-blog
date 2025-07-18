@@ -40,7 +40,7 @@ export default function CaseStudies(): React.ReactNode {
               <SparklesIcon className="w-8 h-8 text-teal-400" />
             </div>
             <h3 className="mt-4 font-semibold text-slate-100">Cost Reduction</h3>
-            <p className="mt-2 text-sm text-slate-400">>$550K annual savings and 30-40% TCO reduction for clients.</p>
+            <p className="mt-2 text-sm text-slate-400">$550K annual savings and 30-40% TCO reduction for clients.</p>
           </div>
           <div className="flex flex-col items-center text-center">
             <div className="flex items-center justify-center h-16 w-16 rounded-full bg-teal-400/10">
