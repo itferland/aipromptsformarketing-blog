@@ -92,10 +92,22 @@ export default function CaseStudies(): React.ReactNode {
       {/* WHAT YOU'LL GAIN */}
       <section className="mt-24 max-w-2xl mx-auto text-center">
         <h2 className="text-xl font-bold text-white">What early adopters can expect</h2>
-        <ul className="mt-6 space-y-4 text-slate-300">
-          <li>🚀 <strong>Faster releases:</strong> automated pipelines instead of manual deploys.</li>
-          <li>🔒 <strong>Cleaner security posture:</strong> SSO, MFA, and logging from day one.</li>
-          <li>📊 <strong>Transparent costs:</strong> usage dashboards and no hidden licence fees.</li>
+        <ul className="mt-6 space-y-4 text-slate-300 text-left inline-block">
+          <li className="flex items-center gap-3">
+            {/* Rocket icon */}
+            <svg className="w-6 h-6 text-teal-400 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4.5 16.5L9 15l6-6 3-3a2.121 2.121 0 0 0-3-3l-3 3-6 6-1.5 4.5a1 1 0 0 0 1.3 1.3z"/><path d="M15 9l6 6"/><path d="M9 15l-6 6"/></svg>
+            <span><strong>Faster releases:</strong> automated pipelines instead of manual deploys.</span>
+          </li>
+          <li className="flex items-center gap-3">
+            {/* Shield/lock icon */}
+            <svg className="w-6 h-6 text-violet-400 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span><strong>Cleaner security posture:</strong> SSO, MFA, and logging from day one.</span>
+          </li>
+          <li className="flex items-center gap-3">
+            {/* Chart/analytics icon */}
+            <svg className="w-6 h-6 text-fuchsia-400 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="13" width="3" height="5" rx="1.5"/><rect x="12" y="9" width="3" height="9" rx="1.5"/><rect x="17" y="5" width="3" height="13" rx="1.5"/></svg>
+            <span><strong>Transparent costs:</strong> usage dashboards and no hidden licence fees.</span>
+          </li>
         </ul>
       </section>
       {/* CTA STRIP */}
