@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useId } from 'react';
 import { LinkedInIcon, XIcon } from '../components/Icons';
 
@@ -172,3 +173,5 @@ const Contact = (): React.ReactNode => {
 };
 
 export default Contact;
+=======
+>>>>>>> b850016e9895f7b045b477dfa6d45eab600a55d5
