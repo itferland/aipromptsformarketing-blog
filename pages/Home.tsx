@@ -145,38 +145,6 @@ export default function Home(): React.ReactNode {
             </div>
           </section>
 
-<<<<<<< HEAD
-=======
-          {/* FEATURED CASE STUDIES */}
-          <section className="py-16">
-            <div className="mx-auto max-w-6xl px-6">
-              <h2 className="text-center text-2xl font-bold text-slate-100">Real-world wins</h2>
-              <div className="mt-10 grid gap-8 md:grid-cols-2">
-                <article className="group relative rounded-lg border border-slate-700 bg-slate-800/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-teal-400/30 hover:bg-slate-800/80 hover:shadow-2xl hover:shadow-teal-900/50">
-                  <h3 className="font-semibold text-teal-400">
-                    Automated Onboarding Saves 100+ Hours
-                  </h3>
-                  <p className="mt-2 text-sm text-slate-400">
-                    A seed-stage SaaS startup cut user-setup time from 2&nbsp;days to 2&nbsp;hours by integrating our AI Platform.
-                  </p>
-
-                    className="mt-4 inline-block text-sm font-semibold text-teal-400 hover:underline">Learn More →</a>
-                </article>
-                <article className="group relative rounded-lg border border-slate-700 bg-slate-800/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-teal-400/30 hover:bg-slate-800/80 hover:shadow-2xl hover:shadow-teal-900/50">
-                  <h3 className="font-semibold text-teal-400">
-                    Secure Cloud Migration for Global Co.
-                  </h3>
-                  <p className="mt-2 text-sm text-slate-400">
-                    We automated a complex cloud migration, cutting downtime to near-zero while meeting strict compliance standards.
-                  </p>
-
-                    className="mt-4 inline-block text-sm font-semibold text-teal-400 hover:underline">Learn More →</a>
-                </article>
-              </div>
-            </div>
-          </section>
-
->>>>>>> b850016e9895f7b045b477dfa6d45eab600a55d5
           {/* INSIGHTS TEASER */}
           <section className="py-16">
             <div className="mx-auto max-w-6xl px-6 text-center">
