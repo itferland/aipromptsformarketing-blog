@@ -46,8 +46,14 @@ export default function Home(): React.ReactNode {
               AI Solutions, Made Practical.
             </h1>
             <p className="mt-6 text-lg text-slate-300">
-              We help businesses eliminate manual work, secure cloud identity, and modernize operations with lightweight SaaS tools and expert consulting — no enterprise complexity, no bloated software.
+              Cloud-native AI solutions that scale with your business – no infrastructure headaches, no lengthy implementations
             </p>
+            <div className="mt-4 flex flex-wrap gap-3 text-base text-teal-300 font-semibold">
+              <span>✓ 30-day deployment</span>
+              <span>✓ Cloud-hosted</span>
+              <span>✓ Pay-as-you-scale</span>
+              <span>✓ White-glove migration</span>
+            </div>
           </div>
 
           <div className="flex items-center justify-center">
@@ -88,6 +94,11 @@ export default function Home(): React.ReactNode {
                 </g>
               </svg>
             </button>
+            <div className="mt-6">
+              <a href="/contact" className="inline-block rounded-md bg-teal-400 px-8 py-4 font-semibold text-slate-900 shadow hover:bg-teal-300 transition">
+                Get Your SaaS AI Assessment
+              </a>
+            </div>
           </div>
         </header>
 
