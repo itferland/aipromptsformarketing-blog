@@ -34,27 +34,58 @@ export default function Consulting(): React.ReactNode {
       </header>
       <WaveDivider />
       <main>
-        <section className="mx-auto max-w-6xl grid gap-8 md:grid-cols-3 py-16 px-6">
-          <div className="flex flex-col items-center text-center">
-            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-teal-400/10">
+        <section className="mx-auto max-w-6xl grid gap-8 md:grid-cols-2 py-16 px-6">
+          {/* SaaS AI Platform Setup */}
+          <div className="flex flex-col items-center text-center bg-slate-800/40 rounded-xl p-6">
+            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-teal-400/10 mb-2">
               <SparklesIcon className="w-8 h-8 text-teal-400" />
             </div>
-            <h3 className="mt-4 font-semibold text-slate-100">Onboarding Automation</h3>
-            <p className="mt-2 text-sm text-slate-400">Accounts, licences, and welcome emails—created in minutes, not days.</p>
+            <h3 className="mt-2 font-semibold text-slate-100 text-lg">SaaS AI Platform Setup</h3>
+            <p className="mt-2 text-sm text-slate-400">Deploy pre-built AI solutions in your cloud environment for instant productivity gains.</p>
+            <ul className="mt-4 text-sm text-slate-300 text-left">
+              <li><strong>Timeline:</strong> 30–60 days</li>
+              <li><strong>Starting at:</strong> $7,500</li>
+              <li><strong>Platforms:</strong> Azure AI, Google Cloud AI, AWS SageMaker</li>
+            </ul>
           </div>
-          <div className="flex flex-col items-center text-center">
-            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-teal-400/10">
+          {/* Custom SaaS Integration */}
+          <div className="flex flex-col items-center text-center bg-slate-800/40 rounded-xl p-6">
+            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-teal-400/10 mb-2">
               <ShieldCheckIcon className="w-8 h-8 text-teal-400" />
             </div>
-            <h3 className="mt-4 font-semibold text-slate-100">Single Sign-On & MFA</h3>
-            <p className="mt-2 text-sm text-slate-400">One login for users, stronger security for you.</p>
+            <h3 className="mt-2 font-semibold text-slate-100 text-lg">Custom SaaS Integration</h3>
+            <p className="mt-2 text-sm text-slate-400">Connect AI tools to your existing SaaS stack (Salesforce, HubSpot, etc.) for seamless workflows.</p>
+            <ul className="mt-4 text-sm text-slate-300 text-left">
+              <li><strong>Timeline:</strong> 45–90 days</li>
+              <li><strong>Starting at:</strong> $10,000</li>
+              <li><strong>Platforms:</strong> Salesforce, HubSpot, Zapier, Slack, Microsoft 365</li>
+            </ul>
           </div>
-          <div className="flex flex-col items-center text-center">
-            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-teal-400/10">
+          {/* SaaS AI Optimization */}
+          <div className="flex flex-col items-center text-center bg-slate-800/40 rounded-xl p-6">
+            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-teal-400/10 mb-2">
               <ChartBarIcon className="w-8 h-8 text-teal-400" />
             </div>
-            <h3 className="mt-4 font-semibold text-slate-100">File-Server Migration</h3>
-            <p className="mt-2 text-sm text-slate-400">Move shared drives to Google or Microsoft 365 with version history intact.</p>
+            <h3 className="mt-2 font-semibold text-slate-100 text-lg">SaaS AI Optimization</h3>
+            <p className="mt-2 text-sm text-slate-400">Maximize ROI from your current AI software investments with expert tuning and analytics.</p>
+            <ul className="mt-4 text-sm text-slate-300 text-left">
+              <li><strong>Timeline:</strong> 30–60 days</li>
+              <li><strong>Starting at:</strong> $5,000</li>
+              <li><strong>Platforms:</strong> Azure AI, Google Cloud AI, DataRobot, OpenAI</li>
+            </ul>
+          </div>
+          {/* Cloud Migration & AI Enablement */}
+          <div className="flex flex-col items-center text-center bg-slate-800/40 rounded-xl p-6">
+            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-teal-400/10 mb-2">
+              <SparklesIcon className="w-8 h-8 text-teal-400" />
+            </div>
+            <h3 className="mt-2 font-semibold text-slate-100 text-lg">Cloud Migration & AI Enablement</h3>
+            <p className="mt-2 text-sm text-slate-400">Move legacy systems to cloud-first AI solutions for future-ready operations.</p>
+            <ul className="mt-4 text-sm text-slate-300 text-left">
+              <li><strong>Timeline:</strong> 60–90 days</li>
+              <li><strong>Starting at:</strong> $15,000</li>
+              <li><strong>Platforms:</strong> AWS, Azure, Google Cloud, Microsoft 365</li>
+            </ul>
           </div>
         </section>
         <footer className="py-16">
