@@ -8,6 +8,7 @@ import Consulting from './pages/Consulting';
 import CaseStudies from './pages/CaseStudies';
 import Insights from './pages/Insights';
 import Contact from './pages/Contact';
+import About from './pages/About';
 
 export default function App(): React.ReactNode {
   return (
@@ -20,6 +21,7 @@ export default function App(): React.ReactNode {
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/insights" element={<Insights />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );
