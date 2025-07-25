@@ -13,6 +13,15 @@ export const SparklesIcon = ({ className }: IconProps): React.ReactNode => (
     </svg>
 );
 
+export const PenToolIcon = ({ className }: IconProps): React.ReactNode => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 19l7-7 3 3-7 7-3-3z" />
+        <path d="M18 13l-5-5" />
+        <path d="M11 8l-5-5L2 7l5 5" />
+        <circle cx="11" cy="8" r="2" />
+    </svg>
+);
+
 export const ShieldCheckIcon = ({ className }: IconProps): React.ReactNode => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>

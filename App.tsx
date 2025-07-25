@@ -15,7 +15,7 @@ export default function App(): React.ReactNode {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/platform" element={<Platform />} />
+        <Route path="/automation-saas" element={<Platform />} />
         <Route path="/consulting" element={<Consulting />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/insights" element={<Insights />} />
