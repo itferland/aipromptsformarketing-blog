@@ -62,7 +62,37 @@ export default function Home(): React.ReactNode {
               className="relative z-10 w-full max-w-sm cursor-pointer group focus:outline-none"
               aria-label="Click to talk to our AI assistant"
             >
-              {/* fancy SVG kept */}
+              <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                <defs>
+                  <linearGradient id="path-gradient-1" gradientTransform="rotate(90)">
+                    <stop offset="0%" stopColor="#A855F7" />
+                    <stop offset="100%" stopColor="#6366F1" />
+                  </linearGradient>
+                  <linearGradient id="path-gradient-2" gradientTransform="rotate(90)">
+                    <stop offset="0%" stopColor="#14B8A6" />
+                    <stop offset="100%" stopColor="#6366F1" />
+                  </linearGradient>
+                  <linearGradient id="path-gradient-3" gradientTransform="rotate(90)">
+                    <stop offset="0%" stopColor="white" />
+                    <stop offset="100%" stopColor="#14B8A6" />
+                  </linearGradient>
+                  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="8" result="coloredBlur" />
+                  </filter>
+                </defs>
+
+                <g style={{ filter: 'url(#glow)', transformOrigin: 'center center' }}>
+                  <g style={{ animation: 'spin 10s linear infinite', transformOrigin: 'center center' }}>
+                    <path d="M 150 50 C 50 50, 50 350, 150 350 S 400 200, 200 100 S 150 50, 150 50" stroke="url(#path-gradient-1)" strokeWidth="8" strokeLinecap="round" />
+                  </g>
+                  <g style={{ animation: 'spin-reverse 12s linear infinite', transformOrigin: 'center center' }}>
+                    <path d="M 250 50 C 350 50, 350 350, 250 350 S 0 200, 200 300 S 250 50, 250 50" stroke="url(#path-gradient-2)" strokeWidth="8" strokeLinecap="round" opacity="0.7" />
+                  </g>
+                  <g style={{ animation: 'spin 8s linear infinite', transformOrigin: 'center center' }}>
+                    <path d="M 200 50 C 100 50, 100 350, 200 350 S 350 100, 250 150 S 200 50, 200 50" stroke="url(#path-gradient-3)" strokeWidth="5" strokeLinecap="round" opacity="0.9" />
+                  </g>
+                </g>
+              </svg>
             </button>
 
             <div className="mt-6">
