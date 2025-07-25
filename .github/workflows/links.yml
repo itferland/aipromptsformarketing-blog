@@ -1,0 +1,28 @@
+name: Link Checker
+
+on:
+  push:
+    branches: [main]      # run on pushes to main (edit if your default branch differs)
+  pull_request:           # and on all PRs
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Install dependencies (uses your lock-file for reproducible installs)
+      - name: Install Node packages
+        run: npm ci
+
+      # Build the static site so Lychee can scan the generated HTML
+      - name: Build site
+        run: npm run build
+
+      # Link check _only_ the built output (./dist)
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # --no-progress speeds up CI logs; adjust paths as needed
+          args: --verbose --no-progress ./dist
