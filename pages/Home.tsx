@@ -43,16 +43,15 @@ export default function Home(): React.ReactNode {
         <header className="grid md:grid-cols-2 items-center gap-8 px-6 max-w-6xl mx-auto py-12 md:py-20">
           <div className="text-left">
             <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
-              AI Solutions, Made Practical.
+              Automation SaaS that runs your busywork 24 / 7.
             </h1>
             <p className="mt-6 text-lg text-slate-300">
-              Cloud-native AI solutions that scale with your business – no infrastructure headaches, no lengthy implementations
+              Plug-and-play workflows for email triage, lead nurturing &amp; SaaS sync—deployed in one day.
             </p>
             <div className="mt-4 flex flex-wrap gap-3 text-base text-teal-300 font-semibold">
-              <span>✓ 30-day deployment</span>
-              <span>✓ Cloud-hosted</span>
-              <span>✓ Pay-as-you-scale</span>
-              <span>✓ White-glove migration</span>
+              <span>✓ Scales with your inbox</span>
+              <span>✓ N8N powered, fully editable</span>
+              <span>✓ ROI-backed guarantee</span>
             </div>
           </div>
 
@@ -95,8 +94,8 @@ export default function Home(): React.ReactNode {
               </svg>
             </button>
             <div className="mt-6">
-              <a href="/contact" className="inline-block rounded-md bg-teal-400 px-8 py-4 font-semibold text-slate-900 shadow hover:bg-teal-300 transition">
-                Get Your SaaS AI Assessment
+              <a href="/automation-saas/" className="inline-block rounded-md bg-teal-400 px-8 py-4 font-semibold text-slate-900 shadow hover:bg-teal-300 transition">
+                Explore Automation SaaS
               </a>
             </div>
           </div>
@@ -139,7 +138,7 @@ export default function Home(): React.ReactNode {
                   Launch enterprise-grade capabilities without the enterprise overhead. Our SaaS platform plugs into your
                   existing tools and gets you up and running in days, not months.
                 </p>
-                <a href="/platform" className="mt-4 inline-block font-semibold text-teal-400 hover:underline">
+                <a href="/automation-saas/" className="mt-4 inline-block font-semibold text-teal-400 hover:underline">
                   How the Platform Works →
                 </a>
               </div>

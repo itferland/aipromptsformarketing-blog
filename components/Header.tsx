@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Header = (): React.ReactNode => {
   const navLinks = [
-    { name: 'Platform', href: '/platform' },
+    { name: 'Automation SaaS', href: '/automation-saas/' },
     { name: 'Consulting', href: '/consulting' },
+    { name: 'About', href: '/about' },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Insights', href: '/insights' },
     { name: 'Contact', href: '/contact' },
