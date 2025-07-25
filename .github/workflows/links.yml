@@ -1,28 +1,28 @@
+# .github/workflows/links.yml
 name: Link Checker
 
 on:
   push:
-    branches: [main]      # run on pushes to main (edit if your default branch differs)
-  pull_request:           # and on all PRs
+    branches: [main]
+  pull_request:
 
 jobs:
   lychee:
     runs-on: ubuntu-latest
-
     steps:
+      # 1️⃣  Get the code
       - uses: actions/checkout@v4
 
-      # Install dependencies (uses your lock-file for reproducible installs)
+      # 2️⃣  Install Node deps
       - name: Install Node packages
         run: npm ci
 
-      # Build the static site so Lychee can scan the generated HTML
+      # 3️⃣  Build the static site (Vite outputs to ./dist by default)
       - name: Build site
         run: npm run build
 
-      # Link check _only_ the built output (./dist)
+      # 4️⃣  Scan ./dist for links
       - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
-          # --no-progress speeds up CI logs; adjust paths as needed
           args: --verbose --no-progress ./dist
