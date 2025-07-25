@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Header = (): React.ReactNode => {
   const navLinks = [
-    { name: 'Automation SaaS', href: '/automation-saas/' },
+    { name: 'Automation SaaS', href: '/automation-saas/' },   // ← keep trailing slash
     { name: 'Consulting', href: '/consulting' },
     { name: 'About', href: '/about' },
     { name: 'Case Studies', href: '/case-studies' },
@@ -33,7 +33,6 @@ const Header = (): React.ReactNode => {
               ))}
             </div>
           </div>
-          {/* Mobile menu button can be added later if needed */}
         </div>
       </div>
     </nav>
